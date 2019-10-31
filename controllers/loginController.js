@@ -15,4 +15,4 @@ exports.register = function (req, res) {
     });
   console.log(req.body)
   // Need to fix this by either using callback or promise. Redirect need to execute only and only after user.register has finished executing.
-};
+}; 

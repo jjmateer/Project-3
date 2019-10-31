@@ -21,7 +21,7 @@ export default {
     return axios.post("http://localhost:3001/api/login/r", newUser);
 
   },
-  login: function () {
-    return axios.post("/api/login/l")
+  login: function (userInfo) {
+    return axios.post("http://localhost:3001/api/login/l", userInfo)
   }
 };

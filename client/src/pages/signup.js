@@ -7,13 +7,6 @@ class Signup extends Component {
         email: "",
         password: ""
     };
-    // handleEmailChange = event => {
-    //     const { name, value } = event.target;
-    //     this.setState({
-    //         [name]: value
-    //     })
-
-    // };
     handleEmailChange = event => {
         this.setState({
             email: event.target.value
@@ -35,6 +28,10 @@ class Signup extends Component {
     render() {
         return (
             <div className="App">
+                <a href="/">home</a>
+                <a href="/login">login</a>
+                <a href="/browse">browse</a>
+                <a href="/cart">cart</a>
                 <SignupForm
                     handleEmailChange={this.handleEmailChange}
                     handlePasswordChange={this.handlePasswordChange}

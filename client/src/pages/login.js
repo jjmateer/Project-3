@@ -22,6 +22,10 @@ class Login extends Component {
     render() {
         return (
             <div className="App">
+                <a href="/">home</a>
+                <a href="/signup">signup</a>
+                <a href="/browse">browse</a>
+                <a href="/cart">cart</a>
                 <LoginForm
                     handleInputChange={this.handleInputChange}
                     handleFormSubmit={this.handleFormSubmit}
