@@ -2,7 +2,8 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const bodyparser = require("body-parser");
-
+const routes = require("./routes");
+// const session = require("express-session");
 const PORT = process.env.PORT || 3001;
 require("dotenv").config();
 const app = express();
@@ -15,17 +16,16 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
+app.use(
+  session({
+    secret: "Keyboard Cat",
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 1000 * 60 * 60 * 24, httpOnly: true }
+  })
+);
 
-// mongoose.connect("mongodb://localhost/storefrontdb", { useNewUrlParser: true });
-
-// var dbUrl = "mongodb://localhost/storefrontdb";
-// mongoose.connect((dbUrl, err) => {
-//   console.log("Connected to mongoose");
-//   if (err) {
-//     console.log(err)
-//   }
-// });
-
+app.use(router);
 mongoose.connect('mongodb://localhost/storefrontdb');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
