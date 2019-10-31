@@ -3,7 +3,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const bodyparser = require("body-parser");
 const routes = require("./routes");
-// const session = require("express-session");
+const session = require("express-session");
 const PORT = process.env.PORT || 3001;
 require("dotenv").config();
 const app = express();
@@ -25,7 +25,7 @@ app.use(
   })
 );
 
-app.use(router);
+app.use(routes);
 mongoose.connect('mongodb://localhost/storefrontdb');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

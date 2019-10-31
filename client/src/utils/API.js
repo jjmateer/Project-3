@@ -16,5 +16,6 @@ export default {
   // Saves a item to the database
   saveItem: function(itemData) {
     return axios.post("/api/inventory", itemData);
-  }
+  },
+  L
 };
