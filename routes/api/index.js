@@ -4,6 +4,6 @@ const loginRoutes = require("./login")
 
 // inventory routes
 // router.use("/inventory", inventoryRoutes);
-// router.use("/login", loginRoutes);
+router.use("/login", loginRoutes);
 
 module.exports = router;

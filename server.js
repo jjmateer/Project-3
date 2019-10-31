@@ -4,10 +4,11 @@ const mongoose = require("mongoose");
 const bodyparser = require("body-parser");
 const routes = require("./routes");
 const session = require("express-session");
+const cors = require("cors");
 const PORT = process.env.PORT || 3001;
 require("dotenv").config();
 const app = express();
-
+app.use(cors());
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 

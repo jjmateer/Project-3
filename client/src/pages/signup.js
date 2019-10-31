@@ -1,29 +1,43 @@
 import React, { Component } from "react";
 import SignupForm from "../components/signup";
+import API from "../utils/API";
 
 class Signup extends Component {
     state = {
         email: "",
-        password: "",
-        message: "Search For A Book!"
+        password: ""
     };
-    handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value
-        })
+    // handleEmailChange = event => {
+    //     const { name, value } = event.target;
+    //     this.setState({
+    //         [name]: value
+    //     })
 
-    };
+    // };
+    handleEmailChange = event => {
+        this.setState({
+            email: event.target.value
+        })
+    }
+    handlePasswordChange = event => {
+        this.setState({
+            password: event.target.value
+        })
+    }
     handleFormSubmit = event => {
         event.preventDefault();
-        this.getBooks();
+        API.register({
+            email: this.state.email,
+            password: this.state.password
+        })
     };
 
     render() {
         return (
             <div className="App">
                 <SignupForm
-                    handleInputChange={this.handleInputChange}
+                    handleEmailChange={this.handleEmailChange}
+                    handlePasswordChange={this.handlePasswordChange}
                     handleFormSubmit={this.handleFormSubmit}
                     q={this.state.q}
                 />
