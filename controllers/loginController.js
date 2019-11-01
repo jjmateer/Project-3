@@ -1,6 +1,8 @@
 const db = require("../models");
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken");
+const router = require("express").Router();
+const auth = require("../middleware/auth");
 
 exports.register = function (req, res) {
   //Check if there is a user in the database with same email.
@@ -55,4 +57,12 @@ exports.login = function (req, res) {
     .catch(function (err) {
       console.log(err)
     });
+};
+
+exports.user = function(res, res) {
+  router.get("/user", auth, (req, res) => {
+    User.findById(req.user.id)
+      .select("-password")
+      .then(user => res.json(user));
+  });
 };

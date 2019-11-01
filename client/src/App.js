@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
+import { loadUser } from "./actions/authActions";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
@@ -11,21 +12,24 @@ import ErrorC from "./pages/error";
 import "./App.css";
 
 class App extends Component {
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
   render() {
     return (
       <Provider store={store}>
-      <Router>
-        <div>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/cart" component={Cart} />
-            <Route exact path="/browse" component={Browse} />
-            <Route component={ErrorC} />
-          </Switch>
-        </div>
-      </Router>
+        <Router>
+          <div>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/cart" component={Cart} />
+              <Route exact path="/browse" component={Browse} />
+              <Route component={ErrorC} />
+            </Switch>
+          </div>
+        </Router>
       </Provider>
     );
   }
