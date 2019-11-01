@@ -25,11 +25,16 @@ app.use(
   })
 );
 
-mongoose.connect('mongodb://localhost/storefrontdb');
+mongoose.connect('mongodb://localhost/storefrontdb',
+{
+  useNewUrlParser: true,
+  useCreateIndex:true
+}
+);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback() {
-  console.log("Connected to mongoose");
+  console.log("Connected to MongoDB.");
 });
 
 app.get("*", (req, res) => {
@@ -37,5 +42,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
+  console.log(`Server running on port ${PORT}.`);
 });

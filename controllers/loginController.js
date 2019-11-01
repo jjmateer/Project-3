@@ -35,7 +35,6 @@ exports.register = function (req, res) {
 };
 
 exports.login = function (req, res) {
-  // console.log(req.body)
   db.User.findOne({ email: req.body.email })
     .then(user => {
       if (user && bcrypt.compareSync(req.body.password, user.password)) {
