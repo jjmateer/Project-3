@@ -38,3 +38,26 @@ export const loadUser = () => (dispatch, getState) => {
             })
         });
 }
+
+//register user
+export const register = ({ name, email, password }) => dispatch => {
+    const config = {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    //request body
+    const body = JSON.stringify({ email, password });
+
+    axios.post("/api/login/l/users", body, config)
+        .then(res => dispatch({
+            type: REGISTER_SUCCESS
+        }))
+        .catch(err => {
+            dispatch(returnErrors(err.response.data, err.response.status, "REGISTER_FAIL"));
+            dispatch({
+                type: REGISTER_FAIL
+            })
+        })
+}
