@@ -10,15 +10,25 @@ exports.register = function (req, res) {
         db.User.create({
           email: req.body.email,
           password: bcrypt.hashSync(req.body.password, salt),
+        }).then(user => {
+          jwt.sign({ user }, 'secretkey', { expiresIn: 3600 }, (err, token) => {
+            if(err) throw err;
+            res.json({
+              token,
+              user
+            });
+            console.log("User added to database.")
+            console.log(`User info: ${user}`)
+            console.log(`User token: ${token}`)
+          })
         })
-          .catch(function (err) {
-            console.log(err)
-          });
-        console.log(req.body)
       } else {
-        console.log("User already exists!")
+        console.log("User already exists and will not be added to database.")
       }
     })
+    .catch(function (err) {
+      console.log(err)
+    });
 };
 
 exports.login = function (req, res) {
