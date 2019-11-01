@@ -1,22 +1,28 @@
 import React, { Component } from "react";
 import LoginForm from "../components/loginform";
+import API from "../utils/API";
 
 class Login extends Component {
     state = {
         email: "",
-        password: "",
-        message: "Search For A Book!"
+        password: ""
     };
-    handleInputChange = event => {
-        const { name, value } = event.target;
+    handleEmailChange = event => {
         this.setState({
-            [name]: value
+            email: event.target.value
         })
-
-    };
+    }
+    handlePasswordChange = event => {
+        this.setState({
+            password: event.target.value
+        })
+    }
     handleFormSubmit = event => {
         event.preventDefault();
-        this.getBooks();
+        API.login({
+            email: this.state.email,
+            password: this.state.password
+        })
     };
 
     render() {
@@ -27,7 +33,8 @@ class Login extends Component {
                 <a href="/browse">browse</a>
                 <a href="/cart">cart</a>
                 <LoginForm
-                    handleInputChange={this.handleInputChange}
+                    handleEmailChange={this.handleEmailChange}
+                    handlePasswordChange={this.handlePasswordChange}
                     handleFormSubmit={this.handleFormSubmit}
                     q={this.state.q}
                 />

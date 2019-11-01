@@ -7,7 +7,7 @@ router
 
 router
     .route("/l")
-// .post(loginController.login)
+    .post(loginController.login)
 
 
 module.exports = router;

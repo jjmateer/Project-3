@@ -7,12 +7,28 @@ exports.register = function (req, res) {
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, salt),
   })
-    .then(function () {
-      return res.redirect("/login");
-    })
     .catch(function (err) {
-      res.send(err);
+      console.log(err)
     });
   console.log(req.body)
-  // Need to fix this by either using callback or promise. Redirect need to execute only and only after user.register has finished executing.
-}; 
+};
+
+exports.login = function (req, res) {
+  db.User.find({ where: { email: req.body.email } })
+    .then(function (user) {
+      console.log(user)
+      if (user && bcrypt.compareSync(req.body.password, user.password)) {
+        req.session.user = { username: user.email };
+        req.session.save(function () {
+          console.log("Login success.")
+          console.log(req.body)
+        });
+      } else {
+        console.log("Login failed.")
+        console.log(req.body)
+      }
+    })
+    .catch(function (err) {
+      console.log(err)
+    });
+};
