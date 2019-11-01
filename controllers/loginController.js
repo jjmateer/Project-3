@@ -28,7 +28,7 @@ exports.register = function (req, res) {
           })
         })
       } else {
-        console.log("User already exists and will not be added to database.")
+        return res.status(400). json({ message: "User already exists."})
       }
     })
     .catch(function (err) {
@@ -59,10 +59,8 @@ exports.login = function (req, res) {
     });
 };
 
-exports.user = function(res, res) {
-  router.get("/user", auth, (req, res) => {
+exports.user = function(req, res) {
     User.findById(req.user.id)
       .select("-password")
       .then(user => res.json(user));
-  });
 };

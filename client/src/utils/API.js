@@ -18,10 +18,10 @@ export default {
     return axios.post("/api/inventory", itemData);
   },
   register: function (newUser) {
-    return axios.post("http://localhost:3001/api/login/r", newUser);
+    return axios.post("/api/login/r", newUser);
 
   },
   login: function (userInfo) {
-    return axios.post("http://localhost:3001/api/login/l", userInfo)
+    return axios.post("/api/login/l", userInfo)
   }
 };
