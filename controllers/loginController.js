@@ -14,18 +14,18 @@ exports.register = function (req, res) {
 };
 
 exports.login = function (req, res) {
-  db.User.find({ where: { email: req.body.email } })
+  db.User.find({ email: req.body.email })
     .then(function (user) {
       console.log(user)
-      if (user && bcrypt.compareSync(req.body.password, user.password)) {
+      if (user && bcrypt.compareSync(req.body.password, user[0].password)) {
         req.session.user = { username: user.email };
         req.session.save(function () {
           console.log("Login success.")
-          console.log(req.body)
+          // console.log(req.body)
         });
       } else {
         console.log("Login failed.")
-        console.log(req.body)
+        // console.log(req.body)
       }
     })
     .catch(function (err) {
