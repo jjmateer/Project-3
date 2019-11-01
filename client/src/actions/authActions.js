@@ -50,7 +50,7 @@ export const register = ({ name, email, password }) => dispatch => {
     //request body
     const body = JSON.stringify({ email, password });
 
-    axios.post("/api/login/l/users", body, config)
+    axios.post("http://localhost:3001/api/login/l/user", body, config)
         .then(res => dispatch({
             type: REGISTER_SUCCESS
         }))
@@ -60,4 +60,11 @@ export const register = ({ name, email, password }) => dispatch => {
                 type: REGISTER_FAIL
             })
         })
+}
+
+//logout
+export const logout = () => {
+    return {
+        type: LOGOUT_SUCCESS
+    }
 }
