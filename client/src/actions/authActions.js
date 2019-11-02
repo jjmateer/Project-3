@@ -26,7 +26,7 @@ export const loadUser = () => (dispatch, getState) => {
     }
 
 
-    axios.get("/api/login/user", config)
+    axios.get("http://localhost:3001/api/login/user", config)
         .then(res => dispatch({
             type: USER_LOADED,
             payload: res.data
@@ -40,7 +40,7 @@ export const loadUser = () => (dispatch, getState) => {
 }
 
 //register user
-export const register = ({ name, email, password }) => dispatch => {
+export const register = ({ email, password }) => dispatch => {
     const config = {
         headers: {
             "Content-Type": "application/json"
@@ -50,14 +50,40 @@ export const register = ({ name, email, password }) => dispatch => {
     //request body
     const body = JSON.stringify({ email, password });
 
-    axios.post("/api/login/user", body, config)
+    axios.post("http://localhost:3001/api/login/user", body, config)
         .then(res => dispatch({
-            type: REGISTER_SUCCESS
+            type: REGISTER_SUCCESS,
+            payload: res.data
         }))
         .catch(err => {
             dispatch(returnErrors(err.response.data, err.response.status, "REGISTER_FAIL"));
             dispatch({
                 type: REGISTER_FAIL
+            })
+        })
+}
+
+//login
+
+export const login = ({ email, password }) => dispatch => {
+    const config = {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    //request body
+    const body = JSON.stringify({ email, password });
+
+    axios.post("http://localhost:3001/api/login/l", body, config)
+        .then(res => dispatch({
+            type: LOGIN_SUCCESS,
+            payload: res.data
+        }))
+        .catch(err => {
+            dispatch(returnErrors(err.response.data, err.response.status, "LOGIN_FAIL"));
+            dispatch({
+                type: LOGIN_FAIL
             })
         })
 }
