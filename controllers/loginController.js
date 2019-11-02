@@ -6,16 +6,19 @@ const auth = require("../middleware/auth");
 
 exports.register = function (req, res) {
   console.log(req.body)
+  const { email, password} = req.body;
   //Check if there is a user in the database with same email.
-  db.User.findOne({ email: req.body.email })
+  if(!email || !password) {
+    return res.status(400).json({ msg: "Please fill out all fields."})
+  }
+  db.User.findOne({ email: email })
   .then(user => {
-    console.log(user)
       //If there isn't, create a new user with hashed password.
       if (!user) {
         let salt = bcrypt.genSaltSync(10);
         db.User.create({
-          email: req.body.email,
-          password: bcrypt.hashSync(req.body.password, salt),
+          email: email,
+          password: bcrypt.hashSync(password, salt),
         }).then(user => {
           //Create JSON web token which is signed with the new user's info and expires in 1 hour.
           jwt.sign({
@@ -46,10 +49,11 @@ exports.register = function (req, res) {
 };
 
 exports.login = function (req, res) {
-  console.log(req.body)
+  if(!req.body.email || !req.body.password) {
+    return res.status(400).json({ msg: "Please fill out all fields."})
+  }
   db.User.findOne({ email: req.body.email })
     .then(user => {
-      console.log(user)
       if (user && bcrypt.compareSync(req.body.password, user.password)) {
         console.log("Login success.")
         // console.log(user.id)
@@ -77,6 +81,6 @@ exports.user = function (req, res) {
   router.get("/user", auth, () => {
     User.findById(req.user.id)
       .select("-password")
-      .then(user => res.json(user));
+      .then(user => console.log(user));
   })
 };
