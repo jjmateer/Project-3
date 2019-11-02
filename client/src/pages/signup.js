@@ -1,12 +1,36 @@
 import React, { Component } from "react";
 import SignupForm from "../components/signup";
 import API from "../utils/API";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { register } from "../actions/authActions";
+import { clearErrors } from "../actions/errorActions";
 
 class Signup extends Component {
     state = {
         email: "",
-        password: ""
+        password: "",
+        message: null
     };
+
+    static propTypes = {
+        isAuthenticated: PropTypes.bool,
+        error: PropTypes.object.isRequired,
+        register: PropTypes.func.isRequired,
+        clearErrors: PropTypes.func.isRequired
+    }
+
+    componentDidUpdate(prevPreps) {
+        const { error } = this.props;
+        if (error !== prevPreps.error) {
+            //check for err
+            if (error.id === "REGISTER_FAIL") {
+                this.setState({ msg: error.msg.msg })
+            } else {
+                this.setState({ msg: null })
+            }
+        }
+    }
     handleEmailChange = event => {
         this.setState({
             email: event.target.value
@@ -23,6 +47,14 @@ class Signup extends Component {
             email: this.state.email,
             password: this.state.password
         })
+        const { email, password } = this.state;
+
+        const newUser = {
+            email,
+            password
+        }
+        //attempt to register
+        this.props.register(newUser);
     };
 
     render() {
@@ -32,6 +64,7 @@ class Signup extends Component {
                 <a href="/login">login</a>
                 <a href="/browse">browse</a>
                 <a href="/cart">cart</a>
+                {this.state.msg ? <h1>Authentication failed</h1> : null}
                 <SignupForm
                     handleEmailChange={this.handleEmailChange}
                     handlePasswordChange={this.handlePasswordChange}
@@ -43,4 +76,12 @@ class Signup extends Component {
     }
 }
 
-export default Signup;
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    error: state.error
+})
+
+export default connect(
+    mapStateToProps,
+    { register, clearErrors }
+)(Signup);
