@@ -1,13 +1,16 @@
 import React from "react";
+import Nav from "../components/nav/navhome";
+import Footer from "../components/footer/footer";
+
+
 
 function Home() {
     return (
-        <div>
-            <a href="/login">login</a>
-            <a href="/signup">signup</a>
-            <a href="/browse">browse</a>
-            <a href="/cart">cart</a>
-            <h1>Home</h1>
+
+        <div >
+            <Nav />
+            <h1 className="page-title">Home</h1>
+            <Footer />
         </div>
     );
 }

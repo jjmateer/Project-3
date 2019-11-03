@@ -4,12 +4,24 @@ import "./style.css";
 function SignupForm({ handleEmailChange, handlePasswordChange, handleFormSubmit }) {
     return (
         <div>
-            <form className="form-group">
-                <h1>Sign up</h1>
-                <input className="form-control" placeholder="Email" onChange={handleEmailChange} required />
-                <input className="form-control" placeholder="Password" onChange={handlePasswordChange} required />
-                <input type="submit" value="Submit" onClick={handleFormSubmit} />
-            </form>
+
+
+            <h1 className="page-title">Sign Up</h1>
+
+            <div className="content-wrapper">
+
+                <form className="form-group">
+
+                    <h3>Email :</h3>
+
+                    <input className="form-control" type="text" placeholder="  Email" onChange={handleEmailChange} required />
+                    <h3>Password :</h3>
+
+                    <input className="form-control" type="password" placeholder="  Password" onChange={handlePasswordChange} required />
+                    <input className="sub" type="submit" value="Submit" onClick={handleFormSubmit} />
+                </form>
+
+            </div>
         </div>
     )
 }
