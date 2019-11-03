@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { register } from "../actions/authActions";
 import { clearErrors } from "../actions/errorActions";
+import Nav from "../components/nav/navsignup";
+
 
 class Signup extends Component {
     state = {
@@ -60,10 +62,7 @@ class Signup extends Component {
     render() {
         return (
             <div className="App">
-                <a href="/">home</a>
-                <a href="/login">login</a>
-                <a href="/browse">browse</a>
-                <a href="/cart">cart</a>
+                <Nav />
                 {this.state.msg ? <h1>Authentication failed</h1> : null}
                 <SignupForm
                     handleEmailChange={this.handleEmailChange}

@@ -5,6 +5,9 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../actions/authActions";
 import { clearErrors } from "../actions/errorActions";
+import Header from "../components/header/header"
+import Nav from "../components/nav/navlogin";
+
 
 class Login extends Component {
     state = {
@@ -53,16 +56,20 @@ class Login extends Component {
     render() {
         return (
             <div className="App">
-                <a href="/">home</a>
-                <a href="/signup">signup</a>
-                <a href="/browse">browse</a>
-                <a href="/cart">cart</a>
-                <LoginForm
-                    handleEmailChange={this.handleEmailChange}
-                    handlePasswordChange={this.handlePasswordChange}
-                    handleFormSubmit={this.handleFormSubmit}
-                    q={this.state.q}
-                />
+                <Nav />
+
+                <h1 className="page-title">Login</h1>
+
+                <div className="content-wrapper">
+                        <div>
+                            <LoginForm
+                                handleEmailChange={this.handleEmailChange}
+                                handlePasswordChange={this.handlePasswordChange}
+                                handleFormSubmit={this.handleFormSubmit}
+                                q={this.state.q}
+                            />
+                        </div> 
+                         </div>
             </div>
         );
     }

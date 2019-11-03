@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {connect } from "react-redux"
+import { connect } from "react-redux"
 import { logout } from "../../actions/authActions";
 import PropTypes from "prop-types";
 import "./style.css"
@@ -17,7 +17,7 @@ export class Logout extends Component {
     }
 }
 
-export default connect (
-    null, 
+export default connect(
+    null,
     { logout }
-    ) (Logout);
+)(Logout);
