@@ -9,7 +9,7 @@ function Nav() {
             </div>
 
             <div className="global-header-right">
-                <a href="/home">Home</a>
+                <a href="/">Home</a>
                 <a href="/signup">Sign Up</a>
                 <a href="/browse">Browse</a>
                 <a href="/login">Login</a>

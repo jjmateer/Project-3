@@ -10,7 +10,7 @@ router
     .post(loginController.login)
 
 router
-.route("/user")
-.get(auth, loginController.user)
+    .route("/user")
+    .get(loginController.user)
 
 module.exports = router;

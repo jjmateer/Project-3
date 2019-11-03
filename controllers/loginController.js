@@ -6,13 +6,13 @@ const auth = require("../middleware/auth");
 
 exports.register = function (req, res) {
   console.log(req.body)
-  const { email, password} = req.body;
+  const { email, password } = req.body;
   //Check if there is a user in the database with same email.
-  if(!email || !password) {
-    return res.status(400).json({ msg: "Please fill out all fields."})
+  if (!email || !password) {
+    return res.status(400).json({ msg: "Please fill out all fields." })
   }
   db.User.findOne({ email: email })
-  .then(user => {
+    .then(user => {
       //If there isn't, create a new user with hashed password.
       if (!user) {
         let salt = bcrypt.genSaltSync(10);
@@ -38,7 +38,7 @@ exports.register = function (req, res) {
           })
         })
       }
-      if(user) {
+      if (user) {
         console.log("User already exists")
         return res.status(400).json({ msg: "User already exists." })
       }
@@ -49,12 +49,14 @@ exports.register = function (req, res) {
 };
 
 exports.login = function (req, res) {
-  if(!req.body.email || !req.body.password) {
-    return res.status(400).json({ msg: "Please fill out all fields."})
-  }
-  db.User.findOne({ email: req.body.email })
+  const { email, password } = req.body;
+
+  // if (!email || !password) {
+  //   return res.status(400).json({ msg: "Please fill out all fields." })
+  // }
+  db.User.findOne({ email: email })
     .then(user => {
-      if (user && bcrypt.compareSync(req.body.password, user.password)) {
+      if (user && bcrypt.compareSync(password, user.password)) {
         console.log("Login success.")
         // console.log(user.id)
         jwt.sign({
@@ -69,7 +71,7 @@ exports.login = function (req, res) {
           console.log(`User token: ${token}`)
         })
       } else {
-        return res.status(400).json({ msg: "Invalid Credentials or non existent user"})
+        // return res.status(400).json({ msg: "Invalid Credentials or non existent user" })
       }
     })
     .catch(function (err) {
@@ -81,6 +83,6 @@ exports.user = function (req, res) {
   router.get("/user", auth, () => {
     User.findById(req.user.id)
       .select("-password")
-      .then(user => console.log(user));
+      .then(user => res.json(user));
   })
 };

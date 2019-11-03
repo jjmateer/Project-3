@@ -12,7 +12,9 @@ function Nav() {
                 <a href="/login">Log In</a>
                 <a href="/signup">Sign Up</a>
                 <a href="/browse">Browse</a>
-                <a href="/cart">Cart <img class="cart-icon" src="cart.gif" width="10" height="10" /></a>
+                <a href="/cart">Cart
+                {/* <img class="cart-icon" src="cart.gif" alt="CartImg" width="10" height="10" /> */}
+                </a>
             </div>
 
 

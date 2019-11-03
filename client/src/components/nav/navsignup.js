@@ -9,10 +9,12 @@ function Nav() {
             </div>
 
             <div className="global-header-right">
-                <a href="/home">Home</a>
+                <a href="/">Home</a>
                 <a href="/login">Log In</a>
                 <a href="/browse">Browse</a>
-                <a href="/cart">Cart <img class="cart-icon" src="cart.gif" width="10" height="10" /></a>
+                <a href="/cart">Cart
+                {/* <img className="cart-icon" src="cart.gif" alt="CartImg" width="10" height="10" /> */}
+                </a>
             </div>
 
         </div>
