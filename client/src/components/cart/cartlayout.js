@@ -7,13 +7,7 @@ function Cartlayout() {
 
             <div className="content-wrapper">
                 <div className="products-organizer">
-                    <p>loremeded
-                    defaultwd
-                    wrapperdw
-                    defaultwddw
-                    ed
-                    ew
-defaultwd</p>
+                   
                 </div>
             </div>
         </div>

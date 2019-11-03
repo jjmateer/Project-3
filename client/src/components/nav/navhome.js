@@ -14,8 +14,6 @@ function Nav() {
                 <a href="/browse">Browse</a>
                 <a href="/cart">Cart <img class="cart-icon" src="cart.gif" width="10" height="10" /></a>
             </div>
-
-
         </div>
     )
 }

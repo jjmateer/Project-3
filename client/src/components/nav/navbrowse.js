@@ -1,6 +1,7 @@
 import React from "react";
 import "./navstyle.css";
 
+
 function Nav() {
     return (
         <div className="global-header">
@@ -9,11 +10,11 @@ function Nav() {
             </div>
 
             <div className="global-header-right">
-                <a href="/">Home</a>
+                <a href="/home">Home</a>
                 <a href="/login">Log In</a>
                 <a href="/signup">Sign Up</a>
                 <a href="/browse">Browse</a>
-                <a href="/cart">Cart <img class="cart-icon" src="cart.gif" width="10" height="10" /></a>
+                <a href="/cart">Cart </a>
             </div>
 
         </div>

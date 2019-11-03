@@ -3,7 +3,6 @@ import "./footerstyle.css";
 
 function Footer() {
     return (
-        <div>
             <div className="global-footer">
 
                 <a>Help and Support</a>
@@ -11,7 +10,6 @@ function Footer() {
                 <a>Email</a>
                 <a>Phone Contact</a>
             </div>
-        </div>
     )
 }
 
