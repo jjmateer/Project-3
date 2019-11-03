@@ -1,4 +1,5 @@
 import React from "react";
+import Logout from "../logout"
 import "./navstyle.css";
 
 function Nav() {
@@ -13,6 +14,7 @@ function Nav() {
                 <a href="/signup">Sign Up</a>
                 <a href="/browse">Browse</a>
                 <a href="/login">Login</a>
+                <Logout/>
             </div>
 
         </div>

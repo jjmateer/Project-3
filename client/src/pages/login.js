@@ -50,13 +50,21 @@ class Login extends Component {
             email: this.state.email,
             password: this.state.password
         })
+        const { email, password } = this.state;
+
+        const loginUser = {
+            email,
+            password
+        }
+        //attempt to login
+        this.props.login(loginUser);
     };
 
     render() {
         return (
-            <div className="App">
+            <div>
                 <Nav />
-
+                {this.props.isAuthenticated ? <h1>User logged in</h1> : <h1>User not logged in</h1>}
                 <h1 className="page-title">Login</h1>
 
                 <div className="content-wrapper">

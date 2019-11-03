@@ -1,4 +1,5 @@
 import React from "react";
+import Logout from "../logout"
 import "./navstyle.css";
 
 function Nav() {
@@ -15,6 +16,7 @@ function Nav() {
                 <a href="/cart">Cart
                 {/* <img className="cart-icon" src="cart.gif" alt="CartImg" width="10" height="10" /> */}
                 </a>
+                <Logout/>
             </div>
 
         </div>
