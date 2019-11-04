@@ -22,8 +22,6 @@ export const loadUser = () => (dispatch, getState) => {
     }
 
     if (token) {
-        config.headers["x-auth-token"] = token;
-        console.log(token)
 
         axios.get("http://localhost:3001/user", config)
             .then(res =>
