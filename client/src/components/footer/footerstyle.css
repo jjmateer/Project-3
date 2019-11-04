@@ -5,8 +5,13 @@
     /* align-items: center; */
     padding: 30px;
     /* flex-direction: column; */
-    margin-bottom: 0px;
+    bottom: 0px;
     align-items: flex-end;
     justify-content: space-around;
-    position: relative;
+    position: fixed;
+    width: 100%;
+}
+
+a {
+    cursor: pointer;
 }
