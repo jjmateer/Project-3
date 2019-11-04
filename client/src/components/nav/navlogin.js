@@ -13,14 +13,10 @@ function Nav() {
                 <a href="/">Home</a>
                 <a href="/signup">Sign Up</a>
                 <a href="/browse">Browse</a>
-<<<<<<< HEAD
                 <a href="/cart">Cart
                 {/* <img className="cart-icon" src="cart.gif" alt="CartImg" width="10" height="10" /> */}
                 </a>
-                <Logout/>
-=======
-                <a href="/cart">Cart </a>
->>>>>>> 31431ef5d993977fcba815f7d7d7ca5c82987c8d
+                <Logout />
             </div>
 
         </div>

@@ -8,6 +8,7 @@ import Login from "./pages/login";
 import Signup from "./pages/signup";
 import Cart from "./pages/cart";
 import Browse from "./pages/browse";
+import Footer from "./components/footer/footer"
 import ErrorC from "./pages/error";
 import "./App.css";
 // import Footer from "./components/footer/footer";
@@ -30,7 +31,6 @@ class App extends Component {
               <Route component={ErrorC} />
             </Switch>
             <Footer />
-
           </div>
         </Router>
       </Provider>
