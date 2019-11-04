@@ -1,12 +1,11 @@
 import React from "react";
+import Nav from "../components/nav/navbrowse";
+
 
 function Browse() {
     return (
         <div>
-            <a href="/">home</a>
-            <a href="/login">login</a>
-            <a href="/signup">signup</a>
-            <a href="/cart">cart</a>
+            <Nav />
             <h1>Browse</h1>
         </div>
     );

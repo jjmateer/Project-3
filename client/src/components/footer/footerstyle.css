@@ -1,0 +1,12 @@
+.global-footer {
+    color: white;
+    background: black;
+    display: flex;
+    /* align-items: center; */
+    padding: 30px;
+    /* flex-direction: column; */
+    margin-bottom: 0px;
+    align-items: flex-end;
+    justify-content: space-around;
+    position: relative;
+}

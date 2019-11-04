@@ -11,6 +11,7 @@ import Browse from "./pages/browse";
 import ErrorC from "./pages/error";
 import Logout from "./components/logout";
 import "./App.css";
+import Footer from "./components/footer/footer";
 
 class App extends Component {
   componentDidMount() {
@@ -21,9 +22,9 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div>
-            <Logout/>
+            <Logout />
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/home" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/cart" component={Cart} />
