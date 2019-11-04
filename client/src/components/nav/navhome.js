@@ -19,7 +19,7 @@ function Nav() {
                 <Logout/>
             </div>
 
-
+            
         </div>
     )
 }
