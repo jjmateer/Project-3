@@ -14,8 +14,8 @@ function Homelayout() {
         <div className="homelayout">
             {/* *************************************** */}
 
-            <div class="bgimg-1">
-                <div class="titleArea emboss">
+            <div className="bgimg-1">
+                <div className="titleArea emboss">
                     <h1 style={styleh1}>Technologies of The Future</h1>
                     <h2 style={styleh2}>Your Ideas Made Real</h2>
                 </div>
