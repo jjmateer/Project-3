@@ -3,7 +3,6 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const routes = require("./routes");
-const session = require("express-session");
 const cors = require("cors");
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -15,15 +14,6 @@ app.use(routes);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
-app.use(
-  session({
-    secret: "Keyboard Cat",
-    resave: false,
-    saveUninitialized: false,
-    cookie: { maxAge: 1000 * 60 * 60 * 24, httpOnly: false }
-  })
-);
 
 mongoose.connect('mongodb://localhost/storefrontdb',
 {

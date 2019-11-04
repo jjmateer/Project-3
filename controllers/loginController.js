@@ -11,7 +11,7 @@ exports.register = function (req, res) {
   if (!email || !password) {
     return res.status(400).json({ msg: "Please fill out all fields." })
   } else {
-    db.User.findOne({ email: email })
+    db.User.findOne({ email })
       .then(user => {
         //If there isn't, create a new user with hashed password.
         if (!user) {
@@ -55,23 +55,26 @@ exports.login = function (req, res) {
   if (!email || !password) {
     return res.status(400).json({ msg: "Please fill out all fields." })
   } else {
-    db.User.findOne({ email: email })
+    db.User.findOne({ email })
       .then(user => {
-        if (user && bcrypt.compareSync(password, user.password)) {
-          console.log("Login success.")
-          // console.log(user.id)
+        if (email === user.email && user && bcrypt.compareSync(password, user.password)) {
           jwt.sign({
             id: user.id
           }, 'secretkey', { expiresIn: 3600 }, (err, token) => {
             if (err) throw err;
             res.json({
               token,
-              user
+              user: {
+                id: user.id,
+                email: user.email
+              }
             });
+            console.log("Login success.")
             console.log(`User info: ${user}`)
             console.log(`User token: ${token}`)
           })
         } else {
+          console.log("Invalid credentials")
           return res.status(400).json({ msg: "Invalid Credentials" })
         }
       })
@@ -81,10 +84,10 @@ exports.login = function (req, res) {
   }
 };
 
-exports.user = function (req, res) {
-  router.get("/user", auth, () => {
-    User.findById(req.user.id)
-      .select("-password")
+
+  router.get('/user', auth, (req, res) => {
+    console.log(req)
+    db.User.findById(req.user.id)
+      .select('-password')
       .then(user => res.json(user));
-  })
-};
+  });

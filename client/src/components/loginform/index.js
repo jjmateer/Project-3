@@ -8,7 +8,6 @@ function LoginForm({ handleEmailChange, handlePasswordChange, handleFormSubmit }
                 <h3>Email :</h3>
                 <input className="form-control" autoComplete="on" placeholder="  Email" onChange={handleEmailChange} required />
                 <h3>Password :</h3>
-
                 <input className="form-control" autoComplete="on" type="password" placeholder="  Password" onChange={handlePasswordChange} required />
                 <input className="sub" type="submit" value="Submit" onClick={handleFormSubmit} />
             </form>

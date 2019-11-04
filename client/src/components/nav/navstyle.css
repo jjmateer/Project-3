@@ -29,6 +29,6 @@ a {
 
 /* mouse over link */
 
-a:hover {
+ahover {
     color: hotpink;
 }

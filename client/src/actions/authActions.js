@@ -23,20 +23,21 @@ export const loadUser = () => (dispatch, getState) => {
 
     if (token) {
         config.headers["x-auth-token"] = token;
+        console.log(token)
+
+        axios.get("http://localhost:3001/user", config)
+            .then(res =>
+                dispatch({
+                    type: USER_LOADED,
+                    payload: res.data
+                }))
+            .catch(err => {
+                dispatch(returnErrors(err.response.data, err.response.status));
+                dispatch({
+                    type: AUTH_ERROR
+                })
+            });
     }
-
-
-    axios.get("http://localhost:3001/api/login/user", config)
-        .then(res => dispatch({
-            type: USER_LOADED,
-            payload: res.data
-        }))
-        .catch(err => {
-            // dispatch(returnErrors(err.response.data, err.response.status));
-            dispatch({
-                type: AUTH_ERROR
-            })
-        });
 }
 
 //register user
@@ -51,10 +52,11 @@ export const register = ({ email, password }) => dispatch => {
     const body = JSON.stringify({ email, password });
 
     axios.post("http://localhost:3001/api/login/r", body, config)
-        .then(res => dispatch({
-            type: REGISTER_SUCCESS,
-            payload: res.data
-        }))
+        .then(res =>
+            dispatch({
+                type: REGISTER_SUCCESS,
+                payload: res.data
+            }))
         .catch(err => {
             dispatch(returnErrors(err.response.data, err.response.status, "REGISTER_FAIL"));
             dispatch({
