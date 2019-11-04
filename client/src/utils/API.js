@@ -23,5 +23,8 @@ export default {
   },
   login: function (userInfo) {
     return axios.post("http://localhost:3001/api/login/l", userInfo)
+  },
+  user: function (userInfo) {
+    return axios.get("http://localhost:3001/api/user", userInfo)
   }
 };

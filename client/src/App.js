@@ -8,10 +8,10 @@ import Login from "./pages/login";
 import Signup from "./pages/signup";
 import Cart from "./pages/cart";
 import Browse from "./pages/browse";
+import Footer from "./components/footer/footer"
 import ErrorC from "./pages/error";
-import Logout from "./components/logout";
 import "./App.css";
-import Footer from "./components/footer/footer";
+// import Footer from "./components/footer/footer";
 
 class App extends Component {
   componentDidMount() {
@@ -22,17 +22,15 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div>
-            <Logout />
             <Switch>
-              <Route exact path="/home" component={Home} />
+              <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/cart" component={Cart} />
               <Route exact path="/browse" component={Browse} />
               <Route component={ErrorC} />
             </Switch>
-            <Footer />
-
+            {/* <Footer /> */}
           </div>
         </Router>
       </Provider>
