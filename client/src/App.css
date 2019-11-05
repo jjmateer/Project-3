@@ -9,10 +9,18 @@ body{
     flex-direction: column;
 }
 
-.login-indicator-style{
+.notlogin-style{
     color:red;
     font-size: 20px;
     margin:15px;
     background: yellow;
     padding:2px;
+}
+
+.login-style{
+    color:black;
+    font-size: 20px;
+    margin:15px;
+    padding:2px;
+    
 }

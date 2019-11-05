@@ -64,7 +64,7 @@ class Login extends Component {
         return (
             <div>
                 <Nav/>
-                {this.props.isAuthenticated ? <h1 className="login-indicator-style">User logged in</h1> : <h1 className="login-indicator-style">User not logged in</h1>}
+                {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
                 <h1 className="page-title">Login</h1>
 
                 <div className="content-wrapper">
