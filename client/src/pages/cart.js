@@ -8,6 +8,7 @@ function Cart() {
             <h1 className="page-title">Cart</h1>
 
             <Cartlayout />
+            
         </div>
     );
 }

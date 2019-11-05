@@ -1,10 +1,12 @@
 import React from "react";
 import "./homelayout.css";
 
+
 function Homelayout() {
 
     var styleh2 = {
         marginLeft: '100px',
+        color: "#C8CACC"
     };
     var styleh1 = {
         marginLeft: '100px',
