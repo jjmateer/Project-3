@@ -64,7 +64,7 @@ class Signup extends Component {
             <div className="App">
                 <Nav />
                 {this.state.msg ? <h1>Authentication failed</h1> : null}
-                {this.props.isAuthenticated ? <h1>User logged in</h1> : <h1>User not logged in</h1>}
+                {this.props.isAuthenticated ? <h1 className="login-indicator-style">User logged in</h1> : <h1 className="login-indicator-style">User not logged in</h1>}
                 <SignupForm
                     handleEmailChange={this.handleEmailChange}
                     handlePasswordChange={this.handlePasswordChange}

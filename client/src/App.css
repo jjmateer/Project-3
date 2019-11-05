@@ -8,3 +8,11 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+.login-indicator-style{
+    color:red;
+    font-size: 20px;
+    margin:15px;
+    background: yellow;
+    padding:2px;
+}

@@ -1,18 +1,6 @@
 import React, { Component } from "react";
 import Nav from "../components/nav/navcart"
 import Cartlayout from "../components/cart/cartlayout"
-<<<<<<< HEAD
-function Cart() {
-    return (
-        <div>
-            <Nav />
-            <h1 className="page-title">Cart</h1>
-
-            <Cartlayout />
-            
-        </div>
-    );
-=======
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
 import PropTypes from "prop-types";
@@ -31,14 +19,13 @@ class Cart extends Component {
         return (
             <div>
                 <Nav />
-                {this.props.isAuthenticated ? <h1>User logged in</h1> : <h1>User not logged in</h1>}
+                {this.props.isAuthenticated ? <h1 className="login-indicator-style">User logged in</h1> : <h1 className="login-indicator-style">User not logged in</h1>}
                 <h1 className="page-title">Cart</h1>
 
                 <Cartlayout />
             </div>
         );
     } 
->>>>>>> b251b036a37b8ff65c275665e44fdbb4f131d1bb
 }
 
 const mapStateToProps = state => ({

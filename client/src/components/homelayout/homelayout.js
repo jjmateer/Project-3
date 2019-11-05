@@ -10,6 +10,7 @@ function Homelayout() {
     };
     var styleh1 = {
         marginLeft: '100px',
+        color: 'white'
     };
 
     return (
