@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../actions/authActions";
 import { clearErrors } from "../actions/errorActions";
-import Header from "../components/header/header"
 import Nav from "../components/nav/navlogin";
 
 
@@ -51,25 +50,33 @@ class Login extends Component {
             email: this.state.email,
             password: this.state.password
         })
+        const { email, password } = this.state;
+
+        const loginUser = {
+            email,
+            password
+        }
+        //attempt to login
+        this.props.login(loginUser);
     };
 
     render() {
         return (
-            <div className="App">
-                <Nav />
-
+            <div>
+                <Nav/>
+                {this.props.isAuthenticated ? <h1>User logged in</h1> : <h1>User not logged in</h1>}
                 <h1 className="page-title">Login</h1>
 
                 <div className="content-wrapper">
-                        <div>
-                            <LoginForm
-                                handleEmailChange={this.handleEmailChange}
-                                handlePasswordChange={this.handlePasswordChange}
-                                handleFormSubmit={this.handleFormSubmit}
-                                q={this.state.q}
-                            />
-                        </div> 
-                         </div>
+                    <div>
+                        <LoginForm
+                            handleEmailChange={this.handleEmailChange}
+                            handlePasswordChange={this.handlePasswordChange}
+                            handleFormSubmit={this.handleFormSubmit}
+                            q={this.state.q}
+                        />
+                    </div>
+                </div>
             </div>
         );
     }

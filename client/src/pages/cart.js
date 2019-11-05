@@ -1,15 +1,40 @@
-import React from "react";
+import React, { Component } from "react";
 import Nav from "../components/nav/navcart"
 import Cartlayout from "../components/cart/cartlayout"
-function Cart() {
-    return (
-        <div>
-            <Nav />
-            <h1 className="page-title">Cart</h1>
+import { connect } from "react-redux";
+import { clearErrors } from "../actions/errorActions";
+import PropTypes from "prop-types";
+class Cart extends Component {
+    state = {
+        email: "",
+        password: "",
+        message: null
+    };
+    static propTypes = {
+        isAuthenticated: PropTypes.bool,
+        error: PropTypes.object.isRequired,
+        clearErrors: PropTypes.func.isRequired
+    }
+    render() {
+        return (
+            <div>
+                <Nav />
+                {this.props.isAuthenticated ? <h1>User logged in</h1> : <h1>User not logged in</h1>}
+                <h1 className="page-title">Cart</h1>
 
-            <Cartlayout />
-        </div>
-    );
+                <Cartlayout />
+            </div>
+        );
+    } 
 }
 
-export default Cart;
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    error: state.error
+})
+
+export default connect(
+    mapStateToProps,
+    { clearErrors }
+)(Cart);
+

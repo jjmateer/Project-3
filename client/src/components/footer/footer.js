@@ -3,14 +3,12 @@ import "./footerstyle.css";
 
 function Footer() {
     return (
-        <div>
-            <div className="global-footer">
+        <div className="global-footer">
 
-                <a>Help and Support</a>
-                <a>Chat</a>
-                <a>Email</a>
-                <a>Phone Contact</a>
-            </div>
+            <a href="/">Help and Support</a>
+            <a href="/">Chat</a>
+            <a href="/">Email</a>
+            <a href="/">Phone Contact</a>
         </div>
     )
 }
