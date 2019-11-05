@@ -8,4 +8,8 @@ router
 router
     .route("/l")
     .post(loginController.login)
+
+router
+    .route("/user")
+    .post(auth, loginController.checkUser)
 module.exports = router;

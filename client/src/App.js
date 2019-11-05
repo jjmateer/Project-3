@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 import { loadUser } from "./actions/authActions";
+import Nav from "../src/components/nav";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
@@ -23,6 +24,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div>
+            <Nav />
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
@@ -32,7 +34,7 @@ class App extends Component {
               <Route exact path="/inventory" component={Inventory} />
               <Route component={ErrorC} />
             </Switch>
-            {/* <Footer /> */}
+            <Footer />
           </div>
         </Router>
       </Provider>

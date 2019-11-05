@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Logout from "../logout"
 import "./navstyle.css";
 
@@ -10,12 +11,12 @@ function Nav() {
             </div>
 
             <div className="global-header-right">
-                <a href="/">Home</a>
-                <a href="/signup">Sign Up</a>
-                <a href="/browse">Browse</a>
-                <a href="/cart">Cart
+                <Link to="/">Home</Link>
+                <Link to="/signup">Sign Up</Link>
+                <Link to="/browse">Browse</Link>
+                <Link to="/cart">Cart
                 {/* <img className="cart-icon" src="cart.gif" alt="CartImg" width="10" height="10" /> */}
-                </a>
+                </Link>
                 <Logout />
             </div>
 

@@ -1,4 +1,26 @@
 .page-title{
     margin: 2% 8% 2% 8%;
     color: black;
+
+
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.notlogin-style{
+    color:red;
+    font-size: 20px;
+    margin:15px;
+    background: yellow;
+    padding:2px;
+}
+
+.login-style{
+    color:black;
+    font-size: 20px;
+    margin:15px;
+    padding:2px;
+    
 }

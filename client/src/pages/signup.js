@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import SignupForm from "../components/signup";
-import API from "../utils/API";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { register } from "../actions/authActions";
 import { clearErrors } from "../actions/errorActions";
-import Nav from "../components/nav/navsignup";
 
 
 class Signup extends Component {
@@ -45,10 +43,6 @@ class Signup extends Component {
     }
     handleFormSubmit = event => {
         event.preventDefault();
-        API.register({
-            email: this.state.email,
-            password: this.state.password
-        })
         const { email, password } = this.state;
 
         const newUser = {
@@ -62,9 +56,8 @@ class Signup extends Component {
     render() {
         return (
             <div className="App">
-                <Nav />
                 {this.state.msg ? <h1>Authentication failed</h1> : null}
-                {this.props.isAuthenticated ? <h1>User logged in</h1> : <h1>User not logged in</h1>}
+                {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style-style">User not logged in</h1>}
                 <SignupForm
                     handleEmailChange={this.handleEmailChange}
                     handlePasswordChange={this.handlePasswordChange}

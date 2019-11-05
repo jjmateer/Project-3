@@ -3,21 +3,19 @@
     height: 100%;
     margin: 0;
     font: 400 15px/1.8 "Lato", sans-serif;
-    color: rgb(172, 163, 163);
 }
 
-.bgimg-1, .bgimg-2, .bgimg-3 {
+.bgimg-1 {
     position: relative;
     /* opacity: 0.85; */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-image: url("techbackground.jpg");
 }
 
-.bgimg-1 {
-    background-image: url("techbackground.jpg");
-    /* min-height: 100%;  */
-    /* min-height: 90%; */
-    /* try 400px or 90% */
+.store-discount {
+    margin: 3% 10% 3% 10%;
+    background: lightgrey;
 }
