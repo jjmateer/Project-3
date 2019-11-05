@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Nav from "../components/nav/navbrowse";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
 import PropTypes from "prop-types";
@@ -19,8 +18,10 @@ class Browse extends Component {
     render() {
         return (
             <div>
+
                 <Nav />
                 {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="motlogin-style">User not logged in</h1>}
+
                 <h1>Browse</h1>
             </div>
         );

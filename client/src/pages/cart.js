@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Nav from "../components/nav/navcart"
 import Cartlayout from "../components/cart/cartlayout"
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
@@ -25,7 +24,7 @@ class Cart extends Component {
                 <Cartlayout />
             </div>
         );
-    } 
+    }
 }
 
 const mapStateToProps = state => ({

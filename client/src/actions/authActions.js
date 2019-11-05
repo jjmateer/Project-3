@@ -22,13 +22,14 @@ export const loadUser = () => (dispatch, getState) => {
     }
 
     if (token) {
-
-        axios.get("http://localhost:3001/user", config)
+        const body = { user: getState().auth.user }
+        axios.post("http://localhost:3001/api/login/user", body, config)
             .then(res =>
                 dispatch({
                     type: USER_LOADED,
                     payload: res.data
-                }))
+                })
+            )
             .catch(err => {
                 dispatch(returnErrors(err.response.data, err.response.status));
                 dispatch({
