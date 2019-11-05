@@ -57,7 +57,10 @@ class Login extends Component {
     render() {
         return (
             <div>
-                {this.props.isAuthenticated ? <h1>User logged in</h1> : <h1>User not logged in</h1>}
+
+                <Nav/>
+                {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
+
                 <h1 className="page-title">Login</h1>
 
                 <div className="content-wrapper">

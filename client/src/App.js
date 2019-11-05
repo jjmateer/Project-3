@@ -32,7 +32,7 @@ class App extends Component {
               <Route exact path="/browse" component={Browse} />
               <Route component={ErrorC} />
             </Switch>
-            {/* <Footer /> */}
+            <Footer />
           </div>
         </Router>
       </Provider>
