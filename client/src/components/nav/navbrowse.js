@@ -1,4 +1,5 @@
 import React from "react";
+import Logout from "../logout"
 import "./navstyle.css";
 
 
@@ -10,11 +11,11 @@ function Nav() {
             </div>
 
             <div className="global-header-right">
-                <a href="/home">Home</a>
+                <a href="/">Home</a>
                 <a href="/login">Log In</a>
                 <a href="/signup">Sign Up</a>
-                <a href="/browse">Browse</a>
                 <a href="/cart">Cart </a>
+                <Logout />
             </div>
 
         </div>
