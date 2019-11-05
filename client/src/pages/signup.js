@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { register } from "../actions/authActions";
 import { clearErrors } from "../actions/errorActions";
-import Nav from "../components/nav/navsignup";
 
 
 class Signup extends Component {
@@ -57,7 +56,6 @@ class Signup extends Component {
     render() {
         return (
             <div className="App">
-                <Nav />
                 {this.state.msg ? <h1>Authentication failed</h1> : null}
                 {this.props.isAuthenticated ? <h1>User logged in</h1> : <h1>User not logged in</h1>}
                 <SignupForm
