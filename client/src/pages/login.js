@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../actions/authActions";
 import { clearErrors } from "../actions/errorActions";
-import Nav from "../components/nav/navlogin";
 
 
 class Login extends Component {
@@ -58,7 +57,6 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <Nav />
                 {this.props.isAuthenticated ? <h1>User logged in</h1> : <h1>User not logged in</h1>}
                 <h1 className="page-title">Login</h1>
 

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Nav from "../components/nav/navcart"
 import Cartlayout from "../components/cart/cartlayout"
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
@@ -18,14 +17,13 @@ class Cart extends Component {
     render() {
         return (
             <div>
-                <Nav />
                 {this.props.isAuthenticated ? <h1>User logged in</h1> : <h1>User not logged in</h1>}
                 <h1 className="page-title">Cart</h1>
 
                 <Cartlayout />
             </div>
         );
-    } 
+    }
 }
 
 const mapStateToProps = state => ({

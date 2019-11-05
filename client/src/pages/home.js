@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Nav from "../components/nav/navhome";
 import Homelayout from "../components/homelayout/homelayout"
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
@@ -22,7 +21,6 @@ class Home extends Component {
         return (
 
             <div >
-                <Nav />
                 {this.props.isAuthenticated ? <h1>User logged in</h1> : <h1>User not logged in</h1>}
                 <h1 className="page-title">Home</h1>
                 < Homelayout />

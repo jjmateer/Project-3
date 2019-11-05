@@ -87,8 +87,8 @@ exports.login = function (req, res) {
 
 // router.get('/user', auth, (req, res) => {
 exports.checkUser = function (req, res) {
-  console.log("working")
-  db.User.findById(req.user.id)
+  console.log(req.body.user)
+  db.User.findById(req.body.user.id)
     .select('-password')
     .then(user => res.json(user));
 }

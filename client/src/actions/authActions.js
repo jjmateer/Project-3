@@ -22,8 +22,8 @@ export const loadUser = () => (dispatch, getState) => {
     }
 
     if (token) {
-
-        axios.get("http://localhost:3001/login/user", config)
+        const body = { user: getState().auth.user }
+        axios.post("http://localhost:3001/api/login/user", body, config)
             .then(res =>
                 dispatch({
                     type: USER_LOADED,
