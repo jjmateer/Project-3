@@ -16,10 +16,10 @@ if (process.env.NODE_ENV === "production") {
 }
 
 mongoose.connect('mongodb://localhost/storefrontdb',
-{
-  useNewUrlParser: true,
-  useCreateIndex:true
-}
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  }
 );
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

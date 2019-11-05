@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import LoginForm from "../components/loginform";
-import API from "../utils/API";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../actions/authActions";
 import { clearErrors } from "../actions/errorActions";
-import Nav from "../components/nav/navlogin";
 
 
 class Login extends Component {
@@ -46,10 +44,6 @@ class Login extends Component {
     }
     handleFormSubmit = event => {
         event.preventDefault();
-        API.login({
-            email: this.state.email,
-            password: this.state.password
-        })
         const { email, password } = this.state;
 
         const loginUser = {
@@ -63,7 +57,6 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <Nav/>
                 {this.props.isAuthenticated ? <h1>User logged in</h1> : <h1>User not logged in</h1>}
                 <h1 className="page-title">Login</h1>
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Logout from "../logout"
 import "./navstyle.css";
 
@@ -11,10 +12,10 @@ function Nav() {
             </div>
 
             <div className="global-header-right">
-                <a href="/">Home</a>
-                <a href="/login">Log In</a>
-                <a href="/signup">Sign Up</a>
-                <a href="/cart">Cart </a>
+                <Link href="/">Home</Link>
+                <Link href="/login">Log In</Link>
+                <Link href="/signup">Sign Up</Link>
+                <Link href="/cart">Cart </Link>
                 <Logout />
             </div>
 
