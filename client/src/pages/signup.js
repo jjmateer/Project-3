@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import SignupForm from "../components/signup";
-import API from "../utils/API";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { register } from "../actions/authActions";
@@ -45,10 +44,6 @@ class Signup extends Component {
     }
     handleFormSubmit = event => {
         event.preventDefault();
-        API.register({
-            email: this.state.email,
-            password: this.state.password
-        })
         const { email, password } = this.state;
 
         const newUser = {
