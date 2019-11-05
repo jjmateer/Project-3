@@ -2,6 +2,13 @@ const mongoose = require("mongoose");
 const db = require("../models");
 
 // This file empties the Inventory collection and inserts the items below
+//
+// mongodb://localhost/storefrontdb
+
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    "mongodb://<dbuser>:<dbpassword>@ds141238.mlab.com:41238/heroku_8crckw1g"
+);
 
 const itemSeeds = [
   {
@@ -155,13 +162,13 @@ const itemSeeds = [
   }
 ];
 
-// db.Inventory.remove({})
-//   .then(() => db.Inventory.collection.insertMany(itemSeeds))
-//   .then(data => {
-//     console.log(data.result.n + " records inserted!");
-//     process.exit(0);
-//   })
-//   .catch(err => {
-//     console.error(err);
-//     process.exit(1);
-//   });
+db.Item.remove({})
+  .then(() => db.Item.collection.insertMany(itemSeeds))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });

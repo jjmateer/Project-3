@@ -7,6 +7,7 @@ module.exports = {
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+    console.log(dbModel);
   },
   findById: function(req, res) {
     db.Inventory.findById(req.params.id)

@@ -15,15 +15,14 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-mongoose.connect('mongodb://localhost/storefrontdb',
-{
+mongoose.connect("mongodb://localhost/storefrontdb", {
   useNewUrlParser: true,
-  useCreateIndex:true
-}
-);
+  useCreateIndex: true
+});
+
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback() {
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", function callback() {
   console.log("Connected to MongoDB.");
 });
 
