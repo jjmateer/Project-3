@@ -3,7 +3,7 @@ const inventoryRoutes = require("./inventory");
 const loginRoutes = require("./login")
 
 // inventory routes
-// router.use("/inventory", inventoryRoutes);
+router.use("/inventory", inventoryRoutes);
 router.use("/login", loginRoutes);
 
 
