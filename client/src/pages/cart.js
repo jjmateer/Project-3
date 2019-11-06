@@ -17,7 +17,6 @@ class Cart extends Component {
     render() {
         return (
             <div>
-                <Nav />
                 {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
                 <h1 className="page-title">Cart</h1>
 

@@ -21,7 +21,6 @@ class Home extends Component {
         return (
 
             <div >
-                <Nav />
                 {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
           
                 <h1 className="page-title">Home</h1>
