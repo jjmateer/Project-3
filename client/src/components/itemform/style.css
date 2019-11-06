@@ -1,8 +1,10 @@
+input {
+    display:flex;
+}
 .form-control {
     font-size: 15px;
     margin: 15px;
     font-family: 'Roboto', sans-serif;
-
 }
 
 .sub {
