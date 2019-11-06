@@ -4,11 +4,6 @@
 
 
 }
-body{
-    display: flex;
-    flex-direction: column;
-}
-
 .notlogin-style{
     color:red;
     font-size: 20px;

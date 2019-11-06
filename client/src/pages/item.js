@@ -1,30 +1,31 @@
 import React, { Component } from "react";
+import Itemform from "../components/itemform"
 import API from "../utils/API";
 
-class Inventory extends Component {
+class Item extends Component {
   // Setting our component's initial state
   state = {
-    Inventory: [],
+    Item: [],
     item: "",
     brand: "",
     price: ""
   };
 
-  // When the component mounts, load all inventory and save them to this.state.inventory
+  // When the component mounts, load all Item and save them to this.state.Item
   componentDidMount() {
     this.loadInventory();
   }
 
-  // Loads all inventory  and sets them to this.state.inventory
+  // Loads all Item  and sets them to this.state.Item
   loadInventory = () => {
     API.getInventory()
       .then(res =>
-        this.setState({ Inventory: res.data, item: "", brand: "", price: "" })
+        this.setState({ Item: res.data, item: "", brand: "", price: "" })
       )
       .catch(err => console.log(err));
   };
 
-  // Deletes an item from the database with a given id, then reloads inventory from the db
+  // Deletes an item from the database with a given id, then reloads Item from the db
   deleteItem = id => {
     API.deleteItem(id)
       .then(res => this.loadInventory())
@@ -40,7 +41,7 @@ class Inventory extends Component {
   };
 
   // When the form is submitted, use the API.saveItem method to save the item data
-  // reload inventory from the database
+  // reload Item from the database
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.item && this.state.brand && this.state.price) {
@@ -56,66 +57,44 @@ class Inventory extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div>
         <h1>Add Item</h1>
-        <form>
-          <input
-            value={this.state.item}
-            onChange={this.handleInputChange}
-            name="item"
-            placeholder="Item (required)"
-          />
-          <input
-            value={this.state.brand}
-            onChange={this.handleInputChange}
-            name="brand"
-            placeholder="Brand (required)"
-          />
-          <input
-            value={this.state.price}
-            onChange={this.handleInputChange}
-            name="price"
-            placeholder="Price (required)"
-          />
-          <button
-            disabled={!(this.state.brand && this.state.item)}
-            onClick={this.handleFormSubmit}
-          >
-            Submit Item
-          </button>
-        </form>
-
-        <div>
-          {/* <h1>Items I Want</h1>
-          {function() {
-            if (this.state.Inventory.length > 0) {
-              {
-                this.state.Inventory.length ? (
-                  <ul>
-                    {this.state.Inventory.map(item => {
-                      return (
-                        <li key={item._id}>
-                          <a href={"/inventory/" + item._id}>
-                            <strong>
-                              {item.item} by {item.brand}
-                              Price: ${item.price}
-                            </strong>
-                          </a>
-                          <button onClick={() => this.deleteItem(item._id)} />
-                        </li>
-                      );
-                    })}
-                  </ul>
-                ) : (
-                  <h3>No Results to Display</h3>
-                );
-              }
-            }
-          }} */}
-        </div>
+        <Itemform
+          handleInputChange={this.handleInputChange}
+          handleFormSubmit={this.handleFormSubmit}
+        />
       </div>
+      //  <div>
+      //    <h1>Items I Want</h1>
+      //   {function() {
+      //     if (this.state.Item.length > 0) {
+      //       {
+      //         this.state.Item.length ? (
+      //           <ul>
+      //             {this.state.Item.map(item => {
+      //               return (
+      //                 <li key={item._id}>
+      //                   <a href={"/Item/" + item._id}>
+      //                     <strong>
+      //                       {item.item} by {item.brand}
+      //                       Price: ${item.price}
+      //                     </strong>
+      //                   </a>
+      //                   <button onClick={() => this.deleteItem(item._id)} />
+      //                 </li>
+      //               );
+      //             })}
+      //           </ul>
+      //         ) : (
+      //           <h3>No Results to Display</h3>
+      //         );
+      //       }
+      //     }
+      //   }} 
+      //  </div>
+      // </div>
     );
   }
 }
 
-export default Inventory;
+export default Item;

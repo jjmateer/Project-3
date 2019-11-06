@@ -67,7 +67,6 @@ class Login extends Component {
                             handleEmailChange={this.handleEmailChange}
                             handlePasswordChange={this.handlePasswordChange}
                             handleFormSubmit={this.handleFormSubmit}
-                            q={this.state.q}
                         />
                     </div>
                 </div>

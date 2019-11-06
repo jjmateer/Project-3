@@ -15,7 +15,15 @@ const list = [
     { name: 'item6' },
     { name: 'item7' },
     { name: 'item8' },
-    { name: 'item9' }
+    { name: 'item9' },
+    { name: 'item1' },
+    { name: 'item2' },
+    { name: 'item3' },
+    { name: 'item4' },
+    { name: 'item5' },
+    { name: 'item6' },
+    { name: 'item7' },
+    { name: 'item8' },
 ];
 
 // One item component
@@ -50,7 +58,7 @@ const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
 
 const selected = 'item1';
 
-class App extends Component {
+class Homediscount extends Component {
     constructor(props) {
         super(props);
         // call it again if items count changes

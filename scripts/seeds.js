@@ -1,7 +1,19 @@
 const mongoose = require("mongoose");
-const db = require("../models");
+const Item = require("../models/item");
 
-// This file empties the Inventory collection and inserts the items below
+mongoose.connect('mongodb://localhost/storefrontdb',
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+  }
+);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback() {
+  console.log("Connected to MongoDB.");
+});
+// This file empties the Item collection and inserts the items below
 
 const itemSeeds = [
   {
@@ -155,10 +167,11 @@ const itemSeeds = [
   }
 ];
 
-db.Inventory.remove({})
-  .then(() => db.Inventory.collection.insertMany(itemSeeds))
+Item
+  .deleteMany({})
+  .then(() => Item.insertMany(itemSeeds))
   .then(data => {
-    console.log(data.result.n + " records inserted!");
+    console.log(`${data.length} records inserted.`);
     process.exit(0);
   })
   .catch(err => {
