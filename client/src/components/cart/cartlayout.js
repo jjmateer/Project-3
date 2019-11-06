@@ -1,6 +1,6 @@
 import React from "react";
 import "./cartstyle.css";
-import ProductsInCart from "./products-in-cart"
+import ProductsInCart from "../cartItem"
 
 function Cartlayout() {
     return (

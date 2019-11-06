@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { clearErrors } from "../../actions/errorActions";
 import PropTypes from "prop-types";
 import Logout from "../logout"
-import "./navstyle.css";
+import "./style.css";
 
 class Nav extends Component {
     state = {

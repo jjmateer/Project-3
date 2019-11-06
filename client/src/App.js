@@ -4,15 +4,14 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { loadUser } from "./actions/authActions";
 import Nav from "../src/components/nav";
+import Footer from "./components/footer"
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
 import Cart from "./pages/cart";
 import Browse from "./pages/browse";
-import Footer from "./components/footer/footer"
 import ErrorC from "./pages/error";
 import "./App.css";
-// import Footer from "./components/footer/footer";
 
 class App extends Component {
   componentDidMount() {
