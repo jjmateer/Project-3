@@ -19,3 +19,12 @@
     margin: 3% 10% 3% 10%;
     background: lightgrey;
 }
+
+h1, h2 {
+    margin-left:100px;
+    color:white;
+}
+
+h2 {
+    color:#c8cacc;
+}

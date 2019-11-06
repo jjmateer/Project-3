@@ -57,8 +57,6 @@ class Login extends Component {
     render() {
         return (
             <div>
-
-                <Nav/>
                 {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
 
                 <h1 className="page-title">Login</h1>
@@ -69,7 +67,6 @@ class Login extends Component {
                             handleEmailChange={this.handleEmailChange}
                             handlePasswordChange={this.handlePasswordChange}
                             handleFormSubmit={this.handleFormSubmit}
-                            q={this.state.q}
                         />
                     </div>
                 </div>

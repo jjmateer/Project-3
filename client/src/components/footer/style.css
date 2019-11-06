@@ -5,12 +5,12 @@
     /* align-items: center; */
     padding: 30px;
     /* flex-direction: column; */
-    bottom: 0px;
     align-items: flex-end;
     justify-content: space-around;
-    position: fixed;
-    margin-bottom: 0 auto;
+    position:fixed;
+    bottom:0;
     width: 100%;
+    box-sizing: border-box;
 }
 
 a {
