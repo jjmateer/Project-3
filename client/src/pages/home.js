@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Homelayout from "../components/homelayout/homelayout"
+import Homelayout from "../components/homelayout";
+// import HomeDiscount from "../components/homediscount";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
 import PropTypes from "prop-types";

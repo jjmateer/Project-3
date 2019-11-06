@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ScrollMenu from 'react-horizontal-scrolling-menu';
-import "./homediscount";
+import "./style.css";
 
 
 

@@ -1,5 +1,5 @@
 import React from "react";
-import "./homelayout.css";
+import "./style.css";
 
 
 function Homelayout() {

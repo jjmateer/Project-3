@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Cartlayout from "../components/cart/cartlayout"
+import Cartlayout from "../components/cart"
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
 import PropTypes from "prop-types";
