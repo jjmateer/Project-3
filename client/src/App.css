@@ -1,14 +1,7 @@
 .page-title{
     margin: 2% 8% 2% 8%;
     color: black;
-
-
 }
-body{
-    display: flex;
-    flex-direction: column;
-}
-
 .notlogin-style{
     color:red;
     font-size: 20px;
