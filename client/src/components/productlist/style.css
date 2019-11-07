@@ -1,0 +1,8 @@
+#productList{
+    width:90%;
+    grid-template-columns: auto auto auto;
+    margin:Auto;
+    border:solid black;
+    background:lightgray;
+    display:grid;
+}

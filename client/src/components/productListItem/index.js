@@ -3,13 +3,13 @@ import "./style.css";
 
 function ProductListItem(props) {
     return (
-        <li>
+        <div className="grid-item" id="productCard">
             <p>{props.product}</p>
             <p>{props.brand}</p>
             <p>{props.price}</p>
             <p>{props.description}</p>
-
-        </li>
+            <img id="cardImg" alt={props.image} src={props.image} ></img>
+        </div>
     )
 }
 

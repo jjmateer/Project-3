@@ -24,9 +24,10 @@ class Browse extends Component {
 
                 <h1>Browse</h1>
                 <ProductList>
-                    {items.map(({ _id, product, brand, price, description }) => (
+                    {items.map(({ _id, image, product, brand, price, description }) => (
                         <ProductListItem
                             id={_id}
+                            image={image}
                             product={product}
                             brand={brand}
                             price={price}

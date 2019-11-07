@@ -3,7 +3,7 @@ import "./style.css";
 
 function ProductList(props) {
     return (
-        <div className="Section">
+        <div id="productList">
             {props.children}
         </div>
     );
