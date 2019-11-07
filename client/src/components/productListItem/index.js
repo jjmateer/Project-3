@@ -9,7 +9,7 @@ function ProductListItem(props) {
             <p>{props.price}</p>
             <p>{props.description}</p>
             <img id="cardImg" alt={props.image} src={props.image} />
-            <btn id="ATCbtn">Add To Cart</btn>
+            <button id="ATCbtn">Add To Cart</button>
         </div>
     )
 }

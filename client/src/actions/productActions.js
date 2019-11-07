@@ -1,6 +1,11 @@
 import axios from 'axios';
-import { GET_ITEMS, ADD_ITEM, ADD_ITEM_TO_CART, ITEMS_LOADING } from './types';
-import { tokenConfig } from './authActions';
+import {
+    GET_ITEMS,
+    // ADD_ITEM, 
+    // ADD_ITEM_TO_CART, 
+    ITEMS_LOADING
+} from './types';
+// import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
 
 export const getItems = () => dispatch => {
