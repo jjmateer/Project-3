@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import ProductList from "../components/productlist";
+import ProductListItem from "../components/productListItem";
 import { connect } from "react-redux";
 import { getItems } from "../actions/productActions";
 import { clearErrors } from "../actions/errorActions";
@@ -21,11 +23,14 @@ class Browse extends Component {
                 {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="motlogin-style">User not logged in</h1>}
 
                 <h1>Browse</h1>
-                <ul>
-                    {items.map(({ _id, name }) => (
-                        <li key={_id}>{name}</li>
+                <ProductList>
+                    {this.state.items.map(item => (
+                        <ProductListItem
+                            key={item._id}
+                            name={item.name}
+                        />
                     ))}
-                </ul>
+                </ProductList>
             </div>
         );
     }
