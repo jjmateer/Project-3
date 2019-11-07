@@ -8,7 +8,6 @@ export default {
   // Get the item with the given id
   getItem: function(id) {
     return axios.get("http://localhost:3001/api/inventory/" + id);
-    s;
   },
 
   //get items by category

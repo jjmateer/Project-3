@@ -15,20 +15,10 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-<<<<<<< HEAD
 mongoose.connect("mongodb://localhost/storefrontdb", {
   useNewUrlParser: true,
   useCreateIndex: true
 });
-
-=======
-mongoose.connect('mongodb://localhost/storefrontdb',
-  {
-    useNewUrlParser: true,
-    useCreateIndex: true
-  }
-);
->>>>>>> 457a207de815ae1448d164369b5d69d5d03a3de3
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function callback() {
