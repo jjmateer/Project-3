@@ -2,7 +2,6 @@
     width:90%;
     grid-template-columns: auto auto auto;
     margin:Auto;
-    border:solid black;
-    background:lightgray;
+    background:#e5e5ee;
     display:grid;
 }

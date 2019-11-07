@@ -8,7 +8,8 @@ function ProductListItem(props) {
             <p>{props.brand}</p>
             <p>{props.price}</p>
             <p>{props.description}</p>
-            <img id="cardImg" alt={props.image} src={props.image} ></img>
+            <img id="cardImg" alt={props.image} src={props.image} />
+            <btn id="ATCbtn">Add To Cart</btn>
         </div>
     )
 }
