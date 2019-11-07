@@ -15,18 +15,16 @@ class Browse extends Component {
         this.props.getItems();
     }
     render() {
-        // const { items } = this.props.item;
+        const { items } = this.props.item;
         return (
             <div>
                 {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="motlogin-style">User not logged in</h1>}
 
                 <h1>Browse</h1>
                 <ul>
-                    {/* {items.map(({ _id, name }) => (
-                        <li>
-                            <p>{name}</p>
-                        </li>
-                    ))} */}
+                    {items.map(({ _id, name }) => (
+                        <li key={_id}>{name}</li>
+                    ))}
                 </ul>
             </div>
         );

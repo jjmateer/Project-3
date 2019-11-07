@@ -8,6 +8,7 @@ export const getItems = () => dispatch => {
     axios
         .get('http://localhost:3001/api/inventory')
         .then(res =>
+            // console.log(res.data)
             dispatch({
                 type: GET_ITEMS,
                 payload: res.data

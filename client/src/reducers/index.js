@@ -5,6 +5,6 @@ import errorReducer from "./errorReducer";
 
 export default combineReducers({
     auth: authReducer,
-    product: productReducer,
+    item: productReducer,
     error: errorReducer
 });
