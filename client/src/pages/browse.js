@@ -24,10 +24,14 @@ class Browse extends Component {
 
                 <h1>Browse</h1>
                 <ProductList>
-                    {this.state.items.map(item => (
+                    {items.map(({ _id, product, brand, price, description }) => (
                         <ProductListItem
-                            key={item._id}
-                            name={item.name}
+                            id={_id}
+                            product={product}
+                            brand={brand}
+                            price={price}
+                            description={description}
+
                         />
                     ))}
                 </ProductList>

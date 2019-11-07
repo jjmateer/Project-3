@@ -1,12 +1,12 @@
 import React from "react";
 import "./style.css";
 
-function ProductList() {
+function ProductList(props) {
     return (
-        <ul>
-            {children}
-        </ul>
-    )
+        <div className="Section">
+            {props.children}
+        </div>
+    );
 }
 
 export default ProductList;
