@@ -20,11 +20,11 @@
     background: lightgrey;
 }
 
-h1, h2 {
+#homeh1, #homeh2 {
     margin-left:100px;
     color:white;
 }
 
-h2 {
+#homeh2 {
     color:#c8cacc;
 }
