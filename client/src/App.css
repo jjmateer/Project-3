@@ -1,19 +1,31 @@
-.page-title{
+.page-title {
     margin: 2% 8% 2% 8%;
     color: black;
 }
-.notlogin-style{
-    color:red;
+
+.notlogin-style {
+    color: red;
     font-size: 20px;
-    margin:15px;
+    margin: 15px;
     background: yellow;
-    padding:2px;
+    padding: 2px;
 }
 
-.login-style{
-    color:black;
+.login-style {
+    color: black;
     font-size: 20px;
-    margin:15px;
-    padding:2px;
-    
+    margin: 15px;
+    padding: 2px;
+}
+
+.form-input-style {
+    width: 270px;
+    padding: 12px 20px;
+    margin: 10px 10px 10px 10px;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    ;
 }

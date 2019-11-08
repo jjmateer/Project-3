@@ -16,6 +16,7 @@ const list = [
     { name: 'item7' },
     { name: 'item8' },
     { name: 'item9' },
+    { name: 'item10' },
     { name: 'item1' },
     { name: 'item2' },
     { name: 'item3' },
@@ -24,6 +25,9 @@ const list = [
     { name: 'item6' },
     { name: 'item7' },
     { name: 'item8' },
+    { name: 'item9' },
+    { name: 'item10' },
+    ,
 ];
 
 // One item component

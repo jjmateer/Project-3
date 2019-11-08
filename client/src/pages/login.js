@@ -61,7 +61,7 @@ class Login extends Component {
 
                 <h1 className="page-title">Login</h1>
 
-                <div className="content-wrapper">
+                <div className="content-wrappershort">
                     <div>
                         <LoginForm
                             handleEmailChange={this.handleEmailChange}
