@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Homelayout from "../components/homelayout";
-import Homediscount from "../components/homediscount";
+// import Homediscount from "../components/homediscount";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
 import PropTypes from "prop-types";
@@ -26,7 +26,7 @@ class Home extends Component {
 
                 <h1 className="page-title">Home</h1>
                 < Homelayout />
-                < Homediscount />
+                {/* < Homediscount /> */}
             </div>
         );
     }
