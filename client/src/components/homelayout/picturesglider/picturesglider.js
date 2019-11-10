@@ -26,28 +26,38 @@ class Picturesglider extends Component {
     }
     render() {
         return (
-            <div className="gliderdiv">
-                <h1>test scroller</h1>
+            <div>
+                <h1 style={{ marginLeft: "80px" }}>Monitors</h1>
+                <div className="gliderdiv">
 
-                <div id="picturesglider">
-                    <div id="thumbs">
-                        <div class="glide-box"><a id="cataegory-computers">1</a></div>
-                        <div class="glide-box"><a id="cataegory-computers">2</a></div>
-                        <div class="glide-box"><a id="cataegory-computers">3</a></div>
-                        <div class="glide-box"><a id="cataegory-computers">4</a></div>
-                        <div class="glide-box"><a id="cataegory-computers">5</a></div>
-                        <div class="glide-box"><a id="cataegory-computers">6</a></div>
-                        <div class="glide-box"><a id="cataegory-computers">7</a></div>
-                        <div class="glide-box"><a id="cataegory-computers">8</a></div>
-                        <div class="glide-box"><a id="cataegory-computers">9</a></div>
-                        <div class="glide-box"><a id="cataegory-computers">10</a></div>
-                        <div class="glide-box"><a id="cataegory-computers">12</a></div>
-                        <div class="glide-box"><a id="cataegory-computers">13</a></div>
-                        <div class="glide-box"><a id="cataegory-computers">14</a></div>
-                        <div class="glide-box"><a id="cataegory-computers">15</a></div>
+                    <div id="picturesglider">
+                        <div id="thumbs">
+                            <a id="cataegory-computers1" class="glide-box">1</a>
+                            <a id="cataegory-computers2" class="glide-box">2</a>
+                            <a id="cataegory-computers3" class="glide-box">3</a>
+                            <a id="cataegory-computers4" class="glide-box">4</a>
+                            <a id="cataegory-computers5" class="glide-box">5</a>
+                            <a id="cataegory-computers6" class="glide-box">6</a>
+                            <a id="cataegory-computers7" class="glide-box">7</a>
+                            <a id="cataegory-computers8" class="glide-box">8</a>
+                            <a id="cataegory-computers9" class="glide-box">9</a>
+                            <a id="cataegory-computers10" class="glide-box">10</a>
+                            <a id="cataegory-computers11" class="glide-box">11</a>
+                            <a id="cataegory-computers12" class="glide-box">12</a>
+                            <a id="cataegory-computers13" class="glide-box">13</a>
+                            <a id="cataegory-computers14" class="glide-box">14</a>
+                            <a id="cataegory-computers15" class="glide-box">15</a>
+                            <a id="cataegory-computers16" class="glide-box">16</a>
+                            <a id="cataegory-computers17" class="glide-box">17</a>
+                            <a id="cataegory-computers18" class="glide-box">18</a>
+                            <a id="cataegory-computers19" class="glide-box">19</a>
+                            <a id="cataegory-computers20" class="glide-box">20</a>
+
+                        </div>
                     </div>
                 </div>
             </div>
+
         );
 
 

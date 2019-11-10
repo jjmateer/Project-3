@@ -19,8 +19,10 @@ class Nav extends Component {
         return (
             <div className="global-header" >
                 <div className="global-header-left">
-                    <h1>StoreFront</h1>
+                    <h1 className="NameDesign">RealTech   <p className="NameDesign2">StoreFront</p></h1>
+
                 </div>
+
 
                 <div className="global-header-right">
                     <Link to="/">Home</Link>
@@ -30,6 +32,9 @@ class Nav extends Component {
                     <Link to="/cart">Cart </Link>
                     {this.props.isAuthenticated ? <Logout /> : null}
                 </div>
+
+
+              
 
             </div>
         )

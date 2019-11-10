@@ -17,6 +17,8 @@ function Homelayout() {
                     <h2 id="homeh2">Your Ideas Made Real</h2>
                 </div>
             </div>
+
+    
             {/* <!-- bgimg-1 --> */}
             <div>
                 <Homediscount />

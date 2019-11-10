@@ -1,23 +1,38 @@
 .menu-item {
-  padding: 30px 30px 30px 30px;
-  margin: 5px 10px;
+  height: 190px;
+  width: 180px;
+  background-color: rgb(25, 53, 32);
+  /* background-color: rgb(12, 211, 181); */
+  margin: 10px;
+  display: inline-block;
+  text-emphasis: bottom;
+  font-size: 16px;
+  color: #FFF;
   user-select: none;
   cursor: pointer;
-  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  /* flex-direction: row; */
+}
+
+.meny-item-wrapper {
+  margin: 95px;
 }
 
 .menu-item-wrapper.active {
-  border: 1px blue solid;
+  border: 1px black;
 }
 
 .menu-item.active {
-  border: 1px green solid;
+  border: 1px;
 }
 
 .scroll-menu-arrow {
   padding: 50px;
   cursor: pointer;
 }
+
 a {
   cursor: pointer;
 }

@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import "./style.css";
 
-
-
-
 // list of items
 const list = [
     { name: 'item1' },
@@ -37,7 +34,6 @@ const MenuItem = ({ text, selected }) => {
         className={`menu-item ${selected ? 'active' : ''}`}
     >{text}</div>;
 };
-
 // All items component
 // Important! add unique key
 export const Menu = (list, selected) =>
@@ -60,7 +56,7 @@ const Arrow = ({ text, className }) => {
 const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
 const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
 
-const selected = 'item1';
+const selected = 'item2';
 
 class Homediscount extends Component {
     constructor(props) {
@@ -84,7 +80,8 @@ class Homediscount extends Component {
         const menu = this.menuItems;
 
         return (
-            <div className="App">
+            <div className="BestDeal">
+            <h1 style={{ marginLeft: "80px" }}>Best Deal in Store</h1>
                 <ScrollMenu
                     data={menu}
                     arrowLeft={ArrowLeft}
