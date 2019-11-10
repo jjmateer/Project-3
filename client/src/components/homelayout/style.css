@@ -12,7 +12,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("techbackground.jpg");
+    background-image: url("techgreenbackground.jpg");
 }
 
 .store-discount {
@@ -21,11 +21,10 @@
 }
 
 #homeh1, #homeh2 {
-    margin-left:100px;
-    color:rgb(245, 240, 252);
+    margin-left: 100px;
+    color: rgb(245, 240, 252);
 }
 
 #homeh2 {
-    color:#b0aeb1;
+    color: #b0aeb1;
 }
-
