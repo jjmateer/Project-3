@@ -10,6 +10,37 @@ function Cartlayout() {
                 <div className="products-organizer">
                     <ProductsInCart />
                 </div>
+
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
+                <p>lorem</p>
             </div>
         </div>
     )

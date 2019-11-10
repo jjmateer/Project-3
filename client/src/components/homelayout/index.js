@@ -26,6 +26,8 @@ function Homelayout() {
                 <Picturesglider />
             </div>
             {/* ***************************************** */}
+            <p>lorem</p>
+
         </div>
     )
 }

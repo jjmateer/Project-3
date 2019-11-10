@@ -5,7 +5,6 @@ import $ from "jquery";
 
 var cntWd, sldWd, tb;
 
-
 class Picturesglider extends Component {
     constructor(props) {
         super(props)
@@ -15,11 +14,11 @@ class Picturesglider extends Component {
 
         $(function () {
 
-            cntWd = $('#container-discount2').innerWidth();
+            cntWd = $('#picturesglider').innerWidth();
             tb = $('#thumbs');
             sldWd = tb.outerWidth();
 
-            $('#container-discount2').mousemove(function (e) {
+            $('#picturesglider').mousemove(function (e) {
                 tb.css({ left: ((cntWd - sldWd) * ((e.pageX / cntWd).toFixed(3))).toFixed(1) + "px" });
             });
         });
@@ -27,26 +26,25 @@ class Picturesglider extends Component {
     }
     render() {
         return (
-            <div class="glidediv">
+            <div className="gliderdiv">
                 <h1>test scroller</h1>
-                
-                <div id="container-discount2">
+
+                <div id="picturesglider">
                     <div id="thumbs">
-                        <div class="glide-box"><a id="cataegory1">1</a></div>
-                        <div class="glide-box">2</div>
-                        <div class="glide-box">3</div>
-                        <div class="glide-box">4</div>
-                        <div class="glide-box">5</div>
-                        <div class="glide-box">6</div>
-                        <div class="glide-box">7</div>
-                        <div class="glide-box">8</div>
-                        <div class="glide-box">9</div>
-                        <div class="glide-box">10</div>
-                        <div class="glide-box">11</div>
-                        <div class="glide-box">12</div>
-                        <div class="glide-box">13</div>
-                        <div class="glide-box">14</div>
-                        <div class="glide-box">15</div>
+                        <div class="glide-box"><a id="cataegory-computers">1</a></div>
+                        <div class="glide-box"><a id="cataegory-computers">2</a></div>
+                        <div class="glide-box"><a id="cataegory-computers">3</a></div>
+                        <div class="glide-box"><a id="cataegory-computers">4</a></div>
+                        <div class="glide-box"><a id="cataegory-computers">5</a></div>
+                        <div class="glide-box"><a id="cataegory-computers">6</a></div>
+                        <div class="glide-box"><a id="cataegory-computers">7</a></div>
+                        <div class="glide-box"><a id="cataegory-computers">8</a></div>
+                        <div class="glide-box"><a id="cataegory-computers">9</a></div>
+                        <div class="glide-box"><a id="cataegory-computers">10</a></div>
+                        <div class="glide-box"><a id="cataegory-computers">12</a></div>
+                        <div class="glide-box"><a id="cataegory-computers">13</a></div>
+                        <div class="glide-box"><a id="cataegory-computers">14</a></div>
+                        <div class="glide-box"><a id="cataegory-computers">15</a></div>
                     </div>
                 </div>
             </div>

@@ -1,17 +1,23 @@
 .gliderdiv {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    position: static;
+    margin: 20px 10px 20px 10px;
+    /* padding: 0; */
+    /* display: block; */
+    /* position: static; */
 }
 
-#container {
+#picturesglider {
     height: 320px;
-    width: 101%;
-    background-color: #646464;
+    width: 95%;
+    /* background-color: #646464; */
     overflow: hidden;
-    position: static;
+    position: relative;
     overflow-x: scroll;
+    align-items: center;
+    margin: 20px 10px 20px 10px;
+}
+
+#picturesglider::-webkit-scrollbar {
+    display: none;
 }
 
 #thumbs {
@@ -23,6 +29,7 @@
     white-space: nowrap;
     padding: 0 100px;
     align-items: center;
+    margin-right: -35px;
 }
 
 .glide-box {
@@ -35,4 +42,34 @@
     font-size: 3em;
     font-weight: bold;
     color: #FFF;
+}
+
+@media only screen and (max-width: 500px) {
+    .glide-box {
+        height: 100px;
+        width: 100px;
+        background-color: #2E94B4;
+        margin: 10px;
+        display: inline-block;
+        text-align: center;
+        font-size: 1em;
+        font-weight: bold;
+        color: #FFF;
+    }
+    #picturesglider {
+        height: 320px;
+        width: auto;
+        /* background-color: #646464; */
+        overflow: hidden;
+        position: relative;
+        overflow-x: scroll;
+        align-items: center;
+        margin: 5%
+    }
+    .gliderdiv {
+        margin: 10px;
+        padding: 0;
+        /* display: block; */
+        /* position: static; */
+    }
 }
