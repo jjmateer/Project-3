@@ -1,6 +1,12 @@
-.gliderdiv{
+/* .gliderdiv{
     margin: 0;
     padding: 0;
+    display: flex;
+} */
+
+.glider {
+    position: static;
+    display: block;
 }
 
 #container {
@@ -8,8 +14,9 @@
     width: 100%;
     background-color: #646464;
     overflow: hidden;
-    position: relative;
+    position: static;
     overflow-x: scroll;
+    display: block;
 }
 
 #thumbs {
@@ -22,6 +29,7 @@
     overflow: hidden;
     white-space: nowrap;
     padding: 0 100px;
+    display: block;
 }
 
 #thumbs div {

@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import Picturesglider from "./picturesglider/picturesglider"
+import Homediscount from "./homediscount/index"
 
 
 
@@ -17,7 +18,7 @@ function Homelayout() {
                 </div>
             </div>
             {/* <!-- bgimg-1 --> */}
-
+            <Homediscount />
             <Picturesglider />
             {/* ***************************************** */}
         </div>

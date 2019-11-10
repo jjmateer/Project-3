@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./picturesglider.css";
-import $ from 'jquery';
+import $ from "jquery";
+
 
 var cntWd, sldWd, tb;
 
@@ -26,10 +27,10 @@ class Picturesglider extends Component {
     }
     render() {
         return (
-            <div >
+            <div class="glide">
                 <div id="container-discount2">
                     <div id="thumbs">
-                        <div>1</div>
+                        <div><a>1</a></div>
                         <div>2</div>
                         <div>3</div>
                         <div>4</div>
