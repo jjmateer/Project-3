@@ -27,24 +27,26 @@ class Picturesglider extends Component {
     }
     render() {
         return (
-            <div class="glide">
+            <div class="glidediv">
+                <h1>test scroller</h1>
+                
                 <div id="container-discount2">
                     <div id="thumbs">
-                        <div><a>1</a></div>
-                        <div>2</div>
-                        <div>3</div>
-                        <div>4</div>
-                        <div>5</div>
-                        <div>6</div>
-                        <div>7</div>
-                        <div>8</div>
-                        <div>9</div>
-                        <div>10</div>
-                        <div>11</div>
-                        <div>12</div>
-                        <div>13</div>
-                        <div>14</div>
-                        <div>15</div>
+                        <div class="glide-box"><a id="cataegory1">1</a></div>
+                        <div class="glide-box">2</div>
+                        <div class="glide-box">3</div>
+                        <div class="glide-box">4</div>
+                        <div class="glide-box">5</div>
+                        <div class="glide-box">6</div>
+                        <div class="glide-box">7</div>
+                        <div class="glide-box">8</div>
+                        <div class="glide-box">9</div>
+                        <div class="glide-box">10</div>
+                        <div class="glide-box">11</div>
+                        <div class="glide-box">12</div>
+                        <div class="glide-box">13</div>
+                        <div class="glide-box">14</div>
+                        <div class="glide-box">15</div>
                     </div>
                 </div>
             </div>

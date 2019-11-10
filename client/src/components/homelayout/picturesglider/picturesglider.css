@@ -1,40 +1,33 @@
-/* .gliderdiv{
+.gliderdiv {
     margin: 0;
     padding: 0;
     display: flex;
-} */
-
-.glider {
     position: static;
-    display: block;
 }
 
 #container {
     height: 320px;
-    width: 100%;
+    width: 101%;
     background-color: #646464;
     overflow: hidden;
     position: static;
     overflow-x: scroll;
-    display: block;
 }
 
 #thumbs {
-    background-color: black;
+    /* background-color: black; */
     position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 320px;
+    height: 250px;
     width: auto;
     overflow: hidden;
     white-space: nowrap;
     padding: 0 100px;
-    display: block;
+    align-items: center;
 }
 
-#thumbs div {
-    height: 300px;
-    width: 300px;
+.glide-box {
+    height: 200px;
+    width: 200px;
     background-color: #2E94B4;
     margin: 10px;
     display: inline-block;

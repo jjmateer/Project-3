@@ -18,8 +18,13 @@ function Homelayout() {
                 </div>
             </div>
             {/* <!-- bgimg-1 --> */}
-            <Homediscount />
-            <Picturesglider />
+            <div>
+                <Homediscount />
+            </div>
+
+            <div>
+                <Picturesglider />
+            </div>
             {/* ***************************************** */}
         </div>
     )
