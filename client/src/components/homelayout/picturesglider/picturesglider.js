@@ -27,7 +27,6 @@ class Picturesglider extends Component {
     render() {
         return (
             <div>
-                <h1 style={{ marginLeft: "80px" }}>Monitors</h1>
                 <div className="gliderdiv">
 
                     <div id="picturesglider">

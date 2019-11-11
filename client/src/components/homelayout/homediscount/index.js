@@ -81,7 +81,6 @@ class Homediscount extends Component {
 
         return (
             <div className="BestDeal">
-            <h1 style={{ marginLeft: "80px" }}>Best Deal in Store</h1>
                 <ScrollMenu
                     data={menu}
                     arrowLeft={ArrowLeft}

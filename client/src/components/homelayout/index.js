@@ -1,7 +1,9 @@
 import React from "react";
 import "./style.css";
-import Picturesglider from "./picturesglider/picturesglider"
-import Homediscount from "./homediscount/index"
+import Picturesglider from "./picturesglider/picturesglider";
+import Homediscount from "./homediscount/index";
+
+
 // import SearchBar from "../searchbar/searchbar"
 
 
@@ -23,23 +25,42 @@ function Homelayout() {
 
             {/* Temporary searchbar */}
             <div className="Osearch-container">
-                <input type="text" className="Osearch" placeholder="Search.." />
+                <input type="text" className="Osearch" placeholder="Search.." /><i class="fa fa-search"></i>
+
+
+                {/* Dropdown for Categories */}
+                <div class="dropdown">
+                    <button class="dropbtn">Categories</button>
+                    <div class="dropdown-content">
+                        <a href="#">Monitors</a>
+                        <a href="#">Desktops</a>
+                        <a href="#">Laptops</a>
+                        <a href="#">Speakers</a>
+                        <a href="#">Routers</a>
+                        <a href="#">Phones</a>
+                        <a href="#">Accessories</a>
+                    </div>
+                </div>
+
                 <input className="Obutton" type="button" value="Search" />
 
             </div>
 
+     
 
 
             {/* <!-- bgimg-1 --> */}
             <div>
+                <h1 style={{ marginLeft: "80px" }}>Best Deal in Store</h1>
+
                 <Homediscount />
             </div>
 
             <div>
+                <h1 style={{ marginLeft: "80px", marginBottom: "-10px" }}>Monitors</h1>
                 <Picturesglider />
             </div>
             {/* ***************************************** */}
-            <p>lorem</p>
 
         </div>
     )
