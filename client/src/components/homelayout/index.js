@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import Picturesglider from "./picturesglider/picturesglider"
 import Homediscount from "./homediscount/index"
+// import SearchBar from "../searchbar/searchbar"
 
 
 
@@ -18,7 +19,17 @@ function Homelayout() {
                 </div>
             </div>
 
-    
+
+
+            {/* Temporary searchbar */}
+            <div className="Osearch-container">
+                <input type="text" className="Osearch" placeholder="Search.." />
+                <input className="Obutton" type="button" value="Search" />
+
+            </div>
+
+
+
             {/* <!-- bgimg-1 --> */}
             <div>
                 <Homediscount />

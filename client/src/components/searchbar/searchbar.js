@@ -6,28 +6,28 @@ class SearchBar extends Component {
     constructor(props) {
         super(props)
     }
-  
-      componentDidMount = () => {
+
+    componentDidMount = () => {
 
 
-$('.search-button').click(function(){
-  $(this).parent().toggleClass('open');
-});
-        
-      }
-      
-      render() {
-        
+        $('.search-button').click(function () {
+            $(this).parent().toggleClass('open');
+        });
+
+    }
+
+    render() {
+
         return (
-            <div>
-          <div class="search">
-  <input type="search" class="search-box" />
-  <span class="search-button">
-    <span class="search-icon"></span>
-  </span>
-</div></div>
-          
-           );
+            <div className="search-container">
+                <div className="search">
+                    <input type="search" class="search-box" />
+                    <span className="search-button">
+                        <span className="search-icon"></span>
+                    </span>
+                </div>
+            </div>
+        );
 
 
     }
