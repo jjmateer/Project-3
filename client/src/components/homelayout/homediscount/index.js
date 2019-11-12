@@ -23,8 +23,7 @@ const list = [
     { name: 'item17' },
     { name: 'item18' },
     { name: 'item19' },
-    { name: 'item20' },
-    ,
+    { name: 'item20' }
 ];
 
 // One item component

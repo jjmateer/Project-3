@@ -56,8 +56,8 @@ class Signup extends Component {
     render() {
         return (
             <div className="App">
-                {this.state.msg ? <h1>Authentication failed</h1> : null}
-                {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">   User not logged in</h1>}
+                {this.state.msg ? <h1>User already exists.</h1> : null}
+                {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
                 <SignupForm
                     handleEmailChange={this.handleEmailChange}
                     handlePasswordChange={this.handlePasswordChange}

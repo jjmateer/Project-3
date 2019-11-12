@@ -5,6 +5,7 @@ import { clearErrors } from "../../actions/errorActions";
 import PropTypes from "prop-types";
 import Logout from "../logout"
 import "./style.css";
+import "../homelayout/style.css"
 
 class Nav extends Component {
     state = {

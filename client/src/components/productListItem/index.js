@@ -4,10 +4,10 @@ import "./style.css";
 function ProductListItem(props) {
     return (
         <div className="grid-item" id="productCard">
-            <p>{props.product}</p>
-            <p>{props.brand}</p>
-            <p>{props.price}</p>
-            <p>{props.description}</p>
+            <div id="cproduct">{props.product}</div>
+            <div id="cbrand">Brand: {props.brand}</div>
+            <div id="cprice">${props.price}</div>
+            {/* <div id="cdesc">{props.description}</div> */}
             <img id="cardImg" alt={props.image} src={props.image} />
             <button id="ATCbtn">Add To Cart</button>
         </div>

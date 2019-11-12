@@ -1,7 +1,6 @@
 const db = require("../models");
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken");
-const router = require("express").Router();
 const auth = require("../middleware/auth");
 
 exports.register = function (req, res) {

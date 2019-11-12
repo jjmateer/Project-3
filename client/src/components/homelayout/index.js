@@ -46,12 +46,12 @@ function Homelayout() {
 
             </div>
 
-     
+
 
 
             {/* <!-- bgimg-1 --> */}
             <div>
-                <h1 style={{ marginLeft: "80px" }}>Best Deal in Store</h1>
+                <h1 style={{ marginLeft: "800px" }}>Best Deal in Store</h1>
 
                 <Homediscount />
             </div>
