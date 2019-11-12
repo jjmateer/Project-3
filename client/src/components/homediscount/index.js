@@ -80,7 +80,7 @@ class Homediscount extends Component {
         const menu = this.menuItems;
 
         return (
-            <div className="App">
+            <div>
                 <ScrollMenu
                     data={menu}
                     arrowLeft={ArrowLeft}

@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { loadUser } from "./actions/authActions";
 import Nav from "../src/components/nav";
-// import Footer from "./components/footer";
+import Footer from "./components/footer";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
@@ -33,7 +33,7 @@ class App extends Component {
               <Route exact path="/item" component={Item} />
               <Route component={ErrorC} />
             </Switch>
-            {/* <Footer /> */}
+            <Footer />
           </div>
         </Router>
       </Provider>
