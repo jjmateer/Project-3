@@ -20,7 +20,6 @@ class Browse extends Component {
         const { items } = this.props.item;
         return (
             <div>
-                {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="motlogin-style">User not logged in</h1>}
 
                 <h1>Browse</h1>
                 <ProductList>

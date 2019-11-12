@@ -14,7 +14,6 @@ app.use(routes);
 var dbUrl = "";
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
   dbUrl = `mongodb+srv://jjmateer:${process.env.MONGO_PW}@cluster0-q0kab.mongodb.net/storefrontdb?retryWrites=true&w=majority`;
 } else {
   dbUrl = "mongodb://localhost/storefrontdb"
