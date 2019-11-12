@@ -11,7 +11,7 @@ import { returnErrors } from './errorActions';
 export const getItems = () => dispatch => {
     dispatch(setItemsLoading());
     axios
-        .get('/api/inventory')
+        .get('http://localhost:3001/api/inventory')
         .then(res =>
             dispatch({
                 type: GET_ITEMS,
