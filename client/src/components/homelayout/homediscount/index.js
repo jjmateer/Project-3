@@ -1,96 +1,82 @@
 import React, { Component } from "react";
-import ScrollMenu from 'react-horizontal-scrolling-menu';
+import Slider from "react-slick";
 import "./style.css";
-
-// list of items
-const list = [
-    { name: 'item1' },
-    { name: 'item2' },
-    { name: 'item3' },
-    { name: 'item4' },
-    { name: 'item5' },
-    { name: 'item6' },
-    { name: 'item7' },
-    { name: 'item8' },
-    { name: 'item9' },
-    { name: 'item10' },
-    { name: 'item11' },
-    { name: 'item12' },
-    { name: 'item13' },
-    { name: 'item14' },
-    { name: 'item15' },
-    { name: 'item16' },
-    { name: 'item17' },
-    { name: 'item18' },
-    { name: 'item19' },
-    { name: 'item20' }
-];
-
-// One item component
-// selected prop will be passed
-const MenuItem = ({ text, selected }) => {
-    return <div
-        className={`menu-item ${selected ? 'active' : ''}`}
-    >{text}</div>;
-};
-// All items component
-// Important! add unique key
-export const Menu = (list, selected) =>
-    list.map(el => {
-        const { name } = el;
-
-        return <MenuItem text={name} key={name} selected={selected} />;
-    });
-
-
-const Arrow = ({ text, className }) => {
-    return (
-        <div
-            className={className}
-        >{text}</div>
-    );
-};
-
-
-const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
-const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
-
-const selected = 'item2';
+import { connect } from "react-redux";
+import { getItems } from "../../../actions/productActions";
+import { clearErrors } from "../../../actions/errorActions";
+import PropTypes from "prop-types";
 
 class Homediscount extends Component {
-    constructor(props) {
-        super(props);
-        // call it again if items count changes
-        this.menuItems = Menu(list, selected);
+    static propTypes = {
+        getItems: PropTypes.func.isRequired,
+        item: PropTypes.object.isRequired,
+        isAuthenticated: PropTypes.bool
     }
-
-    state = {
-        selected
-    };
-
-    onSelect = key => {
-        this.setState({ selected: key });
+    componentDidMount() {
+        this.props.getItems();
     }
-
-
     render() {
-        const { selected } = this.state;
-        // Create menu from items
-        const menu = this.menuItems;
-
+        const { items } = this.props.item;
+        var settings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            initialSlide: 0,
+            responsive: [
+              {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 8,
+                  slidesToScroll: 8,
+                  infinite: true,
+                  dots: true
+                }
+              },
+              {
+                breakpoint: 600,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 2,
+                  initialSlide: 2
+                }
+              },
+              {
+                breakpoint: 480,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+                }
+              }
+            ]
+          };
         return (
-            <div className="BestDeal">
-                <ScrollMenu
-                    data={menu}
-                    arrowLeft={ArrowLeft}
-                    arrowRight={ArrowRight}
-                    selected={selected}
-                    onSelect={this.onSelect}
-                />
-            </div>
+            // <div>
+                <Slider {...settings}>
+                    {items.map(({ _id, image, product, brand, price, description }) => (
+                    <div className="menu-item" key={_id}>
+                        <p>image={image}</p>
+                        <p> product={product}</p>
+                        <p>brand={brand}</p>
+                        <p>price={price}</p>
+                            {/* description={description} */}
+                        /></div>
+                ))}
+                </Slider>
+            // </div>
         );
     }
 }
 
 
-export default Homediscount;
+const mapStateToProps = state => ({
+    item: state.item,
+    isAuthenticated: state.auth.isAuthenticated,
+    error: state.error
+})
+
+export default connect(
+    mapStateToProps,
+    { getItems, clearErrors }
+)(Homediscount);

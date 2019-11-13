@@ -1,38 +1,33 @@
-.menu-item {
-  height: 190px;
-  width: 180px;
-  background-color: rgb(25, 53, 32);
-  /* background-color: rgb(12, 211, 181); */
-  margin: 10px;
-  display: inline-block;
-  text-emphasis: bottom;
-  font-size: 16px;
-  color: #FFF;
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+
+.slick-track, .slick-slider {
+  display:flex;
+  flex-direction: row;
+  width:80vw;
+  margin:auto;
+}
+
+.menu-item, .slick-slide div {
+  /* padding: 0 40px; */
+  height:250px;
+  width:250px;
   user-select: none;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  /* flex-direction: row; */
+  border: solid white;
+  background:#295a31;
 }
-
-.meny-item-wrapper {
-  margin: 95px;
-}
-
 .menu-item-wrapper.active {
-  border: 1px black;
+  border: 1px blue solid;
 }
-
 .menu-item.active {
-  border: 1px;
+  border: 1px green solid;
 }
 
-.scroll-menu-arrow {
-  padding: 50px;
-  cursor: pointer;
-}
-
-a {
+.slick-arrow {
+  display:none !important;
+  padding: 20px;
+  background:black;
   cursor: pointer;
 }
