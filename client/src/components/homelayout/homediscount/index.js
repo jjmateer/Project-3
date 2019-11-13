@@ -18,53 +18,50 @@ class Homediscount extends Component {
     render() {
         const { items } = this.props.item;
         var settings = {
-            dots: true,
+            dots: false,
             infinite: true,
             speed: 500,
-            slidesToShow: 4,
-            slidesToScroll: 4,
+            slidesToShow: 8,
+            slidesToScroll: 8,
             initialSlide: 0,
             responsive: [
-              {
-                breakpoint: 1024,
-                settings: {
-                  slidesToShow: 8,
-                  slidesToScroll: 8,
-                  infinite: true,
-                  dots: true
+                {
+                    breakpoint: 1025,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4,
+                        infinite: true,
+                        dots: false
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        initialSlide: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
                 }
-              },
-              {
-                breakpoint: 600,
-                settings: {
-                  slidesToShow: 2,
-                  slidesToScroll: 2,
-                  initialSlide: 2
-                }
-              },
-              {
-                breakpoint: 480,
-                settings: {
-                  slidesToShow: 1,
-                  slidesToScroll: 1
-                }
-              }
             ]
-          };
+        };
         return (
-            // <div>
-                <Slider {...settings}>
-                    {items.map(({ _id, image, product, brand, price, description }) => (
+            <Slider {...settings}>
+                {items.map(({ _id, image, product, brand, price, description }) => (
                     <div className="menu-item" key={_id}>
-                        <p>image={image}</p>
-                        <p> product={product}</p>
-                        <p>brand={brand}</p>
-                        <p>price={price}</p>
-                            {/* description={description} */}
-                        /></div>
+                        <h4>{product}</h4>
+                        <p>image:{image}</p>
+                        <p>brand:{brand}</p>
+                        <p>${price}.00</p>
+                    </div>
                 ))}
-                </Slider>
-            // </div>
+            </Slider>
         );
     }
 }

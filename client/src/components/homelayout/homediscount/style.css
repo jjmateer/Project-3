@@ -5,29 +5,25 @@
 .slick-track, .slick-slider {
   display:flex;
   flex-direction: row;
-  width:80vw;
+  width:90vw;
   margin:auto;
 }
 
-.menu-item, .slick-slide div {
-  /* padding: 0 40px; */
-  height:250px;
-  width:250px;
+.slick-slide, .slick-slide div, .menu-item {
+  height:225px;
+  min-width:225px;
   user-select: none;
   cursor: pointer;
-  border: solid white;
   background:#295a31;
+  box-sizing: border-box;
+  color:white;
 }
-.menu-item-wrapper.active {
-  border: 1px blue solid;
+.menu-item {
+  text-align: center;
+  border: 10px solid white;
 }
-.menu-item.active {
-  border: 1px green solid;
-}
-
-.slick-arrow {
-  display:none !important;
-  padding: 20px;
-  background:black;
+.slick-arrow, .slick-arrow :active, .slick-arrow :hover {
+  /* display:none !important; */
+  background:black !important;
   cursor: pointer;
 }
