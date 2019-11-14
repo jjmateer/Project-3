@@ -1,7 +1,8 @@
 #productList{
-    width:90%;
-    grid-template-columns: auto auto auto;
+    width:70%;
+    max-width:100%;
+    grid-template-columns: 3 3 3;
     margin:Auto;
-    background:#e5e5ee;
+    /* background:#e5e5ee; */
     display:grid;
 }

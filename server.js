@@ -11,23 +11,44 @@ app.use(cors());
 app.use(express.json());
 app.use(routes);
 
+var dbUrl = "";
+
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  dbUrl = `mongodb+srv://jjmateer:${process.env.MONGO_PW}@cluster0-q0kab.mongodb.net/storefrontdb?retryWrites=true&w=majority`;
+} else {
+  dbUrl = "mongodb://localhost/storefrontdb"
 }
 
+<<<<<<< HEAD
 mongoose.connect("mongodb://localhost/storefrontdb", {
   useNewUrlParser: true,
   useCreateIndex: true
 });
+=======
+mongoose.connect(dbUrl,
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  }
+);
+>>>>>>> 7275ea37e0f4858bebf7f6fde82e4f2e2eb20762
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function callback() {
   console.log("Connected to MongoDB.");
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/public/index.html"));
-});
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, '/client/build')));
+  app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  });
+} else {
+  app.use(express.static(path.join(__dirname, '/client/public')));
+  app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "./client/public/index.html"));
+  });
+}
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}.`);

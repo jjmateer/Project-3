@@ -1,14 +1,45 @@
 #productCard {
     border:1px solid black;
-    width:90%;
     margin:10px auto;
     background:white;
     box-shadow: 10px 10px 8px #888888;
+    min-height:300px;
+    width:100%;
 }
 
 #ATCbtn{
-    background:lightgray;
+    background: rgb(25, 53, 32);
+    color:white;
     padding:10px;
     cursor:pointer;
-    box-sizing:border-box;
+    width:25%;
+    float:right;
+    bottom:0;
+    /* margin:0; */
+    padding:0;
+    margin-top:190px;
+    height:50px;
+    align-content: flex-end;
+}
+
+#cardImg {
+    height:auto;
+    width:auto;
+    max-height:50px;
+}
+
+#cproduct{
+    background-color: rgb(25, 53, 32);
+    color:white;
+    text-align:center;
+}
+
+#cdesc {
+    background:lightgray;
+    width:90%;
+    margin:auto;
+    height:100px;
+}
+#cbrand, #cprice{
+    text-align:center;
 }
