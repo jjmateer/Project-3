@@ -7,7 +7,6 @@ module.exports = {
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-    console.log(dbModel);
   },
   findById: function(req, res) {
     db.Item.findById(req.params.id)
@@ -15,7 +14,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findByCategory: function (req, res) {
-    db.Item.findById(req.params.category)
+    // console.log(req)
+    db.Item.find({category: req.params.category})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

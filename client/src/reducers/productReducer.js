@@ -10,6 +10,7 @@ import {
 
 const initialState = {
     items: [],
+    items_by_category: [],
     loading: false
 };
 
@@ -24,7 +25,7 @@ export default function (state = initialState, action) {
         case GET_BY_CATEGORY:
             return {
                 ...state,
-                items_in_category: action.payload,
+                items_by_category: action.payload,
                 loading: false
             };
         case ADD_ITEM:

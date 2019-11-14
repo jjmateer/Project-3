@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import itemForm from "../components/itemForm";
+import itemForm from "../components/itemform";
 import API from "../utils/API";
 
 class Item extends Component {

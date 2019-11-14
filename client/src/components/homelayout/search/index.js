@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getItems } from "../../../actions/productActions";
+import { getByCategory } from "../../../actions/productActions";
 import { clearErrors } from "../../../actions/errorActions";
 import PropTypes from "prop-types";
 // import "../style.css";
@@ -9,10 +9,24 @@ import PropTypes from "prop-types";
 
 
 class Search extends Component {
+    state = {
+        query: "",
+        msg: null
+    };
+    static propTypes = {
+        isAuthenticated: PropTypes.bool,
+        error: PropTypes.object.isRequired,
+        getByCategory: PropTypes.func.isRequired,
+        clearErrors: PropTypes.func.isRequired
+    }
     handleCategorySearch = event => {
+        event.preventDefault();
+        // console.log(`TID: ${event.target.id}`)
         this.setState({
-            items_by_category: event.target.value
+            query: event.target.id
         })
+        const { query } = this.state;
+        this.props.getByCategory(query)
     }
     render() {
         return (
@@ -34,13 +48,13 @@ class Search extends Component {
                     <div className="dropdown">
                         <button className="dropbtn">Categories</button>
                         <div className="dropdown-content">
-                            <Link onChange={this.handleCategorySearch} to="/browse">Monitors</Link>
-                            <Link onChange={this.handleCategorySearch} to="/browse">Desktops</Link>
-                            <Link onChange={this.handleCategorySearch} to="/browse">Laptops</Link>
-                            <Link onChange={this.handleCategorySearch} to="/browse">Speakers</Link>
-                            <Link onChange={this.handleCategorySearch} to="/browse">Routers</Link>
-                            <Link onChange={this.handleCategorySearch} to="/browse">Phones</Link>
-                            <Link onChange={this.handleCategorySearch} to="/browse">Accessories</Link>
+                            <Link onClick={this.handleCategorySearch} to="/browse" id="monitor">Monitors</Link>
+                            <Link onClick={this.handleCategorySearch} to="/browse" id="desktop">Desktops</Link>
+                            <Link onClick={this.handleCategorySearch} to="/browse" id="laptop">Laptops</Link>
+                            <Link onClick={this.handleCategorySearch} to="/browse" id="speaker">Speakers</Link>
+                            <Link onClick={this.handleCategorySearch} to="/browse" id="router">Routers</Link>
+                            <Link onClick={this.handleCategorySearch} to="/browse" id="phone">Phones</Link>
+                            <Link onClick={this.handleCategorySearch} to="/browse" id="accessories">Accessories</Link>
                         </div>
                     </div>
                     <input className="Obutton" type="button" value="Search" />
@@ -63,5 +77,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getItems, clearErrors }
+    { getByCategory, clearErrors }
 )(Search);

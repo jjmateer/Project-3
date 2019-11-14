@@ -24,10 +24,11 @@ export const getItems = () => dispatch => {
         );
 };
 
-export const getByCategory = () => dispatch => {
+export const getByCategory = (query) => dispatch => {
+    console.log(query)
     dispatch(setItemsLoading());
     axios
-        .get('http://localhost:3001/api/inventory/:category')
+        .get(`http://localhost:3001/api/inventory/category/${query}`)
         .then(res =>
             dispatch({
                 type: GET_BY_CATEGORY,

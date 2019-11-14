@@ -13,9 +13,9 @@ class Browse extends Component {
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     }
-    componentDidMount() {
-        this.props.getItems();
-    }
+    // componentDidMount() {
+    //     this.props.getItems();
+    // }
     render() {
         const { items } = this.props.item;
         return (
