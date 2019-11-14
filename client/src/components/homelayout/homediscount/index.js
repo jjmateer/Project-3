@@ -17,6 +17,9 @@ class Homediscount extends Component {
     }
     render() {
         const { items } = this.props.item;
+        const lowcostitems = items.filter((item) => {
+            return item.price < 100;
+        })
         var settings = {
             dots: false,
             infinite: true,
@@ -53,14 +56,16 @@ class Homediscount extends Component {
         };
         return (
             <Slider {...settings}>
-                {items.map(({ _id, image, product, brand, price, description }) => (
-                    <div className="menu-item" key={_id}>
-                        <h4>{product}</h4>
-                        <p>image:{image}</p>
-                        <p>brand:{brand}</p>
-                        <p>${price}.00</p>
-                    </div>
-                ))}
+                {items.map(({ _id, image, product, brand, price, description }) => {
+                    return (
+                        <div className="menu-item" key={_id}>
+                            <h4>{product}</h4>
+                            <p>image:{image}</p>
+                            <p>brand:{brand}</p>
+                            <p>${price}.00</p>
+                        </div>
+                    )
+                })}
             </Slider>
         );
     }
