@@ -26,10 +26,9 @@ class Home extends Component {
             <div >
                 {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
                 < Search />
-                <h1>Best Deals In Store</h1>
+                <h1 style={{ marginLeft: "80px" }}>Best Deal in Store</h1>
                 < Homediscount />
-                <h1>Monitors</h1>
-                < Picturesglider />
+                <h1 style={{ marginLeft: "80px", marginBottom: "-10px" }}>Monitors</h1>                < Picturesglider />
             </div>
         );
     }

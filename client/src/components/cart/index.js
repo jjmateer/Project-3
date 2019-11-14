@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
-import ProductsInCart from "../cartItem"
+import ProductsInCart from "../cartItem/index";
+
 
 function Cartlayout() {
     return (
@@ -8,8 +9,12 @@ function Cartlayout() {
 
             <div className="content-wrapper">
                 <div className="products-organizer">
+
+
                     <ProductsInCart />
                 </div>
+
+        
             </div>
         </div>
     )
