@@ -17,7 +17,7 @@ function SignupForm({ handleEmailChange, handlePasswordChange, handleFormSubmit 
                     <input className="form-control" autoComplete="on" type="text" placeholder="  Email" onChange={handleEmailChange} required />
                     <h3>Password :</h3>
 
-                    <input className="form-control" autoComplete="on" type="password" placeholder="  Password" onChange={handlePasswordChange} required />
+                    <input className="form-control" autoComplete="on" type="password" placeholder="  Password(6 characters minimum)" onChange={handlePasswordChange} required />
                     <input className="sub" type="submit" value="Submit" onClick={handleFormSubmit} />
                 </form>
 
