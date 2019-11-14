@@ -12,3 +12,4 @@ export const GET_ITEMS = "GET_ITEMS";
 export const ADD_ITEM = "ADD_ITEM";
 export const ADD_ITEM_TO_CART = "ADD_ITEM_TO_CART";
 export const ITEMS_LOADING = "ITEMS_LOADING";
+export const GET_BY_CATEGORY = "GET_BY_CATEGORY";
