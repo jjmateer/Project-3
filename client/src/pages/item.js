@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Itemform from "../components/itemform"
+import itemForm from "../components/itemForm";
 import API from "../utils/API";
 
 class Item extends Component {
@@ -59,7 +59,7 @@ class Item extends Component {
     return (
       <div>
         <h1>Add Item</h1>
-        <Itemform
+        <itemForm
           handleInputChange={this.handleInputChange}
           handleFormSubmit={this.handleFormSubmit}
         />
@@ -90,7 +90,7 @@ class Item extends Component {
       //         );
       //       }
       //     }
-      //   }} 
+      //   }}
       //  </div>
       // </div>
     );

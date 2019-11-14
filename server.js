@@ -16,29 +16,27 @@ var dbUrl = "";
 if (process.env.NODE_ENV === "production") {
   dbUrl = `mongodb+srv://jjmateer:${process.env.MONGO_PW}@cluster0-q0kab.mongodb.net/storefrontdb?retryWrites=true&w=majority`;
 } else {
-  dbUrl = "mongodb://localhost/storefrontdb"
+  dbUrl = "mongodb://localhost/storefrontdb";
 }
 
-mongoose.connect(dbUrl,
-  {
-    useNewUrlParser: true,
-    useCreateIndex: true
-  }
-);
+mongoose.connect(dbUrl, {
+  useNewUrlParser: true,
+  useCreateIndex: true
+});
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback() {
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", function callback() {
   console.log("Connected to MongoDB.");
 });
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, '/client/build')));
-  app.get("*", function (req, res) {
+  app.use(express.static(path.join(__dirname, "/client/build")));
+  app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "./client/build/index.html"));
   });
 } else {
-  app.use(express.static(path.join(__dirname, '/client/public')));
-  app.get("*", function (req, res) {
+  app.use(express.static(path.join(__dirname, "/client/public")));
+  app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "./client/public/index.html"));
   });
 }

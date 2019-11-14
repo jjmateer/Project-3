@@ -1,4 +1,4 @@
-import React from "react";
+import React from "./node_modules/react";
 import "./style.css";
 
 function itemForm({ handleInputChange, handleFormSubmit }) {
@@ -14,9 +14,19 @@ function itemForm({ handleInputChange, handleFormSubmit }) {
           required
         />
         <h4>Brand :</h4>
-        <input className="form-control" type="brandName" placeholder="Brand" onChange={handleInputChange}/>
+        <input
+          className="form-control"
+          type="brandName"
+          placeholder="Brand"
+          onChange={handleInputChange}
+        />
         <h4>Price :</h4>
-        <input className="form-control" type="itemPrice" placeholder="Price" onChange={handleInputChange}/>
+        <input
+          className="form-control"
+          type="itemPrice"
+          placeholder="Price"
+          onChange={handleInputChange}
+        />
         <h4>Category :</h4>
         <input
           className="form-control"
@@ -44,7 +54,12 @@ function itemForm({ handleInputChange, handleFormSubmit }) {
           placeholder="Quanitity"
           onChange={handleInputChange}
         />
-        <input className="sub" type="submit" value="Submit" onClick={handleFormSubmit} />
+        <input
+          className="sub"
+          type="submit"
+          value="Submit"
+          onClick={handleFormSubmit}
+        />
       </form>
     </div>
   );
