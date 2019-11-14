@@ -2,6 +2,7 @@
 import {
     GET_ITEMS,
     ADD_ITEM,
+    GET_BY_CATEGORY,
     // ADD_ITEM_TO_CART,
     ITEMS_LOADING
 } from '../actions/types';
@@ -18,6 +19,12 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 items: action.payload,
+                loading: false
+            };
+        case GET_BY_CATEGORY:
+            return {
+                ...state,
+                items_in_category: action.payload,
                 loading: false
             };
         case ADD_ITEM:
