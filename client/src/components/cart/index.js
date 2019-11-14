@@ -14,36 +14,7 @@ function Cartlayout() {
                     <ProductsInCart />
                 </div>
 
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
-                <p>lorem</p>
+        
             </div>
         </div>
     )

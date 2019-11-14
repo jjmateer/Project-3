@@ -1,5 +1,5 @@
 import React from "react";
-// import "../style.css";
+import "../style.css";
 
 
 function Search() {
@@ -16,7 +16,7 @@ function Search() {
             </div>
 
             <div className="Osearch-container">
-                <input type="text" className="Osearch" placeholder="Search.." /><i className="fa fa-search"></i>
+                <input type="text" className="Osearch " placeholder="Search.." />
 
 
                 {/* Dropdown for Categories */}
@@ -32,14 +32,14 @@ function Search() {
                         <a href="/">Accessories</a>
                     </div>
                 </div>
-                <input className="Obutton" type="button" value="Search" />
+                <button id="Obutton"  ><i className="fa fa-search"></i> </button>
             </div>
-            {/* <!-- bgimg-1 --> */}
+                    {/* <!-- bgimg-1 --> */}
 
 
-            {/* ***************************************** */}
+                    {/* ***************************************** */}
         </div>
-    )
-}
-
+                )
+            }
+            
 export default Search;

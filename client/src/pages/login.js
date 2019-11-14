@@ -52,6 +52,7 @@ class Login extends Component {
         }
         //attempt to login
         this.props.login(loginUser);
+        
     };
 
     render() {
