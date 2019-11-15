@@ -43,7 +43,7 @@ class Search extends Component {
                 </div>
 
                 <div className="Osearch-container">
-                    <input type="text" onChange={this.handleInputChange} className="Osearch" placeholder="Search.." /><i className="fa fa-search"></i>
+                    <input type="text" onChange={this.handleInputChange} className="Osearch" placeholder="Search.." />
 
 
                     {/* Dropdown for Categories */}
@@ -59,7 +59,7 @@ class Search extends Component {
                             <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="accessories">Accessories</Link>
                         </div>
                     </div>
-                    <Link onClick={this.handleNameSearch} className="Obutton" to="/browse-by-category"></Link>
+                    <Link onClick={this.handleNameSearch} className="Obutton" to="/browse-by-category"><i className="fa fa-search"></i></Link>
                 </div>
             </div >
         )
