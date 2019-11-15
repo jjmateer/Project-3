@@ -25,7 +25,7 @@ export const getItems = () => dispatch => {
 };
 
 export const getByCategory = (query) => dispatch => {
-    console.log(query)
+    // console.log(query)
     dispatch(setItemsLoading());
     axios
         .get(`http://localhost:3001/api/inventory/category/${query}`)

@@ -7,23 +7,26 @@ import { clearErrors } from "../actions/errorActions";
 import PropTypes from "prop-types";
 
 
-class Browse extends Component {
+class BrowseByCategory extends Component {
     static propTypes = {
         getItems: PropTypes.func.isRequired,
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     }
-    componentDidMount() {
-        this.props.getItems();
-    }
+    // componentDidMount() {
+    //     this.props.getItems();
+    // }
     render() {
-        const { items } = this.props.item;
+        const { items_by_category } = this.props;
+        console.log(items_by_category)
         return (
             <div>
                 {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
                 <h1>Browse</h1>
+                {items_by_category.length < 1 ? 
+                <h1>No items found.</h1> :
                 <ProductList>
-                    {items.map(({ _id, image, product, brand, price, description }) => (
+                    {items_by_category.map(({ _id, image, product, brand, price, description }) => (
                         <ProductListItem
                             key={_id}
                             image={image}
@@ -34,12 +37,14 @@ class Browse extends Component {
                         />
                     ))}
                 </ProductList>
+                }
             </div>
         );
     }
 }
 const mapStateToProps = state => ({
     item: state.item,
+    items_by_category: state.item.items_by_category,
     isAuthenticated: state.auth.isAuthenticated,
     error: state.error
 })
@@ -47,4 +52,4 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     { getItems, clearErrors }
-)(Browse);
+)(BrowseByCategory);

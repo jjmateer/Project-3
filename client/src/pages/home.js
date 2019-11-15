@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Search from "../components/homelayout/search";
 import Homediscount from "../components/homelayout/homediscount";
-import Picturesglider from "../components/homelayout/picturesglider"
+import Picturesglider from "../components/homelayout/picturesglider";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
 import PropTypes from "prop-types";

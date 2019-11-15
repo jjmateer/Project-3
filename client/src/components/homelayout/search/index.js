@@ -20,13 +20,13 @@ class Search extends Component {
         clearErrors: PropTypes.func.isRequired
     }
     handleCategorySearch = event => {
-        event.preventDefault();
+        // event.preventDefault();
         // console.log(`TID: ${event.target.id}`)
-        this.setState({
-            query: event.target.id
-        })
-        const { query } = this.state;
-        this.props.getByCategory(query)
+        // this.setState({
+        //     query: event.target.id
+        // })  
+        // const { query } = this.state;
+        this.props.getByCategory(event.target.id)
     }
     render() {
         return (
@@ -48,13 +48,13 @@ class Search extends Component {
                     <div className="dropdown">
                         <button className="dropbtn">Categories</button>
                         <div className="dropdown-content">
-                            <Link onClick={this.handleCategorySearch} to="/browse" id="monitor">Monitors</Link>
-                            <Link onClick={this.handleCategorySearch} to="/browse" id="desktop">Desktops</Link>
-                            <Link onClick={this.handleCategorySearch} to="/browse" id="laptop">Laptops</Link>
-                            <Link onClick={this.handleCategorySearch} to="/browse" id="speaker">Speakers</Link>
-                            <Link onClick={this.handleCategorySearch} to="/browse" id="router">Routers</Link>
-                            <Link onClick={this.handleCategorySearch} to="/browse" id="phone">Phones</Link>
-                            <Link onClick={this.handleCategorySearch} to="/browse" id="accessories">Accessories</Link>
+                            <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="monitor">Monitors</Link>
+                            <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="desktop">Desktops</Link>
+                            <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="laptop">Laptops</Link>
+                            <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="speaker">Speakers</Link>
+                            <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="router">Routers</Link>
+                            <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="phone">Phones</Link>
+                            <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="accessories">Accessories</Link>
                         </div>
                     </div>
                     <input className="Obutton" type="button" value="Search" />
