@@ -45,7 +45,7 @@
     outline: none;
 }
 
-#Obutton {
+.Obutton {
     background-color: rgb(14, 15, 14);
     border: none;
     color: white;
@@ -55,7 +55,8 @@
     font-size: 18px;
     border-radius: 100px / 50px;
     outline: none;
-    width: 50px;
+    width: 100px;
+    height:100px;
 }
 
 /* <div className="search-container">

@@ -21,13 +21,13 @@ class Browse extends Component {
         return (
             <div>
                 {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
-                <h1>Browse</h1>
+                <h1>Browse All</h1>
                 <ProductList>
-                    {items.map(({ _id, image, product, brand, price, description }) => (
+                    {items.map(({ _id, image, item, brand, price, description }) => (
                         <ProductListItem
                             key={_id}
                             image={image}
-                            product={product}
+                            product={item}
                             brand={brand}
                             price={price}
                             description={description}

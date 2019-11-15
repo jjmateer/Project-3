@@ -19,4 +19,10 @@ router
   .route("/category/:category")
   .get(inventoryController.findByCategory)
 
+
+router
+  .route("/product-name/:name")
+  .get(inventoryController.findByName)
+
+
 module.exports = router;

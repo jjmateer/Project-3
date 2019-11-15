@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getByCategory } from "../../../actions/productActions";
+import { getByCategory, getByName } from "../../../actions/productActions";
 import { clearErrors } from "../../../actions/errorActions";
 import PropTypes from "prop-types";
 // import "../style.css";
@@ -17,22 +17,24 @@ class Search extends Component {
         isAuthenticated: PropTypes.bool,
         error: PropTypes.object.isRequired,
         getByCategory: PropTypes.func.isRequired,
+        getByName: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired
     }
     handleCategorySearch = event => {
-        // event.preventDefault();
-        // console.log(`TID: ${event.target.id}`)
-        // this.setState({
-        //     query: event.target.id
-        // })  
-        // const { query } = this.state;
+        console.log(event.target)
         this.props.getByCategory(event.target.id)
+    }
+    handleInputChange = event => {
+        this.setState({
+            query: event.target.value
+        })
+    }
+    handleNameSearch = () => {
+        this.props.getByName(this.state.query)
     }
     render() {
         return (
             <div className="homelayout" >
-                {/* *************************************** */}
-
                 < div className="bgimg-1" >
                     <div className="titleArea emboss">
                         <h1 id="homeh1">Technologies of The Future</h1>
@@ -41,7 +43,7 @@ class Search extends Component {
                 </div>
 
                 <div className="Osearch-container">
-                    <input type="text" className="Osearch" placeholder="Search.." /><i className="fa fa-search"></i>
+                    <input type="text" onChange={this.handleInputChange} className="Osearch" placeholder="Search.." /><i className="fa fa-search"></i>
 
 
                     {/* Dropdown for Categories */}
@@ -57,12 +59,8 @@ class Search extends Component {
                             <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="accessories">Accessories</Link>
                         </div>
                     </div>
-                    <input className="Obutton" type="button" value="Search" />
+                    <Link onClick={this.handleNameSearch} className="Obutton" to="/browse-by-category"></Link>
                 </div>
-                {/* <!-- bgimg-1 --> */}
-
-
-                {/* ***************************************** */}
             </div >
         )
     }
@@ -70,12 +68,12 @@ class Search extends Component {
 
 const mapStateToProps = state => ({
     item: state.item,
-    items_by_category: state.items_by_category,
+    items_search: state.items_search,
     isAuthenticated: state.auth.isAuthenticated,
     error: state.error
 })
 
 export default connect(
     mapStateToProps,
-    { getByCategory, clearErrors }
+    { getByCategory, getByName, clearErrors }
 )(Search);
