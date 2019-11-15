@@ -3,21 +3,16 @@ import "./style.css";
 import ProductsInCart from "../cartItem/index";
 
 
-function Cartlayout() {
+function Cart() {
     return (
         <div>
-
             <div className="content-wrapper">
                 <div className="products-organizer">
-
-
                     <ProductsInCart />
                 </div>
-
-        
             </div>
         </div>
     )
 }
 
-export default Cartlayout;
+export default Cart;

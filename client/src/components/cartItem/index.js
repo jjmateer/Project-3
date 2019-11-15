@@ -6,7 +6,6 @@ function Cartlayout() {
     return (
         <div>
 
-<div></div>
         
         </div>
     )

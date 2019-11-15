@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const cartSchema = new Schema({
   user: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: "User"
   },
   items: [
@@ -17,4 +17,5 @@ const cartSchema = new Schema({
   ]
 });
 
-module.exports = mongoose.model("Cart", cartSchema);
+const Cart = mongoose.model("Cart", cartSchema);
+module.exports = Cart;
