@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 function ProductListItem(props) {
@@ -9,7 +10,7 @@ function ProductListItem(props) {
             <div id="cprice">${props.price}</div>
             <div id="cdesc">{props.description}</div>
             <img id="cardImg" alt={props.image} src={props.image} />
-            <button id="ATCbtn">Add To Cart</button>
+            <button className="ATCbtn" id={props.id} onClick={props.addItemToCart} >Add To Cart</button>
         </div>
     )
 }

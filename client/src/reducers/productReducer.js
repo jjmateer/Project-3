@@ -4,7 +4,7 @@ import {
     ADD_ITEM,
     GET_BY_CATEGORY,
     GET_BY_NAME,
-    // ADD_ITEM_TO_CART,
+    ADD_ITEM_TO_CART,
     ITEMS_LOADING
 } from '../actions/types';
 
@@ -45,6 +45,10 @@ export default function (state = initialState, action) {
                 ...state,
                 loading: true
             };
+        case ADD_ITEM_TO_CART:
+            return {
+                ...state
+            }
         default:
             return state;
     }

@@ -4,7 +4,7 @@ import {
     GET_BY_CATEGORY,
     GET_BY_NAME,
     // ADD_ITEM, 
-    // ADD_ITEM_TO_CART, 
+    ADD_ITEM_TO_CART, 
     ITEMS_LOADING
 } from './types';
 // import { tokenConfig } from './authActions';
@@ -47,6 +47,21 @@ export const getByName = (query) => dispatch => {
         .then(res =>
             dispatch({
                 type: GET_BY_NAME,
+                payload: res.data
+            })
+        )
+        .catch(err =>
+            dispatch(returnErrors(err.response.data, err.response.status))
+        );
+};
+
+export const addToCart = (itemID) => dispatch => {
+    console.log(`target ID: ${itemID}`)
+    axios
+        .post(`http://localhost:3001/api/inventory/${itemID}`)
+        .then(res =>
+            dispatch({
+                type: ADD_ITEM_TO_CART,
                 payload: res.data
             })
         )

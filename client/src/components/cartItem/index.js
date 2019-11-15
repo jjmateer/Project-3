@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 
-function Cartlayout() {
+function CartItem() {
     return (
         <div>
 
@@ -11,4 +11,4 @@ function Cartlayout() {
     )
 }
 
-export default Cartlayout;
+export default CartItem;
