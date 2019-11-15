@@ -11,8 +11,6 @@ import "../components/homelayout/style.css"
 
 class Home extends Component {
     state = {
-        email: "",
-        password: "",
         message: null
     };
     static propTypes = {

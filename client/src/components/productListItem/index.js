@@ -7,7 +7,7 @@ function ProductListItem(props) {
             <div id="cproduct">{props.product}</div>
             <div id="cbrand">Brand: {props.brand}</div>
             <div id="cprice">${props.price}</div>
-            {/* <div id="cdesc">{props.description}</div> */}
+            <div id="cdesc">{props.description}</div>
             <img id="cardImg" alt={props.image} src={props.image} />
             <button id="ATCbtn">Add To Cart</button>
         </div>

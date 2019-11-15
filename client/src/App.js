@@ -10,6 +10,7 @@ import Login from "./pages/login";
 import Signup from "./pages/signup";
 import Cart from "./pages/cart";
 import Browse from "./pages/browse";
+import browseByCategory from "./pages/browse-search";
 import ErrorC from "./pages/error";
 import Item from "./pages/item";
 import "./App.css";
@@ -30,7 +31,7 @@ class App extends Component {
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/cart" component={Cart} />
               <Route exact path="/browse" component={Browse} />
-              <Route exact path="/item" component={Item} />
+              <Route exact path="/browse-by-category" component={browseByCategory} />              <Route exact path="/item" component={Item} />
               <Route component={ErrorC} />
             </Switch>
             {/* <Footer /> */}

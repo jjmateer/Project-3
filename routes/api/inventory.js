@@ -16,9 +16,13 @@ router
 
 //  "/api/inventory/:category"
 router
-  .route("/:category")
+  .route("/category/:category")
   .get(inventoryController.findByCategory)
-  .put(inventoryController.update)
-  .delete(inventoryController.remove);
+
+
+router
+  .route("/product-name/:name")
+  .get(inventoryController.findByName)
+
 
 module.exports = router;
