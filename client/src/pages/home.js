@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Search from "../components/homelayout/search";
 import Homediscount from "../components/homelayout/homediscount";
 import Picturesglider from "../components/homelayout/picturesglider"
+import Merchandise from "../components/homelayout/merchandise-slide/merchandise-slide"
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
 import PropTypes from "prop-types";
@@ -28,7 +29,10 @@ class Home extends Component {
                 < Search />
                 <h1 style={{ marginLeft: "80px" }}>Best Deal in Store</h1>
                 < Homediscount />
-                <h1 style={{ marginLeft: "80px", marginBottom: "-10px" }}>Monitors</h1>                < Picturesglider />
+                <h1 style={{ marginLeft: "80px", marginBottom: "-10px" }}>Monitors</h1>
+                < Picturesglider />
+                <h1 style={{ marginLeft: "80px" }}>Merchandise</h1>
+                <Merchandise />
             </div>
         );
     }
