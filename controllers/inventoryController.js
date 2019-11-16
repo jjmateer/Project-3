@@ -47,7 +47,9 @@ module.exports = {
           items: { product: req.params.item, quantity: 1 }
         }
       }
-    )
+    ).then(()=> {
+      console.log(`Item id: ${req.params.item} added to cart.`)
+    })
   },
   getUserCart: function (req, res) {
     var itemIDarray = [];

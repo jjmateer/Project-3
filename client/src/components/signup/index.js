@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function SignupForm({ handleEmailChange, handlePasswordChange, handleFormSubmit }) {
+function SignupForm({ handleNameChange, handleEmailChange, handlePasswordChange, handleFormSubmit }) {
     return (
         <div>
 
@@ -11,6 +11,9 @@ function SignupForm({ handleEmailChange, handlePasswordChange, handleFormSubmit 
             <div className="content-wrappershort">
 
                 <form className="form-group">
+                    <h3>Name :</h3>
+
+                    <input className="form-control form-input-style" autoComplete="on" type="text" placeholder="  Name" onChange={handleNameChange} required />
 
                     <h3>Email :</h3>
 

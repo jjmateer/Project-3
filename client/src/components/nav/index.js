@@ -30,12 +30,12 @@ class Nav extends Component {
                     {this.props.isAuthenticated ? null : <Link to="/login">Log In</Link>}
                     {this.props.isAuthenticated ? null : <Link to="/signup">Sign Up</Link>}
                     <Link to="/browse">Browse</Link>
-                    <Link to="/cart">Cart </Link>
+                    {this.props.isAuthenticated ? <Link to="/cart">Cart </Link> : null}
                     {this.props.isAuthenticated ? <Logout /> : null}
                 </div>
 
 
-              
+
 
             </div>
         )

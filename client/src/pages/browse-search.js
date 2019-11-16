@@ -13,6 +13,7 @@ class BrowseByCategory extends Component {
     };
     static propTypes = {
         addToCart: PropTypes.func.isRequired,
+        user: PropTypes.object,
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     }
@@ -45,6 +46,7 @@ class BrowseByCategory extends Component {
 const mapStateToProps = state => ({
     item: state.item,
     items_search: state.item.items_search,
+    user: state.auth.user,
     isAuthenticated: state.auth.isAuthenticated,
     error: state.error
 })
