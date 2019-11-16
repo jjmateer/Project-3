@@ -40,14 +40,15 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   addToCart: function (req, res) {
-    console.log(req.params.user)
-    db.Cart.update(
+    db.Cart.findOneAndUpdate(
       { user: req.params.user },
       {
         $push: {
-          items: { product: "test", quantity: 1 }
+          items: { product: req.params.item, quantity: 1 }
         }
       }
-    )
+    ).then(()=>{
+      console.log(`Item: ${req.params.item} added to user's cart: ${req.params.user}`)
+    })
   }
 };
