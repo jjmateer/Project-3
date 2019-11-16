@@ -51,7 +51,7 @@ class Login extends Component {
             password
         }
         //attempt to login
-        this.props.login(loginUser);
+        this.props.login(loginUser)
 
     };
 

@@ -19,6 +19,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findByName: function (req, res) {
+    console.log(req.params.name)
     db.Item.find({ item: req.params.name })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

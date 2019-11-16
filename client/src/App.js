@@ -31,7 +31,8 @@ class App extends Component {
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/cart" component={Cart} />
               <Route exact path="/browse" component={Browse} />
-              <Route exact path="/browse-by-category" component={browseByCategory} />              <Route exact path="/item" component={Item} />
+              <Route exact path="/browse-by-category" component={browseByCategory} />              
+              <Route exact path="/item" component={Item} />
               <Route component={ErrorC} />
             </Switch>
             {/* <Footer /> */}

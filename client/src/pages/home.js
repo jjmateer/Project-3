@@ -21,7 +21,6 @@ class Home extends Component {
     }
 
     render() {
-        console.log(this.props.user)
         return (
             <div >
                 {this.props.isAuthenticated ? <h1 className="login-style">Hello, {this.props.user.username}</h1> : <h1 className="notlogin-style">User not logged in</h1>}

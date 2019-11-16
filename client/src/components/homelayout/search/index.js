@@ -7,7 +7,6 @@ import PropTypes from "prop-types";
 // import "../style.css";
 
 
-
 class Search extends Component {
     state = {
         query: "",
