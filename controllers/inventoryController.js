@@ -61,13 +61,12 @@ module.exports = {
         for (let i = 0; i < itemIDarray.length; i++) {
           db.Item.find({ _id: itemIDarray[i] })
             .then(itemInfo => {
-              console.log(itemInfo)
-              itemInfoArray.push(itemInfo);
+              itemInfoArray.push(itemInfo[0])
+              if(i === itemIDarray.length - 1) {
+                res.json(itemInfoArray)
+              }
             })
         }
-      }).then(() => {
-        console.log(itemInfoArray)
-        res.json(itemInfoArray)
       })
       .catch(err => res.status(422).json(err));
   }
