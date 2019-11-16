@@ -5,7 +5,8 @@ import {
     GET_BY_NAME,
     // ADD_ITEM, 
     ADD_ITEM_TO_CART, 
-    ITEMS_LOADING
+    ITEMS_LOADING,
+    GET_USER_CART
 } from './types';
 // import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
@@ -69,6 +70,20 @@ export const addToCart = (userID, itemID) => dispatch => {
         );
 };
 
+export const getUserCart = () => dispatch => {
+    dispatch(setItemsLoading());
+    axios
+        .get('http://localhost:3001/api/inventory/user-cart/:id')
+        .then(res =>
+            dispatch({
+                type: GET_USER_CART,
+                payload: res.data
+            })
+        )
+        .catch(err =>
+            dispatch(returnErrors(err.response.data, err.response.status))
+        );
+};
 export const setItemsLoading = () => {
     return {
         type: ITEMS_LOADING

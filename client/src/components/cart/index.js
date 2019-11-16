@@ -1,18 +1,12 @@
 import React from "react";
 import "./style.css";
-import ProductsInCart from "../cartItem/index";
 
-
-function Cart() {
+function CartList(props) {
     return (
-        <div>
-            <div className="content-wrapper">
-                <div className="products-organizer">
-                    <ProductsInCart />
-                </div>
-            </div>
+        <div id="cartList">
+            {props.children}
         </div>
-    )
+    );
 }
 
-export default Cart;
+export default CartList;

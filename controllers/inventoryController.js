@@ -47,8 +47,6 @@ module.exports = {
           items: { product: req.params.item, quantity: 1 }
         }
       }
-    ).then(()=>{
-      console.log(`Item: ${req.params.item} added to user's cart: ${req.params.user}`)
-    })
+    )
   }
 };
