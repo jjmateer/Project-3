@@ -51,14 +51,14 @@ class Login extends Component {
             password
         }
         //attempt to login
-        this.props.login(loginUser);
-        
+        this.props.login(loginUser)
+
     };
 
     render() {
         return (
             <div>
-                                {this.state.msg ? <h1>Invalid credentials.</h1> : null}
+                {this.state.msg ? <h1>Invalid credentials.</h1> : null}
                 {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
 
                 <h1 className="page-title">Login</h1>
@@ -78,6 +78,7 @@ class Login extends Component {
 }
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
+    user: state.auth.user,
     error: state.error
 })
 

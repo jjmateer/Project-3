@@ -1,13 +1,14 @@
 const db = require("../models");
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken");
-const auth = require("../middleware/auth");
+// const auth = require("../middleware/auth");
 
 exports.register = function (req, res) {
   console.log(req.body)
-  const { email, password } = req.body;
+  const { username, email, password } = req.body;
+  // console.log(username)
   //Check if there is a user in the database with same email.
-  if (!email || !password) {
+  if (!username || !email || !password) {
     return res.status(400).json({ msg: "Please fill out all fields." })
   } else {
     db.User.findOne({ email })
@@ -16,9 +17,13 @@ exports.register = function (req, res) {
         if (!user) {
           let salt = bcrypt.genSaltSync(10);
           db.User.create({
+            username: username,
             email: email,
             password: bcrypt.hashSync(password, salt),
           }).then(user => {
+            db.Cart.create({
+              user: user.id
+            })
             //Create JSON web token which is signed with the new user's info and expires in 1 hour.
             jwt.sign({
               id: user.id
@@ -28,12 +33,14 @@ exports.register = function (req, res) {
                 token,
                 user: {
                   id: user.id,
+                  name:user.username,
                   email: user.email
                 }
               });
               console.log("User added to database.")
               console.log(`User info: ${user}`)
               console.log(`User token: ${token}`)
+              console.log(`Cart created with user id: ${user.id}`)
             })
           })
         }
@@ -65,6 +72,7 @@ exports.login = function (req, res) {
               token,
               user: {
                 id: user.id,
+                username: user.username,
                 email: user.email
               }
             });

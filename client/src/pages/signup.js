@@ -8,6 +8,7 @@ import { clearErrors } from "../actions/errorActions";
 
 class Signup extends Component {
     state = {
+        username: "",
         email: "",
         password: "",
         message: null
@@ -31,6 +32,11 @@ class Signup extends Component {
             }
         }
     }
+    handleNameChange = event => {
+        this.setState({
+            username: event.target.value
+        })
+    }
     handleEmailChange = event => {
         this.setState({
             email: event.target.value
@@ -43,9 +49,10 @@ class Signup extends Component {
     }
     handleFormSubmit = event => {
         event.preventDefault();
-        const { email, password } = this.state;
+        const { username, email, password } = this.state;
 
         const newUser = {
+            username,
             email,
             password
         }
@@ -59,6 +66,7 @@ class Signup extends Component {
                 {this.state.msg ? <h1>User already exists.</h1> : null}
                 {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
                 <SignupForm
+                    handleNameChange={this.handleNameChange}
                     handleEmailChange={this.handleEmailChange}
                     handlePasswordChange={this.handlePasswordChange}
                     handleFormSubmit={this.handleFormSubmit}

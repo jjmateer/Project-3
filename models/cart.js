@@ -3,18 +3,21 @@ const Schema = mongoose.Schema;
 
 const cartSchema = new Schema({
   user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User"
+    type: String,
+    ref: "User",
+    required: true
   },
   items: [
     {
       product: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Product"
+        type: String,
+        ref: "Product",
+        unique: true
       },
       quantity: Number
     }
   ]
 });
 
-module.exports = mongoose.model("Cart", cartSchema);
+const Cart = mongoose.model("Cart", cartSchema);
+module.exports = Cart;
