@@ -12,9 +12,6 @@ class Merchandise extends Component {
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     }
-    componentDidMount() {
-        this.props.getItems();
-    }
     constructor(props) {
         super(props);
         this.play = this.play.bind(this);

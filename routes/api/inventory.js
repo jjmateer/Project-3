@@ -19,10 +19,17 @@ router
   .route("/category/:category")
   .get(inventoryController.findByCategory)
 
-
-router
+  router
   .route("/product-name/:name")
   .get(inventoryController.findByName)
+
+router
+  .route("/add-to-cart/:user/:item")
+  .post(inventoryController.addToCart)
+
+router
+  .route("/user-cart/:user")
+  .get(inventoryController.getUserCart)
 
 
 module.exports = router;

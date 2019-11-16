@@ -4,3 +4,11 @@
     margin: 2% 8% 2% 8%;
     opacity: 100%;
 }
+#cartList{
+    width:70%;
+    max-width:100%;
+    grid-template-columns: 3 3 3;
+    margin:Auto;
+    /* background:#e5e5ee; */
+    display:grid;
+}

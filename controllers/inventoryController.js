@@ -14,14 +14,15 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findByCategory: function (req, res) {
-      db.Item.find({ category: req.params.category })
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+    db.Item.find({ category: req.params.category })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
   findByName: function (req, res) {
-      db.Item.find({ item: req.params.name })
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+    console.log(req.params.name)
+    db.Item.find({ item: req.params.name })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
   create: function (req, res) {
     db.Item.create(req.body)
@@ -37,6 +38,39 @@ module.exports = {
     db.Item.findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  addToCart: function (req, res) {
+    db.Cart.findOneAndUpdate(
+      { user: req.params.user },
+      {
+        $push: {
+          items: { product: req.params.item, quantity: 1 }
+        }
+      }
+    ).then(()=> {
+      console.log(`Item id: ${req.params.item} added to cart.`)
+    })
+  },
+  getUserCart: function (req, res) {
+    var itemIDarray = [];
+    var itemInfoArray = [];
+    db.Cart.find({ user: req.params.user })
+      .then(dbModel => {
+        for (let i = 0; i < dbModel[0].items.length; i++) {
+          itemIDarray.push(dbModel[0].items[i].product)
+        }
+      }).then(() => {
+        for (let i = 0; i < itemIDarray.length; i++) {
+          db.Item.find({ _id: itemIDarray[i] })
+            .then(itemInfo => {
+              itemInfoArray.push(itemInfo[0])
+              if(i === itemIDarray.length - 1) {
+                res.json(itemInfoArray)
+              }
+            })
+        }
+      })
       .catch(err => res.status(422).json(err));
   }
 };

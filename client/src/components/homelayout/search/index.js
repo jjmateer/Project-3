@@ -7,7 +7,6 @@ import PropTypes from "prop-types";
 // import "../style.css";
 
 
-
 class Search extends Component {
     state = {
         query: "",
@@ -21,7 +20,6 @@ class Search extends Component {
         clearErrors: PropTypes.func.isRequired
     }
     handleCategorySearch = event => {
-        console.log(event.target)
         this.props.getByCategory(event.target.id)
     }
     handleInputChange = event => {

@@ -51,7 +51,7 @@ class Login extends Component {
             password
         }
         //attempt to login
-        this.props.login(loginUser);
+        this.props.login(loginUser)
 
     };
 
@@ -78,6 +78,7 @@ class Login extends Component {
 }
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
+    user: state.auth.user,
     error: state.error
 })
 
