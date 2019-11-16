@@ -24,5 +24,9 @@ router
   .route("/add-to-cart/:user/:item")
   .post(inventoryController.addToCart)
 
+router
+  .route("/user-cart/:user")
+  .get(inventoryController.getUserCart)
+
 
 module.exports = router;

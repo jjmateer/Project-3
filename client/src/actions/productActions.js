@@ -70,10 +70,10 @@ export const addToCart = (userID, itemID) => dispatch => {
         );
 };
 
-export const getUserCart = () => dispatch => {
+export const getUserCart = (userID) => dispatch => {
     dispatch(setItemsLoading());
     axios
-        .get('http://localhost:3001/api/inventory/user-cart/:id')
+        .get(`http://localhost:3001/api/inventory/user-cart/${userID}`)
         .then(res =>
             dispatch({
                 type: GET_USER_CART,
