@@ -55,14 +55,13 @@ export const getByName = (query) => dispatch => {
         );
 };
 
-export const addToCart = (itemID) => dispatch => {
-    console.log(`target ID: ${itemID}`)
-    axios
-        .post(`http://localhost:3001/api/inventory/${itemID}`)
+export const addToCart = (userID, itemID) => dispatch => {
+    console.log(`sending post request...`)
+
+    axios.post(`http://localhost:3001/api/inventory/add-to-cart/${userID}/${itemID}`)
         .then(res =>
             dispatch({
-                type: ADD_ITEM_TO_CART,
-                payload: res.data
+                type: ADD_ITEM_TO_CART
             })
         )
         .catch(err =>

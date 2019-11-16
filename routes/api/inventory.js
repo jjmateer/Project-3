@@ -21,8 +21,8 @@ router
 
 
 router
-  .route("/product-name/:name")
-  .get(inventoryController.findByName)
+  .route("/add-to-cart/:user/:item")
+  .post(inventoryController.addToCart)
 
 
 module.exports = router;

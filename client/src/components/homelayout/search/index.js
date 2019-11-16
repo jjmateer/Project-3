@@ -21,7 +21,6 @@ class Search extends Component {
         clearErrors: PropTypes.func.isRequired
     }
     handleCategorySearch = event => {
-        console.log(event.target)
         this.props.getByCategory(event.target.id)
     }
     handleInputChange = event => {

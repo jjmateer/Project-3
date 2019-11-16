@@ -14,14 +14,14 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findByCategory: function (req, res) {
-      db.Item.find({ category: req.params.category })
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+    db.Item.find({ category: req.params.category })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
   findByName: function (req, res) {
-      db.Item.find({ item: req.params.name })
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+    db.Item.find({ item: req.params.name })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
   create: function (req, res) {
     db.Item.create(req.body)
@@ -38,5 +38,16 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  addToCart: function (req, res) {
+    console.log(req.params.user)
+    db.Cart.update(
+      { user: req.params.user },
+      {
+        $push: {
+          items: { product: "test", quantity: 1 }
+        }
+      }
+    )
   }
 };

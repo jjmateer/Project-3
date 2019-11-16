@@ -11,5 +11,5 @@ router
 
 router
     .route("/user")
-    .post(auth, loginController.checkUser)
+    .post(loginController.checkUser)
 module.exports = router;

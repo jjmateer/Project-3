@@ -13,6 +13,7 @@ class Browse extends Component {
     };
     static propTypes = {
         getItems: PropTypes.func.isRequired,
+        user: PropTypes.object,
         addToCart: PropTypes.func.isRequired,
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
@@ -21,7 +22,7 @@ class Browse extends Component {
         this.props.getItems();
     }
     addItemToCart = event => {
-        this.props.addToCart(event.target.id);
+        this.props.addToCart(this.props.user.id, event.target.id);
     }
     render() {
         const { items } = this.props.item;
@@ -50,6 +51,7 @@ class Browse extends Component {
 const mapStateToProps = state => ({
     item: state.item,
     isAuthenticated: state.auth.isAuthenticated,
+    user: state.auth.user,
     error: state.error
 })
 
