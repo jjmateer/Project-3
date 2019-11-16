@@ -17,7 +17,6 @@ class Picturesglider extends Component {
         isAuthenticated: PropTypes.bool
     }
     componentDidMount = () => {
-        // this.props.getItems();
         $(function () {
 
             cntWd = $('#picturesglider').innerWidth();

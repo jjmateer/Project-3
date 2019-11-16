@@ -4,8 +4,9 @@ import {
     GET_BY_CATEGORY,
     GET_BY_NAME,
     // ADD_ITEM, 
-    // ADD_ITEM_TO_CART, 
-    ITEMS_LOADING
+    ADD_ITEM_TO_CART, 
+    ITEMS_LOADING,
+    GET_USER_CART
 } from './types';
 // import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
@@ -55,6 +56,34 @@ export const getByName = (query) => dispatch => {
         );
 };
 
+export const addToCart = (userID, itemID) => dispatch => {
+    console.log(`sending post request...`)
+
+    axios.post(`http://localhost:3001/api/inventory/add-to-cart/${userID}/${itemID}`)
+        .then(res =>
+            dispatch({
+                type: ADD_ITEM_TO_CART
+            })
+        )
+        .catch(err =>
+            dispatch(returnErrors(err.response.data, err.response.status))
+        );
+};
+
+export const getUserCart = (userID) => dispatch => {
+    dispatch(setItemsLoading());
+    axios
+        .get(`http://localhost:3001/api/inventory/user-cart/${userID}`)
+        .then(res =>
+            dispatch({
+                type: GET_USER_CART,
+                payload: res.data
+            })
+        )
+        .catch(err =>
+            dispatch(returnErrors(err.response.data, err.response.status))
+        );
+};
 export const setItemsLoading = () => {
     return {
         type: ITEMS_LOADING

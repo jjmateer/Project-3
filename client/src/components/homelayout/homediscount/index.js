@@ -17,9 +17,9 @@ class Homediscount extends Component {
     }
     render() {
         const { items } = this.props.item;
-        const lowcostitems = items.filter((item) => {
-            return item.price < 100;
-        })
+        // const lowcostitems = items.filter((item) => {
+        //     return item.price < 100;
+        // })
         var settings = {
             dots: false,
             infinite: true,

@@ -4,14 +4,16 @@ import {
     ADD_ITEM,
     GET_BY_CATEGORY,
     GET_BY_NAME,
-    // ADD_ITEM_TO_CART,
-    ITEMS_LOADING
+    ADD_ITEM_TO_CART,
+    ITEMS_LOADING,
+    GET_USER_CART
 } from '../actions/types';
 
 
 const initialState = {
     items: [],
     items_search: [],
+    user_cart: [],
     loading: false
 };
 
@@ -45,6 +47,16 @@ export default function (state = initialState, action) {
                 ...state,
                 loading: true
             };
+        case ADD_ITEM_TO_CART:
+            return {
+                ...state
+            }
+        case GET_USER_CART:
+            return {
+                ...state,
+                user_cart: action.payload,
+                loading: false
+            }
         default:
             return state;
     }

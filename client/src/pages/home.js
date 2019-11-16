@@ -15,15 +15,15 @@ class Home extends Component {
     };
     static propTypes = {
         isAuthenticated: PropTypes.bool,
+        user: PropTypes.object,
         error: PropTypes.object.isRequired,
         clearErrors: PropTypes.func.isRequired
     }
 
     render() {
         return (
-
             <div >
-                {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
+                {this.props.isAuthenticated ? <h1 className="login-style">Hello, {this.props.user.username}</h1> : <h1 className="notlogin-style">User not logged in</h1>}
                 < Search />
                 <h1 style={{ marginLeft: "80px" }}>Best Deal in Store</h1>
                 < Homediscount />
@@ -37,6 +37,7 @@ class Home extends Component {
 }
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
+    user: state.auth.user,
     error: state.error
 })
 
