@@ -11,7 +11,8 @@ const cartSchema = new Schema({
     {
       product: {
         type: String,
-        ref: "Product"
+        ref: "Product",
+        unique: true
       },
       quantity: Number
     }

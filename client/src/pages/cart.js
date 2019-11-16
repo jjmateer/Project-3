@@ -22,6 +22,7 @@ class Cart extends Component {
         const  user_cart  = this.props.item.user_cart;
         return (
             <div>
+            {console.log(this.props.user)}
                 {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">   User not logged in</h1>}
                 <h1 className="page-title">Cart</h1>
                 <CartList>
@@ -44,7 +45,6 @@ class Cart extends Component {
 
 const mapStateToProps = state => ({
     item: state.item,
-    user_cart: state.user_cart,
     isAuthenticated: state.auth.isAuthenticated,
     user: state.auth.user,
     error: state.error
