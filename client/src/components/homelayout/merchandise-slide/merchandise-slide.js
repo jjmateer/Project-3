@@ -25,19 +25,49 @@ class Merchandise extends Component {
     }
     render() {
         const { items } = this.props.item;
+        const merchandiseitems = items.filter((item) => {
+            return item.category = "accessories"
+        })
 
         const settings = {
-            dots: true,
+            dots: false,
             infinite: true,
-            slidesToShow: 3,
+            slidesToShow: 8,
             slidesToScroll: 1,
             autoplay: true,
-            autoplaySpeed: 2000
+            autoplaySpeed: 2000,
+            initialSlide: 0,
+            responsive: [
+                {
+                    breakpoint: 1025,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4,
+                        infinite: true,
+                        dots: false
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        initialSlide: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
         };
         return (
             <div>
                 <Slider ref={slider => (this.slider = slider)} {...settings}>
-                    {items.map(({ _id, image, product, brand, price, description }) => {
+                    {merchandiseitems.map(({ _id, image, product, brand, price, description }) => {
                         return (
                             <div className="menu-item" key={_id}>
                                 <h4>{product}</h4>

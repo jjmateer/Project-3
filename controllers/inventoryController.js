@@ -44,20 +44,20 @@ module.exports = {
     var inCart = false;
     db.Cart.findOne({ user: req.params.user }, { items: { $elemMatch: { product: req.params.item } } })
       .then(item => {
-          for (let i = 0; i < item.items.length; i++) {
-            if (item.items[i].product === req.params.item) {
-              console.log(`updating quantity...`)
-              inCart = true;
-              db.Cart.updateOne(
-                { user: req.params.user, "items.product": req.params.item },
-                { $inc: { "items.$.quantity": 1 } }
-              )
+        for (let i = 0; i < item.items.length; i++) {
+          if (item.items[i].product === req.params.item) {
+            console.log(`updating quantity...`)
+            inCart = true;
+            db.Cart.updateOne(
+              { user: req.params.user, "items.product": req.params.item },
+              { $inc: { "items.$.quantity": 1 } }
+            )
               .then(() => {
                 console.log(`Updated Quantity: ${item.items[i].quantity}`)
               })
-              break;
-            }
+            break;
           }
+        }
       }).then(() => {
         if (inCart === false) {
           db.Cart.findOneAndUpdate(
@@ -81,7 +81,8 @@ module.exports = {
         for (let i = 0; i < dbModel[0].items.length; i++) {
           itemIDarray.push(dbModel[0].items[i].product)
         }
-      }).then(() => {
+      })
+      .then(() => {
         for (let i = 0; i < itemIDarray.length; i++) {
           db.Item.find({ _id: itemIDarray[i] })
             .then(itemInfo => {
