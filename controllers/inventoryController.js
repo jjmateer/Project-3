@@ -41,16 +41,35 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   addToCart: function (req, res) {
-    db.Cart.findOneAndUpdate(
-      { user: req.params.user },
-      {
-        $push: {
-          items: { product: req.params.item, quantity: 1 }
+    db.Cart.findOne({ user: req.params.user }, { items: { $elemMatch: { product: req.params.item } } })
+      .then(item => {
+        for (let i = 0; i < item.items.length; i++) {
+          if (item.items[i].product === req.params.item) {
+            console.log(`updating quantity...`)
+            db.Cart.updateOne(
+              { user: req.params.user, "items.product" : req.params.item },
+              { $inc: { "items.$.quantity": 1} }
+           ).then(()=>{
+             console.log("Success!")
+             console.log(item.items[i].quantity)
+           })
+           break
+          } else {
+            console.log(`adding new entry...`)
+            db.Cart.update(
+              { user: req.params.user },
+              {
+                $push: {
+                  items: { product: req.params.item, quantity: 1 }
+                }
+              }
+            ).then(() => {
+              console.log(`Item id: ${req.params.item} added to cart.`)
+            })
+            break
+          }
         }
-      }
-    ).then(()=> {
-      console.log(`Item id: ${req.params.item} added to cart.`)
-    })
+      })
   },
   getUserCart: function (req, res) {
     var itemIDarray = [];
@@ -65,7 +84,7 @@ module.exports = {
           db.Item.find({ _id: itemIDarray[i] })
             .then(itemInfo => {
               itemInfoArray.push(itemInfo[0])
-              if(i === itemIDarray.length - 1) {
+              if (i === itemIDarray.length - 1) {
                 res.json(itemInfoArray)
               }
             })
