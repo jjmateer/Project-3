@@ -41,33 +41,35 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   addToCart: function (req, res) {
+    var inCart = false;
     db.Cart.findOne({ user: req.params.user }, { items: { $elemMatch: { product: req.params.item } } })
       .then(item => {
-        for (let i = 0; i < item.items.length; i++) {
-          if (item.items[i].product === req.params.item) {
-            console.log(`updating quantity...`)
-            db.Cart.updateOne(
-              { user: req.params.user, "items.product" : req.params.item },
-              { $inc: { "items.$.quantity": 1} }
-           ).then(()=>{
-             console.log("Success!")
-             console.log(item.items[i].quantity)
-           })
-           break
-          } else {
-            console.log(`adding new entry...`)
-            db.Cart.update(
-              { user: req.params.user },
-              {
-                $push: {
-                  items: { product: req.params.item, quantity: 1 }
-                }
-              }
-            ).then(() => {
-              console.log(`Item id: ${req.params.item} added to cart.`)
-            })
-            break
+          for (let i = 0; i < item.items.length; i++) {
+            if (item.items[i].product === req.params.item) {
+              console.log(`updating quantity...`)
+              inCart = true;
+              db.Cart.updateOne(
+                { user: req.params.user, "items.product": req.params.item },
+                { $inc: { "items.$.quantity": 1 } }
+              )
+              .then(() => {
+                console.log(`Updated Quantity: ${item.items[i].quantity}`)
+              })
+              break;
+            }
           }
+      }).then(() => {
+        if (inCart === false) {
+          db.Cart.findOneAndUpdate(
+            { user: req.params.user },
+            {
+              $push: {
+                items: { product: req.params.item, quantity: 1 }
+              }
+            }
+          ).then(() => {
+            console.log(`Item id: ${req.params.item} added to cart.`)
+          })
         }
       })
   },
