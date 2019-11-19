@@ -41,16 +41,37 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   addToCart: function (req, res) {
-    db.Cart.findOneAndUpdate(
-      { user: req.params.user },
-      {
-        $push: {
-          items: { product: req.params.item, quantity: 1 }
+    var inCart = false;
+    db.Cart.findOne({ user: req.params.user }, { items: { $elemMatch: { product: req.params.item } } })
+      .then(item => {
+        for (let i = 0; i < item.items.length; i++) {
+          if (item.items[i].product === req.params.item) {
+            console.log(`updating quantity...`)
+            inCart = true;
+            db.Cart.updateOne(
+              { user: req.params.user, "items.product": req.params.item },
+              { $inc: { "items.$.quantity": 1 } }
+            )
+              .then(() => {
+                console.log(`Updated Quantity: ${item.items[i].quantity}`)
+              })
+            break;
+          }
         }
-      }
-    ).then(()=> {
-      console.log(`Item id: ${req.params.item} added to cart.`)
-    })
+      }).then(() => {
+        if (inCart === false) {
+          db.Cart.findOneAndUpdate(
+            { user: req.params.user },
+            {
+              $push: {
+                items: { product: req.params.item, quantity: 1 }
+              }
+            }
+          ).then(() => {
+            console.log(`Item id: ${req.params.item} added to cart.`)
+          })
+        }
+      })
   },
   getUserCart: function (req, res) {
     var itemIDarray = [];
@@ -60,12 +81,13 @@ module.exports = {
         for (let i = 0; i < dbModel[0].items.length; i++) {
           itemIDarray.push(dbModel[0].items[i].product)
         }
-      }).then(() => {
+      })
+      .then(() => {
         for (let i = 0; i < itemIDarray.length; i++) {
           db.Item.find({ _id: itemIDarray[i] })
             .then(itemInfo => {
               itemInfoArray.push(itemInfo[0])
-              if(i === itemIDarray.length - 1) {
+              if (i === itemIDarray.length - 1) {
                 res.json(itemInfoArray)
               }
             })
