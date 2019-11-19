@@ -81,7 +81,7 @@ const itemSeeds = [
     category: "book",
     description:
       "Using everyday objects and familiar language systems such as Braille and Morse code, author Charles Petzold weaves an illuminating narrative for anyone who’s ever wondered about the secret inner life of computers and other smart machines.",
-    image: "https://i.imgur.com/FXm7cdK.jpg",
+    image: "https://i.imgur.com/kuB6ESa.jpg",
     quantityInStock: 200,
     date: new Date(Date.now())
   },

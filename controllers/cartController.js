@@ -15,7 +15,7 @@ module.exports = {
         { user: req.params.user },
         {
           $inc: {
-            items: { product: req.params.item, quantity: -1 }
+            items: { product: req.params.item, quantity: req.params. }
           }
         }
       )
