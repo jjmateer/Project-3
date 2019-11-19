@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import CartList from "../components/cart";
-import CartListItem from "../components/cartItem";
+import CartList from "../components/cart/cart";
+import CartListItem from "../components/cartItem/cartItem";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
 import { getUserCart } from "../actions/productActions";

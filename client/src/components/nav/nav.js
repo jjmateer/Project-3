@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearErrors } from "../../actions/errorActions";
 import PropTypes from "prop-types";
-import Logout from "../logout"
-import "./style.css";
+import Logout from "../logout/logout"
+import "./nav.css";
 import "../homelayout/style.css"
 
 class Nav extends Component {

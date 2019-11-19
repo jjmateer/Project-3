@@ -33,7 +33,7 @@ exports.register = function (req, res) {
                 token,
                 user: {
                   id: user.id,
-                  name:user.username,
+                  name: user.username,
                   email: user.email
                 }
               });
@@ -45,7 +45,6 @@ exports.register = function (req, res) {
           })
         }
         if (user) {
-          console.log("User already exists")
           return res.status(400).json({ msg: "User already exists." })
         }
       })

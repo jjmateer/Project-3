@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import "./style.css";
+import "./homediscount.css";
 import { connect } from "react-redux";
 import { getItems } from "../../../actions/productActions";
 import { clearErrors } from "../../../actions/errorActions";
