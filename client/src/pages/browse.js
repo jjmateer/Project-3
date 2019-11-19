@@ -9,6 +9,7 @@ import PropTypes from "prop-types";
 
 class Browse extends Component {
     state = {
+        authenticated: null,
         msg: null
     };
     static propTypes = {
@@ -20,6 +21,11 @@ class Browse extends Component {
     }
     componentDidMount() {
         this.props.getItems();
+        {this.props.isAuthenticated ? 
+            this.setState({ authenticated: true })
+            :
+            this.setState({ authenticated: false })
+        }
     }
     addItemToCart = event => {
         this.props.addToCart(this.props.user.id, event.target.id);
@@ -28,7 +34,7 @@ class Browse extends Component {
         const { items } = this.props.item;
         return (
             <div>
-                {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
+                {this.props.isAuthenticated ? null : <h1 className="notlogin-style">User not logged in</h1>}
                 <h1>Browse All</h1>
                 <ProductList>
                     {items.map(({ _id, image, item, brand, price, description }) => (
@@ -41,6 +47,7 @@ class Browse extends Component {
                             price={price}
                             description={description}
                             addItemToCart={this.addItemToCart}
+                            authenticated={this.state.authenticated}
                         />
                     ))}
 

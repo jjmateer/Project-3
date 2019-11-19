@@ -9,7 +9,8 @@ function ProductListItem(props) {
             <div id="cprice">${props.price}</div>
             <div id="cdesc">{props.description}</div>
             <img id="cardImg" alt={props.image} src={props.image} />
-            <button className="ATCbtn" id={props.id} onClick={props.addItemToCart} >Add To Cart</button>
+            {props.authenticated ? <button className="ATCbtn" id={props.id} onClick={props.addItemToCart} >Add To Cart</button>
+                : null}
         </div>
     )
 }

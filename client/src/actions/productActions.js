@@ -60,9 +60,10 @@ export const addToCart = (userID, itemID) => dispatch => {
     console.log(`sending post request...`)
 
     axios.post(`http://localhost:3001/api/cart/add-to-cart/${userID}/${itemID}`)
-        .then(() =>
+        .then(res =>
             dispatch({
-                type: ADD_ITEM_TO_CART
+                type: ADD_ITEM_TO_CART,
+                payload:res.data
             })
         )
         .catch(err =>
