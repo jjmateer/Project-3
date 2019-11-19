@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Search from "../components/homelayout/search";
-import Homediscount from "../components/homelayout/homediscount";
+import Homediscount from "../components/homelayout/homediscount/homediscount";
 import Picturesglider from "../components/homelayout/picturesglider"
 import Merchandise from "../components/homelayout/merchandise-slide/merchandise-slide"
 import { connect } from "react-redux";

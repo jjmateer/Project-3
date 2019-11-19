@@ -41,7 +41,8 @@ module.exports = {
         for (let i = 0; i < itemIDarray.length; i++) {
           db.Item.find({ _id: itemIDarray[i] })
             .then(itemInfo => {
-              itemInfo[0].userQuantity = 1;
+              console.log(itemInfo)
+              // itemInfo[0].userQuantity = 1;
               itemInfoArray.push(itemInfo[0])
               if (i === itemIDarray.length - 1) {
                 console.log(itemInfoArray)

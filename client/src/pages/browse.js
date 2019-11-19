@@ -43,6 +43,7 @@ class Browse extends Component {
                             addItemToCart={this.addItemToCart}
                         />
                     ))}
+
                 </ProductList>
             </div>
         );

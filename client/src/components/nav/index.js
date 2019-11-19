@@ -28,7 +28,7 @@ class Nav extends Component {
                     <Link to="/">Home</Link>
                     {this.props.isAuthenticated ? null : <Link to="/login">Log In</Link>}
                     {this.props.isAuthenticated ? null : <Link to="/signup">Sign Up</Link>}
-                    {this.props.isAuthenticated ? <Link to="/browse">Browse</Link> : null}
+                    <Link to="/browse">Browse</Link>
                     {this.props.isAuthenticated ? <Link to="/cart">Cart </Link> : null}
                     {this.props.isAuthenticated ? <Logout /> : null}
                 </div>

@@ -19,11 +19,9 @@ class Cart extends Component {
         this.props.getUserCart(this.props.user.id);
     }
     render() {
-        const  user_cart  = this.props.item.user_cart;
+        const user_cart = this.props.item.user_cart;
         return (
             <div>
-            {console.log(this.props.user)}
-                {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">   User not logged in</h1>}
                 <h1 className="page-title">Cart</h1>
                 <CartList>
                     {user_cart.map(({ _id, image, item, brand, price, description }) => (
