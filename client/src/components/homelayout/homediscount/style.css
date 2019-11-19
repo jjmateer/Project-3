@@ -11,7 +11,7 @@
 
 .slick-slide, .slick-slide div, .menu-item {
   height:225px;
-  min-width:225px;
+  width:225px;
   user-select: none;
   cursor: pointer;
   background:#295a31;

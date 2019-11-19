@@ -60,7 +60,7 @@ export const addToCart = (userID, itemID) => dispatch => {
     console.log(`sending post request...`)
 
     axios.post(`http://localhost:3001/api/inventory/add-to-cart/${userID}/${itemID}`)
-        .then(res =>
+        .then(() =>
             dispatch({
                 type: ADD_ITEM_TO_CART
             })
