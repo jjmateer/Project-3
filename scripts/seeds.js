@@ -92,7 +92,7 @@ const itemSeeds = [
     category: "book",
     description:
       "thrilling fantasy novel of a man trying to take over the world",
-    image: "",
+    image: "https://i.imgur.com/HBUf7iK.jpg",
     quantityInStock: 200,
     date: new Date(Date.now())
   },
@@ -102,7 +102,7 @@ const itemSeeds = [
     price: "150",
     category: "tablet",
     description: "it's like a book but better",
-    image: "",
+    image: "https://i.imgur.com/XGXE8Gk.jpg",
     quantityInStock: 200,
     date: new Date(Date.now())
   },
@@ -112,7 +112,7 @@ const itemSeeds = [
     price: "150",
     category: "accessories",
     description: "its like cable but better!",
-    image: "",
+    image: "https://i.imgur.com/2hulUnY.jpg",
     quantityInStock: 200,
     date: new Date(Date.now())
   },
@@ -122,7 +122,7 @@ const itemSeeds = [
     price: "16",
     category: "book",
     description: "by the time this book is published it will be obsolete...",
-    image: "",
+    image: "https://i.imgur.com/8k4XbwT.jpg",
     quantityInStock: 200,
     date: new Date(Date.now())
   },
@@ -144,7 +144,7 @@ const itemSeeds = [
     category: "accessories",
     description:
       "Input: 100-240V~1.5A @ 50Hz-60Hz & Output: 20V 4.25A max --Upgraded design with 2 additional USB ports --LED indicator light changes from amber to green when fully charged --Powers Li-Ion & Li-Poly batteries while off on or in sleep mode --Powers system without operating battery",
-    image: "",
+    image: "https://i.imgur.com/wouE9WP.jpg",
     quantityInStock: 200,
     date: new Date(Date.now())
   },
@@ -154,7 +154,7 @@ const itemSeeds = [
     price: "110",
     category: "accessories",
     description: "802.11ac Dual Band Gigabit Router",
-    image: "",
+    image: "https://i.imgur.com/rSMaK5c.jpg",
     quantityInStock: 200,
     date: new Date(Date.now())
   },
@@ -165,7 +165,7 @@ const itemSeeds = [
     category: "accessories",
     description:
       "The Nighthawk X4 Wi-Fi range extender boosts your existing Wi-Fi range with speeds up to 2200 Mbps",
-    image: "",
+    image: "https://i.imgur.com/P52ATV0.jpg",
     quantityInStock: 200,
     date: new Date(Date.now())
   },
@@ -175,7 +175,7 @@ const itemSeeds = [
     price: "2800",
     category: "camera",
     description: "most badass camera ever... ",
-    image: "",
+    image: "https://i.imgur.com/Hccv4f7.jpg",
     quantityInStock: 200,
     date: new Date(Date.now())
   }
