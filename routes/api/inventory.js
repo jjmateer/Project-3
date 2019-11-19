@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const inventoryController = require("../../controllers/inventoryController");
+const auth = require("../../middleware/auth");
 
 //   "/api/inventory"
 router
@@ -15,21 +16,8 @@ router
   .delete(inventoryController.remove);
 
 //  "/api/inventory/:category"
-router
-  .route("/category/:category")
-  .get(inventoryController.findByCategory)
+router.route("/category/:category").get(inventoryController.findByCategory);
 
-  router
-  .route("/product-name/:name")
-  .get(inventoryController.findByName)
-
-router
-  .route("/add-to-cart/:user/:item")
-  .post(inventoryController.addToCart)
-
-router
-  .route("/user-cart/:user")
-  .get(inventoryController.getUserCart)
-
+router.route("/product-name/:name").get(inventoryController.findByName);
 
 module.exports = router;
