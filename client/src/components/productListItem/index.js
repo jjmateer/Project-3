@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 
 function ProductListItem(props) {
+    { console.log(props) }
     return (
         <div className="grid-item" id="productCard">
             <div id="cproduct">{props.product}</div>

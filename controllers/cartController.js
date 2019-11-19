@@ -42,6 +42,7 @@ module.exports = {
       })
       .then(() => {
         for (let i = 0; i < itemIDarray.length; i++) {
+<<<<<<< HEAD
           db.Item.find({ _id: itemIDarray[i] }).then(itemInfo => {
             itemInfo[0].userQuantity = 1;
             itemInfoArray.push(itemInfo[0]);
@@ -50,6 +51,18 @@ module.exports = {
               res.json(itemInfoArray);
             }
           });
+=======
+          db.Item.find({ _id: itemIDarray[i] })
+            .then(itemInfo => {
+              console.log(itemInfo)
+              // itemInfo[0].userQuantity = 1;
+              itemInfoArray.push(itemInfo[0])
+              if (i === itemIDarray.length - 1) {
+                console.log(itemInfoArray)
+                res.json(itemInfoArray)
+              }
+            })
+>>>>>>> 78aece7886a6a8abf54d6ac1e2c25476afd8eeab
         }
       })
       .catch(err => res.status(422).json(err));
