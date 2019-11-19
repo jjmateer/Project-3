@@ -2,12 +2,12 @@ const db = require("../models");
 
 // Defining methods for the Cart Controller
 module.exports = {
-  trackInventory: function trackInventory() {
+  checkout: function trackInventory() {
     db.Cart.findOneAndUpdate(
       { user: req.params.user },
       {
         $inc: {
-          items: { product: req.params.item, quantity: 1 }
+          items: { product: req.params.item, quantity: req.params.qty }
         }
       }
     ).then(
@@ -15,7 +15,10 @@ module.exports = {
         { user: req.params.user },
         {
           $inc: {
-            items: { product: req.params.item, quantity: req.params. }
+            items: {
+              product: req.params.items.product,
+              quantity: req.params.items.quantity
+            }
           }
         }
       )
@@ -23,42 +26,44 @@ module.exports = {
   },
 
   //start of cart functions
-  clearCart: function (req, res) {
+  clearCart: function(req, res) {
     db.Cart.findByIdAndRemove({ user: req.params.id }).then(() => {
       console.log(`Item id: ${req.params.item} deleted`);
     });
   },
-  getUserCart: function (req, res) {
+  getUserCart: function(req, res) {
     var itemIDarray = [];
     var itemInfoArray = [];
     db.Cart.find({ user: req.params.user })
       .then(dbModel => {
         for (let i = 0; i < dbModel[0].items.length; i++) {
-          itemIDarray.push(dbModel[0].items[i].product)
+          itemIDarray.push(dbModel[0].items[i].product);
         }
       })
       .then(() => {
         for (let i = 0; i < itemIDarray.length; i++) {
-          db.Item.find({ _id: itemIDarray[i] })
-            .then(itemInfo => {
-              itemInfo[0].userQuantity = 1;
-              itemInfoArray.push(itemInfo[0])
-              if (i === itemIDarray.length - 1) {
-                console.log(itemInfoArray)
-                res.json(itemInfoArray)
-              }
-            })
+          db.Item.find({ _id: itemIDarray[i] }).then(itemInfo => {
+            itemInfo[0].userQuantity = 1;
+            itemInfoArray.push(itemInfo[0]);
+            if (i === itemIDarray.length - 1) {
+              console.log(itemInfoArray);
+              res.json(itemInfoArray);
+            }
+          });
         }
       })
       .catch(err => res.status(422).json(err));
   },
-  addToCart: function (req, res) {
+  addToCart: function(req, res) {
     var inCart = false;
-    db.Cart.findOne({ user: req.params.user }, { items: { $elemMatch: { product: req.params.item } } })
+    db.Cart.findOne(
+      { user: req.params.user },
+      { items: { $elemMatch: { product: req.params.item } } }
+    )
       .then(item => {
         for (let i = 0; i < item.items.length; i++) {
           if (item.items[i].product === req.params.item) {
-            console.log(`updating quantity...`)
+            console.log(`updating quantity...`);
             inCart = true;
             db.Cart.updateOne(
               { user: req.params.user, "items.product": req.params.item },
@@ -75,12 +80,13 @@ module.exports = {
                 )
               )
               .then(() => {
-                console.log(`Updated Quantity: ${item.items[i].quantity}`)
-              })
+                console.log(`Updated Quantity: ${item.items[i].quantity}`);
+              });
             break;
           }
         }
-      }).then(() => {
+      })
+      .then(() => {
         if (inCart === false) {
           db.Cart.findOneAndUpdate(
             { user: req.params.user },
@@ -90,12 +96,12 @@ module.exports = {
               }
             }
           ).then(() => {
-            console.log(`Item id: ${req.params.item} added to cart.`)
-          })
+            console.log(`Item id: ${req.params.item} added to cart.`);
+          });
         }
-      })
+      });
   },
-  getUserCart: function (req, res) {
+  getUserCart: function(req, res) {
     var itemIDarray = [];
     var itemInfoArray = [];
     db.Cart.find({ user: req.params.user })
