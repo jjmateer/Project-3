@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import ProductList from "../components/productlist";
-import ProductListItem from "../components/productListItem";
+import ProductList from "../components/productlist/product-list";
+import ProductListItem from "../components/productListItem/product-list-item";
 import { connect } from "react-redux";
-import {addToCart } from "../actions/productActions";
+import { addToCart } from "../actions/productActions";
 import { clearErrors } from "../actions/errorActions";
 import PropTypes from "prop-types";
 
@@ -21,21 +21,21 @@ class BrowseByCategory extends Component {
         this.props.addToCart(this.props.user.id, event.target.id);
     }
     render() {
-        const  items_search  = this.props.item.items_search;
+        const items_search = this.props.item.items_search;
         return (
             <div>
                 {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
                 <ProductList>
                     {items_search.map(({ _id, image, item, brand, price, description }) => (
                         <ProductListItem
-                        key={_id}
-                        id={_id}
-                        image={image}
-                        product={item}
-                        brand={brand}
-                        price={price}
-                        description={description}
-                        addItemToCart={this.addItemToCart}
+                            key={_id}
+                            id={_id}
+                            image={image}
+                            product={item}
+                            brand={brand}
+                            price={price}
+                            description={description}
+                            addItemToCart={this.addItemToCart}
                         />
                     ))}
                 </ProductList>

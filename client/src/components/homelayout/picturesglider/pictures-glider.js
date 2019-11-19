@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import "./style.css";
-import "../style.css";
+import "./pictures-glider.css";
 import $ from "jquery";
 import { connect } from "react-redux";
 import { getItems } from "../../../actions/productActions";
