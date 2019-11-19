@@ -4,7 +4,7 @@ import {
     GET_BY_CATEGORY,
     GET_BY_NAME,
     // ADD_ITEM, 
-    ADD_ITEM_TO_CART, 
+    ADD_ITEM_TO_CART,
     ITEMS_LOADING,
     GET_USER_CART
 } from './types';
@@ -59,7 +59,7 @@ export const getByName = (query) => dispatch => {
 export const addToCart = (userID, itemID) => dispatch => {
     console.log(`sending post request...`)
 
-    axios.post(`http://localhost:3001/api/inventory/add-to-cart/${userID}/${itemID}`)
+    axios.post(`http://localhost:3001/api/cart/add-to-cart/${userID}/${itemID}`)
         .then(() =>
             dispatch({
                 type: ADD_ITEM_TO_CART
@@ -73,7 +73,7 @@ export const addToCart = (userID, itemID) => dispatch => {
 export const getUserCart = (userID) => dispatch => {
     dispatch(setItemsLoading());
     axios
-        .get(`http://localhost:3001/api/inventory/user-cart/${userID}`)
+        .get(`http://localhost:3001/api/cart/user-cart/${userID}`)
         .then(res =>
             dispatch({
                 type: GET_USER_CART,

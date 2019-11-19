@@ -4,10 +4,10 @@ const auth = require("../../middleware/auth");
 
 router
   .route("/add-to-cart/:user/:item")
-  .post(auth, cartController.addToCart)
-  .put(auth, cartController.updateCart)
-  .delete(auth, cartController.clearCart);
+  .post(cartController.addToCart)
 
-router.route("/add-to-cart/:user").get(auth, cartController.getCart);
+router
+  .route("/user-cart/:user")
+  .get(cartController.getUserCart);
 
 module.exports = router;
