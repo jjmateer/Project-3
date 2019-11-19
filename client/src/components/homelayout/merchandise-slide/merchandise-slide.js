@@ -71,9 +71,10 @@ class Merchandise extends Component {
                         return (
                             <div className="menu-item" key={_id}>
                                 <h4>{product}</h4>
-                                <p>image:{image}</p>
-                                <p>brand:{brand}</p>
-                                <p>${price}.00</p>
+                                <img className="slideImg" src={image} alt={image}></img>
+                                <p id="brand">brand:{brand}</p>
+                                <p id="price">${price}.00</p>
+                                <a id="viewItem">View</a>
                             </div>
                         )
                     })}

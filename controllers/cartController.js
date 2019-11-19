@@ -102,17 +102,20 @@ module.exports = {
     db.Cart.find({ user: req.params.user })
       .then(dbModel => {
         for (let i = 0; i < dbModel[0].items.length; i++) {
-          itemIDarray.push(dbModel[0].items[i].product);
+          itemIDarray.push(dbModel[0].items[i].product)
         }
       })
       .then(() => {
         for (let i = 0; i < itemIDarray.length; i++) {
-          db.Item.find({ _id: itemIDarray[i] }).then(itemInfo => {
-            itemInfoArray.push(itemInfo[0]);
-            if (i === itemIDarray.length - 1) {
-              res.json(itemInfoArray);
-            }
-          });
+          db.Item.find({ _id: itemIDarray[i] })
+            .then(itemInfo => {
+              itemInfo[0].userQuantity = 1;
+              itemInfoArray.push(itemInfo[0])
+              if (i === itemIDarray.length - 1) {
+                console.log(itemInfoArray)
+                res.json(itemInfoArray)
+              }
+            })
         }
       })
       .catch(err => res.status(422).json(err));
