@@ -76,6 +76,7 @@ module.exports = {
                 )
               )
               .then(() => {
+                return res.status(200).json({msg: "Item added to cart."})
                 console.log(`Updated Quantity: ${item.items[i].quantity}`)
               })
             break;
@@ -91,6 +92,7 @@ module.exports = {
               }
             }
           ).then(() => {
+            return res.status(200).json({msg: "Item added to cart."})
             console.log(`Item id: ${req.params.item} added to cart.`)
           })
         }

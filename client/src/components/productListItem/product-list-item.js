@@ -1,5 +1,6 @@
 import React from "react";
 import "./product-list-item.css";
+import { Link } from "react-router-dom";
 
 function ProductListItem(props) {
     return (
@@ -10,7 +11,8 @@ function ProductListItem(props) {
             <div id="cdesc">{props.description}</div>
             <img id="cardImg" alt={props.image} src={props.image} />
             {props.authenticated ? <button className="ATCbtn" id={props.id} onClick={props.addItemToCart} >Add To Cart</button>
-                : null}
+                :
+                <Link to="/login" className="ATCbtn">Add to cart</Link>}
         </div>
     )
 }

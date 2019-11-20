@@ -13,10 +13,14 @@
   height:225px;
   width:225px;
   user-select: none;
-  cursor: pointer;
+  cursor: grabbing;
   background:#295a31;
   box-sizing: border-box;
   color:white;
+}
+
+.slick-track:active {
+  cursor:grabbing;
 }
 .menu-item {
   text-align: center;
