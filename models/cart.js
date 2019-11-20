@@ -5,14 +5,15 @@ const cartSchema = new Schema({
   user: {
     type: String,
     ref: "User",
-    required: true
+    required: true,
+    unique: true
   },
   items: [
     {
       product: {
         type: String,
         ref: "Product",
-        unique: true
+        sparse: true
       },
       quantity: Number
     }
