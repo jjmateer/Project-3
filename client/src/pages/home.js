@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import Search from "../components/homelayout/search";
+import Search from "../components/homelayout/search/search";
 import Homediscount from "../components/homelayout/homediscount/homediscount";
-import Picturesglider from "../components/homelayout/picturesglider"
 import Merchandise from "../components/homelayout/merchandise-slide/merchandise-slide"
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
@@ -23,12 +22,10 @@ class Home extends Component {
     render() {
         return (
             <div >
-                {this.props.isAuthenticated ? <h1 className="login-style">Hello, {this.props.user.username}</h1> : <h1 className="notlogin-style">User not logged in</h1>}
+                {this.props.isAuthenticated ? <h1 className="login-style">Hello {this.props.user.username}</h1> : <h1 className="notlogin-style">User not logged in</h1>}
                 < Search />
                 <h1 style={{ marginLeft: "80px" }}>Best Deals In Store</h1>
                 < Homediscount />
-                <h1 style={{ marginLeft: "80px", marginBottom: "-10px" }}>Monitors</h1>
-                < Picturesglider />
                 <h1 style={{ marginLeft: "80px" }}>Merchandise</h1>
                 <Merchandise />
             </div>

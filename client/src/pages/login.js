@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LoginForm from "../components/loginform/loginform";
+import LoginForm from "../components/loginform/login-form";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../actions/authActions";
@@ -58,8 +58,8 @@ class Login extends Component {
     render() {
         return (
             <div>
-                {this.state.msg ? <h1>Invalid credentials.</h1> : null}
-                {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
+                {this.props.isAuthenticated ? null : <h1 className="notlogin-style">User not logged in</h1>}
+                {this.state.msg ? <h1>{this.props.error.msg.msg}</h1> : null}
 
                 <h1 className="page-title">Login</h1>
 
@@ -79,6 +79,7 @@ class Login extends Component {
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
     user: state.auth.user,
+    auth: state.auth,
     error: state.error
 })
 

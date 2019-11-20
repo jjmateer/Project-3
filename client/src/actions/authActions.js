@@ -92,6 +92,7 @@ export const login = ({ email, password }) => dispatch => {
 
 //logout
 export const logout = () => {
+    window.location.reload()
     return {
         type: LOGOUT_SUCCESS
     }

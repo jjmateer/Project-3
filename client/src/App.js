@@ -5,7 +5,7 @@ import store from "./store";
 import { loadUser } from "./actions/authActions";
 import PrivateRoute from "./components/private-route/private-route";
 import PublicRoute from "./components/public-route/public-route";
-import Nav from "../src/components/nav";
+import Nav from "../src/components/nav/nav";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Signup from "./pages/signup";

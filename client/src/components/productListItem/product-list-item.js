@@ -1,7 +1,8 @@
 import React from "react";
-import "./style.css";
+import "./product-list-item.css";
+import { Link } from "react-router-dom";
 
-function CartListItem(props) {
+function ProductListItem(props) {
     return (
         <div className="grid-item" id="productCard">
             <div id="cproduct">{props.product}</div>
@@ -9,8 +10,11 @@ function CartListItem(props) {
             <div id="cprice">${props.price}</div>
             <div id="cdesc">{props.description}</div>
             <img id="cardImg" alt={props.image} src={props.image} />
+            {props.authenticated ? <button className="ATCbtn" id={props.id} onClick={props.addItemToCart} >Add To Cart</button>
+                :
+                <Link to="/login" className="ATCbtn">Add to cart</Link>}
         </div>
     )
 }
 
-export default CartListItem;
+export default ProductListItem;

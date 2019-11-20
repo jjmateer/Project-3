@@ -1,8 +1,7 @@
 import React from "react";
-import "./style.css";
+import "./cartItem.css";
 
-function ProductListItem(props) {
-    { console.log(props) }
+function CartListItem(props) {
     return (
         <div className="grid-item" id="productCard">
             <div id="cproduct">{props.product}</div>
@@ -10,9 +9,8 @@ function ProductListItem(props) {
             <div id="cprice">${props.price}</div>
             <div id="cdesc">{props.description}</div>
             <img id="cardImg" alt={props.image} src={props.image} />
-            <button className="ATCbtn" id={props.id} onClick={props.addItemToCart} >Add To Cart</button>
         </div>
     )
 }
 
-export default ProductListItem;
+export default CartListItem;
