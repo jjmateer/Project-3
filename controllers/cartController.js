@@ -85,14 +85,14 @@ module.exports = {
       })
       .then(() => {
         for (let i = 0; i < itemIDarray.length; i++) {
-          db.Item.find({ _id: itemIDarray[i] }).then(itemInfo => {
-            itemInfo[0].userQuantity = 1;
-            itemInfoArray.push(itemInfo[0]);
-            if (i === itemIDarray.length - 1) {
-              console.log(itemInfoArray);
-              res.json(itemInfoArray);
-            }
-          });
+          db.Item.find({ _id: itemIDarray[i] })
+            .then(itemInfo => {
+              itemInfoArray.push(itemInfo[0])
+              if (i === itemIDarray.length - 1) {
+                console.log(itemInfoArray)
+                res.json(itemInfoArray)
+              }
+            })
         }
       })
       .catch(err => res.status(422).json(err));
@@ -118,7 +118,7 @@ module.exports = {
                   { user: req.params.user },
                   {
                     $inc: {
-                      items: { product: req.params.item, quantity: -1 }
+                      items: { product: req.params.item, quantity: 1 }
                     }
                   }
                 )
