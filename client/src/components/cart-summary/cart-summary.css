@@ -1,0 +1,22 @@
+#cartSummary{
+    border:solid black;
+    width:400px;
+    height:400px;
+    float:Right;
+    margin-top:0px;
+    margin-right:75px;
+    display:flex;
+    flex-direction: column;
+}
+
+
+#item-price{
+    height:20px;
+    width:100%;
+    text-align: left;
+}
+
+#cart-total {
+    padding:0;
+    width:100%;
+}

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import CartList from "../components/cart/cart";
 import CartListItem from "../components/cartItem/cartItem";
+import CartSummary from "../components/cart-summary/cart-summary";
+import CartPrice from "../components/cart-summary/cart-price";
+import CartTotal from "../components/cart-summary/cart-total";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
 import { getUserCart } from "../actions/productActions";
@@ -22,7 +25,17 @@ class Cart extends Component {
         const user_cart = this.props.item.user_cart;
         return (
             <div>
-                <h1 className="page-title">Cart</h1>
+                <CartSummary>
+                    {user_cart.map(({ _id, price }) => (
+                        <CartPrice
+                            key={_id}
+                            price={price}
+                        />
+                    ))}
+                    <CartTotal
+                        user_cart={user_cart}
+                    />
+                </ CartSummary>
                 <CartList>
                     {user_cart.map(({ _id, image, item, brand, price, description }) => (
                         <CartListItem

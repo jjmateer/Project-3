@@ -41,8 +41,6 @@ module.exports = {
         for (let i = 0; i < itemIDarray.length; i++) {
           db.Item.find({ _id: itemIDarray[i] })
             .then(itemInfo => {
-              console.log(itemInfo)
-              // itemInfo[0].userQuantity = 1;
               itemInfoArray.push(itemInfo[0])
               if (i === itemIDarray.length - 1) {
                 console.log(itemInfoArray)
@@ -76,7 +74,7 @@ module.exports = {
                 )
               )
               .then(() => {
-                return res.status(200).json({msg: "Item added to cart."})
+                return res.status(200).json({ msg: "Item added to cart." })
                 console.log(`Updated Quantity: ${item.items[i].quantity}`)
               })
             break;
@@ -92,7 +90,7 @@ module.exports = {
               }
             }
           ).then(() => {
-            return res.status(200).json({msg: "Item added to cart."})
+            return res.status(200).json({ msg: "Item added to cart." })
             console.log(`Item id: ${req.params.item} added to cart.`)
           })
         }
