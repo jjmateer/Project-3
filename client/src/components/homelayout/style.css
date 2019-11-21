@@ -34,29 +34,36 @@
     justify-content: center;
     margin: 2px;
 }
-
+#searchjoin {
+    width:50vw;
+}
 .Osearch {
-    width: 40%;
-    height:30px;
+    width: 50%;
+    height:10px;
     padding: 15px;
-    border-radius: 40px 2px;
-    box-shadow: 2px 3px;
+    border-radius: 50px 0px 0px 50px;
+    border:solid black;
+    border-right:none;
+    /* box-shadow: 2px 3px 10px; */
     font-family: sans-serif;
     font-size: 20px;
     outline: none;
 }
 
-/* .Obutton {
-    background-color: rgb(14, 15, 14);
-    border: none;
-    color: white;
-        margin-left: 20px;
+.Obutton {
+    background-color: lightgray;
+    color: black;
+    width: 140%;
+    padding:8px;
+    box-sizing:border-box;
+    /* margin:0; */
+    margin-left:5%;
+    border-left:none;
+    border: solid black;
+    border-radius: 2px 50px 50px 1px;
+    /* box-shadow: 2px 3px 10px; */
+    font-size: 20px;
     cursor: pointer;
-    font-size: 18px;
-    border-radius: 100px / 50px;
-    outline: none;
-    width: 60px;
-    height:60px;
 }
 .fa.fa-search::before {
     margin:20px;
@@ -76,12 +83,16 @@
 /* Style The Dropdown Button */
 
 .dropbtn {
-    background-color: white;
-    color: rgb(8, 7, 7);
-    width: 100%;
-    padding: 15px;
-    border-radius: 2px 40px 0px 1px;
-    box-shadow: 2px 3px 2px 3px;
+    background-color: black;
+    color: white;
+    width: 140%;
+    height:45px;
+    box-sizing:border-box;
+    margin:0;
+    border-left:none;
+    border: solid black;
+    border-radius: 2px 0px 0px 1px;
+    /* box-shadow: 2px 3px 10px; */
     font-size: 20px;
     cursor: pointer;
 }
@@ -99,8 +110,8 @@
     display: none;
     position: absolute;
     background-color: white;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 10px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 

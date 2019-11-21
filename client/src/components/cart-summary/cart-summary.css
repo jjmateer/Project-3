@@ -1,0 +1,45 @@
+#cartSummary{
+    border:solid black;
+    width:400px;
+    height:400px;
+    float:Right;
+    margin-top:0px;
+    margin-right:75px;
+    display:flex;
+    flex-direction: column;
+}
+
+
+#itemNP{
+    height:50px;
+    width:auto;
+    text-align: left;
+    border:solid black;
+    list-style-type:none;
+    margin-bottom:10px;
+    display:flex;
+}
+
+.itemNP-price {
+    width:50%;
+    height:100%;
+}
+
+.itemNP-item {
+    width:50%;
+    height:100%;
+    margin:0;
+    text-align: center;
+    line-height:50px;
+}
+
+
+#cart-total {
+    color:blue;
+    padding:0;
+    width:100%;
+    bottom:0;
+}
+#price-list {
+    padding:0px;
+}
