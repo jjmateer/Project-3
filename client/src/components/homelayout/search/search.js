@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { getByCategory, getByName } from "../../../actions/productActions";
 import { clearErrors } from "../../../actions/errorActions";
 import PropTypes from "prop-types";
-import "../style.css";
+// import "../style.css";
 
 
 class Search extends Component {
@@ -57,7 +57,7 @@ class Search extends Component {
                             <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="accessories">Accessories</Link>
                         </div>
                     </div>
-                    <Link onClick={this.handleNameSearch} className="Obutton" to="/browse-by-category"><i className="fa fa-search"></i></Link>
+                    <Link onClick={this.handleNameSearch} className="Obutton" to="/browse-by-category"><i className="fa fa-search"> Search</i></Link>
                 </div>
             </div >
         )
