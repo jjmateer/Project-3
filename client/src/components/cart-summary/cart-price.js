@@ -3,7 +3,10 @@ import "./cart-summary.css";
 
 function CartPrice(props) {
     return (
-        <li id="item-price">{props.price}</li>
+        <li id="itemNP">
+            <p>{props.item}</p>
+            <p>${props.price}.00</p>
+        </li>
     );
 }
 

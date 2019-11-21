@@ -26,10 +26,11 @@ class Cart extends Component {
         return (
             <div>
                 <CartSummary>
-                    {user_cart.map(({ _id, price }) => (
+                    {user_cart.map(({ _id, price, item }) => (
                         <CartPrice
                             key={_id}
                             price={price}
+                            item={item}
                         />
                     ))}
                     <CartTotal

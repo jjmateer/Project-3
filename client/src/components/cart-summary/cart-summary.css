@@ -10,13 +10,28 @@
 }
 
 
-#item-price{
-    height:20px;
-    width:100%;
+#itemNP{
+    height:50px;
+    width:auto;
     text-align: left;
+    border:solid black;
+    list-style-type:none;
+    margin-bottom:10px;
+    display:flex;
 }
 
+#itemNP p {
+    width:50%;
+    height:100%;
+}
+
+
 #cart-total {
+    color:blue;
     padding:0;
     width:100%;
+    bottom:0;
+}
+#price-list {
+    padding:0px;
 }
