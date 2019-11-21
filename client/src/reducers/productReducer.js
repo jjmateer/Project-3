@@ -60,8 +60,6 @@ export default function(state = initialState, action) {
     case USER_CHECKOUT:
       return {
         ...state,
-        items: [action.payload, ...state.items],
-        user_cart: [action.payload, ...state.items],
         loading: false
       };
     default:
