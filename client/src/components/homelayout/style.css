@@ -55,15 +55,15 @@
     font-size: 18px;
     border-radius: 100px / 50px;
     outline: none;
-    width: 100px;
-    height:100px;
-} */
-
-i{
-    background-color: black;
-margin:5px;
-    padding:20px;
-    border-radius: 100px / 50px;    
+    width: 60px;
+    height:60px;
+}
+.fa.fa-search::before {
+    margin:20px;
+    line-height:100%;
+}
+.fa.fa-search{
+    margin-top:20px;
 }
 
 /* <div className="search-container">

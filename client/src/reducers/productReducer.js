@@ -14,7 +14,8 @@ const initialState = {
     items: [],
     items_search: [],
     user_cart: [],
-    loading: false
+    loading: false,
+    msg: null
 };
 
 export default function (state = initialState, action) {

@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const inventoryRoutes = require("./inventory");
-const cartRoutes = require("../api/cartAPI");
+const cartRoutes = require("./cartAPI");
 const loginRoutes = require("./login")
 
 // inventory routes

@@ -14,8 +14,8 @@
 }
 
 .slick-slide, .slick-slide div, .menu-item {
-  height:225px;
-  width:225px;
+  height:400px;
+  /* width:300px; */
   user-select: none;
   cursor: pointer;
   background:#295a31;
@@ -33,4 +33,10 @@
 }
 .slick-arrow.slick-prev {
   right:0 !important;
+}
+
+.slideImg{
+  height:auto;
+  width:70%;
+  margin:auto;
 }
