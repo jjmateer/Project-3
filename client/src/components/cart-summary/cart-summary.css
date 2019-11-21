@@ -20,9 +20,17 @@
     display:flex;
 }
 
-#itemNP p {
+.itemNP-price {
     width:50%;
     height:100%;
+}
+
+.itemNP-item {
+    width:50%;
+    height:100%;
+    margin:0;
+    text-align: center;
+    line-height:50px;
 }
 
 

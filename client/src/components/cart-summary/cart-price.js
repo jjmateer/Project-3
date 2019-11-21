@@ -4,8 +4,8 @@ import "./cart-summary.css";
 function CartPrice(props) {
     return (
         <li id="itemNP">
-            <p>{props.item}</p>
-            <p>${props.price}.00</p>
+            <p className="itemNP-item">{props.item}</p>
+            <p className="itemNP-price">${props.price}.00</p>
         </li>
     );
 }
