@@ -9,12 +9,20 @@
   margin:auto;
 }
 
-.slick-slide, .slick-slide div, .menu-item {
+.slick-slide, .slick-slide div{
   height:225px;
   width:225px;
   user-select: none;
   cursor: grabbing;
-  background:#295a31;
+  box-sizing: border-box;
+  color:white;
+}
+
+.menu-item{
+  height:225px;
+  width:225px;
+  user-select: none;
+  cursor: grabbing;
   box-sizing: border-box;
   color:white;
 }
@@ -26,8 +34,17 @@
   text-align: center;
   border: 10px solid white;
 }
-.slick-arrow, .slick-arrow :active, .slick-arrow :hover {
+ .slick-arrow :active, .slick-arrow :hover {
   /* display:none !important; */
   background:black !important;
   cursor: pointer;
 }
+
+.slick-arrow, .slick-prev{
+  margin:-30px;
+  font-size: 50px;
+  /* border-radius:100px; */
+}
+
+
+

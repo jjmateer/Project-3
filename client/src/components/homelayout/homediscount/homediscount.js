@@ -61,7 +61,7 @@ class Homediscount extends Component {
                         <div className="menu-item" key={_id}>
                             <h4>{product}</h4>
                             <img className="slideImg" src={image} alt={image}></img>
-                            <p id="brand">brand:{brand}</p>
+                            <p id="brand"> {brand}</p>
                             <p id="price">${price}.00</p>
                             <button id="viewItem">**BUTTON**</button>
                         </div>
@@ -72,7 +72,7 @@ class Homediscount extends Component {
                         <div className="menu-item" key={_id}>
                             <h4>{product}</h4>
                             <img className="slideImg" src={image} alt={image}></img>
-                            <p id="brand">brand:{brand}</p>
+                            <p id="brand"> {brand}</p>
                             <p id="price">${price}.00</p>
                             <button id="viewItem">**BUTTON**</button>
                         </div>
