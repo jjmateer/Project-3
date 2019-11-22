@@ -20,7 +20,9 @@ class Signup extends Component {
         register: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired
     }
-
+    componentDidMount() {
+        this.props.clearErrors();
+    }
     componentDidUpdate(prevPreps) {
         const { error } = this.props;
         if (error !== prevPreps.error) {
@@ -63,8 +65,8 @@ class Signup extends Component {
     render() {
         return (
             <div className="App">
-                {this.props.isAuthenticated ? null : <h1 className="notlogin-style">User not logged in</h1>}
-                {this.state.msg ? <h1>{this.props.error.msg.msg}</h1> : null}
+
+                {this.props.error.msg.msg ? <h1 id="error-header">{this.props.error.msg.msg}</h1> : null}
                 <SignupForm
                     handleNameChange={this.handleNameChange}
                     handleEmailChange={this.handleEmailChange}

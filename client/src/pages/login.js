@@ -19,7 +19,9 @@ class Login extends Component {
         login: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired
     }
-
+    componentDidMount() {
+        this.props.clearErrors();
+    }
     componentDidUpdate(prevPreps) {
         const { error } = this.props;
         if (error !== prevPreps.error) {
@@ -58,8 +60,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                {this.state.msg ? <h1>{this.props.error.msg.msg}</h1> : null}
-
+                {this.props.error.msg.msg ? <h1 id="error-header">{this.props.error.msg.msg}</h1> : null}
                 <h1 className="page-title">Login</h1>
 
                 <div className="content-wrappershort">

@@ -24,7 +24,8 @@ class Homediscount extends Component {
             dots: false,
             infinite: true,
             slidesToShow: 7,
-            slidesToScroll: 10,
+            slidesToScroll: 1,
+            draggable:false,
             autoplay: true,
             autoplaySpeed:3000,
             initialSlide: 0,
@@ -32,8 +33,8 @@ class Homediscount extends Component {
                 {
                     breakpoint: 1025,
                     settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 4,
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
                         infinite: true,
                         dots: false
                     }
@@ -75,16 +76,16 @@ class Homediscount extends Component {
                 {items.map(({ _id, image, item, brand, price, description }) => {
                     return (
                         <div className="menu-item" key={_id}>
-                            <div className="img-background">
-                            <img className="slideImg" src={image} alt={image}></img>
-                            </div>  
-                            <div className="card-info">                          
-                            <p id="card-header">{item}</p>
-                            <p id="brand">By {brand}</p>
-                            <p id="price">${price}.00</p>
-                            <button id="viewItem">View Item</button>
-                            </div>
+                        <div className="img-background">
+                        <img className="slideImg" src={image} alt={image}></img>
+                        </div>  
+                        <div className="card-info">                          
+                        <p id="card-header">{item}</p>
+                        <p id="brand">By {brand}</p>
+                        <p id="price">${price}.00</p>
+                        <button id="viewItem">View Item</button>
                         </div>
+                    </div>
                     )
                 })}
             </Slider>

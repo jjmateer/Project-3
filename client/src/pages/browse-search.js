@@ -17,6 +17,9 @@ class BrowseByCategory extends Component {
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     }
+    componentDidMount() {
+        this.props.clearErrors();
+    }
     addItemToCart = event => {
         this.props.addToCart(this.props.user.id, event.target.id);
     }

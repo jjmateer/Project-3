@@ -19,6 +19,7 @@ class Cart extends Component {
         clearErrors: PropTypes.func.isRequired
     }
     componentDidMount() {
+        this.props.clearErrors();
         this.props.getUserCart(this.props.user.id);
     }
     render() {

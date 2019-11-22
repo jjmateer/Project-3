@@ -7,6 +7,7 @@
   width: 100vw ;
   height:500px;
   box-shadow: 2px 2px 8px black;
+  margin-bottom:100px;
 }
 
 .slick-track {
@@ -41,7 +42,6 @@ img.slideImg {
 .menu-item {
   height:500px;
   user-select: none;
-  cursor: grab;
   box-sizing: border-box;
 }
 
@@ -50,10 +50,6 @@ img.slideImg {
   height:50%;
   border: 1px solid black;
   box-sizing: border-box;
-}
-
-.slick-slide div:active {
-  cursor: grabbing;
 }
 
 .menu-item {
@@ -102,7 +98,9 @@ button.slick-arrow.slick-prev {
   width: 100px;
   margin: auto;
   border-radius: 2px;
-  background: black;
+  border: 1px solid black;
+  background: transparent;
+  cursor: pointer;
 }
 
 .slider-label {

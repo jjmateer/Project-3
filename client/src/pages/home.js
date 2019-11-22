@@ -18,7 +18,9 @@ class Home extends Component {
         error: PropTypes.object.isRequired,
         clearErrors: PropTypes.func.isRequired
     }
-
+    componentDidMount() {
+        this.props.clearErrors();
+    }
     render() {
         return (
             <div >

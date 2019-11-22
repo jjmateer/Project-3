@@ -17,9 +17,11 @@ class Browse extends Component {
         user: PropTypes.object,
         addToCart: PropTypes.func.isRequired,
         item: PropTypes.object.isRequired,
-        isAuthenticated: PropTypes.bool
+        isAuthenticated: PropTypes.bool,
+        clearErrors: PropTypes.func.isRequired
     }
     componentDidMount() {
+        this.props.clearErrors();
         this.props.getItems();
         {this.props.isAuthenticated ? 
             this.setState({ authenticated: true })
@@ -35,7 +37,7 @@ class Browse extends Component {
         const { items } = this.props.item;
         return (
             <div>
-                <h1>Browse All</h1>
+                <h1 className="page-title">Browse All</h1>
                 <ProductList>
                     {items.map(({ _id, image, item, brand, price, description }) => (
                         <ProductListItem
@@ -60,7 +62,7 @@ const mapStateToProps = state => ({
     item: state.item,
     isAuthenticated: state.auth.isAuthenticated,
     user: state.auth.user,
-    error: state.error
+    error: state.error,
 })
 
 export default connect(
