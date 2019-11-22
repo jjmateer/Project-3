@@ -22,11 +22,10 @@ class Home extends Component {
     render() {
         return (
             <div >
-                {this.props.isAuthenticated ? <h1 className="login-style">Hello {this.props.user.username}</h1> : <h1 className="notlogin-style">User not logged in</h1>}
                 < Search />
-                <h1 style={{ marginLeft: "80px" }}>Best Deals In Store</h1>
+                <h1 className="slider-label">Best Deals In Store</h1>
                 < Homediscount />
-                <h1 style={{ marginLeft: "80px" }}>Merchandise</h1>
+                <h1 className="slider-label">Merchandise</h1>
                 <Merchandise />
             </div>
         );

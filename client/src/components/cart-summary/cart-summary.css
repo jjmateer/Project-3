@@ -1,7 +1,7 @@
 #cartSummary{
-    border:solid black;
+    /* border:solid black; */
     width:400px;
-    height:400px;
+    height:auto;
     float:Right;
     margin-top:0px;
     margin-right:75px;
@@ -9,15 +9,15 @@
     flex-direction: column;
 }
 
-
 #itemNP{
-    height:50px;
+    height:auto;
     width:auto;
     text-align: left;
-    border:solid black;
+    border:1px solid black;
     list-style-type:none;
     margin-bottom:10px;
     display:flex;
+    box-shadow: 2px 2px 8px gray;
 }
 
 .itemNP-price {
@@ -26,8 +26,9 @@
 }
 
 .itemNP-item {
+    background:#193520;
+    color:white;
     width:50%;
-    height:100%;
     margin:0;
     text-align: center;
     line-height:50px;

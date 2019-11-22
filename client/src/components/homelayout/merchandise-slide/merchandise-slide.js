@@ -35,14 +35,14 @@ class Merchandise extends Component {
             slidesToShow: 8,
             slidesToScroll: 1,
             autoplay: true,
-            autoplaySpeed: 2000,
+            autoplaySpeed: 4000,
             initialSlide: 0,
             responsive: [
                 {
                     breakpoint: 1025,
                     settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 4,
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
                         infinite: true,
                         dots: false
                     }
@@ -67,27 +67,19 @@ class Merchandise extends Component {
         return (
             <div>
                 <Slider ref={slider => (this.slider = slider)} {...settings}>
-                    {merchandiseitems.map(({ _id, image, product, brand, price, description }) => {
+                    {merchandiseitems.map(({ _id, image, product, brand, price }) => {
                         return (
                             <div className="menu-item" key={_id}>
                                 <h4>{product}</h4>
                                 <img className="slideImg" src={image} alt={image}></img>
-                                <p id="brand">brand:{brand}</p>
+                                <p id="brand">By {brand}</p>
                                 <p id="price">${price}.00</p>
                                 <button id="viewItem">**BUTTON**</button>
                             </div>
                         )
                     })}
                 </Slider>
-                <div style={{ textAlign: "center" }}>
-                    <button className="button" onClick={this.play}>
-                        Play
-          </button>
-                    <button className="button" onClick={this.pause}>
-                        Pause
-          </button>
                 </div>
-            </div>
         );
     }
 }

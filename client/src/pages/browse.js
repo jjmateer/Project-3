@@ -35,7 +35,6 @@ class Browse extends Component {
         const { items } = this.props.item;
         return (
             <div>
-                {this.props.isAuthenticated ? null : <h1 className="notlogin-style">User not logged in</h1>}
                 <h1>Browse All</h1>
                 <ProductList>
                     {items.map(({ _id, image, item, brand, price, description }) => (

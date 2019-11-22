@@ -23,10 +23,13 @@ class Homediscount extends Component {
         var settings = {
             dots: false,
             infinite: true,
-            speed: 500,
-            slidesToShow: 8,
+            speed: 650,
+            slidesToShow: 7,
             slidesToScroll: 10,
+            swipeToSlide: true,
             initialSlide: 0,
+            centerMode: true,
+            lazyLoad: true,
             responsive: [
                 {
                     breakpoint: 1025,
@@ -56,25 +59,33 @@ class Homediscount extends Component {
         };
         return (
             <Slider {...settings}>
-                {lowcostitems.map(({ _id, image, product, brand, price, description }) => {
+                {lowcostitems.map(({ _id, image, item, brand, price, description }) => {
                     return (
                         <div className="menu-item" key={_id}>
-                            <h4>{product}</h4>
+                            <div className="img-background">
                             <img className="slideImg" src={image} alt={image}></img>
-                            <p id="brand">brand:{brand}</p>
+                            </div>  
+                            <div className="card-info">                          
+                            <h id="card-header">{item}</h>
+                            <p id="brand">By {brand}</p>
                             <p id="price">${price}.00</p>
-                            <button id="viewItem">**BUTTON**</button>
+                            <button id="viewItem">View Item</button>
+                            </div>
                         </div>
                     )
                 })}
-                {lowcostitems.map(({ _id, image, product, brand, price, description }) => {
+                {lowcostitems.map(({ _id, image, item, brand, price, description }) => {
                     return (
                         <div className="menu-item" key={_id}>
-                            <h4>{product}</h4>
+                            <div className="img-background">
                             <img className="slideImg" src={image} alt={image}></img>
-                            <p id="brand">brand:{brand}</p>
+                            </div>  
+                            <div className="card-info">                          
+                            <h id="card-header">{item}</h>
+                            <p id="brand">By {brand}</p>
                             <p id="price">${price}.00</p>
-                            <button id="viewItem">**BUTTON**</button>
+                            <button id="viewItem">View Item</button>
+                            </div>
                         </div>
                     )
                 })}

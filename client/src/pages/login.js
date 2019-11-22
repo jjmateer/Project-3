@@ -58,7 +58,6 @@ class Login extends Component {
     render() {
         return (
             <div>
-                {this.props.isAuthenticated ? null : <h1 className="notlogin-style">User not logged in</h1>}
                 {this.state.msg ? <h1>{this.props.error.msg.msg}</h1> : null}
 
                 <h1 className="page-title">Login</h1>
