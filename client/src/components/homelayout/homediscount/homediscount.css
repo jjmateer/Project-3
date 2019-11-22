@@ -94,8 +94,7 @@ button.slick-arrow.slick-prev {
   margin-left:50px;
 }
 #viewItem {
-  height: 30px;
-  width: 100px;
+  color:black;
   margin: auto;
   border-radius: 2px;
   border: 1px solid black;

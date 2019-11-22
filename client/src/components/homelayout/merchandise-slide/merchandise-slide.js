@@ -1,16 +1,23 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import {Link} from "react-router-dom";
 import "./merchandise-slide.css";
 import { connect } from "react-redux";
-import { getItems } from "../../../actions/productActions";
+import { getItems, addToCart } from "../../../actions/productActions";
 import { clearErrors } from "../../../actions/errorActions";
 import PropTypes from "prop-types";
 
 class Merchandise extends Component {
     static propTypes = {
         getItems: PropTypes.func.isRequired,
+        user: PropTypes.object,
+        addToCart: PropTypes.func.isRequired,
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
+    }
+    addItemToCart = event => {
+        this.props.addToCart(this.props.user.id, event.target.id)
+        alert("Item added to cart.")
     }
     constructor(props) {
         super(props);
@@ -71,16 +78,18 @@ class Merchandise extends Component {
                     {merchandiseitems.map(({ _id, image, item, brand, price }) => {
                         return (
                             <div className="menu-item" key={_id}>
-                            <div className="img-background">
-                            <img className="slideImg" src={image} alt={image}></img>
-                            </div>  
-                            <div className="card-info">                          
-                            <p id="card-header">{item}</p>
-                            <p id="brand">By {brand}</p>
-                            <p id="price">${price}.00</p>
-                            <button id="viewItem">Add to cart</button>
+                                <div className="img-background">
+                                    <img className="slideImg" src={image} alt={image}></img>
+                                </div>
+                                <div className="card-info">
+                                    <p id="card-header">{item}</p>
+                                    <p id="brand">By {brand}</p>
+                                    <p id="price">${price}.00</p>
+                                    {this.props.isAuthenticated ? <button id="viewItem" id={_id} onClick={this.addItemToCart} >Add To Cart</button>
+                                        :
+                                        <Link to="/login" id="viewItem">Add to cart</Link>}
+                                </div>
                             </div>
-                        </div>
                         )
                     })}
                 </Slider>
@@ -93,10 +102,11 @@ class Merchandise extends Component {
 const mapStateToProps = state => ({
     item: state.item,
     isAuthenticated: state.auth.isAuthenticated,
-    error: state.error
+    user: state.auth.user,
+    error: state.error,
 })
 
 export default connect(
     mapStateToProps,
-    { getItems, clearErrors }
+    { getItems, addToCart, clearErrors }
 )(Merchandise);

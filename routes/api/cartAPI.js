@@ -10,4 +10,8 @@ router
   .route("/user-cart/:user")
   .get(cartController.getUserCart);
 
+router
+  .route("/user-cart/checkout/:user")
+  .post(cartController.checkout);
+
 module.exports = router;

@@ -3,10 +3,10 @@ import {
     GET_ITEMS,
     GET_BY_CATEGORY,
     GET_BY_NAME,
-    // ADD_ITEM, 
     ADD_ITEM_TO_CART,
     ITEMS_LOADING,
-    GET_USER_CART
+    GET_USER_CART,
+    USER_CHECKOUT
 } from './types';
 // import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
@@ -85,6 +85,22 @@ export const getUserCart = (userID) => dispatch => {
             dispatch(returnErrors(err.response.data, err.response.status))
         );
 };
+
+export const userCheckout = userID => dispatch => {
+    console.log("firing")
+    axios
+      .post(`http://localhost:3001/api/cart/user-cart/checkout/${userID}`)
+      .then(res =>
+        dispatch({
+          type: USER_CHECKOUT,
+          payload: res.data
+        })
+      )
+      .catch(err =>
+        dispatch(returnErrors(err.response.data, err.response.status))
+      );
+  };
+
 export const setItemsLoading = () => {
     return {
         type: ITEMS_LOADING

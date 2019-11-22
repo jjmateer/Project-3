@@ -27,6 +27,7 @@ class BrowseByCategory extends Component {
         const items_search = this.props.item.items_search;
         return (
             <div>
+                <h1 className="page-title">Search</h1>
                 <ProductList>
                     {items_search.map(({ _id, image, item, brand, price, description }) => (
                         <ProductListItem
