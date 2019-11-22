@@ -4,7 +4,7 @@
     background:white;
     box-shadow: 10px 10px 8px #888888;
     min-height:300px;
-    width:90vw;
+    width:70vw;
     height:20vh;
     display:flex;
     flex-direction: row;
@@ -14,9 +14,10 @@
 .ATCbtn{
     color:black;
     cursor:pointer;
-    width:25%;
+    width:10%;
     float:right;
     margin-top:200px;
+    margin-right:5%;
     height:50px;
     text-align: center;
     line-height:50px;
@@ -25,12 +26,15 @@
 }
 
 .cardImg {
-    height:100%;
+    max-height:20vh;
     width:auto;
+    max-width:100%;
+    margin:auto;
 }
 
 #card-image-container {
-    width:30%
+    width:30%;
+    margin:auto;
 }
 
 #card-product-info {
@@ -52,8 +56,44 @@
     text-align:center;
     width:100%;
     margin:auto;
-    height:100px;
+    height:auto;
 }
 .cbrand, #cprice{
     text-align:center;
+}
+
+@media only screen and (max-width: 1025px) {
+    #productCard {
+        width:95vw;
+    }
+    .ATCbtn{
+        width:20%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #productCard {
+        flex-direction: column;
+        height:auto;
+    }
+    #card-image-container {
+        width:100vw;
+    }
+    .cardImg {
+        max-width:100vw;
+        height:auto;
+    }
+    .ATCbtn{
+        width:100%;
+        margin:0;
+    }
+
+    #card-product-info {
+        width:100%;
+        text-align:center;
+    }
+
+    .cdesc {
+        height:auto;
+    }
 }
