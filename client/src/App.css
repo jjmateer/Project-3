@@ -3,9 +3,15 @@ a{
     cursor: pointer;
 }
 
-/* html{ */
-    /* background:#1b1b1b; */
-/* } */
+html, body{ 
+     height:100vh;
+     width:100vw;
+     overflow-x:hidden;
+ }
+ .global-header-right a {
+    padding-right:10px;
+    padding-bottom:10px;
+ }
 /* .notlogin-style {
     color: red;
     font-size: 20px;

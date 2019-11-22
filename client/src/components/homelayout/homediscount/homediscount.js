@@ -23,13 +23,11 @@ class Homediscount extends Component {
         var settings = {
             dots: false,
             infinite: true,
-            speed: 650,
             slidesToShow: 7,
             slidesToScroll: 10,
-            swipeToSlide: true,
+            autoplay: true,
+            autoplaySpeed:3000,
             initialSlide: 0,
-            centerMode: true,
-            lazyLoad: true,
             responsive: [
                 {
                     breakpoint: 1025,
@@ -59,29 +57,29 @@ class Homediscount extends Component {
         };
         return (
             <Slider {...settings}>
-                {lowcostitems.map(({ _id, image, item, brand, price, description }) => {
+                {/* {lowcostitems.map(({ _id, image, item, brand, price, description }) => {
                     return (
                         <div className="menu-item" key={_id}>
                             <div className="img-background">
                             <img className="slideImg" src={image} alt={image}></img>
                             </div>  
                             <div className="card-info">                          
-                            <h id="card-header">{item}</h>
+                            <p id="card-header">{item}</p>
                             <p id="brand">By {brand}</p>
                             <p id="price">${price}.00</p>
                             <button id="viewItem">View Item</button>
                             </div>
                         </div>
                     )
-                })}
-                {lowcostitems.map(({ _id, image, item, brand, price, description }) => {
+                })} */}
+                {items.map(({ _id, image, item, brand, price, description }) => {
                     return (
                         <div className="menu-item" key={_id}>
                             <div className="img-background">
                             <img className="slideImg" src={image} alt={image}></img>
                             </div>  
                             <div className="card-info">                          
-                            <h id="card-header">{item}</h>
+                            <p id="card-header">{item}</p>
                             <p id="brand">By {brand}</p>
                             <p id="price">${price}.00</p>
                             <button id="viewItem">View Item</button>

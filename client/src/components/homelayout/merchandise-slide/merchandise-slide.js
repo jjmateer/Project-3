@@ -32,10 +32,10 @@ class Merchandise extends Component {
         const settings = {
             dots: false,
             infinite: true,
-            slidesToShow: 8,
-            slidesToScroll: 1,
+            slidesToShow: 7,
+            slidesToScroll: 10,
             autoplay: true,
-            autoplaySpeed: 4000,
+            autoplaySpeed: 5000,
             initialSlide: 0,
             responsive: [
                 {
@@ -67,15 +67,19 @@ class Merchandise extends Component {
         return (
             <div>
                 <Slider ref={slider => (this.slider = slider)} {...settings}>
-                    {merchandiseitems.map(({ _id, image, product, brand, price }) => {
+                    {merchandiseitems.map(({ _id, image, item, brand, price }) => {
                         return (
                             <div className="menu-item" key={_id}>
-                                <h4>{product}</h4>
-                                <img className="slideImg" src={image} alt={image}></img>
-                                <p id="brand">By {brand}</p>
-                                <p id="price">${price}.00</p>
-                                <button id="viewItem">**BUTTON**</button>
+                            <div className="img-background">
+                            <img className="slideImg" src={image} alt={image}></img>
+                            </div>  
+                            <div className="card-info">                          
+                            <p id="card-header">{item}</p>
+                            <p id="brand">By {brand}</p>
+                            <p id="price">${price}.00</p>
+                            <button id="viewItem">View Item</button>
                             </div>
+                        </div>
                         )
                     })}
                 </Slider>

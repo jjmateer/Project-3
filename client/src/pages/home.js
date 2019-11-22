@@ -23,10 +23,10 @@ class Home extends Component {
         return (
             <div >
                 < Search />
-                <h1 className="slider-label">Best Deals In Store</h1>
-                < Homediscount />
                 <h1 className="slider-label">Merchandise</h1>
                 <Merchandise />
+                <h1 className="slider-label">Best Deals In Store</h1>
+                < Homediscount />
             </div>
         );
     }
