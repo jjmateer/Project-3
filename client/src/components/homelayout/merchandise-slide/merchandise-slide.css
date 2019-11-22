@@ -18,9 +18,11 @@
   /* width:300px; */
   user-select: none;
   cursor: pointer;
-  background:#295a31;
-  box-sizing: border-box;
-  color:white;
+ background: transparent;
+  box-sizing: border-box ;
+  color:black;
+  border-color: black ;
+  border:0.1px solid;
 }
 .menu-item {
   text-align: center;
