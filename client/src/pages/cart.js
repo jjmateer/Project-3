@@ -7,6 +7,7 @@ import CartTotal from "../components/cart-summary/cart-total";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
 import { getUserCart } from "../actions/productActions";
+import { userCheckout } from "../actions/productActions";
 import PropTypes from "prop-types";
 class Cart extends Component {
     state = {
@@ -56,14 +57,13 @@ class Cart extends Component {
 }
 
 const mapStateToProps = state => ({
-    item: state.item,
-    isAuthenticated: state.auth.isAuthenticated,
-    user: state.auth.user,
-    error: state.error
-})
+  item: state.item,
+  isAuthenticated: state.auth.isAuthenticated,
+  user: state.auth.user,
+  error: state.error
+});
 
 export default connect(
-    mapStateToProps,
-    { getUserCart, clearErrors }
+  mapStateToProps,
+  { getUserCart, clearErrors }
 )(Cart);
-

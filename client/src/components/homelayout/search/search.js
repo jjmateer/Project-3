@@ -59,10 +59,6 @@ class Search extends Component {
                         </div>
                         <Link onClick={this.handleNameSearch} className="Obutton" to="/browse-by-category"><i className="fa fa-search"></i></Link>
                     </div>
-<<<<<<< HEAD
-                    <Link onClick={this.handleNameSearch} className="Obutton" to="/browse-by-category"><i className="fa fa-search"> Search</i></Link>
-=======
->>>>>>> 535c0fd9b4a116dca4a0612c02c3e5f65231378e
                 </div>
             </div >
         )
