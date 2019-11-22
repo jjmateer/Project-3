@@ -23,15 +23,15 @@
 .itemNP-price {
     width:50%;
     height:100%;
+    text-align:center;
 }
 
 .itemNP-item {
-    background:#193520;
-    color:white;
     width:50%;
     margin:0;
     text-align: center;
     line-height:50px;
+    border-right:1px solid black;
 }
 
 
@@ -43,4 +43,50 @@
 }
 #price-list {
     padding:0px;
+}
+#cartCard {
+    border:1px solid black;
+    margin:10px auto;
+    background:white;
+    box-shadow: 10px 10px 8px #888888;
+    min-height:300px;
+    width:70vw;
+    height:20vh;
+    display:flex;
+    flex-direction: row;
+
+}
+@media only screen and (max-width: 850px){
+    #cartCard {
+        flex-direction: column;
+        height:auto;
+    }
+    #cartList {
+        width:100vw;
+        margin:0;
+    }
+    #cartSummary{
+        width:100vw;
+        height:auto;
+        margin:0px;
+        display:flex;
+        flex-direction: column;
+    }
+}
+@media only screen and (max-width: 600px) {
+    #cartCard {
+        flex-direction: column;
+        height:auto;
+    }
+    #cartList {
+        width:100vw;
+        margin:0;
+    }
+    #cartSummary{
+        width:100vw;
+        height:auto;
+        margin:0px;
+        display:flex;
+        flex-direction: column;
+    }
 }

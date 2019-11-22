@@ -38,11 +38,21 @@
 
 @media only screen and (max-width: 1367px) and (orientation:landscape) {
     .content-wrappershort {
-        width: 30vw !important;
+        width: 40vw !important;
     }
 }
 @media only screen and (max-width: 1367px) and (orientation:portrait) {
     .content-wrappershort {
         width: 30vw !important;
+    }
+}
+@media only screen and (max-width: 850px) and (orientation:portrait) {
+    .content-wrappershort {
+        width: 40vw !important;
+    }
+}
+@media only screen and (max-width: 600px) and (orientation:portrait) {
+    .content-wrappershort {
+        width: 80vw !important;
     }
 }

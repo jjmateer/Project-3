@@ -23,11 +23,11 @@ class Browse extends Component {
     componentDidMount() {
         this.props.clearErrors();
         this.props.getItems();
-        {this.props.isAuthenticated ? 
+        this.props.isAuthenticated ? 
             this.setState({ authenticated: true })
             :
             this.setState({ authenticated: false })
-        }
+        
     }
     addItemToCart = event => {
         this.props.addToCart(this.props.user.id, event.target.id)

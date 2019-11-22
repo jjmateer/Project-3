@@ -78,7 +78,7 @@ class Merchandise extends Component {
                             <p id="card-header">{item}</p>
                             <p id="brand">By {brand}</p>
                             <p id="price">${price}.00</p>
-                            <button id="viewItem">View Item</button>
+                            <button id="viewItem">Add to cart</button>
                             </div>
                         </div>
                         )
