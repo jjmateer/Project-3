@@ -10,7 +10,7 @@ const cartSchema = new Schema({
   },
   items: [
     {
-      product: {
+      item: {
         type: String,
         ref: "Item",
         sparse: true

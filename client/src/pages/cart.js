@@ -65,14 +65,13 @@ class Cart extends Component {
 }
 
 const mapStateToProps = state => ({
-    item: state.item,
-    isAuthenticated: state.auth.isAuthenticated,
-    user: state.auth.user,
-    error: state.error
-})
+  item: state.item,
+  isAuthenticated: state.auth.isAuthenticated,
+  user: state.auth.user,
+  error: state.error
+});
 
 export default connect(
     mapStateToProps,
     { getUserCart, clearErrors, userCheckout }
 )(Cart);
-

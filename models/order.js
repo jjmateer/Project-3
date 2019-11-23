@@ -6,7 +6,9 @@ const orderSchema = new Schema({
     type: String,
     ref: "User",
     required: true,
+
     unique: false
+
   },
   items: [
     {
@@ -29,4 +31,6 @@ const orderSchema = new Schema({
 });
 
 const Order = mongoose.model("Order", orderSchema);
+
 module.exports = Order;
+
