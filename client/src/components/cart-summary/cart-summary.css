@@ -1,10 +1,10 @@
 #cartSummary{
     /* border:solid black; */
-    width:400px;
+    width:30vw;
     height:auto;
     float:Right;
     margin-top:0px;
-    margin-right:75px;
+    margin-right:5px;
     display:flex;
     flex-direction: column;
 }
@@ -50,7 +50,7 @@
     background:white;
     box-shadow: 10px 10px 8px #888888;
     min-height:300px;
-    width:70vw;
+    width:65vw;
     height:20vh;
     display:flex;
     flex-direction: row;
