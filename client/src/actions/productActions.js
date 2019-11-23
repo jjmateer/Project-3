@@ -87,7 +87,6 @@ export const getUserCart = (userID) => dispatch => {
 };
 
 export const userCheckout = (userID) => dispatch => {
-    console.log(`User id: ${userID}`)
     dispatch(setItemsLoading());
     axios
       .post(`http://localhost:3001/api/cart/checkout/${userID}`)
