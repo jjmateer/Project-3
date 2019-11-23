@@ -63,7 +63,7 @@ class Login extends Component {
                 {this.props.error.msg.msg ? <h1 id="error-header">{this.props.error.msg.msg}</h1> : null}
                 <h1 className="page-title">Login</h1>
 
-                <div className="content-wrappershort">
+                <div className="auth-form">
                     <div>
                         <LoginForm
                             handleEmailChange={this.handleEmailChange}
