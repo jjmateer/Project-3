@@ -35,66 +35,60 @@
     margin: 2px;
 }
 #searchjoin {
-    width:50vw;
+    height:40px;
+    width:40vw;
+    width:auto;
+    display:flex;
+    flex-direction: row;
+    border-radius:50%;
 }
+
 .Osearch {
-    width: 50%;
-    height:10px;
-    padding: 15px;
+    width: 100%;
+    height:100%;
+    padding: 0px;
     border-radius: 50px 0px 0px 50px;
-    border: solid black 1px;
+    box-sizing: border-box;
+    border:1.5px solid black;
     border-right:none;
-    /* box-shadow: 2px 3px 10px; */
     font-family: sans-serif;
-    font-size: 20px;
+    font-size: 30px;
     outline: none;
+    padding:10px;
 }
 
 
 .Obutton {
     background-color: rgba(187, 194, 189, 0.376);
     color: black;
-    width: 140%;
-    padding:8px;
-    box-sizing:border-box;
-    /* margin:0; */
-    margin-left:24px;
+    height:100%;
+    width: 10%;
     border-left:none;
-    border: solid black 1px;
+    border:1.5px solid black;
     border-radius: 2px 50px 50px 1px;
-    /* box-shadow: 2px 3px 10px; */
     font-size: 20px;
     cursor: pointer;
+    box-sizing:border-box;
 }
 .fa.fa-search::before {
-    margin:20px;
+    margin:1vw;
+    /* margin-left:3vw; */
     line-height:100%;
 }
-.fa.fa-search{
-    margin-top:20px;
-}
 
-/* <div className="search-container">
-<input type="text" className="search" placeholder="Search.." />
-<button type="submit"><i class="fa fa-search"></i></button>
-</div> */
-
-/* Dropdown for Categories */
-
-/* Style The Dropdown Button */
 
 .dropbtn {
     background-color: black;
     color: white;
-    width: 140%;
-    height:42px;
+    width: 100%;
+    height:100%;
     box-sizing:border-box;
     margin:0;
     border-left:none;
-    border: solid black 0.1px;
+    border:1.5px solid black;
     border-radius: 2px 0px 0px 1px;
-    /* box-shadow: 2px 3px 10px; */
     font-size: 20px;
+    width:138px;
     cursor: pointer;
 }
 
@@ -115,7 +109,7 @@
     background-color: white;
     min-width: 140px;
     box-shadow: 0px 8px 16px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    z-index: 2000;
 }
 
 /* Links inside the dropdown */
@@ -128,9 +122,7 @@
 
 /* Change color of dropdown links on hover */
 
-.dropdown-content a:hover {
-    color: black;
-}
+
 
 /* Show the dropdown menu on hover */
 
@@ -147,45 +139,52 @@
     display: block;
     text-decoration: none;
     font-family: sans-serif;
-    font-size: 22px;
     /* border-color: black; */
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 
 /* .dropdown:hover .dropbtn {
-    background-color: #010501;
+    background-color: rgb(15, 155, 108);
 } */
 
-#brand, #price, #viewItem{
-    font-family: sans-serif;
-    font-weight: bold;
-    color:black;
+@media only screen and (max-width: 1025px){
+    #searchjoin {
+        width:80vw !important;
+    }
 }
 
-.slideImg{
-    min-height: 250px;
-}
-
-
-@media screen and (max-width: 900px) {
-    .Osearch{
-        width:100%;
-        border: solid black 1px;
-        border-radius: 0px;
+@media only screen and (max-width: 567px) {
+    #searchjoin {
+        height:30vh;
+        width:100vw !important;
+        flex-direction: column;
     }
-
-    .dropbtn {
-        width: 140px;
-        height:42px;
+    .Osearch {
+        width:100vw;
+        border:1px solid black;
+        font-size:20px;
+        border-radius: 0;
+        margin:auto;
+        height:6vh;
     }
-
     .Obutton {
-        width:100%;
-        border: solid black 1px;
-        border-radius: 0px;
-        margin-left:5px;
+        width:100vw;
+        margin:auto;
+        padding-bottom:11%;
+        height:5vh;
+        border-radius:0;    
+        padding-left:45%;
+        box-sizing: border-box;
     }
-
-
+    .dropbtn{
+        height:6vh;
+        width:100vw;
+        margin:auto;
     }
+    .dropdown-content{
+        width:100vw;
+        margin:auto;
+        z-index:2000;
+    }
+}

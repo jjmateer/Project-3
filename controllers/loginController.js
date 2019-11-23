@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken");
 // const auth = require("../middleware/auth");
 
 exports.register = function (req, res) {
-  console.log(req.body)
   const { username, email, password } = req.body;
   // console.log(username)
   //Check if there is a user in the database with same email.
@@ -62,6 +61,9 @@ exports.login = function (req, res) {
   } else {
     db.User.findOne({ email })
       .then(user => {
+        if(!user) {
+          return res.status(400).json({ msg: "Non-existent user." })
+        }
         if (email === user.email && user && bcrypt.compareSync(password, user.password)) {
           jwt.sign({
             id: user.id
@@ -81,7 +83,7 @@ exports.login = function (req, res) {
           })
         } else {
           console.log("Invalid credentials")
-          return res.status(400).json({ msg: "Invalid Credentials" })
+          return res.status(400).json({ msg: "Invalid credentials." })
         }
       })
       .catch(function (err) {
@@ -93,7 +95,7 @@ exports.login = function (req, res) {
 
 // router.get('/user', auth, (req, res) => {
 exports.checkUser = function (req, res) {
-  console.log(req.body.user)
+  
   db.User.findById(req.body.user.id)
     .select('-password')
     .then(user => res.json(user));

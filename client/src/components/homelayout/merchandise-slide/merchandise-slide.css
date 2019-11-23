@@ -1,44 +1,17 @@
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
-
-
-.slick-track, .slick-slider {
-  display:flex;
-  flex-direction: row;
-  width:90vw;
-  margin:auto;
-}
-
-.slick-slide div:active {
-  cursor: grab;
-}
-
-.slick-slide, .slick-slide div, .menu-item {
-  height:400px;
-  /* width:300px; */
-  user-select: none;
+#viewItem {
+  color:white;
+  margin: auto;
+  border-radius: 2px;
+  border: 0.5px;
+  background: rgb(211, 226, 211);
   cursor: pointer;
- background: transparent;
-  box-sizing: border-box ;
-  color:black;
-  border-color: black ;
-  border:0.1px solid;
-}
-.menu-item {
-  text-align: center;
-  border: 10px solid white;
-}
-.slick-arrow, .slick-arrow :active, .slick-arrow :hover {
-  background:black !important;
-  border-radius: 50% !important;
-  cursor: pointer;
-}
-.slick-arrow.slick-prev {
-  right:0 !important;
+  font-weight: bold;
+  padding:3px;
 }
 
-.slideImg{
-  height:auto;
-  width:70%;
-  margin:auto;
+#viewItem:hover{
+  color:green;
+  background-color: transparent;
+  text-decoration:none;
+  border: 0.5px  black;
 }

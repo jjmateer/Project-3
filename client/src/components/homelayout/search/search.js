@@ -43,7 +43,7 @@ class Search extends Component {
                 <div className="Osearch-container">
 
                     <div id="searchjoin">
-                        <input type="text" onChange={this.handleInputChange} className="Osearch" placeholder="Search.." />
+                        <input type="text" onChange={this.handleInputChange} className="Osearch" placeholder="  Search.." />
                         {/* Dropdown for Categories */}
                         <div className="dropdown">
                             <button className="dropbtn">Categories</button>

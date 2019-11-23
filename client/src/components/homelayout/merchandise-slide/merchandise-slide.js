@@ -1,16 +1,24 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 import "./merchandise-slide.css";
+import "../homediscount/homediscount.css"
 import { connect } from "react-redux";
-import { getItems } from "../../../actions/productActions";
+import { getItems, addToCart } from "../../../actions/productActions";
 import { clearErrors } from "../../../actions/errorActions";
 import PropTypes from "prop-types";
 
 class Merchandise extends Component {
     static propTypes = {
         getItems: PropTypes.func.isRequired,
+        user: PropTypes.object,
+        addToCart: PropTypes.func.isRequired,
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
+    }
+    addItemToCart = event => {
+        this.props.addToCart(this.props.user.id, event.target.id)
+        alert("Item added to cart.")
     }
     constructor(props) {
         super(props);
@@ -32,17 +40,18 @@ class Merchandise extends Component {
         const settings = {
             dots: false,
             infinite: true,
-            slidesToShow: 8,
+            slidesToShow: 7,
             slidesToScroll: 1,
+            draggable: false,
             autoplay: true,
-            autoplaySpeed: 2000,
+            autoplaySpeed: 5000,
             initialSlide: 0,
             responsive: [
                 {
                     breakpoint: 1025,
                     settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 4,
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
                         infinite: true,
                         dots: false
                     }
@@ -67,26 +76,24 @@ class Merchandise extends Component {
         return (
             <div>
                 <Slider ref={slider => (this.slider = slider)} {...settings}>
-                    {merchandiseitems.map(({ _id, image, product, brand, price, description }) => {
+                    {merchandiseitems.map(({ _id, image, item, brand, price }) => {
                         return (
                             <div className="menu-item" key={_id}>
-                                <h4>{product}</h4>
-                                <img className="slideImg" src={image} alt={image}></img>
-                                <p id="brand">{brand}</p>
-                                <p id="price">${price}.00</p>
-                                <button id="viewItem">**BUTTON**</button>
+                                <div className="img-background">
+                                    <img className="slideImg" src={image} alt={image}></img>
+                                </div>
+                                <div className="card-info">
+                                    <p id="card-header">{item}</p>
+                                    <p id="brand">By {brand}</p>
+                                    <p id="price">${price}.00</p>
+                                    {this.props.isAuthenticated ? <button className="viewItem" id={_id} onClick={this.addItemToCart} >Add To Cart</button>
+                                        :
+                                        <Link to="/login" className="viewItem">Add to cart</Link>}
+                                </div>
                             </div>
                         )
                     })}
                 </Slider>
-                <div style={{ textAlign: "center" }}>
-                    <button className="button" onClick={this.play}>
-                        Play
-          </button>
-                    <button className="button" onClick={this.pause}>
-                        Pause
-          </button>
-                </div>
             </div>
         );
     }
@@ -96,10 +103,11 @@ class Merchandise extends Component {
 const mapStateToProps = state => ({
     item: state.item,
     isAuthenticated: state.auth.isAuthenticated,
-    error: state.error
+    user: state.auth.user,
+    error: state.error,
 })
 
 export default connect(
     mapStateToProps,
-    { getItems, clearErrors }
+    { getItems, addToCart, clearErrors }
 )(Merchandise);

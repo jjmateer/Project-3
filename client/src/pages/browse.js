@@ -17,15 +17,17 @@ class Browse extends Component {
         user: PropTypes.object,
         addToCart: PropTypes.func.isRequired,
         item: PropTypes.object.isRequired,
-        isAuthenticated: PropTypes.bool
+        isAuthenticated: PropTypes.bool,
+        clearErrors: PropTypes.func.isRequired
     }
     componentDidMount() {
+        this.props.clearErrors();
         this.props.getItems();
-        {this.props.isAuthenticated ? 
+        this.props.isAuthenticated ? 
             this.setState({ authenticated: true })
             :
             this.setState({ authenticated: false })
-        }
+        
     }
     addItemToCart = event => {
         this.props.addToCart(this.props.user.id, event.target.id)
@@ -35,8 +37,7 @@ class Browse extends Component {
         const { items } = this.props.item;
         return (
             <div>
-                {this.props.isAuthenticated ? null : <h1 className="notlogin-style">User not logged in</h1>}
-                <h1>Browse All</h1>
+                <h1 className="page-title">Browse All</h1>
                 <ProductList>
                     {items.map(({ _id, image, item, brand, price, description }) => (
                         <ProductListItem
@@ -61,7 +62,7 @@ const mapStateToProps = state => ({
     item: state.item,
     isAuthenticated: state.auth.isAuthenticated,
     user: state.auth.user,
-    error: state.error
+    error: state.error,
 })
 
 export default connect(

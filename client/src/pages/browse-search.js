@@ -17,6 +17,9 @@ class BrowseByCategory extends Component {
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     }
+    componentDidMount() {
+        this.props.clearErrors();
+    }
     addItemToCart = event => {
         this.props.addToCart(this.props.user.id, event.target.id);
     }
@@ -24,7 +27,7 @@ class BrowseByCategory extends Component {
         const items_search = this.props.item.items_search;
         return (
             <div>
-                {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
+                <h1 className="page-title">Search</h1>
                 <ProductList>
                     {items_search.map(({ _id, image, item, brand, price, description }) => (
                         <ProductListItem

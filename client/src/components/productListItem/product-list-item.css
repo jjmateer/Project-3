@@ -4,44 +4,106 @@
     background:white;
     box-shadow: 10px 10px 8px #888888;
     min-height:300px;
-    width:100%;
+    width:70vw;
+    height:20vh;
+    display:flex;
+    flex-direction: row;
+
 }
 
 .ATCbtn{
-    background: rgb(25, 53, 32);
-    color:white;
-    padding:10px;
+    color:black;
+    background:white;
     cursor:pointer;
-    width:25%;
+    width:10%;
     float:right;
-    bottom:0;
-    /* margin:0; */
-    padding:0;
-    margin-top:190px;
+    margin-top:200px;
+    margin-right:5%;
     height:50px;
-    align-content: flex-end;
     text-align: center;
     line-height:50px;
+    border-radius:2px;
+    border: 1px solid black;
 }
 
-#cardImg {
-    height:auto;
+.cardImg {
+    max-height:20vh;
     width:auto;
-    max-height:50px;
+    max-width:100%;
+    margin:auto;
 }
 
-#cproduct{
-    background-color: rgb(25, 53, 32);
-    color:white;
+#card-image-container {
+    margin:auto;
+}
+
+#card-product-info {
+    width:50%;
+}
+
+
+.cproduct{
     text-align:center;
 }
 
-#cdesc {
-    background:lightgray;
-    width:90%;
+.cdesc {
+    text-align: center;
+    width:100%;
     margin:auto;
     height:100px;
+    padding:10px;
+    box-sizing: border-box;
 }
-#cbrand, #cprice{
+.cprice {
     text-align:center;
+    width:100%;
+    margin:auto;
+    height:auto;
+}
+.cbrand, #cprice{
+    text-align:center;
+}
+
+@media only screen and (max-width: 1025px) {
+    #productCard {
+        width:95vw;
+    }
+    .ATCbtn{
+        width:20%;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    #card-product-info {
+        width:100%;
+        text-align:center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #productCard {
+        flex-direction: column;
+        height:auto;
+    }
+    #card-image-container {
+        width:100%;
+    }
+    .cardImg {
+        height:auto;
+    }
+    .ATCbtn{
+        width:100%;
+        margin:0;
+        border:none;
+        border-top:1px solid black;
+    }
+
+    #card-product-info {
+        width:100%;
+        text-align:center;
+    }
+
+    .cdesc {
+        height:auto;
+    }
 }

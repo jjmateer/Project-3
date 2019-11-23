@@ -6,8 +6,7 @@ import CartPrice from "../components/cart-summary/cart-price";
 import CartTotal from "../components/cart-summary/cart-total";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
-import { getUserCart } from "../actions/productActions";
-import { userCheckout } from "../actions/productActions";
+import { getUserCart, userCheckout } from "../actions/productActions";
 import PropTypes from "prop-types";
 class Cart extends Component {
     state = {
@@ -17,15 +16,23 @@ class Cart extends Component {
         isAuthenticated: PropTypes.bool,
         error: PropTypes.object.isRequired,
         getUserCart: PropTypes.func.isRequired,
+        userCheckout: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired
     }
     componentDidMount() {
+        console.log(this.props.userCheckout)
+        this.props.clearErrors();
         this.props.getUserCart(this.props.user.id);
+    }
+
+    checkoutRequest = event => {
+        this.props.userCheckout(event.target.id)
     }
     render() {
         const user_cart = this.props.item.user_cart;
         return (
             <div>
+                <h1 className="page-title">Cart</h1>
                 <CartSummary>
                     {user_cart.map(({ _id, price, item }) => (
                         <CartPrice
@@ -37,6 +44,7 @@ class Cart extends Component {
                     <CartTotal
                         user_cart={user_cart}
                     />
+                    <button className="checkoutBtn" id={this.props.user.id} onClick={this.checkoutRequest}>Check Out</button>
                 </ CartSummary>
                 <CartList>
                     {user_cart.map(({ _id, image, item, brand, price, description }) => (
@@ -64,6 +72,8 @@ const mapStateToProps = state => ({
 });
 
 export default connect(
-  mapStateToProps,
-  { getUserCart, clearErrors }
+    mapStateToProps,
+    { getUserCart, clearErrors, userCheckout }
 )(Cart);
+
+///

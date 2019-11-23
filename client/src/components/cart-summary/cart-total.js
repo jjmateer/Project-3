@@ -12,7 +12,7 @@ function CartTotal(props) {
         }
     }
     return (
-        <div id="cart-total" >${total}.00</div>
+        <div id="cart-total" >Total: ${total}.00</div>
 
     );
 }
