@@ -9,7 +9,7 @@
     /* display: flex; */
 }
 
-.content-wrappershort {
+.auth-form {
     background: rgb(229, 229, 238);
     margin:auto !important;
     opacity: 100%;
@@ -37,22 +37,22 @@
 }
 
 @media only screen and (max-width: 1367px) and (orientation:landscape) {
-    .content-wrappershort {
+    .auth-form {
         width: 40vw !important;
     }
 }
 @media only screen and (max-width: 1367px) and (orientation:portrait) {
-    .content-wrappershort {
+    .auth-form {
         width: 30vw !important;
     }
 }
 @media only screen and (max-width: 850px) and (orientation:portrait) {
-    .content-wrappershort {
+    .auth-form {
         width: 40vw !important;
     }
 }
 @media only screen and (max-width: 600px) and (orientation:portrait) {
-    .content-wrappershort {
+    .auth-form {
         width: 80vw !important;
     }
 }
