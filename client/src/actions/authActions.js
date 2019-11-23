@@ -23,7 +23,7 @@ export const loadUser = () => (dispatch, getState) => {
 
     if (token) {
         const body = { user: getState().auth.user }
-        axios.post("/api/login/user", body, config)
+        axios.post("http://localhost:3001/api/login/user", body, config)
             .then(res =>
                 dispatch({
                     type: USER_LOADED,
@@ -50,7 +50,7 @@ export const register = ({ username, email, password }) => dispatch => {
     //request body
     const body = JSON.stringify({ username, email, password });
 
-    axios.post("/api/login/r", body, config)
+    axios.post("http://localhost:3001/api/login/r", body, config)
         .then(res =>
             dispatch({
                 type: REGISTER_SUCCESS,
@@ -77,7 +77,7 @@ export const login = ({ email, password }) => dispatch => {
     const body = JSON.stringify({ email, password });
 
 
-    axios.post("/api/login/l", body, config)
+    axios.post("http://localhost:3001/api/login/l", body, config)
         .then(res => dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data

@@ -28,12 +28,12 @@ module.exports = {
             db.Item.findOneAndUpdate(
               { _id: item[0]._id },
               { $inc: { quantityInStock: -1 } }
-            ).then(() => {
-              // db.Cart.findOne({ user: req.params.user })
-              db.Cart.findOneAndUpdate({user: req.params.user}, {$set: {items: null}})
-              // console.log(order.items)
-              // console.log(`updating quantity...`);
-            })
+            )
+            // .then(() => {
+            // db.Cart.findOne({ user: req.params.user })
+            // console.log(order.items)
+            // console.log(`updating quantity...`);
+            // })
             // .then(() => {
             // console.log(`${removeInventory} ${item.items[i].product}'s removed from Inventory`)
             // console.log(`Ordered Quantity : ${item.items[i].quantity}`);
@@ -43,10 +43,14 @@ module.exports = {
         }
       })
       .then(() => {
+        db.Cart.findOneAndUpdate({ user: req.params.user }, { $pull: { items: { $exists: true } } })
+          .then((data) => {
+            console.log(data)
+          })
         // db.Cart.findByIdAndRemove({ user: req.params.id })
         // db.Order.create(order)
         // console.log(order)
-        return res.status(200).json(order.items);
+        return res.status(200).json([]);
       })
   },
 
