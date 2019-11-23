@@ -5,6 +5,7 @@ import Merchandise from "../components/homelayout/merchandise-slide/merchandise-
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
 import PropTypes from "prop-types";
+import LoadIcon from "../components/loader/loader";
 import "../components/homelayout/style.css"
 
 
@@ -15,6 +16,7 @@ class Home extends Component {
     static propTypes = {
         isAuthenticated: PropTypes.bool,
         user: PropTypes.object,
+        item: PropTypes.object,
         error: PropTypes.object.isRequired,
         clearErrors: PropTypes.func.isRequired
     }
@@ -24,18 +26,25 @@ class Home extends Component {
     render() {
         return (
             <div >
+                {/* <div> */}
                 < Search />
-                <h1 className="slider-label">Merchandise</h1>
-                <Merchandise />
-                <h1 className="slider-label">Best Deals In Store</h1>
-                < Homediscount />
-            </div>
+                {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : null}
+                <div>
+                    <h1 className="slider-label">Merchandise</h1>
+                    <Merchandise />
+                    <h1 className="slider-label">Best Deals In Store</h1>
+                    < Homediscount />
+                </div>
+
+
+            </div >
         );
     }
 }
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
     user: state.auth.user,
+    item: state.item,
     error: state.error
 })
 
