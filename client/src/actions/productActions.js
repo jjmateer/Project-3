@@ -91,9 +91,10 @@ export const userCheckout = (userID) => dispatch => {
     dispatch(setItemsLoading());
     axios
       .post(`http://localhost:3001/api/cart/checkout/${userID}`)
-      .then(() =>
+      .then(res =>
         dispatch({
-          type: USER_CHECKOUT
+          type: USER_CHECKOUT,
+          payload: res.data
         })
       )
       .catch(err =>

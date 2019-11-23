@@ -16,9 +16,9 @@ module.exports = {
     //find users cart
     db.Cart.findOne({ user: req.params.user })
       .then(item => {
-        console.log(item)
+        console.log(item.items[0])
         //set order object property -- user
-        order.user = this.user;
+        order.user = req.params.user;
         //loop through the cart to pull out quantities and prices of items in the cart so we can use those to update inventory and get a total cart price
         for (let i = 0; i < item.items.length; i++) {
           var itemPrice = item.items[i].price
@@ -60,7 +60,8 @@ module.exports = {
       ).then(() => {
         //set the new object price total(used to make order document) to cart total
         order.total = cartSum(cartTotal)
-        db.Order.insertOne(order)
+        // db.Order.insertOne(order)
+        // console.log(order)
       }
       ).then(() => {
         return res.status(200).json({ msg: "Order Added" });
