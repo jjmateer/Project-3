@@ -1,3 +1,4 @@
+  
 export const USER_LOADING = "USER_LOADING";
 export const USER_LOADED = "USER_LOADED";
 export const AUTH_ERROR = "AUTH_ERROR";
@@ -11,6 +12,8 @@ export const CLEAR_ERRORS = "CLEAR_ERRORS";
 export const GET_ITEMS = "GET_ITEMS";
 export const ADD_ITEM = "ADD_ITEM";
 export const ADD_ITEM_TO_CART = "ADD_ITEM_TO_CART";
+export const GET_USER_CART = "GET_USER_CART";
 export const ITEMS_LOADING = "ITEMS_LOADING";
 export const GET_BY_CATEGORY = "GET_BY_CATEGORY";
 export const GET_BY_NAME = "GET_BY_NAME";
+export const USER_CHECKOUT = "USER_CHECKOUT";

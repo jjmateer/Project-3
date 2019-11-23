@@ -40,7 +40,7 @@ export const loadUser = () => (dispatch, getState) => {
 }
 
 //register user
-export const register = ({ email, password }) => dispatch => {
+export const register = ({ username, email, password }) => dispatch => {
     const config = {
         headers: {
             "Content-Type": "application/json"
@@ -48,7 +48,7 @@ export const register = ({ email, password }) => dispatch => {
     }
 
     //request body
-    const body = JSON.stringify({ email, password });
+    const body = JSON.stringify({ username, email, password });
 
     axios.post("http://localhost:3001/api/login/r", body, config)
         .then(res =>
@@ -92,6 +92,7 @@ export const login = ({ email, password }) => dispatch => {
 
 //logout
 export const logout = () => {
+    window.location.reload()
     return {
         type: LOGOUT_SUCCESS
     }

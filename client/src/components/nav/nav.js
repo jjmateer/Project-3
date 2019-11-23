@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearErrors } from "../../actions/errorActions";
 import PropTypes from "prop-types";
-import Logout from "../logout"
-import "./style.css";
+import Logout from "../logout/logout"
+import "./nav.css";
 import "../homelayout/style.css"
 
 class Nav extends Component {
@@ -24,18 +24,14 @@ class Nav extends Component {
 
                 </div>
 
-
                 <div className="global-header-right">
                     <Link to="/">Home</Link>
                     {this.props.isAuthenticated ? null : <Link to="/login">Log In</Link>}
                     {this.props.isAuthenticated ? null : <Link to="/signup">Sign Up</Link>}
                     <Link to="/browse">Browse</Link>
-                    <Link to="/cart">Cart </Link>
+                    {this.props.isAuthenticated ? <Link to="/cart">Cart </Link> : null}
                     {this.props.isAuthenticated ? <Logout /> : null}
                 </div>
-
-
-              
 
             </div>
         )

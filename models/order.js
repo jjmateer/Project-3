@@ -1,16 +1,16 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const cartSchema = new Schema({
+const orderSchema = new Schema({
   user: {
     type: String,
     ref: "User",
     required: true,
-    unique: true
+    unique: false
   },
   items: [
     {
-      product: {
+      item: {
         type: String,
         ref: "Item",
         sparse: true
@@ -21,8 +21,12 @@ const cartSchema = new Schema({
         ref: "Item"
       }
     }
-  ]
+  ],
+  cartTotal: {
+    type: Number,
+    required: false
+  }
 });
 
-const Cart = mongoose.model("Cart", cartSchema);
-module.exports = Cart;
+const Order = mongoose.model("Order", orderSchema);
+module.exports = Order;

@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 import { loadUser } from "./actions/authActions";
-import Nav from "../src/components/nav";
-// import Footer from "./components/footer";
+import PrivateRoute from "./components/private-route/private-route";
+import PublicRoute from "./components/public-route/public-route";
+import Nav from "../src/components/nav/nav";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
@@ -27,14 +28,14 @@ class App extends Component {
             <Nav />
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path="/cart" component={Cart} />
+              <PublicRoute exact path="/login" component={Login} />
+              <PublicRoute exact path="/signup" component={Signup} />
+              <PrivateRoute exact path="/cart" component={Cart} />
               <Route exact path="/browse" component={Browse} />
-              <Route exact path="/browse-by-category" component={browseByCategory} />              <Route exact path="/item" component={Item} />
+              <Route exact path="/browse-by-category" component={browseByCategory} />
+              <Route exact path="/item" component={Item} />
               <Route component={ErrorC} />
             </Switch>
-            {/* <Footer /> */}
           </div>
         </Router>
       </Provider>

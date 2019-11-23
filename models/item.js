@@ -9,7 +9,7 @@ const itemSchema = new Schema({
   category: { type: String, required: false },
   date: { type: Date, default: Date.now },
   description: { type: String, required: false },
-  image: { data: Buffer, contentType: String, required: false },
+  image: { type: String, required: false },
   quantityInStock: { type: Number, required: false }
 });
 

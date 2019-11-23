@@ -1,42 +1,29 @@
-.page-title {
-    margin: 2% 8% 2% 8%;
-    color: black;
-}
-
-*{
-    outline: none;
-    max-width:100vw;
-}
 
 a{
     cursor: pointer;
 }
-.App {
-    overflow:none;
-}
 
-.notlogin-style {
-    color: red;
-    font-size: 20px;
-    margin: 15px;
-    background: rgb(85, 174, 196);
-    padding: 2px;
-}
+html, body{ 
+     height:100vh;
+     width:100vw;
+     overflow-x:hidden;
+ }
+ .global-header-right a {
+    padding-right:10px;
+    padding-bottom:10px;
+ }
 
-.login-style {
-    color: black;
-    font-size: 20px;
-    margin: 15px;
-    padding: 2px;
-}
+ .page-title{
+     text-align:center;
+ }
 
-.form-input-style {
-    padding: 12px 20px;
-    margin: 10px 10px 10px 10px;
-    box-sizing: border-box;
-    border: 1px solid #555;
-    outline: none;
-    font-size: 20px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    ;
-}
+ #error-header {
+        opacity: 8;
+     text-align: center;
+     margin:auto;
+     width:100vw;
+     font-size:180%;
+     height:100px;
+     line-height:100px;
+     background:darkred;
+ }

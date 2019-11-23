@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SignupForm from "../components/signup";
+import SignupForm from "../components/signup/signup";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { register } from "../actions/authActions";
@@ -8,6 +8,7 @@ import { clearErrors } from "../actions/errorActions";
 
 class Signup extends Component {
     state = {
+        username: "",
         email: "",
         password: "",
         message: null
@@ -19,7 +20,9 @@ class Signup extends Component {
         register: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired
     }
-
+    componentDidMount() {
+        this.props.clearErrors();
+    }
     componentDidUpdate(prevPreps) {
         const { error } = this.props;
         if (error !== prevPreps.error) {
@@ -30,6 +33,11 @@ class Signup extends Component {
                 this.setState({ msg: null })
             }
         }
+    }
+    handleNameChange = event => {
+        this.setState({
+            username: event.target.value
+        })
     }
     handleEmailChange = event => {
         this.setState({
@@ -43,9 +51,10 @@ class Signup extends Component {
     }
     handleFormSubmit = event => {
         event.preventDefault();
-        const { email, password } = this.state;
+        const { username, email, password } = this.state;
 
         const newUser = {
+            username,
             email,
             password
         }
@@ -56,9 +65,10 @@ class Signup extends Component {
     render() {
         return (
             <div className="App">
-                {this.state.msg ? <h1>User already exists.</h1> : null}
-                {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
+
+                {this.props.error.msg.msg ? <h1 id="error-header">{this.props.error.msg.msg}</h1> : null}
                 <SignupForm
+                    handleNameChange={this.handleNameChange}
                     handleEmailChange={this.handleEmailChange}
                     handlePasswordChange={this.handlePasswordChange}
                     handleFormSubmit={this.handleFormSubmit}

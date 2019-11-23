@@ -1,19 +1,23 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import {Link} from "react-router-dom";
 import "./merchandise-slide.css";
 import { connect } from "react-redux";
-import { getItems } from "../../../actions/productActions";
+import { getItems, addToCart } from "../../../actions/productActions";
 import { clearErrors } from "../../../actions/errorActions";
 import PropTypes from "prop-types";
 
 class Merchandise extends Component {
     static propTypes = {
         getItems: PropTypes.func.isRequired,
+        user: PropTypes.object,
+        addToCart: PropTypes.func.isRequired,
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     }
-    componentDidMount() {
-        this.props.getItems();
+    addItemToCart = event => {
+        this.props.addToCart(this.props.user.id, event.target.id)
+        alert("Item added to cart.")
     }
     constructor(props) {
         super(props);
@@ -28,38 +32,68 @@ class Merchandise extends Component {
     }
     render() {
         const { items } = this.props.item;
+        const merchandiseitems = items.filter((item) => {
+            return item.category = "accessories"
+        })
 
         const settings = {
-            dots: true,
+            dots: false,
             infinite: true,
-            slidesToShow: 3,
+            slidesToShow: 7,
             slidesToScroll: 1,
+            draggable:false,
             autoplay: true,
-            autoplaySpeed: 2000
+            autoplaySpeed: 5000,
+            initialSlide: 0,
+            responsive: [
+                {
+                    breakpoint: 1025,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: false
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        initialSlide: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
         };
         return (
             <div>
                 <Slider ref={slider => (this.slider = slider)} {...settings}>
-                    {items.map(({ _id, image, product, brand, price, description }) => {
+                    {merchandiseitems.map(({ _id, image, item, brand, price }) => {
                         return (
                             <div className="menu-item" key={_id}>
-                                <h4>{product}</h4>
-                                <p>image:{image}</p>
-                                <p>brand:{brand}</p>
-                                <p>${price}.00</p>
+                                <div className="img-background">
+                                    <img className="slideImg" src={image} alt={image}></img>
+                                </div>
+                                <div className="card-info">
+                                    <p id="card-header">{item}</p>
+                                    <p id="brand">By {brand}</p>
+                                    <p id="price">${price}.00</p>
+                                    {this.props.isAuthenticated ? <button id="viewItem" id={_id} onClick={this.addItemToCart} >Add To Cart</button>
+                                        :
+                                        <Link to="/login" id="viewItem">Add to cart</Link>}
+                                </div>
                             </div>
                         )
                     })}
                 </Slider>
-                <div style={{ textAlign: "center" }}>
-                    <button className="button" onClick={this.play}>
-                        Play
-          </button>
-                    <button className="button" onClick={this.pause}>
-                        Pause
-          </button>
                 </div>
-            </div>
         );
     }
 }
@@ -68,10 +102,11 @@ class Merchandise extends Component {
 const mapStateToProps = state => ({
     item: state.item,
     isAuthenticated: state.auth.isAuthenticated,
-    error: state.error
+    user: state.auth.user,
+    error: state.error,
 })
 
 export default connect(
     mapStateToProps,
-    { getItems, clearErrors }
+    { getItems, addToCart, clearErrors }
 )(Merchandise);

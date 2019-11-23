@@ -21,7 +21,9 @@ if (process.env.NODE_ENV === "production") {
 
 mongoose.connect(dbUrl, {
   useNewUrlParser: true,
-  useCreateIndex: true
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
 });
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));

@@ -1,38 +1,58 @@
 import React, { Component } from "react";
-import ProductList from "../components/productlist";
-import ProductListItem from "../components/productListItem";
+import ProductList from "../components/productlist/product-list";
+import ProductListItem from "../components/productListItem/product-list-item";
 import { connect } from "react-redux";
-import { getItems } from "../actions/productActions";
+import { getItems, addToCart } from "../actions/productActions";
 import { clearErrors } from "../actions/errorActions";
 import PropTypes from "prop-types";
 
 
 class Browse extends Component {
+    state = {
+        authenticated: null,
+        msg: null
+    };
     static propTypes = {
         getItems: PropTypes.func.isRequired,
+        user: PropTypes.object,
+        addToCart: PropTypes.func.isRequired,
         item: PropTypes.object.isRequired,
-        isAuthenticated: PropTypes.bool
+        isAuthenticated: PropTypes.bool,
+        clearErrors: PropTypes.func.isRequired
     }
     componentDidMount() {
+        this.props.clearErrors();
         this.props.getItems();
+        this.props.isAuthenticated ? 
+            this.setState({ authenticated: true })
+            :
+            this.setState({ authenticated: false })
+        
+    }
+    addItemToCart = event => {
+        this.props.addToCart(this.props.user.id, event.target.id)
+        alert("Item added to cart.")
     }
     render() {
         const { items } = this.props.item;
         return (
             <div>
-                {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
-                <h1>Browse All</h1>
+                <h1 className="page-title">Browse All</h1>
                 <ProductList>
                     {items.map(({ _id, image, item, brand, price, description }) => (
                         <ProductListItem
                             key={_id}
+                            id={_id}
                             image={image}
                             product={item}
                             brand={brand}
                             price={price}
                             description={description}
+                            addItemToCart={this.addItemToCart}
+                            authenticated={this.state.authenticated}
                         />
                     ))}
+
                 </ProductList>
             </div>
         );
@@ -41,10 +61,11 @@ class Browse extends Component {
 const mapStateToProps = state => ({
     item: state.item,
     isAuthenticated: state.auth.isAuthenticated,
-    error: state.error
+    user: state.auth.user,
+    error: state.error,
 })
 
 export default connect(
     mapStateToProps,
-    { getItems, clearErrors }
+    { getItems, addToCart, clearErrors }
 )(Browse);

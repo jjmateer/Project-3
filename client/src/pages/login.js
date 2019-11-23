@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LoginForm from "../components/loginform";
+import LoginForm from "../components/loginform/login-form";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../actions/authActions";
@@ -19,7 +19,9 @@ class Login extends Component {
         login: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired
     }
-
+    componentDidMount() {
+        this.props.clearErrors();
+    }
     componentDidUpdate(prevPreps) {
         const { error } = this.props;
         if (error !== prevPreps.error) {
@@ -51,16 +53,14 @@ class Login extends Component {
             password
         }
         //attempt to login
-        this.props.login(loginUser);
+        this.props.login(loginUser)
 
     };
 
     render() {
         return (
             <div>
-                {this.state.msg ? <h1>Invalid credentials.</h1> : null}
-                {this.props.isAuthenticated ? <h1 className="login-style">Welcome!</h1> : <h1 className="notlogin-style">User not logged in</h1>}
-
+                {this.props.error.msg.msg ? <h1 id="error-header">{this.props.error.msg.msg}</h1> : null}
                 <h1 className="page-title">Login</h1>
 
                 <div className="content-wrappershort">
@@ -78,6 +78,8 @@ class Login extends Component {
 }
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
+    user: state.auth.user,
+    auth: state.auth,
     error: state.error
 })
 

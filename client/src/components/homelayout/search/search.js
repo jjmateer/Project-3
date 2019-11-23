@@ -4,8 +4,7 @@ import { connect } from "react-redux";
 import { getByCategory, getByName } from "../../../actions/productActions";
 import { clearErrors } from "../../../actions/errorActions";
 import PropTypes from "prop-types";
-// import "../style.css";
-
+import "../style.css";
 
 
 class Search extends Component {
@@ -21,7 +20,6 @@ class Search extends Component {
         clearErrors: PropTypes.func.isRequired
     }
     handleCategorySearch = event => {
-        console.log(event.target)
         this.props.getByCategory(event.target.id)
     }
     handleInputChange = event => {
@@ -43,23 +41,24 @@ class Search extends Component {
                 </div>
 
                 <div className="Osearch-container">
-                    <input type="text" onChange={this.handleInputChange} className="Osearch" placeholder="Search.." />
 
-
-                    {/* Dropdown for Categories */}
-                    <div className="dropdown">
-                        <button className="dropbtn">Categories</button>
-                        <div className="dropdown-content">
-                            <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="monitor">Monitors</Link>
-                            <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="desktop">Desktops</Link>
-                            <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="laptop">Laptops</Link>
-                            <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="speaker">Speakers</Link>
-                            <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="router">Routers</Link>
-                            <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="phone">Phones</Link>
-                            <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="accessories">Accessories</Link>
+                    <div id="searchjoin">
+                        <input type="text" onChange={this.handleInputChange} className="Osearch" placeholder="  Search.." />
+                        {/* Dropdown for Categories */}
+                        <div className="dropdown">
+                            <button className="dropbtn">Categories</button>
+                            <div className="dropdown-content">
+                                <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="monitor">Monitors</Link>
+                                <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="desktop">Desktops</Link>
+                                <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="laptop">Laptops</Link>
+                                <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="speaker">Speakers</Link>
+                                <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="router">Routers</Link>
+                                <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="phone">Phones</Link>
+                                <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="accessories">Accessories</Link>
+                            </div>
                         </div>
+                        <Link onClick={this.handleNameSearch} className="Obutton" to="/browse-by-category"><i className="fa fa-search"></i></Link>
                     </div>
-                    <Link onClick={this.handleNameSearch} className="Obutton" to="/browse-by-category"><i className="fa fa-search"></i></Link>
                 </div>
             </div >
         )
