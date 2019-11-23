@@ -12,7 +12,7 @@
 .auth-form {
     background: rgb(229, 229, 238);
     margin:auto !important;
-    opacity: 100% !important;
+    opacity: 100 !important;
     width: 20vw !important;
     height:auto !important;
     padding:30px !important;
