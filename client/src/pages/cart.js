@@ -14,18 +14,20 @@ class Cart extends Component {
     };
     static propTypes = {
         isAuthenticated: PropTypes.bool,
-        user: PropTypes.object.isRequired,
         error: PropTypes.object.isRequired,
         getUserCart: PropTypes.func.isRequired,
         userCheckout: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired
     }
-    userCheckout() {
-        this.props.userCheckout(this.props.user._id)
-    }
     componentDidMount() {
+        console.log(this.props.userCheckout)
         this.props.clearErrors();
         this.props.getUserCart(this.props.user.id);
+    }
+    
+    checkoutRequest = event => {
+        this.props.userCheckout(event.target.id)
+        // console.log(this.props)
     }
     render() {
         const user_cart = this.props.item.user_cart;
@@ -42,7 +44,7 @@ class Cart extends Component {
                     <CartTotal
                         user_cart={user_cart}
                     />
-                    <button className="checkoutBtn" onClick={userCheckout}>Check Out</button>
+                <button className="checkoutBtn" id={this.props.user.id} onClick={this.checkoutRequest}>Check Out</button>
                 </ CartSummary>
                 <CartList>
                     {user_cart.map(({ _id, image, item, brand, price, description }) => (
@@ -71,6 +73,6 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getUserCart, userCheckout, clearErrors }
+    { getUserCart, clearErrors, userCheckout }
 )(Cart);
 

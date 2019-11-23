@@ -11,7 +11,7 @@ router
   .get(cartController.getUserCart);
 
 router
-  .route("/user-cart/checkout/:user")
+  .route("/checkout/:user")
   .post(cartController.checkout);
 
 module.exports = router;

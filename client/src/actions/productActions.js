@@ -86,14 +86,14 @@ export const getUserCart = (userID) => dispatch => {
         );
 };
 
-export const userCheckout = userID => dispatch => {
-    console.log("firing")
+export const userCheckout = (userID) => dispatch => {
+    console.log(`User id: ${userID}`)
+    dispatch(setItemsLoading());
     axios
-      .post(`http://localhost:3001/api/cart/user-cart/checkout/${userID}`)
-      .then(res =>
+      .post(`http://localhost:3001/api/cart/checkout/${userID}`)
+      .then(() =>
         dispatch({
-          type: USER_CHECKOUT,
-          payload: res.data
+          type: USER_CHECKOUT
         })
       )
       .catch(err =>

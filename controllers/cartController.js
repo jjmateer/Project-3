@@ -2,8 +2,8 @@ const db = require("../models");
 
 // Defining methods for the Cart Controller
 module.exports = {
-  checkout: function trackInventory(req, res) {
-    console.log("firing")
+  checkout: function (req, res) {
+    // console.log("firing")
     //function to add cart total -- will add all items * quantity then get the sum
     const cartSum = arr => arr.reduce((a, b) => a + b, 0)
     //cart total will store item.price * item.quantity
@@ -16,6 +16,7 @@ module.exports = {
     //find users cart
     db.Cart.findOne({ user: req.params.user })
       .then(item => {
+        console.log(item)
         //set order object property -- user
         order.user = this.user;
         //loop through the cart to pull out quantities and prices of items in the cart so we can use those to update inventory and get a total cart price
@@ -45,7 +46,6 @@ module.exports = {
               console.log(`${removeInventory} ${item.items[i].product}'s removed from Inventory`)
               console.log(`Ordered Quantity : ${item.items[i].quantity}`);
             });
-            break;
           }
         }
       })
@@ -56,7 +56,6 @@ module.exports = {
         ).then(() => {
           console.log(`Updated Quantity: ${item.items[i].quantity}`);
         });
-        break;
       }
       ).then(() => {
         //set the new object price total(used to make order document) to cart total
@@ -90,7 +89,7 @@ module.exports = {
             .then(itemInfo => {
               itemInfoArray.push(itemInfo[0])
               if (i === itemIDarray.length - 1) {
-                console.log(itemInfoArray)
+                // console.log(itemInfoArray)
                 res.json(itemInfoArray)
               }
             })
