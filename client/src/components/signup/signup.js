@@ -8,7 +8,7 @@ function SignupForm({ handleNameChange, handleEmailChange, handlePasswordChange,
 
             <h1 className="page-title">Sign Up</h1>
 
-            <div className="content-wrappershort">
+            <div className="auth-form">
 
                 <form className="form-group">
                     <h3>Name :</h3>

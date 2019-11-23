@@ -15,7 +15,7 @@ import browseByCategory from "./pages/browse-search";
 import ErrorC from "./pages/error";
 import Item from "./pages/item";
 import "./App.css";
-
+//
 class App extends Component {
   componentDidMount() {
     store.dispatch(loadUser());

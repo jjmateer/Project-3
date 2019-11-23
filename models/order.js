@@ -6,7 +6,7 @@ const orderSchema = new Schema({
     type: String,
     ref: "User",
     required: true,
-    unique: true
+    unique: false
   },
   items: [
     {

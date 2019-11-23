@@ -3,7 +3,6 @@ import {
   GET_ITEMS,
   GET_BY_CATEGORY,
   GET_BY_NAME,
-  // ADD_ITEM,
   ADD_ITEM_TO_CART,
   ITEMS_LOADING,
   GET_USER_CART,
@@ -15,7 +14,7 @@ import { returnErrors } from "./errorActions";
 export const getItems = () => dispatch => {
   dispatch(setItemsLoading());
   axios
-    .get("http://localhost:3001/api/inventory")
+    .get("/api/inventory")
     .then(res =>
       dispatch({
         type: GET_ITEMS,
@@ -30,7 +29,7 @@ export const getItems = () => dispatch => {
 export const getByCategory = query => dispatch => {
   dispatch(setItemsLoading());
   axios
-    .get(`http://localhost:3001/api/inventory/category/${query}`)
+    .get(`/api/inventory/category/${query}`)
     .then(res =>
       dispatch({
         type: GET_BY_CATEGORY,
@@ -45,7 +44,7 @@ export const getByCategory = query => dispatch => {
 export const getByName = query => dispatch => {
   dispatch(setItemsLoading());
   axios
-    .get(`http://localhost:3001/api/inventory/product-name/${query}`)
+    .get(`/api/inventory/product-name/${query}`)
     .then(res =>
       dispatch({
         type: GET_BY_NAME,
@@ -61,7 +60,7 @@ export const addToCart = (userID, itemID) => dispatch => {
   console.log(`Adding item to cart...`);
 
   axios
-    .post(`http://localhost:3001/api/cart/add-to-cart/${userID}/${itemID}`)
+    .post(`/api/cart/add-to-cart/${userID}/${itemID}`)
     .then(res =>
       dispatch({
         type: ADD_ITEM_TO_CART,
@@ -76,7 +75,7 @@ export const addToCart = (userID, itemID) => dispatch => {
 export const getUserCart = userID => dispatch => {
   dispatch(setItemsLoading());
   axios
-    .get(`http://localhost:3001/api/cart/user-cart/${userID}`)
+    .get(`/api/cart/user-cart/${userID}`)
     .then(res =>
       dispatch({
         type: GET_USER_CART,
@@ -87,17 +86,11 @@ export const getUserCart = userID => dispatch => {
       dispatch(returnErrors(err.response.data, err.response.status))
     );
 };
-export const setItemsLoading = () => {
-  return {
-    type: ITEMS_LOADING
-  };
-};
 
-//================================================
 export const userCheckout = userID => dispatch => {
   dispatch(setItemsLoading());
   axios
-    .post(`http://localhost:3001/api/cart/user-cart/chekcout/${userID}`)
+    .post(`/api/cart/checkout/${userID}`)
     .then(res =>
       dispatch({
         type: USER_CHECKOUT,
@@ -108,3 +101,25 @@ export const userCheckout = userID => dispatch => {
       dispatch(returnErrors(err.response.data, err.response.status))
     );
 };
+
+export const setItemsLoading = () => {
+  return {
+    type: ITEMS_LOADING
+  };
+};
+
+//================================================
+// export const userCheckout = userID => dispatch => {
+//   dispatch(setItemsLoading());
+//   axios
+//     .post(`http://localhost:3001/api/cart/user-cart/chekcout/${userID}`)
+//     .then(res =>
+//       dispatch({
+//         type: USER_CHECKOUT,
+//         payload: res.data
+//       })
+//     )
+//     .catch(err =>
+//       dispatch(returnErrors(err.response.data, err.response.status))
+//     );
+// };

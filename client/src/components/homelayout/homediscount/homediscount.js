@@ -1,19 +1,26 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import {Link} from "react-router-dom";
 import "./homediscount.css";
 import { connect } from "react-redux";
-import { getItems } from "../../../actions/productActions";
+import { getItems, addToCart } from "../../../actions/productActions";
 import { clearErrors } from "../../../actions/errorActions";
 import PropTypes from "prop-types";
 
 class Homediscount extends Component {
     static propTypes = {
         getItems: PropTypes.func.isRequired,
+        user: PropTypes.object,
+        addToCart: PropTypes.func.isRequired,
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     }
     componentDidMount() {
         this.props.getItems();
+    }
+    addItemToCart = event => {
+        this.props.addToCart(this.props.user.id, event.target.id)
+        alert("Item added to cart.")
     }
     render() {
         const { items } = this.props.item;
@@ -23,16 +30,18 @@ class Homediscount extends Component {
         var settings = {
             dots: false,
             infinite: true,
-            speed: 500,
-            slidesToShow: 8,
-            slidesToScroll: 10,
+            slidesToShow: 7,
+            slidesToScroll: 1,
+            draggable: false,
+            autoplay: true,
+            autoplaySpeed: 3000,
             initialSlide: 0,
             responsive: [
                 {
                     breakpoint: 1025,
                     settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 4,
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
                         infinite: true,
                         dots: false
                     }
@@ -56,25 +65,20 @@ class Homediscount extends Component {
         };
         return (
             <Slider {...settings}>
-                {lowcostitems.map(({ _id, image, product, brand, price, description }) => {
+                {items.map(({ _id, image, item, brand, price, description }) => {
                     return (
                         <div className="menu-item" key={_id}>
-                            <h4>{product}</h4>
-                            <img className="slideImg" src={image} alt={image}></img>
-                            <p id="brand">brand:{brand}</p>
-                            <p id="price">${price}.00</p>
-                            <button id="viewItem">**BUTTON**</button>
-                        </div>
-                    )
-                })}
-                {lowcostitems.map(({ _id, image, product, brand, price, description }) => {
-                    return (
-                        <div className="menu-item" key={_id}>
-                            <h4>{product}</h4>
-                            <img className="slideImg" src={image} alt={image}></img>
-                            <p id="brand">brand:{brand}</p>
-                            <p id="price">${price}.00</p>
-                            <button id="viewItem">**BUTTON**</button>
+                            <div className="img-background">
+                                <img className="slideImg" src={image} alt={image}></img>
+                            </div>
+                            <div className="card-info">
+                                <p id="card-header">{item}</p>
+                                <p id="brand">By {brand}</p>
+                                <p id="price">${price}.00</p>
+                                {this.props.isAuthenticated ? <button id="viewItem" id={_id} onClick={this.addItemToCart} >Add To Cart</button>
+                                    :
+                                    <Link to="/login" id="viewItem">Add to cart</Link>}
+                            </div>
                         </div>
                     )
                 })}
@@ -87,10 +91,11 @@ class Homediscount extends Component {
 const mapStateToProps = state => ({
     item: state.item,
     isAuthenticated: state.auth.isAuthenticated,
-    error: state.error
+    user: state.auth.user,
+    error: state.error,
 })
 
 export default connect(
     mapStateToProps,
-    { getItems, clearErrors }
+    { getItems, addToCart, clearErrors }
 )(Homediscount);
