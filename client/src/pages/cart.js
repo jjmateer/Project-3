@@ -27,6 +27,7 @@ class Cart extends Component {
 
     checkoutRequest = event => {
         this.props.userCheckout(event.target.id)
+        this.props.getUserCart(this.props.user.id);
     }
     render() {
         const user_cart = this.props.item.user_cart;
@@ -44,7 +45,9 @@ class Cart extends Component {
                     <CartTotal
                         user_cart={user_cart}
                     />
-                    <button className="checkoutBtn" id={this.props.user.id} onClick={this.checkoutRequest}>Check Out</button>
+                    {user_cart.length ?
+                        <button className="checkoutBtn" id={this.props.user.id} onClick={this.checkoutRequest}>Check Out</button>
+                        : null}
                 </ CartSummary>
                 <CartList>
                     {user_cart.map(({ _id, image, item, brand, price, description }) => (

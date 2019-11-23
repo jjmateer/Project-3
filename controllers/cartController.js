@@ -50,7 +50,7 @@ module.exports = {
         // db.Cart.findByIdAndRemove({ user: req.params.id })
         // db.Order.create(order)
         // console.log(order)
-        return res.status(200).json(order.items);
+        return res.status(200).json([]);
       })
   },
 
