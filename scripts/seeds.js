@@ -301,12 +301,12 @@ const itemSeeds = [
     date: new Date(Date.now())
   },
   {
-    item: "Anker Soundcore 2 Portable Bluetooth Speaker with 12W Stereo Sound",
+    item: "Anker Soundcore 2 Portable Bluetooth Speaker ",
     brand: "Anker",
     price: "30",
     category: "speaker",
     description:
-      "Unbelievable sound: 12W of pure audio power with enhanced bass Thunders from dual neodymium drivers. An advanced digital signal processor ensures pounding bass and zero distortion at any volume.",
+      "With 12W Stereo Sound, unbelievable sound: 12W of pure audio power with enhanced bass Thunders from dual neodymium drivers. An advanced digital signal processor ensures pounding bass and zero distortion at any volume.",
     image: "https://images-na.ssl-images-amazon.com/images/I/31A2v6OdybL._AC_.jpg",
     quantityInStock: 200,
     date: new Date(Date.now())
@@ -367,23 +367,23 @@ const itemSeeds = [
     date: new Date(Date.now())
   },
   {
-    item: "Anker Soundcore 2 Portable Bluetooth Speaker with 12W Stereo Sound",
+    item: "Anker Soundcore 2 Portable Bluetooth Speaker",
     brand: "Anker",
     price: "30",
     category: "speaker",
     description:
-      "Unbelievable sound: 12W of pure audio power with enhanced bass Thunders from dual neodymium drivers. An advanced digital signal processor ensures pounding bass and zero distortion at any volume.",
+      " With 12W Stereo Sound, Unbelievable sound: 12W of pure audio power with enhanced bass Thunders from dual neodymium drivers. An advanced digital signal processor ensures pounding bass and zero distortion at any volume.",
     image: "https://images-na.ssl-images-amazon.com/images/I/31A2v6OdybL._AC_.jpg",
     quantityInStock: 200,
     date: new Date(Date.now())
   },
   {
-    item: "CUK Stratos Gamer PC (Liquid Cooled Intel Core i9-9900K, NVIDIA GeForce RTX 2080 Ti",
+    item: "CUK Stratos Gamer PC",
     brand: "CUK Stratos",
     price: "3600",
     category: "desktop",
     description:
-      "Processor: Intel Core i9-9900K 8-Core Processor (16MB Cache, 3.6GHz-5.0GHz) 95W (Liquid Cooled),RAM: 32GB DDR4 3000MHz | Hard Drive: 1TB NVMe Solid State Drive + 2TB 7200rpm Hard Disk Drive",
+      "Processor: Intel Core i9-9900K 8-Core Processor (16MB Cache, 3.6GHz-5.0GHz) 95W (Liquid Cooled),RAM: 32GB DDR4 3000MHz | Hard Drive: 1TB NVMe Solid State Drive + 2TB 7200rpm Hard Disk Drive  (Liquid Cooled Intel Core i9-9900K, NVIDIA GeForce RTX 2080 Ti)",
     image: "https://images-na.ssl-images-amazon.com/images/I/71SIk3d-wmL._AC_SL1200_.jpg",
     quantityInStock: 200,
     date: new Date(Date.now())
@@ -401,12 +401,12 @@ const itemSeeds = [
     date: new Date(Date.now())
   },
   {
-    item: "CyberpowerPC Gamer Xtreme VR Gaming PC, Liquid Cool Intel Core i9-9900K",
+    item: "CyberpowerPC Gamer Xtreme VR Gaming PC",
     brand: "CyberpowerPC Gamer",
     price: "2000",
     category: "desktop",
     description:
-      "System: Intel Core i9-9900k 3. 6GHz 8-Core: Intel Z390 Chipset, 16GB DDR4, 1TB PCI-E NV Me SSD: Genuine Windows 10 Home 64-bit,Graphics: NVIDIA GeForce RTX 2070 Super 8GB Video Card, 1x HDMI, 2x DisplayPort",
+      "System: Intel Core i9-9900k 3. 6GHz 8-Core: Intel Z390 Chipset, Liquid Cool Intel Core i9-9900K,16GB DDR4, 1TB PCI-E NV Me SSD: Genuine Windows 10 Home 64-bit,Graphics: NVIDIA GeForce RTX 2070 Super 8GB Video Card, 1x HDMI, 2x DisplayPort",
     image: "https://images-na.ssl-images-amazon.com/images/I/81d06hVL9EL._AC_SL1500_.jpg",
     quantityInStock: 200,
     date: new Date(Date.now())

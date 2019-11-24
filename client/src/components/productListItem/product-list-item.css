@@ -26,6 +26,16 @@
     border: 1px solid black;
 }
 
+.ATCbtn:hover {
+    color:white;
+    border-radius: 2px;
+    border: 0.5px;
+    background: rgb(76, 117, 76);
+    cursor: pointer;
+    padding:3px;
+    text-decoration-line: none;
+  }
+
 .cardImg {
     max-height:20vh;
     width:auto;
