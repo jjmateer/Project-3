@@ -77,24 +77,20 @@ module.exports = {
     var cartTotal = [];
     var order = new Object();
     order.items = [];
-    order.user = "";
+    order.user = req.params.user;
     order.cartTotal = 0;
     db.Cart.findOne({ user: req.params.user })
       .then(item => {
-        // console.log(item.items[0])
-        order.user = req.params.user;
         for (let i = 0; i < item.items.length - 1; i++) {
           db.Item.find({ _id: item.items[i].product }).then(item => {
             var itemPrice = parseInt(item[i].price);
             var itemQuantity = parseInt(item[i].quantity);
             var itemTotal = itemQuantity * itemPrice;
             cartTotal.push(itemTotal);
-            var orderedItem = item[i];
-            order.items.push(orderedItem);
-            // order.cartTotal = cartTotal.reduce((a, b) => a + b, 0)
-            // console.log(`item ${item.item} total: ${itemTotal}`)
+
+            order.items.push(item[i]);
             var removeInventory = (item[i].quantity *= -1);
-            // if (item.id === req.params.item) {
+
             console.log(
               `before item find one and update:${item[i].item}  ${item[0].quantityInStock}`
             );
@@ -130,16 +126,21 @@ module.exports = {
           { user: req.params.user },
           { $pull: { items: { $exists: true } } }
         ).then(data => {
-          console.log(data);
+          console.log("clear cart:  ", data);
         });
       })
       .then(() => {
-        // db.Cart.findByIdAndRemove({ user: req.params.id })
-        // db.Order.create(order)
-        order.total = cartSum(cartTotal);
-        console.log("order:  ", order);
-        return res.status(200).json([]);
-      });
+        // order.total = cartSum(cartTotal);
+        db.Order.create({
+          user: order.user,
+          items: order.items,
+          cartTotal: `${cartSum(cartTotal)}`
+        }).then(order => {
+          console.log("order:  ", order);
+          return res.status(200).json([]);
+        });
+      })
+      .catch(err => res.status(422).json(err));
   },
 
   //start of cart functions
