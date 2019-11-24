@@ -27,3 +27,44 @@ html, body{
      line-height:100px;
      background:darkred;
  }
+
+ .auth-form{
+    opacity: 2%;
+    /* background: linear-gradient(90deg, rgba(97,106,147,1) 0%, rgba(100,213,149,1) 35%, rgba(69,112,162,1) 80%, rgba(65,101,163,1) 85%, rgba(61,87,165,1) 91%, rgba(55,67,168,0.9836309523809523) 100%); */
+    /* background: linear-gradient(90deg, rgb(127, 177, 156) 0%, rgb(136, 212, 169) 35%, rgb(110, 173, 119) 80%, rgb(114, 175, 116) 85%, rgb(66, 131, 58) 91%, rgba(109, 172, 148, 0.984) 100%); */
+    background: linear-gradient(90deg, rgb(127, 177, 156) 0%, rgb(136, 212, 169) 35%, rgb(110, 173, 119) 80%, rgb(114, 175, 116) 100%);
+
+ }
+
+ .login-page{
+    /* background: linear-gradient(rgb(25, 126, 112) 0%, rgb(186, 207, 190) 50%, rgba(2, 75, 47, 0.984) 85%, rgba(7, 48, 16, 0.984) 100%); */
+    /* padding:2.2%; */
+    /* background: linear-gradient(rgb(255, 255, 255) 30%, rgb(186, 207, 190) 60%, rgba(169, 223, 202, 0.984) 85%, rgba(3, 58, 15, 0.984) 100%); */
+
+
+ }
+/* 
+ .extended-login{
+    width:100%;
+    background: linear-gradient(rgb(25, 126, 112) 0%, rgb(246, 246, 246) 35%, rgba(2, 75, 47, 0.984) 100%);
+    opacity:10% 
+ }
+  */
+  .signup-page{
+    /* background: linear-gradient(rgb(25, 126, 112) 0%, rgb(186, 207, 190) 50%, rgba(2, 75, 47, 0.984) 85%, rgba(7, 48, 16, 0.984) 100%); */
+    /* background: linear-gradient(rgb(244, 248, 248) 0%, rgb(186, 207, 190) 50%, rgba(152, 218, 193, 0.984) 85%, rgba(3, 58, 15, 0.984) 100%); */
+    /* background: linear-gradient(rgb(255, 255, 255) 30%, rgb(186, 207, 190) 60%, rgba(169, 223, 202, 0.984) 85%, rgba(3, 58, 15, 0.984) 100%); */
+
+    /* padding:2.38%; */
+
+ }
+
+body{
+/* 
+    background: linear-gradient(rgb(244, 248, 248) 0%, rgb(186, 207, 190) 50%, rgba(152, 218, 193, 0.984) 85%, rgba(3, 58, 15, 0.984) 100%);
+    background: linear-gradient(rgb(25, 126, 112) 0%, rgb(186, 207, 190) 50%, rgba(2, 75, 47, 0.984) 95%, rgba(7, 48, 16, 0.984) 100%);
+     */
+    background: linear-gradient(rgb(255, 255, 255) 30%, rgb(186, 207, 190) 60%, rgba(169, 223, 202, 0.984) 90%, rgba(3, 58, 15, 0.984) 100%);
+
+ }
+ 
