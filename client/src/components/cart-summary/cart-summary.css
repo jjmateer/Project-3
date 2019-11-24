@@ -82,6 +82,7 @@
     #cartCard {
         flex-direction: column;
         height:auto;
+ float:center;
     }
     #cartList {
         width:100vw;
@@ -97,8 +98,25 @@
     #cardImg{
         align-items: center;
         margin:auto;
+float:center;
     }
 }
 
+.cproduct, .cbrand, .cprice, .cdesc{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    /* font-display: left; */
+    /* display:flex; */
+    /* flex: left; */
+}
 
+#card-product-info{
+margin:20px;
+/* margin-left:50px; */
+/* margin-right:-170px; */
+}
 
+.cdesc{
+
+}
