@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 function auth(req, res, next) {
     const token = req.header('x-auth-token');
     //Check for token
-    if (!token) return res.status(401).json({ msg: "No token found, auth denied." });
+    if (!token) return res.status(401);
     try {
         //Verify token
         const decoded = jwt.verify(token, "secretkey");

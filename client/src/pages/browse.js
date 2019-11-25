@@ -7,7 +7,6 @@ import { clearErrors } from "../actions/errorActions";
 import PropTypes from "prop-types";
 import "./browse.css";
 import Search from "../components/homelayout/search/search";
-import { Link } from "react-router-dom";
 
 
 
@@ -40,28 +39,9 @@ class Browse extends Component {
     render() {
         const { items } = this.props.item;
         return (
-            <div className="browse-page">
+            <div>
                 <h1 className="page-title">Browse All</h1>
-                <div className="sidesearch">
-                    <div>
-                        <i className="whitesearch-icon">
-                            <input className="search-expand" type="text" placeholder=" Search.." /></i>
-                        {/* 
-                                <div className="dropdown">
-                                <button className="dropbtn">Categories</button>
-                                <div className="dropdown-content">
-                                    <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="monitor">Monitors</Link>
-                                    <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="desktop">Desktops</Link>
-                                    <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="laptop">Laptops</Link>
-                                    <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="speaker">Speakers</Link>
-                                    <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="router">Routers</Link>
-                                    <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="phone">Phones</Link>
-                                    <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="accessories">Accessories</Link>
-                                </div>
-
-                                </div> */}
-                    </div>
-                </div>
+                <Search/>
                 <ProductList>
                     {items.map(({ _id, image, item, brand, price, description }) => (
                         <ProductListItem

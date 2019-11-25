@@ -44,13 +44,12 @@ module.exports = {
       })
       .then(() => {
         db.Cart.findOneAndUpdate({ user: req.params.user }, { $pull: { items: { $exists: true } } })
-          .then((data) => {
-            console.log(data)
-          })
+        .then(()=> {
+          return res.status(200).json([]);
+        })
         // db.Cart.findByIdAndRemove({ user: req.params.id })
         // db.Order.create(order)
         // console.log(order)
-        return res.status(200).json([]);
       })
   },
 
