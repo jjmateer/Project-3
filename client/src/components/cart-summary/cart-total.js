@@ -12,7 +12,12 @@ function CartTotal(props) {
         }
     }
     return (
-        <div id="cart-total" >Total: ${total}.00</div>
+
+        props.user_cart.length ?
+            <div id="cart-total" >Total: ${total}.00</div>
+            :
+            null
+
 
     );
 }
