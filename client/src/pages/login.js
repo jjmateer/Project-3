@@ -59,7 +59,7 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="login-page">
+            <div>
                 {this.props.error.msg.msg ? <h1 id="error-header">{this.props.error.msg.msg}</h1> : null}
                 <h1 className="page-title">Login</h1>
 
@@ -71,18 +71,6 @@ class Login extends Component {
                             handleFormSubmit={this.handleFormSubmit}
                         />
                     </div>
-                    <br></br>
-                    <br></br>
-                </div>
-                <br></br>
-                    <br></br>                    <br></br>
-                    <br></br>                    <br></br>
-                    <br></br>                    <br></br>
-                    <br></br>                    <br></br>
-                    <br></br>                    <br></br>
-                    <br></br>                    <br></br>
-                    <br></br>
-                <div className="extended-login">           
                 </div>
             </div>
         );
@@ -99,4 +87,3 @@ export default connect(
     mapStateToProps,
     { login, clearErrors }
 )(Login);
-

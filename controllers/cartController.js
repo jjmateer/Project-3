@@ -47,10 +47,10 @@ module.exports = {
           .then((data) => {
             console.log(data)
           })
+        return res.status(200).json([]);
         // db.Cart.findByIdAndRemove({ user: req.params.id })
         // db.Order.create(order)
         // console.log(order)
-        return res.status(200).json([]);
       })
   },
 
@@ -61,7 +61,7 @@ module.exports = {
       console.log(`Item id: ${req.params.item} deleted`);
     });
   },
-  getUserCart: function(req, res) {
+  getUserCart: function (req, res) {
     var itemIDarray = [];
     var itemInfoArray = [];
     db.Cart.find({ user: req.params.user })
@@ -71,20 +71,25 @@ module.exports = {
         }
       })
       .then(() => {
+        if(itemIDarray.length < 1 ) {
         for (let i = 0; i < itemIDarray.length; i++) {
           db.Item.find({ _id: itemIDarray[i] })
             .then(itemInfo => {
               itemInfoArray.push(itemInfo[0])
-              if (i === itemIDarray.length - 1) {
-                // console.log(itemInfoArray)
-                res.json(itemInfoArray)
-              }
             })
+        }
+      } else {
+        res.json([])
+      }
+      }).then(() => {
+        if (itemInfoArray.length < 1) {
+        } else {
+          res.json(itemInfoArray)
         }
       })
       .catch(err => res.status(422).json(err));
   },
-  addToCart: function(req, res) {
+  addToCart: function (req, res) {
     var inCart = false;
     db.Cart.findOne(
       { user: req.params.user },
@@ -131,7 +136,7 @@ module.exports = {
         }
       });
   },
-  getUserCart: function(req, res) {
+  getUserCart: function (req, res) {
     var itemIDarray = [];
     var itemInfoArray = [];
     db.Cart.find({ user: req.params.user })

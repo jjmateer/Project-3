@@ -48,7 +48,7 @@ class Merchandise extends Component {
             initialSlide: 0,
             responsive: [
                 {
-                    breakpoint: 1025,
+                    breakpoint: 1500,
                     settings: {
                         slidesToShow: 3,
                         slidesToScroll: 1,

@@ -5,11 +5,10 @@ export default class LoadIcon extends Component {
     render() {
         return (
             <Loader
-                type="Ball-Triangle"
+                type="Bars"
                 color="#006e51"
                 height={100}
                 width={100}
-                timeout={3000} //3 secs
 
             />
         );

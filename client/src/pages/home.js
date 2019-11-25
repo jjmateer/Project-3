@@ -26,7 +26,12 @@ class Home extends Component {
     render() {
         return (
             <div >
-                {/* <div> */}
+                < div className="bgimg-1" >
+                    <div className="titleArea emboss">
+                        <h1 id="homeh1">Technologies of The Future</h1>
+                        <h2 id="homeh2">Your Ideas Made Real</h2>
+                    </div>
+                </div>
                 < Search />
                 {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : null}
                 <div>

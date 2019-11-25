@@ -64,7 +64,7 @@ class Signup extends Component {
 
     render() {
         return (
-            <div className="App signup-page">
+            <div className="App">
 
                 {this.props.error.msg.msg ? <h1 id="error-header">{this.props.error.msg.msg}</h1> : null}
                 <SignupForm
@@ -74,18 +74,6 @@ class Signup extends Component {
                     handleFormSubmit={this.handleFormSubmit}
                     q={this.state.q}
                 />
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-
             </div>
         );
     }

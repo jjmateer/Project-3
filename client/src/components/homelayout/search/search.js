@@ -32,13 +32,6 @@ class Search extends Component {
     }
     render() {
         return (
-            <div className="homelayout" >
-                < div className="bgimg-1" >
-                    <div className="titleArea emboss">
-                        <h1 id="homeh1">Technologies of The Future</h1>
-                        <h2 id="homeh2">Your Ideas Made Real</h2>
-                    </div>
-                </div>
 
                 <div className="Osearch-container">
 
@@ -60,7 +53,6 @@ class Search extends Component {
                         <Link onClick={this.handleNameSearch} className="Obutton" to="/browse-by-category"><i className="fa fa-search"></i></Link>
                     </div>
                 </div>
-            </div >
         )
     }
 }
