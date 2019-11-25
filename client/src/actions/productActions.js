@@ -1,17 +1,18 @@
-import axios from 'axios';
+import axios from "axios";
 import {
-    GET_ITEMS,
-    GET_BY_CATEGORY,
-    GET_BY_NAME,
-    ADD_ITEM_TO_CART,
-    ITEMS_LOADING,
-    GET_USER_CART,
-    USER_CHECKOUT
+  GET_ITEMS,
+  GET_BY_CATEGORY,
+  GET_BY_NAME,
+  ADD_ITEM_TO_CART,
+  ITEMS_LOADING,
+  GET_USER_CART,
+  USER_CHECKOUT
 } from './types';
 // import { tokenConfig } from './authActions';
-import { returnErrors } from './errorActions';
+import { returnErrors } from "./errorActions";
 
 export const getItems = () => dispatch => {
+
     dispatch(setItemsLoading());
     axios
         .get('http://localhost:3001/api/inventory')
@@ -57,7 +58,8 @@ export const getByName = (query) => dispatch => {
 };
 
 export const addToCart = (userID, itemID) => dispatch => {
-    console.log(`Adding item to cart...`)
+  console.log(`Adding item to cart...`);
+
 
     axios.post(`http://localhost:3001/api/cart/add-to-cart/${userID}/${itemID}`)
         .then(res =>
@@ -102,7 +104,7 @@ export const userCheckout = (userID) => dispatch => {
 };
 
 export const setItemsLoading = () => {
-    return {
-        type: ITEMS_LOADING
-    };
+  return {
+    type: ITEMS_LOADING
+  };
 };

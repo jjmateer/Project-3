@@ -93,13 +93,25 @@ button.slick-arrow.slick-next {
 button.slick-arrow.slick-prev {
   margin-left:50px;
 }
-#viewItem {
-  color:black;
-  margin: auto;
+.viewItem:hover {
+  color:white;
   border-radius: 2px;
-  border: 1px solid black;
-  background: transparent;
+  border: 0.5px;
+  background: rgb(126, 194, 126);
+  border:solid green 0.5px;
   cursor: pointer;
+  font-weight: bold;
+  padding:3px;
+  text-decoration-line: none;
+
+}
+
+.viewItem{
+  color:rgb(127, 172, 127);
+  background-color: transparent;
+  text-decoration:none;
+  border: 0.5px  black;
+  font-weight: bold;
 }
 
 .slider-label {
@@ -109,3 +121,11 @@ button.slick-arrow.slick-prev {
   margin: auto;
   text-align: center;
 }
+
+
+#card-header, #brand, #price{
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
