@@ -71,21 +71,14 @@ module.exports = {
         }
       })
       .then(() => {
-        if(itemIDarray.length < 1 ) {
         for (let i = 0; i < itemIDarray.length; i++) {
           db.Item.find({ _id: itemIDarray[i] })
             .then(itemInfo => {
               itemInfoArray.push(itemInfo[0])
             })
         }
-      } else {
-        res.json([])
-      }
       }).then(() => {
-        if (itemInfoArray.length < 1) {
-        } else {
-          res.json(itemInfoArray)
-        }
+        res.json(itemInfoArray)
       })
       .catch(err => res.status(422).json(err));
   },
