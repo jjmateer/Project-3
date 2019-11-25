@@ -2,7 +2,6 @@ const db = require("../models");
 
 // Defining methods for the Cart Controller
 module.exports = {
-<<<<<<< HEAD
   // start of cart functions
   checkout: function(req, res, callback) {
     const cartSum = arr => arr.reduce((a, b) => a + b, 0);
@@ -47,46 +46,6 @@ module.exports = {
             console.log("order:  ", order);
             return res.status(200).json([]);
           });
-=======
-  checkout: function (req, res) {
-    // console.log(req.body)
-    // var cartTotal = []
-    var order = new Object()
-    order.items = []
-    order.user = ""
-    // order.cartTotal = 0
-    db.Cart.findOne({ user: req.params.user })
-      .then(item => {
-        // console.log(item.items[0])
-        order.user = req.params.user;
-        for (let i = 0; i < item.items.length - 1; i++) {
-          db.Item.find({ _id: item.items[i].product }).then(item => {
-            // console.log(item[0])
-            // var itemPrice = item[i].price
-            // var itemTotal = parseInt(item[i].quantity * itemPrice)
-            // cartTotal.push(itemTotal)
-            // var item = item[i]
-            // order.items.push(item[0])
-            // order.cartTotal = cartTotal.reduce((a, b) => a + b, 0)
-            // console.log(`item total: ${itemTotal}`)
-            // var removeInventory = (item[i].quantity *= 1);
-            // if (item.id === req.params.item) {
-            db.Item.findOneAndUpdate(
-              { _id: item[0]._id },
-              { $inc: { quantityInStock: -1 } }
-            )
-            // .then(() => {
-            // db.Cart.findOne({ user: req.params.user })
-            // console.log(order.items)
-            // console.log(`updating quantity...`);
-            // })
-            // .then(() => {
-            // console.log(`${removeInventory} ${item.items[i].product}'s removed from Inventory`)
-            // console.log(`Ordered Quantity : ${item.items[i].quantity}`);
-            // });
-            // }
-          })
->>>>>>> d6e6dd79e580400fbb123be6a1c2de0c07f4307d
         }
       )
       .then(() => {
@@ -101,13 +60,8 @@ module.exports = {
   },
 
   //start of cart functions
-<<<<<<< HEAD
-  clearCart: function(req, res) {
-    console.log(req.params.user);
-=======
   clearCart: function (req, res) {
     console.log(req.params.user)
->>>>>>> d6e6dd79e580400fbb123be6a1c2de0c07f4307d
     db.Cart.findByIdAndRemove({ user: req.params.id }).then(() => {
       console.log(`Item id: ${req.params.item} deleted`);
     });
@@ -161,13 +115,8 @@ module.exports = {
                 )
               )
               .then(() => {
-<<<<<<< HEAD
-                return res.status(200).json({ msg: "Item added to cart." });
-              });
-=======
                 return res.status(200).json({ msg: "Item added to cart." })
               })
->>>>>>> d6e6dd79e580400fbb123be6a1c2de0c07f4307d
           }
         }
       })
@@ -181,13 +130,8 @@ module.exports = {
               }
             }
           ).then(() => {
-<<<<<<< HEAD
-            return res.status(200).json({ msg: "Item added to cart." });
-          });
-=======
             return res.status(200).json({ msg: "Item added to cart." })
           })
->>>>>>> d6e6dd79e580400fbb123be6a1c2de0c07f4307d
         }
       });
   },
