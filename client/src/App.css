@@ -42,5 +42,49 @@ body{
  }
  
 
+ .NameDesign:hover{
+    text-decoration-line: none;
+}
+.NameDesign2:hover{
+    text-decoration-line: none;
+}
+/* 
 
- 
+.sidesearch {
+    width: 60px;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    margin-bottom: 3px;
+    border-radius: 0px 20px 20px 0px ;
+  }
+
+  
+  .sidesearch:hover {
+    width: 250px;
+      transition: width 4s;
+      border-radius: 0px;
+
+
+  }
+  
+  .fa-search{
+  color:white;
+  margin:5px;
+  display: flex;
+}
+  .fa-search:hover .search-bar{
+    display: block;
+    display: inline-block;
+    display: flex;
+    justify-content: flex-end;
+    width: 190px;
+
+  }
+  .search-bar{
+    display:none;
+font-size:20px;
+  } */
+

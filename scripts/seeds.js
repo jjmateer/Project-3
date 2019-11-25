@@ -301,13 +301,13 @@ const itemSeeds = [
     date: new Date(Date.now())
   },
   {
-    item: "Anker Soundcore 2 Portable Bluetooth Speaker ",
+    item: "Anker Soundcore Mini",
     brand: "Anker",
-    price: "30",
+    price: "25",
     category: "speaker",
     description:
-      "With 12W Stereo Sound, unbelievable sound: 12W of pure audio power with enhanced bass Thunders from dual neodymium drivers. An advanced digital signal processor ensures pounding bass and zero distortion at any volume.",
-    image: "https://images-na.ssl-images-amazon.com/images/I/31A2v6OdybL._AC_.jpg",
+      "Super-Portable Bluetooth Speaker",
+    image: "https://d2211byn0pk9fi.cloudfront.net/spree/products/78488/product/A3101111_ND01.png?1558317541.jpg",
     quantityInStock: 200,
     date: new Date(Date.now())
   },

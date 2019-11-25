@@ -75,14 +75,13 @@
     }
     #cardImg{
         align-items: center;
-        margin:auto;
+        margin:25px;
     }
 }
 @media only screen and (max-width: 600px) {
     #cartCard {
         flex-direction: column;
         height:auto;
- float:center;
     }
     #cartList {
         width:100vw;
@@ -98,9 +97,10 @@
     #cardImg{
         align-items: center;
         margin:auto;
-float:center;
     }
 }
+
+
 
 .cproduct, .cbrand, .cprice, .cdesc{
     font-weight: bold;
@@ -115,8 +115,4 @@ float:center;
 margin:20px;
 /* margin-left:50px; */
 /* margin-right:-170px; */
-}
-
-.cdesc{
-
 }

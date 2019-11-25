@@ -20,7 +20,7 @@ class Nav extends Component {
         return (
             <div className="global-header" >
                 <div className="global-header-left">
-                    <h1 className="NameDesign">RealTech   <p className="NameDesign2">StoreFront</p></h1>
+                    <Link to="/"> <h1 className="NameDesign">RealTech   <p className="NameDesign2">StoreFront</p></h1></Link>
 
                 </div>
 
