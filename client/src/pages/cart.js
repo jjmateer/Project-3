@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CartList from "../components/cart/cart";
 import CartListItem from "../components/cartItem/cartItem";
 import CartSummary from "../components/cart-summary/cart-summary";
-import CartPrice from "../components/cart-summary/cart-price";
+// import CartPrice from "../components/cart-summary/cart-price";
 import CartTotal from "../components/cart-summary/cart-total";
 import { connect } from "react-redux";
 import LoadIcon from "../components/loader/loader";
@@ -29,7 +29,8 @@ class Cart extends Component {
 
     checkoutRequest = event => {
         this.props.userCheckout(event.target.id)
-        this.props.getUserCart(this.props.user.id);
+        alert("Thank you for shopping with us.")
+        // this.props.getUserCart(this.props.user.id)
     }
     render() {
         const user_cart = this.props.item.user_cart;
@@ -51,17 +52,20 @@ class Cart extends Component {
                 }
                 {this.props.item.loading ? null :
                     <CartList>
-                        {user_cart.map(({ _id, image, item, brand, price, description }) => (
-                            <CartListItem
-                                key={_id}
-                                id={_id}
-                                image={image}
-                                product={item}
-                                brand={brand}
-                                price={price}
-                                description={description}
-                            />
-                        ))}
+                        {user_cart.length ?
+                            user_cart.map(({ _id, image, item, brand, price, description }) => (
+                                <CartListItem
+                                    key={_id}
+                                    id={_id}
+                                    image={image}
+                                    product={item}
+                                    brand={brand}
+                                    price={price}
+                                    description={description}
+                                />
+                            ))
+
+                            : null}
                     </CartList>
                 }
             </div>

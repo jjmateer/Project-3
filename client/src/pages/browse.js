@@ -4,6 +4,7 @@ import ProductListItem from "../components/productListItem/product-list-item";
 import { connect } from "react-redux";
 import { getItems, addToCart } from "../actions/productActions";
 import { clearErrors } from "../actions/errorActions";
+import LoadIcon from "../components/loader/loader"
 import PropTypes from "prop-types";
 import "./browse.css";
 import Search from "../components/homelayout/search/search";
@@ -42,6 +43,7 @@ class Browse extends Component {
             <div>
                 <h1 className="page-title">Browse All</h1>
                 <Search/>
+                {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : null}
                 <ProductList>
                     {items.map(({ _id, image, item, brand, price, description }) => (
                         <ProductListItem
