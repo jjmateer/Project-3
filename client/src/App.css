@@ -27,3 +27,64 @@ html, body{
      line-height:100px;
      background:darkred;
  }
+
+ .auth-form{
+    opacity: 2%;
+  background: linear-gradient(90deg, rgb(127, 177, 156) 0%, rgb(136, 212, 169) 35%, rgb(110, 173, 119) 80%, rgb(114, 175, 116) 100%);
+
+ }
+
+
+body{
+
+    background: linear-gradient(rgb(255, 255, 255) 30%, rgb(186, 207, 190) 60%, rgba(169, 223, 202, 0.984) 90%, rgba(3, 58, 15, 0.984) 100%);
+
+ }
+ 
+
+ .NameDesign:hover{
+    text-decoration-line: none;
+}
+.NameDesign2:hover{
+    text-decoration-line: none;
+}
+/* 
+
+.sidesearch {
+    width: 60px;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    margin-bottom: 3px;
+    border-radius: 0px 20px 20px 0px ;
+  }
+
+  
+  .sidesearch:hover {
+    width: 250px;
+      transition: width 4s;
+      border-radius: 0px;
+
+
+  }
+  
+  .fa-search{
+  color:white;
+  margin:5px;
+  display: flex;
+}
+  .fa-search:hover .search-bar{
+    display: block;
+    display: inline-block;
+    display: flex;
+    justify-content: flex-end;
+    width: 190px;
+
+  }
+  .search-bar{
+    display:none;
+font-size:20px;
+  } */
+

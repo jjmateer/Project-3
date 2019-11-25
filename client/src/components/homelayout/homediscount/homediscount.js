@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./homediscount.css";
 import { connect } from "react-redux";
 import { getItems, addToCart } from "../../../actions/productActions";
@@ -65,7 +65,7 @@ class Homediscount extends Component {
         };
         return (
             <Slider {...settings}>
-                {items.map(({ _id, image, item, brand, price, description }) => {
+                {lowcostitems.map(({ _id, image, item, brand, price, description }) => {
                     return (
                         <div className="menu-item" key={_id}>
                             <div className="img-background">
@@ -75,9 +75,9 @@ class Homediscount extends Component {
                                 <p id="card-header">{item}</p>
                                 <p id="brand">By {brand}</p>
                                 <p id="price">${price}.00</p>
-                                {this.props.isAuthenticated ? <button id="viewItem" id={_id} onClick={this.addItemToCart} >Add To Cart</button>
+                                {this.props.isAuthenticated ? <button className="viewItem" id={_id} onClick={this.addItemToCart} >Add To Cart</button>
                                     :
-                                    <Link to="/login" id="viewItem">Add to cart</Link>}
+                                    <Link to="/login" className="viewItem">Add to cart</Link>}
                             </div>
                         </div>
                     )

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { getByCategory, getByName } from "../../../actions/productActions";
 import { clearErrors } from "../../../actions/errorActions";
 import PropTypes from "prop-types";
-import "../style.css";
+// import "../style.css";
 
 
 class Search extends Component {

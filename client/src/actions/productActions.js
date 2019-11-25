@@ -7,58 +7,64 @@ import {
   ITEMS_LOADING,
   GET_USER_CART,
   USER_CHECKOUT
+<<<<<<< HEAD
 } from "./types";
+=======
+} from './types';
+>>>>>>> d6e6dd79e580400fbb123be6a1c2de0c07f4307d
 // import { tokenConfig } from './authActions';
 import { returnErrors } from "./errorActions";
 
 export const getItems = () => dispatch => {
-  dispatch(setItemsLoading());
-  axios
-    .get("http://localhost:3001/api/inventory")
-    .then(res =>
-      dispatch({
-        type: GET_ITEMS,
-        payload: res.data
-      })
-    )
-    .catch(err =>
-      dispatch(returnErrors(err.response.data, err.response.status))
-    );
+
+    dispatch(setItemsLoading());
+    axios
+        .get('http://localhost:3001/api/inventory')
+        .then(res =>
+            dispatch({
+                type: GET_ITEMS,
+                payload: res.data
+            })
+        )
+        .catch(err =>
+            dispatch(returnErrors(err.response.data, err.response.status))
+        );
 };
 
-export const getByCategory = query => dispatch => {
-  dispatch(setItemsLoading());
-  axios
-    .get(`http://localhost:3001/api/inventory/category/${query}`)
-    .then(res =>
-      dispatch({
-        type: GET_BY_CATEGORY,
-        payload: res.data
-      })
-    )
-    .catch(err =>
-      dispatch(returnErrors(err.response.data, err.response.status))
-    );
+export const getByCategory = (query) => dispatch => {
+    dispatch(setItemsLoading());
+    axios
+        .get(`http://localhost:3001/api/inventory/category/${query}`)
+        .then(res =>
+            dispatch({
+                type: GET_BY_CATEGORY,
+                payload: res.data
+            })
+        )
+        .catch(err =>
+            dispatch(returnErrors(err.response.data, err.response.status))
+        );
 };
 
-export const getByName = query => dispatch => {
-  dispatch(setItemsLoading());
-  axios
-    .get(`http://localhost:3001/api/inventory/product-name/${query}`)
-    .then(res =>
-      dispatch({
-        type: GET_BY_NAME,
-        payload: res.data
-      })
-    )
-    .catch(err =>
-      dispatch(returnErrors(err.response.data, err.response.status))
-    );
+export const getByName = (query) => dispatch => {
+    dispatch(setItemsLoading());
+    axios
+        .get(`http://localhost:3001/api/inventory/product-name/${query}`)
+        .then(res =>
+            dispatch({
+                type: GET_BY_NAME,
+                payload: res.data
+            })
+        )
+        .catch(err =>
+            dispatch(returnErrors(err.response.data, err.response.status))
+        );
 };
 
 export const addToCart = (userID, itemID) => dispatch => {
   console.log(`Adding item to cart...`);
 
+<<<<<<< HEAD
   axios
     .post(`http://localhost:3001/api/cart/add-to-cart/${userID}/${itemID}`)
     .then(res =>
@@ -70,23 +76,37 @@ export const addToCart = (userID, itemID) => dispatch => {
     .catch(err =>
       dispatch(returnErrors(err.response.data, err.response.status))
     );
+=======
+
+    axios.post(`http://localhost:3001/api/cart/add-to-cart/${userID}/${itemID}`)
+        .then(res =>
+            dispatch({
+                type: ADD_ITEM_TO_CART,
+                payload: res.data
+            })
+        )
+        .catch(err =>
+            dispatch(returnErrors(err.response.data, err.response.status))
+        );
+>>>>>>> d6e6dd79e580400fbb123be6a1c2de0c07f4307d
 };
 
-export const getUserCart = userID => dispatch => {
-  dispatch(setItemsLoading());
-  axios
-    .get(`http://localhost:3001/api/cart/user-cart/${userID}`)
-    .then(res =>
-      dispatch({
-        type: GET_USER_CART,
-        payload: res.data
-      })
-    )
-    .catch(err =>
-      dispatch(returnErrors(err.response.data, err.response.status))
-    );
+export const getUserCart = (userID) => dispatch => {
+    dispatch(setItemsLoading());
+    axios
+        .get(`http://localhost:3001/api/cart/user-cart/${userID}`)
+        .then(res =>
+            dispatch({
+                type: GET_USER_CART,
+                payload: res.data
+            })
+        )
+        .catch(err =>
+            dispatch(returnErrors(err.response.data, err.response.status))
+        );
 };
 
+<<<<<<< HEAD
 export const userCheckout = userID => dispatch => {
   dispatch(setItemsLoading());
   axios
@@ -100,6 +120,21 @@ export const userCheckout = userID => dispatch => {
     .catch(err =>
       dispatch(returnErrors(err.response.data, err.response.status))
     );
+=======
+export const userCheckout = (userID) => dispatch => {
+    dispatch(setItemsLoading());
+    axios
+        .post(`http://localhost:3001/api/cart/checkout/${userID}`)
+        .then(res =>
+            dispatch({
+                type: USER_CHECKOUT,
+                payload: res.data
+            })
+        )
+        .catch(err =>
+            dispatch(returnErrors(err.response.data, err.response.status))
+        );
+>>>>>>> d6e6dd79e580400fbb123be6a1c2de0c07f4307d
 };
 
 export const setItemsLoading = () => {
@@ -107,6 +142,7 @@ export const setItemsLoading = () => {
     type: ITEMS_LOADING
   };
 };
+<<<<<<< HEAD
 
 //================================================
 // export const userCheckout = userID => dispatch => {
@@ -123,3 +159,5 @@ export const setItemsLoading = () => {
 //       dispatch(returnErrors(err.response.data, err.response.status))
 //     );
 // };
+=======
+>>>>>>> d6e6dd79e580400fbb123be6a1c2de0c07f4307d

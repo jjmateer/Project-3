@@ -17,10 +17,7 @@ a {
     cursor: pointer;
 }
 
-.x {
-    /* position: relative; */
-    /* position: absolute; */
-}
+
 
 @media only screen and (max-width: 500px) {
     .global-footer {

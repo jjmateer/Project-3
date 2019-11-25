@@ -51,7 +51,7 @@ function itemForm({ handleInputChange, handleFormSubmit }) {
         <input
           className="form-control"
           type="inStock"
-          placeholder="Quanitity"
+          placeholder="Quantity"
           onChange={handleInputChange}
         />
         <input
