@@ -83,6 +83,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   addToCart: function (req, res) {
+    console.log(req.params.user)
     var inCart = false;
     db.Cart.findOne(
       { user: req.params.user },

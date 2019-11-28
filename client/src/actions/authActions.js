@@ -90,6 +90,7 @@ export const login = (userData) => dispatch => {
 }
 
 export const logout = () => {
+    localStorage.clear();
     return {
         type: LOGOUT_SUCCESS
     }
