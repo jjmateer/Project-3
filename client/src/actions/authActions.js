@@ -40,7 +40,7 @@ export const loadUser = () => (dispatch, getState) => {
 }
 
 //register user
-export const register = ({ username, email, password }) => dispatch => {
+export const register = ({ name, email, password, password2 }) => dispatch => {
     const config = {
         headers: {
             "Content-Type": "application/json"
@@ -48,7 +48,7 @@ export const register = ({ username, email, password }) => dispatch => {
     }
 
     //request body
-    const body = JSON.stringify({ username, email, password });
+    const body = JSON.stringify({ name, email, password, password2 });
 
     axios.post("http://localhost:3001/api/auth/register", body, config)
         .then(res =>
