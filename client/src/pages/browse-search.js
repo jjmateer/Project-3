@@ -14,7 +14,7 @@ class BrowseByCategory extends Component {
         msg: null
     };
     static propTypes = {
-        getItems: PropTypes.func.isRequired,
+        // getItems: PropTypes.func.isRequired,
         user: PropTypes.object,
         addToCart: PropTypes.func.isRequired,
         item: PropTypes.object.isRequired,
@@ -27,10 +27,10 @@ class BrowseByCategory extends Component {
             this.setState({ authenticated: true })
             :
             this.setState({ authenticated: false })
-            this.props.clearErrors();
+        this.props.clearErrors();
     }
     addItemToCart = event => {
-        this.props.addToCart(this.props.user.id, event.target.id);
+        this.props.addToCart(this.props.user._id, event.target.id);
         alert("Item added to cart.")
     }
     render() {
@@ -38,23 +38,26 @@ class BrowseByCategory extends Component {
         return (
             <div>
                 <h1 className="page-title">Search</h1>
-                <Search/>
-                {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : null}
-                <ProductList>
-                    {items_search.map(({ _id, image, item, brand, price, description }) => (
-                        <ProductListItem
-                            key={_id}
-                            id={_id}
-                            image={image}
-                            product={item}
-                            brand={brand}
-                            price={price}
-                            description={description}
-                            addItemToCart={this.addItemToCart}
-                            authenticated={this.state.authenticated}
-                        />
-                    ))}
-                </ProductList>
+                <Search />
+                {items_search ?
+                    <div>
+                        {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : null}
+                        <ProductList>
+                            {items_search.map(({ _id, image, item, brand, price, description }) => (
+                                <ProductListItem
+                                    key={_id}
+                                    id={_id}
+                                    image={image}
+                                    product={item}
+                                    brand={brand}
+                                    price={price}
+                                    description={description}
+                                    addItemToCart={this.addItemToCart}
+                                    authenticated={this.state.authenticated}
+                                />
+                            ))}
+                        </ProductList>
+                    </div> : <h1 className="page-title">No items found.</h1>}
             </div>
         );
     }

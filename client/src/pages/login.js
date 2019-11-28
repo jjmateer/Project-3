@@ -33,16 +33,8 @@ class Login extends Component {
             }
         }
     }
-
-    handleEmailChange = event => {
-        this.setState({
-            email: event.target.value
-        })
-    }
-    handlePasswordChange = event => {
-        this.setState({
-            password: event.target.value
-        })
+    handleInputChange = event =>{
+        this.setState({ [event.target.id]: event.target.value });
     }
     handleFormSubmit = event => {
         event.preventDefault();
@@ -66,8 +58,7 @@ class Login extends Component {
                 <div className="auth-form">
                     <div>
                         <LoginForm
-                            handleEmailChange={this.handleEmailChange}
-                            handlePasswordChange={this.handlePasswordChange}
+                            handleInputChange={this.handleInputChange}
                             handleFormSubmit={this.handleFormSubmit}
                         />
                     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./signup.css";
 
-function SignupForm({ handleNameChange, handleEmailChange, handlePasswordChange, handleFormSubmit }) {
+function SignupForm({ handleInputChange, handleFormSubmit }) {
     return (
         <div>
 
@@ -13,14 +13,16 @@ function SignupForm({ handleNameChange, handleEmailChange, handlePasswordChange,
                 <form className="form-group">
                     <h3>Name :</h3>
 
-                    <input className="form-control form-input-style" autoComplete="on" type="text" placeholder="  Name" onChange={handleNameChange} required />
+                    <input className="form-control form-input-style" id="name" autoComplete="on" type="text" placeholder="Name" onChange={handleInputChange}/>
 
                     <h3>Email :</h3>
 
-                    <input className="form-control form-input-style" autoComplete="on" type="text" placeholder="  Email" onChange={handleEmailChange} required />
+                    <input className="form-control form-input-style"id="email" autoComplete="on" type="text" placeholder="Email" onChange={handleInputChange}/>
                     <h3>Password :</h3>
 
-                    <input className="form-control" autoComplete="on" type="password" placeholder="  Password (6 characters minimum)" onChange={handlePasswordChange} required />
+                    <input className="form-control" id="password" autoComplete="on" type="password" placeholder="Password (6 characters minimum)" onChange={handleInputChange}/>
+                    <h3>Re-enter password :</h3>
+                    <input className="form-control" id="password2" autoComplete="on" type="password" placeholder="Password (6 characters minimum)" onChange={handleInputChange}/>
                     <input className="sub" type="submit" value="Submit" onClick={handleFormSubmit} />
                 </form>
 

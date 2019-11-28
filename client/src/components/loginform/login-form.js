@@ -1,15 +1,15 @@
 import React from "react";
 import "./login-form.css";
 
-function LoginForm({ handleEmailChange, handlePasswordChange, handleFormSubmit }) {
+function LoginForm({ handleInputChange, handleFormSubmit }) {
     return (
         <div className="login-div">
             <form className="login-form">
                 <h3>Email :</h3>
-                <input className="form-control form-input-style" autoComplete="on" placeholder="  Email" onChange={handleEmailChange} required />
+                <input className="form-control form-input-style" id="email" autoComplete="on" placeholder="  Email" onChange={handleInputChange} required />
                 <h3>Password :</h3>
-                <input className="form-control form-input-style" autoComplete="on" type="password" placeholder="  Password " onChange={handlePasswordChange} required />
-                <input className="sub" type="submit" value="Submit" onClick={handleFormSubmit} />
+                <input className="form-control form-input-style" id="password" autoComplete="on" type="password" placeholder="  Password " onChange={handleInputChange} required />
+                <input className="sub" id="submit" type="submit" value="Submit" onClick={handleFormSubmit} />
             </form>
         </div>
     )

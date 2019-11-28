@@ -17,3 +17,4 @@ export const ITEMS_LOADING = "ITEMS_LOADING";
 export const GET_BY_CATEGORY = "GET_BY_CATEGORY";
 export const GET_BY_NAME = "GET_BY_NAME";
 export const USER_CHECKOUT = "USER_CHECKOUT";
+export const LOAD_TIMEOUT = "LOAD_TIMEOUT";

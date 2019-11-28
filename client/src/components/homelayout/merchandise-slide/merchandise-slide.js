@@ -17,7 +17,7 @@ class Merchandise extends Component {
         isAuthenticated: PropTypes.bool
     }
     addItemToCart = event => {
-        this.props.addToCart(this.props.user.id, event.target.id)
+        this.props.addToCart(this.props.user._id, event.target.id)
         alert("Item added to cart.")
     }
     constructor(props) {

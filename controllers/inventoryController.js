@@ -9,20 +9,22 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    db.Item.findById(req.params.id)
+      db.Item.findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findByCategory: function(req, res) {
-    db.Item.find({ category: req.params.category })
+      db.Item.find({ category: req.params.category })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findByName: function(req, res) {
-    console.log(req.params.name);
-    db.Item.find({ item: req.params.name })
+    // console.log(req.params.name)
+    if(req.params.name) {
+      db.Item.find({ item: req.params.name })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+    }
   },
   create: function(req, res) {
     db.Item.create(req.body)
