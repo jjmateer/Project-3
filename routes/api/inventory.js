@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const inventoryController = require("../../controllers/inventoryController");
-const auth = require("../../middleware/auth");
 
 //   "/api/inventory"
 router

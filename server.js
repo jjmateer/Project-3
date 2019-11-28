@@ -28,7 +28,7 @@ mongoose.connect(dbUrl, {
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function callback() {
-  console.log("Connected to MongoDB.");
+  console.log(`Connected to ${dbUrl}`);
 });
 
 if (process.env.NODE_ENV === "production") {

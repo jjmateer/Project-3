@@ -4,70 +4,66 @@ const jwt = require("jsonwebtoken");
 // const auth = require("../middleware/auth");
 
 exports.register = function (req, res) {
-  const { username, email, password } = req.body;
-  // console.log(username)
-  //Check if there is a user in the database with same email.
-  if (!username || !email || !password) {
-    return res.status(400).json({ msg: "Please fill out all fields." })
-  } else {
-    db.User.findOne({ email })
-      .then(user => {
-        //If there isn't, create a new user with hashed password.
-        if (!user) {
-          let salt = bcrypt.genSaltSync(10);
-          db.User.create({
-            username: username,
-            email: email,
-            password: bcrypt.hashSync(password, salt),
-          }).then(user => {
-            db.Cart.create({
-              user: user.id
-            })
-            //Create JSON web token which is signed with the new user's info and expires in 1 hour.
-            jwt.sign({
-              id: user.id
-            }, 'secretkey', { expiresIn: 3600 }, (err, token) => {
-              if (err) throw err;
-              res.json({
-                token,
-                user: {
-                  id: user.id,
-                  name: user.username,
-                  email: user.email
-                }
-              });
-              console.log("User added to database.")
-              console.log(`User info: ${user}`)
-              console.log(`User token: ${token}`)
-              console.log(`Cart created with user id: ${user.id}`)
-            })
-          })
-        }
-        if (user) {
-          return res.status(400).json({ msg: "User already exists." })
-        }
-      })
-      .catch(function (err) {
-        console.log(err)
-      });
+  const { name, email, password, password2 } = req.body;
+  switch (name, email, password, password2) {
+    case password.length < 6:
+      return res.status(400).json({ msg: "Password must be six characters or longer." })
+    case password != password2:
+      return res.status(400).json({ msg: "Passwords do not match." })
+    case !name || !email || !password || !password2:
+      return res.status(400).json({ msg: "Please fill out all fields." })
   }
-};
+  db.User.findOne({ email })
+    .then(user => {
+      if (!user) {
+        db.User.findOne({ email })
+          .then(user => {
+            if (!user) {
+              let salt = bcrypt.genSaltSync(10);
+              db.User.create({
+                name: name,
+                email: email,
+                password: bcrypt.hashSync(password, salt),
+              }).then(user => {
+                jwt.sign({
+                  id: user.id
+                }, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                  if (err) throw err;
+                  res.json({
+                    token,
+                    user: {
+                      id: user.id,
+                      name: user.username,
+                      email: user.email
+                    }
+                  });
+                  console.log(`${user.name} added to database.`)
+                })
+              })
+            }
+          })
+
+      } else if (user) {
+        return res.status(400).json({ msg: "User already exists." })
+      }
+
+    }).catch(function (err) { res.status(422).json({ msg: err }) });
+}
 
 exports.login = function (req, res) {
   const { email, password } = req.body;
-
   if (!email || !password) {
     return res.status(400).json({ msg: "Please fill out all fields." })
   } else {
     db.User.findOne({ email })
       .then(user => {
-        if(!user) {
+        if (!user) {
           return res.status(400).json({ msg: "Non-existent user." })
         }
         if (email === user.email && user && bcrypt.compareSync(password, user.password)) {
           jwt.sign({
             id: user.id
-          }, 'secretkey', { expiresIn: 3600 }, (err, token) => {
+          }, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
             if (err) throw err;
             res.json({
               token,
@@ -77,26 +73,22 @@ exports.login = function (req, res) {
                 email: user.email
               }
             });
-            console.log("Login success.")
-            console.log(`User info: ${user}`)
-            console.log(`User token: ${token}`)
           })
         } else {
-          console.log("Invalid credentials")
           return res.status(400).json({ msg: "Invalid credentials." })
         }
-      })
-      .catch(function (err) {
-        console.log(err)
-      });
+      }).catch(function (err) { res.status(422).json({ msg: err }) });
   }
 };
 
 
 // router.get('/user', auth, (req, res) => {
 exports.checkUser = function (req, res) {
-  
-  db.User.findById(req.body.user.id)
+  if(req.body.token) {
+    db.User.findById(req.body.id)
     .select('-password')
     .then(user => res.json(user));
-}
+  } else {
+    res.status(400).json(null)
+  }
+};
