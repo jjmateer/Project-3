@@ -22,7 +22,7 @@ export const loadUser = () => (dispatch) => {
         }
 
         axios
-            .post('http://localhost:3001/api/auth/user', body)
+            .post('/api/auth/user', body)
             .then(res => {
                 console.log(res.data)
                 dispatch({
@@ -47,7 +47,7 @@ export const register = newUser => dispatch => {
         }
     }
 
-    axios.post("http://localhost:3001/api/auth/register", newUser, config)
+    axios.post("/api/auth/register", newUser, config)
         .then(res => {
             dispatch({
                 type: REGISTER_SUCCESS,
@@ -72,7 +72,7 @@ export const login = (userData) => dispatch => {
         }
     }
 
-    axios.post("http://localhost:3001/api/auth/login", userData, config)
+    axios.post("/api/auth/login", userData, config)
         .then(res => {
             dispatch({
                 type: LOGIN_SUCCESS,

@@ -4,8 +4,8 @@ import Homediscount from "../components/homelayout/homediscount/homediscount";
 import Merchandise from "../components/homelayout/merchandise-slide/merchandise-slide"
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
+import LoadIcon from "../components/loader/loader"
 import PropTypes from "prop-types";
-import LoadIcon from "../components/loader/loader";
 import "../components/homelayout/style.css"
 
 
@@ -17,6 +17,7 @@ class Home extends Component {
         isAuthenticated: PropTypes.bool,
         user: PropTypes.object,
         item: PropTypes.object,
+        auth: PropTypes.object.isRequired,
         error: PropTypes.object.isRequired,
         clearErrors: PropTypes.func.isRequired
     }
@@ -25,6 +26,7 @@ class Home extends Component {
     }
     render() {
         return (
+            !this.props.auth.isLoading ?
             <div >
                 < div className="bgimg-1" >
                     <div className="titleArea emboss">
@@ -43,12 +45,14 @@ class Home extends Component {
 
 
             </div >
+            : <h1><LoadIcon/></h1>
         );
     }
 }
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
     user: state.auth.user,
+    auth: state.auth,
     item: state.item,
     error: state.error
 })
