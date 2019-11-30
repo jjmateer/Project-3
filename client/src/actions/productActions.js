@@ -16,7 +16,7 @@ export const getItems = () => dispatch => {
 
     dispatch(setItemsLoading());
     axios
-        .get('/api/inventory')
+        .get('http://localhost:3001/api/inventory')
         .then(res =>
             dispatch({
                 type: GET_ITEMS,
@@ -31,7 +31,7 @@ export const getItems = () => dispatch => {
 export const getByCategory = (query) => dispatch => {
     dispatch(setItemsLoading());
     axios
-        .get(`/api/inventory/category/${query}`)
+        .get(`http://localhost:3001/api/inventory/category/${query}`)
         .then(res =>
             dispatch({
                 type: GET_BY_CATEGORY,
@@ -46,7 +46,7 @@ export const getByCategory = (query) => dispatch => {
 export const getByName = (query) => dispatch => {
     dispatch(setItemsLoading());
     axios
-        .get(`/api/inventory/product-name/${query}`)
+        .get(`http://localhost:3001/api/inventory/product-name/${query}`)
         .then(res =>
             dispatch({
                 type: GET_BY_NAME,
@@ -62,7 +62,7 @@ export const addToCart = (userID, itemID) => dispatch => {
     console.log(`Adding item to cart...`);
 
 
-    axios.post(`/api/cart/add-to-cart/${userID}/${itemID}`)
+    axios.post(`http://localhost:3001/api/cart/add-to-cart/${userID}/${itemID}`)
         .then(res =>
             dispatch({
                 type: ADD_ITEM_TO_CART,
@@ -77,7 +77,7 @@ export const addToCart = (userID, itemID) => dispatch => {
 export const getUserCart = (userID) => dispatch => {
     dispatch(setItemsLoading());
     axios
-        .get(`/api/cart/user-cart/${userID}`)
+        .get(`http://localhost:3001/api/cart/user-cart/${userID}`)
         .then(res => {
             dispatch({
                 type: GET_USER_CART,
@@ -93,7 +93,7 @@ export const userCheckout = (userID) => dispatch => {
     console.log(userID)
     dispatch(setItemsLoading());
     axios
-        .post(`/api/cart/checkout/${userID}`)
+        .post(`http://localhost:3001/api/cart/checkout/${userID}`)
         .then(res =>
             dispatch({
                 type: USER_CHECKOUT,

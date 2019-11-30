@@ -33,11 +33,8 @@ class Search extends Component {
     render() {
         return (
 
-                <div className="Osearch-container">
-
                     <div id="searchjoin">
-                        <input type="text" onChange={this.handleInputChange} className="Osearch" placeholder="  Search.." />
-                        {/* Dropdown for Categories */}
+                        <input type="text" onChange={this.handleInputChange} className="Osearch" placeholder="Search.." />
                         <div className="dropdown">
                             <button className="dropbtn">Categories</button>
                             <div className="dropdown-content">
@@ -52,7 +49,6 @@ class Search extends Component {
                         </div>
                         <Link onClick={this.handleNameSearch} className="Obutton" to="/browse-by-category"><i className="fa fa-search"></i></Link>
                     </div>
-                </div>
         )
     }
 }

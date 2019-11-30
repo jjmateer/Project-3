@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Search from "../components/homelayout/search/search";
 import Homediscount from "../components/homelayout/homediscount/homediscount";
 import Merchandise from "../components/homelayout/merchandise-slide/merchandise-slide"
 import { connect } from "react-redux";
@@ -30,11 +29,9 @@ class Home extends Component {
             <div >
                 < div className="bgimg-1" >
                     <div className="titleArea emboss">
-                        <h1 id="homeh1">Technologies of The Future</h1>
-                        <h2 id="homeh2">Your Ideas Made Real</h2>
+                        <h1 id="homeh1">Technology of The Future</h1>
                     </div>
                 </div>
-                < Search />
                 {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : null}
                 <div>
                     <h1 className="slider-label">Merchandise</h1>

@@ -2,14 +2,12 @@ import React, { Component } from "react";
 import CartList from "../components/cart/cart";
 import CartListItem from "../components/cartItem/cartItem";
 import CartSummary from "../components/cart-summary/cart-summary";
-// import CartPrice from "../components/cart-summary/cart-price";
 import CartTotal from "../components/cart-summary/cart-total";
 import { connect } from "react-redux";
 import LoadIcon from "../components/loader/loader";
 import { clearErrors } from "../actions/errorActions";
 import { getUserCart, userCheckout } from "../actions/productActions";
 import PropTypes from "prop-types";
-// import AwesomeComponent from "../components/loader/loader"
 class Cart extends Component {
     state = {
         msg: null
@@ -76,7 +74,6 @@ class Cart extends Component {
 const mapStateToProps = state => ({
     item: state.item,
     isAuthenticated: state.auth.isAuthenticated,
-    item: state.item,
     user: state.auth.user,
     error: state.error
 })

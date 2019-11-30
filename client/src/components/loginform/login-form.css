@@ -12,16 +12,15 @@
 
 .auth-form {
     background: rgb(229, 229, 238);
-    margin:auto !important;
-    opacity: 100 !important;
-    width: 20vw !important;
-    height:auto !important;
-    padding:30px !important;
-    /* -ms-flex-item-align: center; */
+    margin:auto;
+    opacity: 100;
+    width: 20vw;
+    height:auto;
+    padding:30px;
 }
 
 .sub {
-    margin-top:30px !important;
+    margin-top:30px;
     font-family: 'Roboto', sans-serif;
     background-color: rgb(23, 31, 23);
     /* Green */
@@ -39,22 +38,22 @@
 
 @media only screen and (max-width: 1367px) and (orientation:landscape) {
     .auth-form {
-        width: 40vw !important;
+        width: 40vw;
     }
 }
 @media only screen and (max-width: 1367px) and (orientation:portrait) {
     .auth-form {
-        width: 30vw !important;
+        width: 30vw;
     }
 }
 @media only screen and (max-width: 850px) and (orientation:portrait) {
     .auth-form {
-        width: 40vw !important;
+        width: 40vw;
     }
 }
 @media only screen and (max-width: 600px) and (orientation:portrait) {
     .auth-form {
-        width: 80vw !important;
+        width: 80vw;
     }
 }
 

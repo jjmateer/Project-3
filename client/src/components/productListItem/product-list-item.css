@@ -1,14 +1,11 @@
 #productCard {
     border:1px solid black;
-    /* margin:10px auto; */
     background:white;
-    box-shadow: 10px 10px 8px #888888;
     min-height:300px;
     width:100%;
     height:20vh;
     display:flex;
     flex-direction: row;
-
 }
 
 .ATCbtn{
@@ -28,8 +25,7 @@
 
 .ATCbtn:hover {
     color:white;
-    background: rgb(75, 124, 75);
-    font-weight: bold;
+    background: #0F9B6C;
   }
 
 .cardImg {

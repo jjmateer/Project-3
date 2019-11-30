@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearErrors } from "../../actions/errorActions";
 import PropTypes from "prop-types";
-import Logout from "../logout/logout"
+import Search from "../homelayout/search/search"
+import { logout } from "../../actions/authActions";
 import "./nav.css";
 import "../homelayout/style.css"
 
@@ -14,23 +15,23 @@ class Nav extends Component {
     static propTypes = {
         isAuthenticated: PropTypes.bool,
         error: PropTypes.object.isRequired,
-        clearErrors: PropTypes.func.isRequired
+        clearErrors: PropTypes.func.isRequired,
+        logout: PropTypes.func.isRequired
     }
     render() {
         return (
             <div className="global-header" >
                 <div className="global-header-left">
-                    <Link to="/"> <h1 className="NameDesign">RealTech   <p className="NameDesign2">StoreFront</p></h1></Link>
-
-                </div>
-
+                    <Link to="/"> <h1 className="NameDesign">RealTech</h1></Link>
+                    </div>
+                < Search />
                 <div className="global-header-right">
                     <Link to="/">Home</Link>
-                    {this.props.isAuthenticated ? null : <Link to="/login">Log In</Link>}
-                    {this.props.isAuthenticated ? null : <Link to="/signup">Sign Up</Link>}
+                    {this.props.isAuthenticated ? null : <Link to="/login">Log in</Link>}
+                    {this.props.isAuthenticated ? null : <Link to="/signup">Sign up</Link>}
                     <Link to="/browse">Browse</Link>
-                    {this.props.isAuthenticated ? <Link to="/cart">Cart </Link> : null}
-                    {this.props.isAuthenticated ? <Logout /> : null}
+                    {this.props.isAuthenticated ? <Link to="/cart">Cart</Link> : null}
+                    {this.props.isAuthenticated ? <Link to="/" onClick={this.props.logout}>Logout</Link> : null}
                 </div>
 
             </div>
@@ -45,5 +46,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { clearErrors }
+    { clearErrors, logout  }
 )(Nav);
