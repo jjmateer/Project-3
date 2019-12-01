@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import ProductList from "../components/productlist/product-list";
-import ProductListItem from "../components/productListItem/product-list-item";
+import ProductList from "../components/product-components/product-list";
+import ProductListItem from "../components/product-components/product-list-item";
 import { connect } from "react-redux";
 import { getItems, addToCart } from "../actions/productActions";
 import { clearErrors } from "../actions/errorActions";
@@ -37,6 +37,7 @@ class Browse extends Component {
     render() {
         const { items } = this.props.item;
         return (
+            this.props.auth.isLoading ?<h1 className="page-title"><LoadIcon/></h1> :
             <div>
                 {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : null}
                 <ProductList>
@@ -62,6 +63,7 @@ class Browse extends Component {
 const mapStateToProps = state => ({
     item: state.item,
     isAuthenticated: state.auth.isAuthenticated,
+    auth: state.auth,
     user: state.auth.user,
     error: state.error,
 })

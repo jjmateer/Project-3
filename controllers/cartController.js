@@ -72,6 +72,7 @@ module.exports = {
       { items: { $elemMatch: { product: req.params.item } } }
     )
       .then(item => {
+        console.log(item)
         for (let i = 0; i < item.items.length; i++) {
           if (item.items[i].product || item.items[i].product === req.params.item) {
             console.log("item:  ", item.items);

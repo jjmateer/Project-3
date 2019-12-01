@@ -12,6 +12,24 @@
     box-shadow: 2px 2px 8px gray;
 }
 
+.content-wrapper {
+    background: rgb(229, 229, 238);
+    padding: 30px 70px 30px 70px;
+    margin: 2% 8% 2% 8%;
+    opacity: 100%;
+}
+
+#cartList{
+    width:60%;
+    max-width:100%;
+    grid-template-columns: 3 3 3;
+    margin:40px;
+    /* background:#e5e5ee; */
+    display:grid;
+    
+}
+
+
 #itemNP{
     height:auto;
     width:auto;

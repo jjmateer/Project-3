@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearErrors } from "../../actions/errorActions";
 import PropTypes from "prop-types";
-import Search from "../homelayout/search/search";
+import Search from "./search";
 import { logout } from "../../actions/authActions";
 import "./nav.css";
-import "../homelayout/style.css"
 
 class Nav extends Component {
     state = {

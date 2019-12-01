@@ -36,7 +36,7 @@
   text-decoration: none;
 }
 .global-header-right a:hover {
-  color:#0f9b6c;
+  color: #0f9b6c;
 }
 .logo {
   text-align: center;
@@ -155,14 +155,14 @@
 
 @media only screen and (max-width: 600px) {
   #searchjoin {
-    margin:auto;
+    margin: auto;
     margin-top: 50px;
     width: 90vw;
   }
   .fa.fa-search::before {
     margin: 6vw;
   }
-  
+
   .dropbtn {
     display: none;
   }
@@ -188,13 +188,13 @@
   }
   .global-header-right a {
     width: 25%;
-    border-radius:5px;
+    border-radius: 5px;
     height: 25px;
     margin: auto;
     text-align: center;
     line-height: 150%;
     padding: 0;
-    border:1px solid #0f9b6c;
-    color:#0f9b6c;
+    border: 1px solid #0f9b6c;
+    color: #0f9b6c;
   }
 }

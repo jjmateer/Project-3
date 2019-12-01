@@ -4,16 +4,16 @@
 .slick-slider {
   display: flex;
   flex-direction: row;
-  width: 100vw ;
-  height:500px;
+  width: 100vw;
+  height: 500px;
   box-shadow: 2px 2px 8px black;
-  margin-bottom:100px;
+  margin-bottom: 100px;
 }
 
 .slick-track {
-  margin:auto;
-  width: 100vw ;
-  height:500px;
+  margin: auto;
+  width: 100vw;
+  height: 500px;
 }
 
 img.slideImg {
@@ -21,7 +21,7 @@ img.slideImg {
   margin: auto;
   max-width: 100%;
   max-height: 100%;
-  padding:0.5px;
+  padding: 0.5px;
 }
 
 .img-background {
@@ -29,25 +29,25 @@ img.slideImg {
   max-height: 50%;
   background: white;
   border: 0.5px solid black;
-  padding:1px;
+  padding: 1px;
 }
 
 #card-header {
   text-decoration: none;
   min-height: 60px;
-  font-size:105%;
+  font-size: 105%;
 }
 .slick-slide,
 .slick-slide div,
 .menu-item {
-  height:500px;
+  height: 500px;
   user-select: none;
   box-sizing: border-box;
 }
 
 .card-info {
   font-size: 15px;
-  height:50%;
+  height: 50%;
   border: 1px solid black;
   box-sizing: border-box;
 }
@@ -64,47 +64,47 @@ button.slick-arrow.slick-prev,
 button.slick-arrow :active,
 button.slick-arrow :hover,
 button.slick-arrow.after,
-button.slick-arrow::before
- {
-  position:absolute;
+button.slick-arrow::before {
+  position: absolute;
   z-index: 200;
   cursor: pointer;
   width: 50px !important;
-  height:100px;
+  height: 100px;
 }
-.slick-arrow.slick-next::before, .slick-arrow.slick-prev::before {
-  display:none !important;
+.slick-arrow.slick-next::before,
+.slick-arrow.slick-prev::before {
+  display: none !important;
 }
 
 button.slick-arrow.slick-prev {
-  background: url(./back.svg)  !important;
-  background-repeat:no-repeat !important;
-  background-size:contain !important;
-  margin-left:50px;
+  background: url(./back.svg) !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  margin-left: 50px;
 }
 button.slick-arrow.slick-next {
-  background: url(./next.svg)  !important;
-  background-repeat:no-repeat !important;
-  background-size:contain !important;
-  margin-right:50px;
+  background: url(./next.svg) !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  margin-right: 50px;
 }
 button.slick-arrow.slick-prev {
-  margin-left:50px;
+  margin-left: 50px;
 }
 .viewItem:hover {
-  color:white;
-  background: #0F9B6C;
+  color: white;
+  background: #0f9b6c;
   font-weight: bold;
 }
 
-.viewItem{
+.viewItem {
   cursor: pointer;
-  color:#0F9B6C;
+  color: #0f9b6c;
   border-radius: 2px;
   background-color: transparent;
-  text-decoration:none;
-  border: 1px solid #0F9B6C;
-  padding:3px;
+  text-decoration: none;
+  border: 1px solid #0f9b6c;
+  padding: 3px;
   font-weight: bold;
   box-sizing: border-box;
 }
@@ -117,10 +117,10 @@ button.slick-arrow.slick-prev {
   text-align: center;
 }
 
-
-#card-header, #brand, #price{
+#card-header,
+#brand,
+#price {
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
 }
-

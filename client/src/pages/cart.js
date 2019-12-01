@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import CartList from "../components/cart/cart";
-import CartListItem from "../components/cartItem/cartItem";
-import CartSummary from "../components/cart-summary/cart-summary";
-import CartTotal from "../components/cart-summary/cart-total";
+import CartList from "../components/cart-components/cart-list";
+import CartListItem from "../components/cart-components/cartItem";
+import CartSummary from "../components/cart-components/cart-summary";
+import CartTotal from "../components/cart-components/cart-total";
 import { connect } from "react-redux";
 import LoadIcon from "../components/loader/loader";
 import { clearErrors } from "../actions/errorActions";
@@ -32,6 +32,7 @@ class Cart extends Component {
     render() {
         const user_cart = this.props.item.user_cart;
         return (
+            this.props.auth.isLoading ?<h1 className="page-title"><LoadIcon/></h1> :
             <div>
                 {user_cart.length ? <h1 className="page-title">Cart</h1> :
                     <h1 className="page-title">{this.props.item.loading ? "Loading..." : null}</h1>}
@@ -74,6 +75,7 @@ class Cart extends Component {
 const mapStateToProps = state => ({
     item: state.item,
     isAuthenticated: state.auth.isAuthenticated,
+    auth: state.auth,
     user: state.auth.user,
     error: state.error
 })

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getByCategory, getByName } from "../../../actions/productActions";
-import { clearErrors } from "../../../actions/errorActions";
+import { getByCategory, getByName } from "../../actions/productActions";
+import { clearErrors } from "../../actions/errorActions";
 import PropTypes from "prop-types";
-// import "../style.css";
 
 
 class Search extends Component {

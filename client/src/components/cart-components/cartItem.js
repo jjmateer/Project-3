@@ -1,5 +1,5 @@
 import React from "react";
-import "./cartItem.css";
+import "./cart.css";
 
 function CartListItem(props) {
     return (
