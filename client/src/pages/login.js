@@ -25,7 +25,6 @@ class Login extends Component {
     componentDidUpdate(prevPreps) {
         const { error } = this.props;
         if (error !== prevPreps.error) {
-            //check for err
             if (error.id === "LOGIN_FAIL") {
                 this.setState({ msg: error.msg.msg })
             } else {

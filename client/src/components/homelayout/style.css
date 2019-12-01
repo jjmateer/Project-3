@@ -8,19 +8,6 @@
 .bgimg-1 {
   height: 10vh;
   background: linear-gradient(-45deg, white, gray, #0f9b6c, gray);
-  animation: gradientBG 1s ease infinite;
-}
-
-@keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 .store-discount {
@@ -32,48 +19,4 @@
   margin-left: 100px;
   color: white;
   height: 100%;
-}
-
-#homeh2 {
-  color: #b0aeb1;
-}
-@media only screen and (max-width: 1025px) {
-  #searchjoin {
-    width: 80vw !important;
-  }
-}
-
-@media only screen and (max-width: 567px) {
-  #searchjoin {
-    height: 30vh;
-    width: 100vw !important;
-    flex-direction: column;
-  }
-  .Osearch {
-    width: 100vw;
-    border: 1px solid #141518;
-    font-size: 20px;
-    border-radius: 0;
-    margin: auto;
-    height: 6vh;
-  }
-  .Obutton {
-    width: 100vw;
-    margin: auto;
-    padding-bottom: 11%;
-    height: 5vh;
-    border-radius: 0;
-    padding-left: 45%;
-    box-sizing: border-box;
-  }
-  .dropbtn {
-    height: 6vh;
-    width: 100vw;
-    margin: auto;
-  }
-  .dropdown-content {
-    width: 100vw;
-    margin: auto;
-    z-index: 2000;
-  }
 }

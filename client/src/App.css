@@ -1,72 +1,27 @@
-
-a{
-    cursor: pointer;
+a {
+  cursor: pointer;
+}
+*{
+  outline:none;
+}
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
-html, body{ 
-     height:100vh;
-     width:100vw;
-     overflow-x:hidden;
- }
-
- .page-title{
-     text-align:center;
- }
-
- #error-header {
-        opacity: 8;
-     text-align: center;
-     margin:auto;
-     width:100vw;
-     font-size:180%;
-     height:100px;
-     line-height:100px;
-     background:darkred;
- }
-
- .NameDesign:hover{
-    text-decoration-line: none;
+.page-title {
+  text-align: center;
 }
-.NameDesign2:hover{
-    text-decoration-line: none;
+
+#error-header {
+  opacity: 8;
+  text-align: center;
+  margin: auto;
+  width: 100vw;
+  font-size: 180%;
+  height: 100px;
+  line-height: 100px;
+  background: darkred;
 }
-/* 
-
-.sidesearch {
-    width: 60px;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    background-color: black;
-    overflow-x: hidden;
-    margin-bottom: 3px;
-    border-radius: 0px 20px 20px 0px ;
-  }
-
-  
-  .sidesearch:hover {
-    width: 250px;
-      transition: width 4s;
-      border-radius: 0px;
-
-
-  }
-  
-  .fa-search{
-  color:white;
-  margin:5px;
-  display: flex;
-}
-  .fa-search:hover .search-bar{
-    display: block;
-    display: inline-block;
-    display: flex;
-    justify-content: flex-end;
-    width: 190px;
-
-  }
-  .search-bar{
-    display:none;
-font-size:20px;
-  } */
-
