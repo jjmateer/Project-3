@@ -15,8 +15,7 @@
     display:grid;
 }
 .ATCbtn{
-    color:black;
-    background:white;
+    background: transparent;
     cursor:pointer;
     width:auto;
     float:right;
@@ -28,11 +27,6 @@
     border-radius:2px;
     border: 1px solid black;
 }
-
-.ATCbtn:hover {
-    color:white;
-    background: #0F9B6C;
-  }
 
 .cardImg {
     max-height:300px;

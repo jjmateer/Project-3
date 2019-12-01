@@ -84,5 +84,3 @@ export default connect(
     mapStateToProps,
     { getUserCart, clearErrors, userCheckout }
 )(Cart);
-
-///

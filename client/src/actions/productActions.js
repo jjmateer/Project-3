@@ -6,10 +6,8 @@ import {
     ADD_ITEM_TO_CART,
     ITEMS_LOADING,
     GET_USER_CART,
-    USER_CHECKOUT,
-    LOAD_TIMEOUT
+    USER_CHECKOUT
 } from './types';
-// import { tokenConfig } from './authActions';
 import { returnErrors } from "./errorActions";
 
 export const getItems = () => dispatch => {

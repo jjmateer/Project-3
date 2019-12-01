@@ -91,19 +91,14 @@ button.slick-arrow.slick-next {
 button.slick-arrow.slick-prev {
   margin-left: 50px;
 }
-.viewItem:hover {
-  color: white;
-  background: #0f9b6c;
-  font-weight: bold;
-}
 
 .viewItem {
   cursor: pointer;
-  color: #0f9b6c;
+  color: black;
   border-radius: 2px;
-  background-color: transparent;
+  background: transparent;
   text-decoration: none;
-  border: 1px solid #0f9b6c;
+  border: 1px solid black;
   padding: 3px;
   font-weight: bold;
   box-sizing: border-box;

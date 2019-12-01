@@ -30,10 +30,10 @@ class Home extends Component {
                 </div>
                 {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : null}
                 <div>
+                    <h1 className="slider-label">Under $100</h1>
+                    < Homediscount />
                     <h1 className="slider-label">Merchandise</h1>
                     <Merchandise />
-                    <h1 className="slider-label">Best Deals In Store</h1>
-                    < Homediscount />
                 </div>
 
 
