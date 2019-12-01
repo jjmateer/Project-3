@@ -7,7 +7,7 @@ import { getItems, addToCart } from "../../actions/productActions";
 import { clearErrors } from "../../actions/errorActions";
 import PropTypes from "prop-types";
 
-class Merchandise extends Component {
+class Featured extends Component {
     static propTypes = {
         getItems: PropTypes.func.isRequired,
         user: PropTypes.object,
@@ -32,10 +32,14 @@ class Merchandise extends Component {
     }
     render() {
         const { items } = this.props.item;
+        const featureditems = items.filter((item) => {
+            return item.price > 1000;
+        })
+        // console.log(featureditems)
         const settings = {
             dots: false,
             infinite: true,
-            slidesToShow: 7,
+            slidesToShow: 1,
             slidesToScroll: 1,
             draggable: false,
             autoplay: true,
@@ -45,7 +49,7 @@ class Merchandise extends Component {
                 {
                     breakpoint: 1500,
                     settings: {
-                        slidesToShow: 3,
+                        slidesToShow: 1,
                         slidesToScroll: 1,
                         infinite: true,
                         dots: false
@@ -71,13 +75,13 @@ class Merchandise extends Component {
         return (
             <div>
                 <Slider ref={slider => (this.slider = slider)} {...settings}>
-                    {items.map(({ _id, image, item, brand, price }) => {
+                    {featureditems.map(({ _id, image, item, brand, price }) => {
                         return (
                             <div className="menu-item" key={_id}>
-                                <div className="img-background">
+                                <div className="img-background" style={{border:"none"}}>
                                     <img className="slideImg" src={image} alt={image}></img>
                                 </div>
-                                <div className="card-info">
+                                <div style={{border:"none"}} className="card-info">
                                     <p id="card-header">{item}</p>
                                     <p id="brand">By {brand}</p>
                                     <p id="price">${price}.00</p>
@@ -105,4 +109,4 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     { getItems, addToCart, clearErrors }
-)(Merchandise);
+)(Featured);
