@@ -1,6 +1,5 @@
 const db = require("../models");
 
-// Defining methods for the Cart Controller
 module.exports = {
   checkout: function (req, res) {
     // console.log(req.body)
@@ -11,10 +10,11 @@ module.exports = {
     // order.cartTotal = 0
     db.Cart.findOne({ user: req.params.user })
       .then(item => {
-        // console.log(item.items[0])
-        order.user = req.params.user;
-        for (let i = 0; i < item.items.length - 1; i++) {
-          db.Item.find({ _id: item.items[i].product }).then(item => {
+        console.log(item.items)
+        // order.user = req.params.user;
+        // for (let i = 0; i < item.items.length - 1; i++) {
+        //   console.log(item.items[i])
+        //   db.Item.find({ _id: item.items[i] }).then(item => {
             // console.log(item[0])
             // var itemPrice = item[i].price
             // var itemTotal = parseInt(item[i].quantity * itemPrice)
@@ -25,10 +25,10 @@ module.exports = {
             // console.log(`item total: ${itemTotal}`)
             // var removeInventory = (item[i].quantity *= 1);
             // if (item.id === req.params.item) {
-            db.Item.findOneAndUpdate(
-              { _id: item[0]._id },
-              { $inc: { quantityInStock: -1 } }
-            )
+            // db.Item.findOneAndUpdate(
+            //   { _id: item[0]._id },
+            //   { $inc: { quantityInStock: -1 } }
+            // )
             // .then(() => {
             // db.Cart.findOne({ user: req.params.user })
             // console.log(order.items)
@@ -39,22 +39,14 @@ module.exports = {
             // console.log(`Ordered Quantity : ${item.items[i].quantity}`);
             // });
             // }
-          })
-        }
+          // })
+        // }
       })
       .then(() => {
         db.Cart.findOneAndUpdate({ user: req.params.user }, { $pull: { items: { $exists: true } } })
-          .then((data) => {
-            console.log(data)
-          })
-        return res.status(200).json([]);
-        // db.Cart.findByIdAndRemove({ user: req.params.id })
-        // db.Order.create(order)
-        // console.log(order)
+          .catch(err => res.status(422).json(err));
       })
   },
-
-  //start of cart functions
   clearCart: function (req, res) {
     console.log(req.params.user)
     db.Cart.findByIdAndRemove({ user: req.params.id }).then(() => {
@@ -62,54 +54,33 @@ module.exports = {
     });
   },
   getUserCart: function (req, res) {
-    var itemIDarray = [];
-    var itemInfoArray = [];
+    var cartArray = [];
     db.Cart.find({ user: req.params.user })
-      .then(dbModel => {
-        for (let i = 0; i < dbModel[0].items.length; i++) {
-          itemIDarray.push(dbModel[0].items[i].product);
+      .then(data => {
+        for(let i = 0;i < data[0].items.length;i++){
+          cartArray.push(data[0].items[i].product[0])
+          if(cartArray.length === data[0].items.length) {
+            res.json(cartArray)
+          }
         }
-      })
-      .then(() => {
-        for (let i = 0; i < itemIDarray.length; i++) {
-          db.Item.find({ _id: itemIDarray[i] })
-            .then(itemInfo => {
-              itemInfoArray.push(itemInfo[0])
-            })
-        }
-      }).then(() => {
-        res.json(itemInfoArray)
       })
       .catch(err => res.status(422).json(err));
   },
   addToCart: function (req, res) {
-    console.log(req.params.user)
     var inCart = false;
     db.Cart.findOne(
-      { user: req.params.user },
-      { items: { $elemMatch: { product: req.params.item } } }
-    )
+      { user: req.params.user })
       .then(item => {
         for (let i = 0; i < item.items.length; i++) {
           if (item.items[i].product === req.params.item) {
-            console.log("item:  ", item.items);
             console.log(`updating quantity...`);
             inCart = true;
             db.Cart.updateOne(
               { user: req.params.user, "items.product": req.params.item },
               { $inc: { "items.$.quantity": 1 } }
             )
-              .then(
-                db.Item.findOneAndUpdate(
-                  { user: req.params.user },
-                  {
-                    $inc: {
-                      items: { product: req.params.item, quantity: 1 }
-                    }
-                  }
-                )
-              )
-              .then(() => {
+              .then((item2) => {
+                console.log(item2.product)
                 return res.status(200).json({ msg: "Item added to cart." })
               })
           }
@@ -117,38 +88,21 @@ module.exports = {
       })
       .then(() => {
         if (inCart === false) {
-          db.Cart.findOneAndUpdate(
-            { user: req.params.user },
-            {
-              $push: {
-                items: { product: req.params.item, quantity: 1 }
+          db.Item.find(
+            { _id: req.params.item }
+          ).then((itemdata) => {
+            db.Cart.findOneAndUpdate(
+              { user: req.params.user },
+              {
+                $push: {
+                  items: { product: itemdata, quantity: 1 }
+                }
               }
-            }
-          ).then(() => {
-            return res.status(200).json({ msg: "Item added to cart." })
+            ).then(() => {
+              return res.status(200).json({ msg: "Item added to cart." })
+            })
           })
         }
       });
-  },
-  getUserCart: function (req, res) {
-    var itemIDarray = [];
-    var itemInfoArray = [];
-    db.Cart.find({ user: req.params.user })
-      .then(dbModel => {
-        for (let i = 0; i < dbModel[0].items.length; i++) {
-          itemIDarray.push(dbModel[0].items[i].product);
-        }
-      })
-      .then(() => {
-        for (let i = 0; i < itemIDarray.length; i++) {
-          db.Item.find({ _id: itemIDarray[i] }).then(itemInfo => {
-            itemInfoArray.push(itemInfo[0]);
-            if (i === itemIDarray.length - 1) {
-              res.json(itemInfoArray);
-            }
-          });
-        }
-      })
-      .catch(err => res.status(422).json(err));
   }
 };

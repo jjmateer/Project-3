@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import SignupForm from "../components/signup/signup";
+import SignupForm from "../components/auth-forms/signup";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import LoadIcon from "../components/loader/loader";
 import { register } from "../actions/authActions";
 import { clearErrors } from "../actions/errorActions";
 
@@ -57,7 +58,8 @@ class Signup extends Component {
 
     render() {
         return (
-            <div className="App">
+            this.props.auth.isLoading ?<h1 className="page-title"><LoadIcon/></h1> :
+            <div>
 
                 {this.props.error.msg.msg ? <h1 id="error-header">{this.props.error.msg.msg}</h1> : null}
                 <SignupForm

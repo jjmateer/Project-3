@@ -9,9 +9,9 @@ const cartSchema = new Schema({
     unique: true
   },
   items: [
-    {
+    { 
       product: {
-        type: String,
+        type: Object,
         ref: "Item",
         sparse: true
       },
