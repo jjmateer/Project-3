@@ -10,10 +10,10 @@ module.exports = {
     // order.cartTotal = 0
     db.Cart.findOne({ user: req.params.user })
       .then(item => {
-        order.user = req.params.user;
-        for (let i = 0; i < item.items.length - 1; i++) {
-          console.log(item.items[i])
-          db.Item.find({ _id: item.items[i] }).then(item => {
+        // order.user = req.params.user;
+        // for (let i = 0; i < item.items.length - 1; i++) {
+        //   console.log(item.items[i])
+        //   db.Item.find({ _id: item.items[i] }).then(item => {
             // console.log(item[0])
             // var itemPrice = item[i].price
             // var itemTotal = parseInt(item[i].quantity * itemPrice)
@@ -38,8 +38,8 @@ module.exports = {
             // console.log(`Ordered Quantity : ${item.items[i].quantity}`);
             // });
             // }
-          })
-        }
+          // })
+        // }
       })
       .then(() => {
         db.Cart.findOneAndUpdate({ user: req.params.user }, { $pull: { items: { $exists: true } } })
@@ -53,9 +53,15 @@ module.exports = {
     });
   },
   getUserCart: function (req, res) {
+    var cartArray = [];
     db.Cart.find({ user: req.params.user })
       .then(data => {
-        console.log(data.items)
+        for(let i = 0;i < data[0].items.length;i++){
+          cartArray.push(data[0].items[i].product[0])
+          if(i === data[0].items.length - 1) {
+            res.json(cartArray)
+          }
+        }
       })
       .catch(err => res.status(422).json(err));
   },
@@ -110,25 +116,25 @@ module.exports = {
         }
       });
   },
-  getUserCart: function (req, res) {
-    var itemIDarray = [];
-    var itemInfoArray = [];
-    db.Cart.find({ user: req.params.user })
-      .then(dbModel => {
-        for (let i = 0; i < dbModel[0].items.length; i++) {
-          itemIDarray.push(dbModel[0].items[i].product);
-        }
-      })
-      .then(() => {
-        for (let i = 0; i < itemIDarray.length; i++) {
-          db.Item.find({ _id: itemIDarray[i] }).then(itemInfo => {
-            itemInfoArray.push(itemInfo[0]);
-            if (i === itemIDarray.length - 1) {
-              res.json(itemInfoArray);
-            }
-          });
-        }
-      })
-      .catch(err => res.status(422).json(err));
-  }
+  // getUserCart: function (req, res) {
+  //   var itemIDarray = [];
+  //   var itemInfoArray = [];
+  //   db.Cart.find({ user: req.params.user })
+  //     .then(dbModel => {
+  //       for (let i = 0; i < dbModel[0].items.length; i++) {
+  //         itemIDarray.push(dbModel[0].items[i].product);
+  //       }
+  //     })
+  //     .then(() => {
+  //       for (let i = 0; i < itemIDarray.length; i++) {
+  //         db.Item.find({ _id: itemIDarray[i] }).then(itemInfo => {
+  //           itemInfoArray.push(itemInfo[0]);
+  //           if (i === itemIDarray.length - 1) {
+  //             res.json(itemInfoArray);
+  //           }
+  //         });
+  //       }
+  //     })
+  //     .catch(err => res.status(422).json(err));
+  // }
 };
