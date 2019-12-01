@@ -38,7 +38,7 @@ class Search extends Component {
                 <div className="dropdown">
                     <button className="dropbtn">Categories</button>
                     <div className="dropdown-content">
-                        <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="">All</Link>
+                        <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="all">All</Link>
                         <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="monitor">Monitors</Link>
                         <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="desktop">Desktops</Link>
                         <Link onClick={this.handleCategorySearch} to="/browse-by-category" id="laptop">Laptops</Link>

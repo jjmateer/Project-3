@@ -71,6 +71,9 @@ module.exports = {
         }
       })
       .then(() => {
+        if (itemIDArray.length < 1) {
+          res.json([])
+        }
         for (let i = 0; i < itemIDarray.length; i++) {
           db.Item.find({ _id: itemIDarray[i] })
             .then(itemInfo => {
@@ -78,12 +81,13 @@ module.exports = {
             })
         }
       }).then(() => {
-        res.json(itemInfoArray)
+        if (itemInfoArray.length > 1) {
+          res.json(itemInfoArray)
+        }
       })
       .catch(err => res.status(422).json(err));
   },
   addToCart: function (req, res) {
-    console.log(req.params.user)
     var inCart = false;
     db.Cart.findOne(
       { user: req.params.user },
@@ -117,15 +121,19 @@ module.exports = {
       })
       .then(() => {
         if (inCart === false) {
-          db.Cart.findOneAndUpdate(
-            { user: req.params.user },
-            {
-              $push: {
-                items: { product: req.params.item, quantity: 1 }
+          db.Item.find(
+            { _id: req.params.item }
+          ).then((itemdata)=>{
+            db.Cart.findOneAndUpdate(
+              { user: req.params.user },
+              {
+                $push: {
+                  items: { product: itemdata, quantity: 1 }
+                }
               }
-            }
-          ).then(() => {
-            return res.status(200).json({ msg: "Item added to cart." })
+            ).then(() => {
+              return res.status(200).json({ msg: "Item added to cart." })
+            })
           })
         }
       });

@@ -27,20 +27,16 @@
   line-height: 100px;
   width: 13vw;
 }
-
-a {
-  color: white;
-  font-family: "Roboto", sans-serif;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #0f9b6c;
-}
 .global-header-right a {
   padding-bottom: 10px;
   width: auto;
   margin: 5px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+}
+.global-header-right a:hover {
+  color:#0f9b6c;
 }
 .logo {
   text-align: center;
@@ -48,7 +44,7 @@ a:hover {
   font-family: lobster;
   font-size: 50px;
   text-align: center;
-  margin: 15px 1vw 0;
+  margin: 15px auto;
   font: 60px;
   display: flex;
 }

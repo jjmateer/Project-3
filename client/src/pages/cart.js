@@ -35,7 +35,8 @@ class Cart extends Component {
         return (
             <div>
                 {user_cart.length ? <h1 className="page-title">Cart</h1> :
-                    <h1 className="page-title">{this.props.item.loading ? "Loading..." : "Cart is empty"}</h1>}
+                    <h1 className="page-title">{this.props.item.loading ? "Loading..." : null}</h1>}
+                <h1 className="page-title">{user_cart.length < 1 && !this.props.item.loading ? "Cart is empty." : null}</h1>
                 {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> :
                     <div>
                         {user_cart.length ?
