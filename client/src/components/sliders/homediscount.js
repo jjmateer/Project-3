@@ -8,6 +8,12 @@ import { clearErrors } from "../../actions/errorActions";
 import PropTypes from "prop-types";
 
 class Homediscount extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            quantity:null
+        };
+      }
     static propTypes = {
         getItems: PropTypes.func.isRequired,
         user: PropTypes.object,
@@ -20,6 +26,9 @@ class Homediscount extends Component {
     }
     addItemToCart = event => {
         this.props.addToCart(this.props.user._id, event.target.id)
+    }
+    getDropdownValue = event => {
+        this.setState({quantity: event.target.value})
     }
     render() {
         const { items } = this.props.item;
