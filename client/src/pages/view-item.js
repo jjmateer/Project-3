@@ -39,7 +39,7 @@ class ViewItem extends Component {
                 {item_being_viewed.map(({ _id, image, item, brand, price, description }) => {
                     return (
                         <div key={_id} >
-                            <div id="view-image-container"><img className="VcardImg" alt={image} src={image} /></div>
+                            <img className="VcardImg" alt={image} src={image} />
                             < div id="Vview-product-info">
                                 <p className="vproduct">{item}</p>
                                 <p className="vbrand">Brand: {brand}</p>

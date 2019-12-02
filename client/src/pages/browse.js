@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 
 class Browse extends Component {
     state = {
-        quantity: null,
+        quantity: 1,
         msg: null
     };
     static propTypes = {
