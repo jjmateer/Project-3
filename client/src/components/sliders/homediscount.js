@@ -20,7 +20,6 @@ class Homediscount extends Component {
     }
     addItemToCart = event => {
         this.props.addToCart(this.props.user._id, event.target.id)
-        alert("Item added to cart.")
     }
     render() {
         const { items } = this.props.item;

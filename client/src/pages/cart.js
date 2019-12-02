@@ -27,7 +27,6 @@ class Cart extends Component {
 
     checkoutRequest = event => {
         this.props.userCheckout(event.target.id)
-        alert("Thank you for shopping with us.")
     }
     render() {
         const user_cart = this.props.item.user_cart;

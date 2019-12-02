@@ -17,7 +17,6 @@ class Featured extends Component {
     }
     addItemToCart = event => {
         this.props.addToCart(this.props.user._id, event.target.id)
-        alert("Item added to cart.")
     }
     constructor(props) {
         super(props);
@@ -35,7 +34,6 @@ class Featured extends Component {
         const featureditems = items.filter((item) => {
             return item.price > 1000;
         })
-        // console.log(featureditems)
         const settings = {
             dots: false,
             infinite: true,

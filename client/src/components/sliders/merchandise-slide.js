@@ -17,7 +17,6 @@ class Merchandise extends Component {
     }
     addItemToCart = event => {
         this.props.addToCart(this.props.user._id, event.target.id)
-        alert("Item added to cart.")
     }
     constructor(props) {
         super(props);

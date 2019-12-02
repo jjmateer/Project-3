@@ -6,27 +6,25 @@ module.exports = {
     order.total = 0;
     order.items = [];
     order.user = {};
-    db.User.findOne({ _id: req.params.user }).then(user => { order.user = user })
     db.Cart.findOne({ user: req.params.user })
-      .then(item => {
-        for (i = 0; i < item.items.length; i++) {
-          order.total += parseInt(item.items[i].product[0].price);
-          item.items.forEach(element => order.items.push(element.product[0]));
+      .then(data => {
+        for (i = 0; i < data.items.length; i++) {
+          order.total += parseInt(data.items[i].product[0].price);
+          order.items.push(data.items[i].product[0]);
+          db.Item.findOneAndUpdate(
+            { _id: data.items[i].product[0]._id },
+            { $inc: { quantityInStock: -1 } }
+          ).then((currentItem)=>{
+            console.log(`${currentItem.item} now has ${currentItem.quantityInStock} left in stock.`)
+          })
         }
+        db.User.findOne({ _id: req.params.user }).then(user => { order.user = user })
       })
       .then(() => {
-        db.Order.create(order);
-        db.Cart.findOneAndUpdate({ user: req.params.user }, { $pull: { items: { $exists: true } } })
-          .catch(err => res.status(422).json(err));
+        db.Order.create(order).then((userorder)=>{res.status(200).json(userorder)})
+        db.Cart.findOneAndUpdate({ user: req.params.user }, { $pull: { items: { $exists: true } } }).then(user=>{console.log(user)})
       })
-  },
-  clearCart: function (req, res) {
-    console.log(req.params.user)
-    db.Cart.findByIdAndRemove({ user: req.params.id }).then(() => {
-      console.log(`Item id: ${req.params.item} deleted`);
-    });
-    db.Cart.findOneAndUpdate({ user: req.params.user }, { $pull: { items: { $exists: true } } })
-      .catch(err => res.status(422).json(err));
+      .catch(err => res.status(400).json({msg: `Checkout failed, error: ${err}`}));
   },
   getUserCart: function (req, res) {
     var cartArray = [];
@@ -47,7 +45,7 @@ module.exports = {
       { user: req.params.user })
       .then(item => {
         for (let i = 0; i < item.items.length; i++) {
-          if (item.items[i].product === req.params.item) {
+          if (item.items[i].product && item.items[i].product === req.params.item) {
             console.log(`updating quantity...`);
             inCart = true;
             db.Cart.updateOne(
