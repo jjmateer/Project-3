@@ -5,7 +5,7 @@ module.exports = {
     var order = new Object()
     order.total = 0;
     order.items = [];
-    order.user = {};
+    order.user = req.params.user;
     db.Cart.findOne({ user: req.params.user })
       .then(data => {
         for (i = 0; i < data.items.length; i++) {
