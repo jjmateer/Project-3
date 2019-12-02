@@ -57,8 +57,9 @@ export const getByName = (query) => dispatch => {
         );
 };
 export const viewItem = itemID => dispatch => {
+    console.log(itemID)
     dispatch(setItemsLoading());
-    axios.post(`http://localhost:3001/api/inventory/view-item/${itemID}`)
+    axios.get(`http://localhost:3001/api/inventory/view-item/${itemID}`)
         .then(res =>
             dispatch({
                 type: VIEW_ITEM,

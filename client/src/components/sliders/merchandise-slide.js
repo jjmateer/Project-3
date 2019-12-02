@@ -3,42 +3,50 @@ import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import "./slider.css";
 import { connect } from "react-redux";
-import { getItems, addToCart } from "../../actions/productActions";
+import { getItems, addToCart, viewItem } from "../../actions/productActions";
 import { clearErrors } from "../../actions/errorActions";
 import PropTypes from "prop-types";
 
 class Merchandise extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            quantity: null
+        };
+    }
     static propTypes = {
         getItems: PropTypes.func.isRequired,
         user: PropTypes.object,
         addToCart: PropTypes.func.isRequired,
+        viewItem: PropTypes.func,
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
+    }
+    componentDidMount() {
+        this.props.getItems();
     }
     addItemToCart = event => {
         this.props.addToCart(this.props.user._id, event.target.id)
     }
-    constructor(props) {
-        super(props);
-        this.play = this.play.bind(this);
-        this.pause = this.pause.bind(this);
+    getDropdownValue = event => {
+        this.setState({ quantity: event.target.value })
     }
-    play() {
-        this.slider.slickPlay();
-    }
-    pause() {
-        this.slider.slickPause();
+    viewItem = event => {
+        this.props.viewItem(event.target.id);
     }
     render() {
         const { items } = this.props.item;
-        const settings = {
+        const featureditems = items.filter((item) => {
+            return item.price > 1000;
+        })
+        var settings = {
             dots: false,
             infinite: true,
             slidesToShow: 7,
             slidesToScroll: 1,
             draggable: false,
             autoplay: true,
-            autoplaySpeed: 5000,
+            autoplaySpeed: 3000,
             initialSlide: 0,
             responsive: [
                 {
@@ -68,27 +76,23 @@ class Merchandise extends Component {
             ]
         };
         return (
-            <div>
-                <Slider ref={slider => (this.slider = slider)} {...settings}>
-                    {items.map(({ _id, image, item, brand, price }) => {
-                        return (
-                            <div className="menu-item" key={_id}>
-                                <div className="img-background">
-                                    <img className="slideImg" src={image} alt={image}></img>
-                                </div>
-                                <div className="card-info">
-                                    <p id="card-header">{item}</p>
-                                    <p id="brand">By {brand}</p>
-                                    <p id="price">${price}.00</p>
-                                    {this.props.isAuthenticated ? <button className="viewItem" id={_id} onClick={this.addItemToCart} >Add To Cart</button>
-                                        :
-                                        <Link to="/login" className="viewItem">Add to cart</Link>}
-                                </div>
+            <Slider {...settings}>
+                {items.map(({ _id, image, item, brand, price, description }) => {
+                    return (
+                        <div className="menu-item" key={_id}>
+                            <div className="img-background">
+                                <img className="slideImg" src={image} alt={image}></img>
                             </div>
-                        )
-                    })}
-                </Slider>
-            </div>
+                            <div className="card-info">
+                                <p id="card-header">{item}</p>
+                                <p id="brand">By {brand}</p>
+                                <p id="price">${price}.00</p>
+                                <Link to="/view-item" className="viewItem" id={_id} onClick={this.viewItem} >View item</Link>
+                            </div>
+                        </div>
+                    )
+                })}
+            </Slider>
         );
     }
 }
@@ -103,5 +107,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getItems, addToCart, clearErrors }
+    { getItems, addToCart, viewItem, clearErrors }
 )(Merchandise);

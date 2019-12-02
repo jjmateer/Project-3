@@ -14,7 +14,7 @@ const initialState = {
   items: [],
   items_search: [],
   user_cart: [],
-  item_being_viewed: {},
+  item_being_viewed: [],
   loading: false,
   msg: null
 };

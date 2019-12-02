@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addToCart } from "../actions/productActions";
 import { clearErrors } from "../actions/errorActions";
+import { Link } from "react-router-dom";
 // import LoadIcon from "../components/loader/loader";
 import PropTypes from "prop-types";
 
@@ -9,7 +10,6 @@ import PropTypes from "prop-types";
 class ViewItem extends Component {
     state = {
         quantity: null,
-        msg: null
     };
     static propTypes = {
         user: PropTypes.object,
@@ -19,11 +19,6 @@ class ViewItem extends Component {
         clearErrors: PropTypes.func.isRequired
     }
     componentDidMount() {
-        this.props.clearErrors();
-        this.props.isAuthenticated ?
-            this.setState({ authenticated: true })
-            :
-            this.setState({ authenticated: false })
         this.props.clearErrors();
     }
     getDropdownValue = event => {
@@ -37,21 +32,21 @@ class ViewItem extends Component {
         return (
             <div id="productList">
                 <div className="grid-item" id="productCard">
-                    <div id="card-image-container"><img className="cardImg" alt={props.image} src={props.image} /></div>
+                    {/* <div id="card-image-container"><img className="cardImg" alt={props.image} src={props.image} /></div> */}
                     <div id="card-product-info">
-                        <p className="cproduct">{props.product}</p>
+                        {/* <p className="cproduct">{props.product}</p>
                         <p className="cbrand">Brand: {props.brand}</p>
                         <p className="cprice">${props.price}</p>
-                        <p className="cdesc">{props.description}</p>
+                        <p className="cdesc">{props.description}</p> */}
                     </div>
-                    <select className="quantity-dropdown" onClick={props.getDropdownValue}>
+                    <select className="quantity-dropdown" onClick={this.getDropdownValue}>
                         <option className="quantity-drop-option" value={1}>1</option>
                         <option className="quantity-drop-option" value={2}>2</option>
                         <option className="quantity-drop-option" value={3}>3</option>
                         <option className="quantity-drop-option" value={4}>4</option>
                         <option className="quantity-drop-option" value={5}>5</option>
                     </select>
-                    {props.authenticated ? <button className="ATCbtn" id={props.id} onClick={props.addItemToCart} >Add To Cart</button>
+                    {this.props.isAuthenticated ? <button className="ATCbtn"  onClick={this.addItemToCart} >Add To Cart</button>
                         :
                         <Link to="/login" className="ATCbtn">Add to cart</Link>}
                 </div>

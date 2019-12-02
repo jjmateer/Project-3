@@ -33,8 +33,8 @@ module.exports = {
     }
   },
   view: function (req, res) {
-    db.Item.find({ item: req.params.item })
-      .then(itemData => res.json(itemData))
+    db.Item.find({ _id: req.params.item })
+      .then(itemData => res.status(200).json(itemData))
       .catch(err => res.status(422).json(err));
   },
   create: function (req, res) {
