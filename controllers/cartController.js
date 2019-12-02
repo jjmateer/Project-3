@@ -11,13 +11,13 @@ module.exports = {
       .then(item => {
         for (i = 0; i < item.items.length; i++) {
           order.total += parseInt(item.items[i].product[0].price);
+          item.items.forEach(element => order.items.push(element.product[0]));
         }
-        order.items = item.items;
       })
       .then(() => {
-        console.log(order)
-        //   db.Cart.findOneAndUpdate({ user: req.params.user }, { $pull: { items: { $exists: true } } })
-        //     .catch(err => res.status(422).json(err));
+        db.Order.create(order);
+        db.Cart.findOneAndUpdate({ user: req.params.user }, { $pull: { items: { $exists: true } } })
+          .catch(err => res.status(422).json(err));
       })
   },
   clearCart: function (req, res) {
