@@ -13,18 +13,18 @@ module.exports = {
           order.items.push(data.items[i].product[0]);
           db.Item.findOneAndUpdate(
             { _id: data.items[i].product[0]._id },
-            { $inc: { quantityInStock: -1 } }
-          ).then((currentItem)=>{
+            { $inc: { quantityInStock: -Math.abs(data.items[i].quantity) } }
+          ).then((currentItem) => {
             console.log(`${currentItem.item} now has ${currentItem.quantityInStock} left in stock.`)
           })
         }
         db.User.findOne({ _id: req.params.user }).then(user => { order.user = user })
       })
       .then(() => {
-        db.Order.create(order).then((userorder)=>{res.status(200).json(userorder)})
-        db.Cart.findOneAndUpdate({ user: req.params.user }, { $pull: { items: { $exists: true } } }).then(user=>{console.log(user)})
+        db.Order.create(order).then((userorder) => { res.status(200).json(userorder) })
+        db.Cart.findOneAndUpdate({ user: req.params.user }, { $pull: { items: { $exists: true } } }).then(user => { console.log(user) })
       })
-      .catch(err => res.status(400).json({msg: `Checkout failed, error: ${err}`}));
+      .catch(err => res.status(400).json({ msg: `Checkout failed, error: ${err}` }));
   },
   getUserCart: function (req, res) {
     var cartArray = [];
@@ -40,21 +40,21 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   addToCart: function (req, res) {
+    const itemQuantity = parseInt(req.params.quantity)
+    console.log(itemQuantity)
     var inCart = false;
     db.Cart.findOne(
       { user: req.params.user })
-      .then(item => {
-        for (let i = 0; i < item.items.length; i++) {
-          if (item.items[i].product && item.items[i].product === req.params.item) {
-            console.log(`updating quantity...`);
+      .then(data => {
+        for (let i = 0; i < data.items.length; i++) {
+          if (data.items[i].product[0] === req.params.item) {
             inCart = true;
             db.Cart.updateOne(
               { user: req.params.user, "items.product": req.params.item },
-              { $inc: { "items.$.quantity": 1 } }
+              { $inc: { "items.$.quantity": itemQuantity } }
             )
-              .then((item2) => {
-                console.log(item2.product)
-                return res.status(200).json({ msg: "Item added to cart." })
+              .then(() => {
+                res.status(200).json({ msg: "Quantity in cart updated." })
               })
           }
         }
@@ -68,11 +68,11 @@ module.exports = {
               { user: req.params.user },
               {
                 $push: {
-                  items: { product: itemdata, quantity: 1 }
+                  items: { product: itemdata, quantity: itemQuantity }
                 }
               }
             ).then(() => {
-              return res.status(200).json({ msg: "Item added to cart." })
+              res.status(200).json({ msg: "Item added to cart." })
             })
           })
         }

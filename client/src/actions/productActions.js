@@ -56,11 +56,8 @@ export const getByName = (query) => dispatch => {
         );
 };
 
-export const addToCart = (userID, itemID) => dispatch => {
-    console.log(`Adding item to cart...`);
-
-
-    axios.post(`http://localhost:3001/api/cart/add-to-cart/${userID}/${itemID}`)
+export const addToCart = (userID, itemID, quantity) => dispatch => {
+    axios.post(`http://localhost:3001/api/cart/add-to-cart/${userID}/${itemID}/${quantity}`)
         .then(res =>
             dispatch({
                 type: ADD_ITEM_TO_CART,
