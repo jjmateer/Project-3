@@ -13,6 +13,7 @@ import Cart from "./pages/cart";
 import Browse from "./pages/browse";
 import ErrorC from "./pages/error";
 import Item from "./pages/item";
+import ViewItem from "./pages/view-item";
 import "./App.css";
 //
 class App extends Component {
@@ -23,17 +24,18 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-            <Nav />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <PublicRoute exact path="/login" component={Login} />
-              <PublicRoute exact path="/signup" component={Signup} />
-              <PrivateRoute exact path="/cart" component={Cart} />
-              <Route exact path="/browse" component={Browse} />
-              <Route exact path="/browse-by-category" component={Browse} />
-              <Route exact path="/item" component={Item} />
-              <Route component={ErrorC} />
-            </Switch>
+          <Nav />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <PublicRoute exact path="/login" component={Login} />
+            <PublicRoute exact path="/signup" component={Signup} />
+            <PrivateRoute exact path="/cart" component={Cart} />
+            <Route exact path="/browse" component={Browse} />
+            <Route exact path="/view-item" component={ViewItem} />
+            <Route exact path="/browse-by-category" component={Browse} />
+            <Route exact path="/item" component={Item} />
+            <Route component={ErrorC} />
+          </Switch>
         </Router>
       </Provider>
     );

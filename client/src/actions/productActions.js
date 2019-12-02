@@ -6,7 +6,8 @@ import {
     ADD_ITEM_TO_CART,
     ITEMS_LOADING,
     GET_USER_CART,
-    USER_CHECKOUT
+    USER_CHECKOUT,
+    VIEW_ITEM
 } from './types';
 import { returnErrors } from "./errorActions";
 
@@ -55,12 +56,22 @@ export const getByName = (query) => dispatch => {
             dispatch(returnErrors(err.response.data, err.response.status))
         );
 };
-
-export const addToCart = (userID, itemID) => dispatch => {
-    console.log(`Adding item to cart...`);
-
-
-    axios.post(`http://localhost:3001/api/cart/add-to-cart/${userID}/${itemID}`)
+export const viewItem = itemID => dispatch => {
+    dispatch(setItemsLoading());
+    axios.get(`http://localhost:3001/api/inventory/view-item/${itemID}`)
+        .then(res =>
+            dispatch({
+                type: VIEW_ITEM,
+                payload: res.data
+            })
+        )
+        .catch(err =>
+            dispatch(returnErrors(err.response.data, err.response.status))
+        );
+}
+export const addToCart = (userID, itemID, quantity) => dispatch => {
+    console.log(itemID)
+    axios.post(`http://localhost:3001/api/cart/add-to-cart/${userID}/${itemID}/${quantity}`)
         .then(res =>
             dispatch({
                 type: ADD_ITEM_TO_CART,

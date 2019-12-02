@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 
 class Browse extends Component {
     state = {
+        quantity: 1,
         msg: null
     };
     static propTypes = {
@@ -27,8 +28,11 @@ class Browse extends Component {
             this.setState({ authenticated: false })
         this.props.clearErrors();
     }
+    getDropdownValue = event => {
+        this.setState({quantity: event.target.value})
+    }
     addItemToCart = event => {
-        this.props.addToCart(this.props.user._id, event.target.id);
+        this.props.addToCart(this.props.user._id, event.target.id, this.state.quantity);
         alert("Item added to cart.")
     }
     render() {
@@ -50,6 +54,7 @@ class Browse extends Component {
                                     price={price}
                                     description={description}
                                     addItemToCart={this.addItemToCart}
+                                    getDropdownValue={this.getDropdownValue}
                                     authenticated={this.state.authenticated}
                                 />
                             ))}

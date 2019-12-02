@@ -4,8 +4,6 @@ const jwt = require("jsonwebtoken");
 
 exports.register = function (req, res) {
   const { name, email, password, password2 } = req.body;
-  console.log(req.body)
-  console.log(`${password}   ${password2}`)
   if (!name || !email || !password || !password2) {
     return res.status(400).json({ msg: "Please fill out all fields." })
   } else if (password !== password2) {

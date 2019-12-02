@@ -7,7 +7,7 @@ import { getItems, addToCart, viewItem } from "../../actions/productActions";
 import { clearErrors } from "../../actions/errorActions";
 import PropTypes from "prop-types";
 
-class Merchandise extends Component {
+class Featured extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,9 +22,6 @@ class Merchandise extends Component {
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     }
-    addItemToCart = event => {
-        this.props.addToCart(this.props.user._id, event.target.id)
-    }
     getDropdownValue = event => {
         this.setState({ quantity: event.target.value })
     }
@@ -33,10 +30,13 @@ class Merchandise extends Component {
     }
     render() {
         const { items } = this.props.item;
+        const featureditems = items.filter((item) => {
+            return item.price > 1000;
+        })
         var settings = {
             dots: false,
             infinite: true,
-            slidesToShow: 7,
+            slidesToShow: 1,
             slidesToScroll: 1,
             draggable: false,
             autoplay: true,
@@ -46,7 +46,7 @@ class Merchandise extends Component {
                 {
                     breakpoint: 1500,
                     settings: {
-                        slidesToShow: 3,
+                        slidesToShow: 1,
                         slidesToScroll: 1,
                         infinite: true,
                         dots: false
@@ -71,13 +71,13 @@ class Merchandise extends Component {
         };
         return (
             <Slider {...settings}>
-                {items.map(({ _id, image, item, brand, price, description }) => {
+                {featureditems.map(({ _id, image, item, brand, price, description }) => {
                     return (
                         <div className="menu-item" key={_id}>
-                            <div className="img-background">
+                            <div className="img-background" style={{border:"none"}}>
                                 <img className="slideImg" src={image} alt={image}></img>
                             </div>
-                            <div className="card-info">
+                            <div className="card-info" style={{border:"none"}}>
                                 <p id="card-header">{item}</p>
                                 <p id="brand">By {brand}</p>
                                 <p id="price">${price}.00</p>
@@ -102,4 +102,4 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     { getItems, addToCart, viewItem, clearErrors }
-)(Merchandise);
+)(Featured);

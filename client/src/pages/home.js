@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Homediscount from "../components/sliders/homediscount";
 import Merchandise from "../components/sliders/merchandise-slide";
+import Featured from "../components/sliders/featured-slider";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
 import LoadIcon from "../components/loader/loader"
@@ -24,20 +25,22 @@ class Home extends Component {
     }
     render() {
         return (
-            this.props.auth.isLoading ?<h1 className="page-title"><LoadIcon/></h1> :
-            <div >
-                < div>
-                </div>
-                {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : null}
-                <div>
-                    <h1 className="slider-label">Under $100</h1>
-                    < Homediscount />
-                    <h1 className="slider-label">Merchandise</h1>
-                    <Merchandise />
-                </div>
+            this.props.auth.isLoading ? <h1 className="page-title"><LoadIcon /></h1> :
+                <div >
+                    < div>
+                    </div>
+                    {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : null}
+                    <div>
+                        <h1 className="slider-label">Featured</h1>
+                        <Featured />
+                        <h1 className="slider-label">Under $100</h1>
+                        < Homediscount />
+                        <h1 className="slider-label">Merchandise</h1>
+                        <Merchandise />
+                    </div>
 
 
-            </div >
+                </div >
         );
     }
 }

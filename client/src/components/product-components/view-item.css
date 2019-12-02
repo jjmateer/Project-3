@@ -1,0 +1,46 @@
+.VcardImg{
+    position: static;
+    margin: auto;
+    top:400px;
+    min-height:400px;
+    min-width:20%;
+    max-height:600px;
+    max-width:600px;
+    width:auto;
+}
+#Vview-product-info {
+    margin-top:75px;
+    text-align: center;
+}
+#VATCcombine {
+    width:250px;
+    margin:auto;
+    display:flex;
+    flex-direction: row;
+}
+.Vquantity-dropdown {
+    background: transparent;
+    margin:0px;
+    border: 1px solid black;
+    border-radius: 3px 0px 0px 3px;
+    height:52px;
+}
+.VATCbtn {
+    background: transparent;
+    width:200px;
+    cursor:pointer;
+    float:right;
+    height:50px;
+    text-align: center;
+    line-height:50px;
+    border-radius:0px 3px 3px 0px;
+    border: 1px solid black;
+    border-left:none;
+    background:#0f9b6c;
+    color:white;
+    opacity:0.8;
+}
+.VATCbtn:hover{
+    color:black;
+    transition:0.35s;
+}
