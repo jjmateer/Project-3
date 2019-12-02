@@ -57,7 +57,6 @@ export const getByName = (query) => dispatch => {
         );
 };
 export const viewItem = itemID => dispatch => {
-    console.log(itemID)
     dispatch(setItemsLoading());
     axios.get(`http://localhost:3001/api/inventory/view-item/${itemID}`)
         .then(res =>
@@ -71,6 +70,7 @@ export const viewItem = itemID => dispatch => {
         );
 }
 export const addToCart = (userID, itemID, quantity) => dispatch => {
+    console.log(itemID)
     axios.post(`http://localhost:3001/api/cart/add-to-cart/${userID}/${itemID}/${quantity}`)
         .then(res =>
             dispatch({

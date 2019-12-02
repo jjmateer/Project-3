@@ -1,4 +1,4 @@
-.cardImg{
+.VcardImg{
     margin:0 auto;
     position: fixed;
     left:50%;
@@ -9,7 +9,7 @@
     min-width:400px;
     width:auto;
 }
-#view-product-info {
+#Vview-product-info {
     margin-top:600px;
     text-align: center;
 }

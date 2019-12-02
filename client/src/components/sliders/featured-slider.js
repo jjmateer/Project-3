@@ -22,9 +22,6 @@ class Featured extends Component {
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     }
-    addItemToCart = event => {
-        this.props.addToCart(this.props.user._id, event.target.id)
-    }
     getDropdownValue = event => {
         this.setState({ quantity: event.target.value })
     }

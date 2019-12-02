@@ -32,16 +32,12 @@ module.exports = {
       .then(data => {
         for (let i = 0; i < data[0].items.length; i++) {
           cartArray.push(data[0].items[i].product[0])
-          if (cartArray.length === data[0].items.length) {
-            res.json(cartArray)
-          }
         }
-      })
+      }).then(()=> {res.status(200).json(cartArray)})
       .catch(err => res.status(422).json(err));
   },
   addToCart: function (req, res) {
     const itemQuantity = parseInt(req.params.quantity)
-    console.log(itemQuantity)
     var inCart = false;
     db.Cart.findOne(
       { user: req.params.user })
