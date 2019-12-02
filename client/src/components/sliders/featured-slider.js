@@ -22,9 +22,6 @@ class Featured extends Component {
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     }
-    componentDidMount() {
-        this.props.getItems();
-    }
     addItemToCart = event => {
         this.props.addToCart(this.props.user._id, event.target.id)
     }
@@ -36,6 +33,9 @@ class Featured extends Component {
     }
     render() {
         const { items } = this.props.item;
+        const featureditems = items.filter((item) => {
+            return item.price > 1000;
+        })
         var settings = {
             dots: false,
             infinite: true,
@@ -74,13 +74,13 @@ class Featured extends Component {
         };
         return (
             <Slider {...settings}>
-                {items.map(({ _id, image, item, brand, price, description }) => {
+                {featureditems.map(({ _id, image, item, brand, price, description }) => {
                     return (
                         <div className="menu-item" key={_id}>
-                            <div className="img-background">
+                            <div className="img-background" style={{border:"none"}}>
                                 <img className="slideImg" src={image} alt={image}></img>
                             </div>
-                            <div className="card-info">
+                            <div className="card-info" style={{border:"none"}}>
                                 <p id="card-header">{item}</p>
                                 <p id="brand">By {brand}</p>
                                 <p id="price">${price}.00</p>

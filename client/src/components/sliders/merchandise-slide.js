@@ -22,9 +22,6 @@ class Merchandise extends Component {
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     }
-    componentDidMount() {
-        this.props.getItems();
-    }
     addItemToCart = event => {
         this.props.addToCart(this.props.user._id, event.target.id)
     }
@@ -36,9 +33,6 @@ class Merchandise extends Component {
     }
     render() {
         const { items } = this.props.item;
-        const featureditems = items.filter((item) => {
-            return item.price > 1000;
-        })
         var settings = {
             dots: false,
             infinite: true,

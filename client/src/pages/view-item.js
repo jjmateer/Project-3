@@ -5,6 +5,7 @@ import { clearErrors } from "../actions/errorActions";
 import { Link } from "react-router-dom";
 // import LoadIcon from "../components/loader/loader";
 import PropTypes from "prop-types";
+import "../components/product-components/view-item.css"
 
 
 class ViewItem extends Component {
@@ -29,28 +30,36 @@ class ViewItem extends Component {
         alert("Item added to cart.")
     }
     render() {
+        const { item_being_viewed } = this.props.item;
+        console.log(item_being_viewed[0])
         return (
             <div id="productList">
-                <div className="grid-item" id="productCard">
-                    {/* <div id="card-image-container"><img className="cardImg" alt={props.image} src={props.image} /></div> */}
-                    <div id="card-product-info">
-                        {/* <p className="cproduct">{props.product}</p>
-                        <p className="cbrand">Brand: {props.brand}</p>
-                        <p className="cprice">${props.price}</p>
-                        <p className="cdesc">{props.description}</p> */}
-                    </div>
-                    <select className="quantity-dropdown" onClick={this.getDropdownValue}>
+                {item_being_viewed.map(({ _id, image, item, brand, price, description }) => {
+                    return (
+                        <div key={_id} >
+                            <div id="view-image-container"><img className="cardImg" alt={image} src={image} /></div>
+                            < div id="view-product-info">
+                                <p className="vproduct">{item}</p>
+                                <p className="vbrand">Brand: {brand}</p>
+                                <p className="vprice">${price}</p>
+                                <p className="vdesc">{description}</p>
+                            </div>
+                        </div>
+                    )
+                })}
+                <div id="VATCcombine">
+                    <select className="Vquantity-dropdown" onClick={this.getDropdownValue}>
                         <option className="quantity-drop-option" value={1}>1</option>
                         <option className="quantity-drop-option" value={2}>2</option>
                         <option className="quantity-drop-option" value={3}>3</option>
                         <option className="quantity-drop-option" value={4}>4</option>
                         <option className="quantity-drop-option" value={5}>5</option>
                     </select>
-                    {this.props.isAuthenticated ? <button className="ATCbtn"  onClick={this.addItemToCart} >Add To Cart</button>
+                    {this.props.isAuthenticated ? <button className="VATCbtn" onClick={this.addItemToCart} >Add To Cart</button>
                         :
-                        <Link to="/login" className="ATCbtn">Add to cart</Link>}
+                        <Link to="/login" className="ATCbtn">Login to buy items.</Link>}
                 </div>
-            </div>
+            </div >
         );
     }
 }

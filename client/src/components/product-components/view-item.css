@@ -1,0 +1,48 @@
+.cardImg{
+    margin:0 auto;
+    position: fixed;
+    left:50%;
+    right:50%;
+    top:400px;
+    transform: translate(-50%, -50%);
+    min-height:400px;
+    min-width:400px;
+    width:auto;
+}
+#view-product-info {
+    margin-top:600px;
+    text-align: center;
+}
+#VATCcombine {
+    width:auto;
+    margin:auto;
+    display:flex;
+    flex-direction: row;
+}
+.Vquantity-dropdown {
+    background: transparent;
+    margin:0px;
+    border: 1px solid black;
+    border-radius: 3px 0px 0px 3px;
+    height:52px;
+}
+.VATCbtn {
+    background: transparent;
+    width:200px;
+    cursor:pointer;
+    float:right;
+    margin-right:5%;
+    height:52px;
+    text-align: center;
+    line-height:50px;
+    border-radius:0px 3px 3px 0px;
+    border: 1px solid black;
+    border-left:none;
+    background:#0f9b6c;
+    color:white;
+    opacity:0.8;
+}
+.VATCbtn:hover{
+    color:black;
+    transition:0.35s;
+}
