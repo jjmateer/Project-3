@@ -10,7 +10,10 @@ import {
     LOGIN_FAIL,
     LOGOUT_SUCCESS,
     REGISTER_SUCCESS,
-    REGISTER_FAIL
+    REGISTER_FAIL,
+    GET_ORDERS,
+    GET_ORDERS_FAIL,
+    GET_ORDERS_SUCCESS
 } from "./types";
 
 export const loadUser = () => (dispatch) => {
@@ -85,6 +88,27 @@ export const login = (userData) => dispatch => {
             dispatch(returnErrors(err.response.data, err.response.status, "LOGIN_FAIL"));
             dispatch({
                 type: LOGIN_FAIL
+            })
+        })
+}
+export const getOrders = (userID) => dispatch => {
+    const config = {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+    dispatch({ type: GET_ORDERS });
+    axios.get(`http://localhost:3001/api/inventory/orders/${userID}`, userID, config)
+        .then(res => {
+            dispatch({
+                type: GET_ORDERS_SUCCESS,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch(returnErrors(err.response.data, err.response.status, "GET_ORDERS_FAIL"));
+            dispatch({
+                type: GET_ORDERS_FAIL
             })
         })
 }

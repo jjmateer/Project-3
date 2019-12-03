@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import "./slider.css";
 import { connect } from "react-redux";
-import { getItems, addToCart, viewItem } from "../../actions/productActions";
+import { getItems, viewItem } from "../../actions/productActions";
 import { clearErrors } from "../../actions/errorActions";
 import PropTypes from "prop-types";
 
@@ -70,7 +70,7 @@ class Featured extends Component {
             ]
         };
         return (
-            <Slider {...settings}>
+            <Slider style={{ margin:"auto", boxShadow:"none"}} {...settings}>
                 {featureditems.map(({ _id, image, item, brand, price, description }) => {
                     return (
                         <div className="menu-item" key={_id}>
@@ -81,7 +81,7 @@ class Featured extends Component {
                                 <p id="card-header">{item}</p>
                                 <p id="brand">By {brand}</p>
                                 <p id="price">${price}.00</p>
-                                <Link to="/view-item" className="viewItem" id={_id} onClick={this.viewItem} >View item</Link>
+                                <Link to="/view-item" className="viewItem" id={_id} onClick={this.viewItem} >View</Link>
                             </div>
                         </div>
                     )
@@ -101,5 +101,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getItems, addToCart, viewItem, clearErrors }
+    { getItems, viewItem, clearErrors }
 )(Featured);

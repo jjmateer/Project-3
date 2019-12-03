@@ -6,14 +6,18 @@ import {
     LOGIN_FAIL,
     LOGOUT_SUCCESS,
     REGISTER_SUCCESS,
-    REGISTER_FAIL
+    REGISTER_FAIL,
+    GET_ORDERS,
+    GET_ORDERS_FAIL,
+    GET_ORDERS_SUCCESS
 } from "../actions/types";
 
 const initialState = {
     token: localStorage.getItem("token"),
     isAuthenticated: null,
     isLoading: false,
-    user: null
+    user: null,
+    order: null
 };
 
 export default function (state = initialState, action) {
@@ -32,11 +36,17 @@ export default function (state = initialState, action) {
             };
         case LOGIN_SUCCESS:
         case REGISTER_SUCCESS:
-        localStorage.setItem("token", action.payload.token);
+            localStorage.setItem("token", action.payload.token);
             return {
                 ...state,
                 ...action.payload,
                 isAuthenticated: true,
+                isLoading: false,
+            };
+        case GET_ORDERS_SUCCESS:
+            return {
+                ...state,
+                ...action.payload,
                 isLoading: false,
             };
         case AUTH_ERROR:
@@ -49,6 +59,12 @@ export default function (state = initialState, action) {
                 token: null,
                 user: null,
                 isAuthenticated: false,
+                isLoading: false
+            };
+        case GET_ORDERS_FAIL:
+            return {
+                ...state,
+                ...action.payload,
                 isLoading: false
             };
         default:

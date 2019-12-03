@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addToCart } from "../actions/productActions";
+import { addToCart } from "../actions/transactionActions";
 import { clearErrors } from "../actions/errorActions";
 import { Link } from "react-router-dom";
 // import LoadIcon from "../components/loader/loader";
@@ -39,7 +39,9 @@ class ViewItem extends Component {
                 {item_being_viewed.map(({ _id, image, item, brand, price, description }) => {
                     return (
                         <div key={_id} >
-                            <img className="VcardImg" alt={image} src={image} />
+                            <div id="imageWrapper">
+                                <img className="VcardImg" alt={image} src={image} />
+                            </div>
                             < div id="Vview-product-info">
                                 <p className="vproduct">{item}</p>
                                 <p className="vbrand">Brand: {brand}</p>

@@ -37,9 +37,10 @@ class Nav extends Component {
             <div className="global-header" >
                 <div className="global-header-left">
                     <Link className="logo" to="/">RealTech</Link>
-                    <Menu noOverlay isOpen={this.state.menuOpen}
+                    <Menu right noOverlay isOpen={this.state.menuOpen}
                         onStateChange={(state) => this.handleStateChange(state)} id="hamburger">
-                                                <Link onClick={() => this.toggleMenu()} to="/">Home</Link>
+                        <Link onClick={() => this.toggleMenu()} to="/">Home</Link>
+                        <Link onClick={() => this.toggleMenu()} to="/browse">Search</Link>
                         {this.props.isAuthenticated ? null : <Link onClick={() => this.toggleMenu()} to="/login">Log in</Link>}
                         {this.props.isAuthenticated ? null : <Link onClick={() => this.toggleMenu()} to="/signup">Sign up</Link>}
                         {this.props.isAuthenticated ? <Link onClick={() => this.toggleMenu()} to="/cart">Cart</Link> : null}

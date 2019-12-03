@@ -2,11 +2,14 @@
     position: static;
     margin: auto;
     top:400px;
-    min-height:400px;
-    min-width:20%;
-    max-height:600px;
-    max-width:600px;
+    max-height:100%;
+    max-width:100%;
     width:auto;
+}
+#imageWrapper {
+    width:30vw;
+    margin:auto;
+    padding:auto;
 }
 #Vview-product-info {
     margin-top:75px;
