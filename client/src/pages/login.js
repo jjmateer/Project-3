@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LoginForm from "../components/loginform/login-form";
+import LoginForm from "../components/auth-forms/login-form";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../actions/authActions";
@@ -25,7 +25,6 @@ class Login extends Component {
     componentDidUpdate(prevPreps) {
         const { error } = this.props;
         if (error !== prevPreps.error) {
-            //check for err
             if (error.id === "LOGIN_FAIL") {
                 this.setState({ msg: error.msg.msg })
             } else {
@@ -33,16 +32,8 @@ class Login extends Component {
             }
         }
     }
-
-    handleEmailChange = event => {
-        this.setState({
-            email: event.target.value
-        })
-    }
-    handlePasswordChange = event => {
-        this.setState({
-            password: event.target.value
-        })
+    handleInputChange = event => {
+        this.setState({ [event.target.id]: event.target.value });
     }
     handleFormSubmit = event => {
         event.preventDefault();
@@ -61,18 +52,11 @@ class Login extends Component {
         return (
             <div>
                 {this.props.error.msg.msg ? <h1 id="error-header">{this.props.error.msg.msg}</h1> : null}
-                <h1 className="page-title">Login</h1>
-
-                <div className="auth-form">
-                    <div>
-                        <LoginForm
-                            handleEmailChange={this.handleEmailChange}
-                            handlePasswordChange={this.handlePasswordChange}
-                            handleFormSubmit={this.handleFormSubmit}
-                        />
-                    </div>
+                    <LoginForm
+                        handleInputChange={this.handleInputChange}
+                        handleFormSubmit={this.handleFormSubmit}
+                    />
                 </div>
-            </div>
         );
     }
 }
