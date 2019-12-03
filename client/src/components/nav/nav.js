@@ -20,6 +20,12 @@ class Nav extends Component {
     handleStateChange(state) {
         this.setState({ menuOpen: state.isOpen })
     }
+    closeMenu() {
+        this.setState({ menuOpen: false })
+    }
+    toggleMenu() {
+        this.setState(state => ({ menuOpen: !state.menuOpen }))
+    }
     static propTypes = {
         isAuthenticated: PropTypes.bool,
         error: PropTypes.object.isRequired,
@@ -33,10 +39,11 @@ class Nav extends Component {
                     <Link className="logo" to="/">RealTech</Link>
                     <Menu noOverlay isOpen={this.state.menuOpen}
                         onStateChange={(state) => this.handleStateChange(state)} id="hamburger">
-                        {this.props.isAuthenticated ? null : <Link to="/login">Log in</Link>}
-                        {this.props.isAuthenticated ? null : <Link to="/signup">Sign up</Link>}
-                        {this.props.isAuthenticated ? <Link to="/cart">Cart</Link> : null}
-                        {this.props.isAuthenticated ? <Link to="/" onClick={this.props.logout}>Logout</Link> : null}
+                                                <Link onClick={() => this.toggleMenu()} to="/">Home</Link>
+                        {this.props.isAuthenticated ? null : <Link onClick={() => this.toggleMenu()} to="/login">Log in</Link>}
+                        {this.props.isAuthenticated ? null : <Link onClick={() => this.toggleMenu()} to="/signup">Sign up</Link>}
+                        {this.props.isAuthenticated ? <Link onClick={() => this.toggleMenu()} to="/cart">Cart</Link> : null}
+                        {this.props.isAuthenticated ? <Link onClick={() => this.toggleMenu()} to="/" onClick={this.props.logout}>Logout</Link> : null}
                     </Menu>
                 </div>
                 < Search />
