@@ -30,15 +30,14 @@ class Nav extends Component {
         return (
             <div className="global-header" >
                 <div className="global-header-left">
-                    <Link className="logo" to="/">RealTech
-                            <Menu noOverlay isOpen={this.state.menuOpen}
-                            onStateChange={(state) => this.handleStateChange(state)} id="hamburger">
-                            {this.props.isAuthenticated ? null : <Link to="/login">Log in</Link>}
-                            {this.props.isAuthenticated ? null : <Link to="/signup">Sign up</Link>}
-                            {this.props.isAuthenticated ? <Link to="/cart">Cart</Link> : null}
-                            {this.props.isAuthenticated ? <Link to="/" onClick={this.props.logout}>Logout</Link> : null}
-                        </Menu>
-                    </Link>
+                    <Link className="logo" to="/">RealTech</Link>
+                    <Menu noOverlay isOpen={this.state.menuOpen}
+                        onStateChange={(state) => this.handleStateChange(state)} id="hamburger">
+                        {this.props.isAuthenticated ? null : <Link to="/login">Log in</Link>}
+                        {this.props.isAuthenticated ? null : <Link to="/signup">Sign up</Link>}
+                        {this.props.isAuthenticated ? <Link to="/cart">Cart</Link> : null}
+                        {this.props.isAuthenticated ? <Link to="/" onClick={this.props.logout}>Logout</Link> : null}
+                    </Menu>
                 </div>
                 < Search />
                 <div className="global-header-right">
