@@ -33,17 +33,13 @@ module.exports = {
           });
         });
       })
-      .then(newResult => {
-        order.total = cartSum(cartTotal);
-        db.Order.create({
-          user: order.user,
-          items: order.items,
-          cartTotal: `${cartSum(cartTotal)}`
+      .then(() => {
+        db.Cart.findOneAndUpdate(
+          { user: req.params.user },
+          { $pull: { items: { $exists: true } } }
+        ).then(data => {
+          console.log(data);
         });
-        return console.log("newResult:  ", newResult);
-      })
-      .then(order => {
-        console.log("order:  ", order);
         return res.status(200).json([]);
       })
       .then(() => {
@@ -53,6 +49,10 @@ module.exports = {
         ).then(data => {
           console.log("clear cart:  ", data);
         });
+      })
+      .then(() => {
+        db.Order.create(order);
+        console.log(order);
       })
       .catch(err => res.status(422).json(err));
   },
@@ -76,12 +76,11 @@ module.exports = {
         for (let i = 0; i < itemIDarray.length; i++) {
           db.Item.find({ _id: itemIDarray[i] }).then(itemInfo => {
             itemInfoArray.push(itemInfo[0]);
-            if (i === itemIDarray.length - 1) {
-              // console.log(itemInfoArray)
-              res.json(itemInfoArray);
-            }
           });
         }
+      })
+      .then(() => {
+        res.json(itemInfoArray);
       })
       .catch(err => res.status(422).json(err));
   },

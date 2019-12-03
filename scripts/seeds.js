@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Item = require("../models/item");
 
-mongoose.connect("mongodb://localhost/storefrontdb", {
+mongoose.connect("mongodb+srv://jjmateer:manila22@cluster0-q0kab.mongodb.net/storefrontdb?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true
