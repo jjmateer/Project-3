@@ -8,12 +8,11 @@ module.exports = {
     order.user = req.params.user;
     db.Cart.findOne({ user: req.params.user })
       .then(data => {
-        for (i = 0; i < data.items.length; i++) {
+        for (let i = 0; i < data.items.length; i++) {
           order.total += parseInt(data.items[i].product[0].price);
           order.items.push({
             id: data.items[i].product[0]._id,
-            name: data.items[i].product[0].item,
-            brand: data.items[i].product[0].brand,
+            item: data.items[i].product[0].item,
             price: data.items[i].product[0].price,
             quantity: data.items[i].quantity
           });

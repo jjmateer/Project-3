@@ -17,7 +17,7 @@ const initialState = {
     isAuthenticated: null,
     isLoading: false,
     user: null,
-    orders: null
+    orders: []
 };
 
 export default function (state = initialState, action) {

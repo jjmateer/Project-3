@@ -122,6 +122,10 @@
     #cartCard {
         flex-direction: column;
         height:auto;
+        width:100vw;
+        border-left:none;
+        border-right:none;
+        margin:0;
     }
     #cartList {
         width:100vw;

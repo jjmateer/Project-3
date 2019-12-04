@@ -54,7 +54,7 @@ class Cart extends Component {
                                 user_cart.map(({ _id, item, quantity }) => (
                                     <CartListItem
                                         key={item._id}
-                                        id={item._id}
+                                        id={item.b_id}
                                         image={item.image}
                                         product={item.item}
                                         brand={item.brand}

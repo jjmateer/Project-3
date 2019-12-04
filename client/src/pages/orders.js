@@ -11,31 +11,35 @@ class Orders extends Component {
         msg: null
     };
     static propTypes = {
-        user: PropTypes.object,
-        orders: PropTypes.array,
+        user: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool,
         clearErrors: PropTypes.func.isRequired,
-        getOrders: PropTypes.func.isRequired
+        orders: PropTypes.array,
+        getOrders: PropTypes.func
     }
     componentDidMount() {
         this.props.clearErrors();
         this.props.getOrders(this.props.user._id);
     }
     render() {
-        const user_orders = this.props.orders;
+        const { orders } = this.props.auth;
+        console.log(orders)
         return (
             <div>
-                {/* {this.props.auth.isLoading ? <h1 className="page-title"><LoadIcon /></h1> : null}
+                {/* {this.props.auth.isLoading ? <h1 className="page-title"><LoadIcon /></h1> : null} */}
                 <div className="order-list">
-                    {user_orders.map(({ _id, items, user }) => (
-                        <div
-                            key={_id}
-                            id={_id}
-                            items={items}
-                            user={user}
-                        />
+                    {orders.map(({ _id, items, user }) => (
+                        <div key={_id}>
+                            <p>{_id}</p>
+                            {items.map(({ item, quantity }) => (
+                                <div>
+                                <p>{item}</p>
+                                <p>{quantity}</p>
+                                </div>
+                            ))}
+                        </div>
                     ))}
-                </div> */}
+                </div>
             </div>
 
         );
