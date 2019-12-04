@@ -33,7 +33,7 @@ class App extends Component {
             <PrivateRoute exact path="/cart" component={Cart} />
             <Route exact path="/browse" component={Browse} />
             <Route exact path="/view-item" component={ViewItem} />
-            <Route exact path="/orders" component={Orders} />
+            <PrivateRoute exact path="/orders" component={Orders} />
             <Route exact path="/item" component={Item} />
             <Route component={ErrorC} />
           </Switch>

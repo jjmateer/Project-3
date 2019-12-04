@@ -12,19 +12,30 @@ class Orders extends Component {
     };
     static propTypes = {
         user: PropTypes.object,
-        item: PropTypes.object.isRequired,
+        orders: PropTypes.array,
         isAuthenticated: PropTypes.bool,
         clearErrors: PropTypes.func.isRequired,
         getOrders: PropTypes.func.isRequired
     }
     componentDidMount() {
         this.props.clearErrors();
-        this.props.getOrders();
+        this.props.getOrders(this.props.user._id);
     }
     render() {
+        const user_orders = this.props.orders;
         return (
             <div>
-                {this.props.auth.isLoading ? <h1 className="page-title"><LoadIcon /></h1> : null}
+                {/* {this.props.auth.isLoading ? <h1 className="page-title"><LoadIcon /></h1> : null}
+                <div className="order-list">
+                    {user_orders.map(({ _id, items, user }) => (
+                        <div
+                            key={_id}
+                            id={_id}
+                            items={items}
+                            user={user}
+                        />
+                    ))}
+                </div> */}
             </div>
 
         );
@@ -34,6 +45,7 @@ const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
     auth: state.auth,
     user: state.auth.user,
+    orders: state.auth.orders,
     error: state.error,
 })
 

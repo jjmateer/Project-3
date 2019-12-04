@@ -17,7 +17,6 @@ class Featured extends Component {
     static propTypes = {
         getItems: PropTypes.func.isRequired,
         user: PropTypes.object,
-        addToCart: PropTypes.func.isRequired,
         viewItem: PropTypes.func,
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool

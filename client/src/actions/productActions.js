@@ -3,10 +3,7 @@ import {
     GET_ITEMS,
     GET_BY_CATEGORY,
     GET_BY_NAME,
-    ADD_ITEM_TO_CART,
     ITEMS_LOADING,
-    GET_USER_CART,
-    USER_CHECKOUT,
     VIEW_ITEM
 } from './types';
 import { returnErrors } from "./errorActions";

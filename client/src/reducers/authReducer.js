@@ -17,7 +17,7 @@ const initialState = {
     isAuthenticated: null,
     isLoading: false,
     user: null,
-    order: null
+    orders: null
 };
 
 export default function (state = initialState, action) {
@@ -46,7 +46,7 @@ export default function (state = initialState, action) {
         case GET_ORDERS_SUCCESS:
             return {
                 ...state,
-                ...action.payload,
+                orders:action.payload,
                 isLoading: false,
             };
         case AUTH_ERROR:
@@ -64,7 +64,6 @@ export default function (state = initialState, action) {
         case GET_ORDERS_FAIL:
             return {
                 ...state,
-                ...action.payload,
                 isLoading: false
             };
         default:

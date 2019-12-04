@@ -10,7 +10,13 @@ module.exports = {
       .then(data => {
         for (i = 0; i < data.items.length; i++) {
           order.total += parseInt(data.items[i].product[0].price);
-          order.items.push(data.items[i].product[0]);
+          order.items.push({
+            id: data.items[i].product[0]._id,
+            name: data.items[i].product[0].item,
+            brand: data.items[i].product[0].brand,
+            price: data.items[i].product[0].price,
+            quantity: data.items[i].quantity
+          });
           db.Item.findOneAndUpdate(
             { _id: data.items[i].product[0]._id },
             { $inc: { quantityInStock: -Math.abs(data.items[i].quantity) } }
@@ -21,6 +27,7 @@ module.exports = {
         db.User.findOne({ _id: req.params.user }).then(user => { order.user = user })
       })
       .then(() => {
+        console.log(order.items)
         db.Order.create(order).then((userorder) => { res.status(200).json(userorder) })
         db.Cart.findOneAndUpdate({ user: req.params.user }, { $pull: { items: { $exists: true } } }).then(user => { console.log(user) })
       })
@@ -31,9 +38,9 @@ module.exports = {
     db.Cart.find({ user: req.params.user })
       .then(data => {
         for (let i = 0; i < data[0].items.length; i++) {
-          cartArray.push(data[0].items[i].product[0])
+          cartArray.push({ item: data[0].items[i].product[0], quantity: data[0].items[i].quantity })
         }
-      }).then(()=> {res.status(200).json(cartArray)})
+      }).then(() => { res.status(200).json(cartArray) })
       .catch(err => res.status(422).json(err));
   },
   addToCart: function (req, res) {

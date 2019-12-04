@@ -51,15 +51,16 @@ class Cart extends Component {
                     {this.props.item.loading ? null :
                         <CartList>
                             {user_cart.length ?
-                                user_cart.map(({ _id, image, item, brand, price, description }) => (
+                                user_cart.map(({ _id, item, quantity }) => (
                                     <CartListItem
-                                        key={_id}
-                                        id={_id}
-                                        image={image}
-                                        product={item}
-                                        brand={brand}
-                                        price={price}
-                                        description={description}
+                                        key={item._id}
+                                        id={item._id}
+                                        image={item.image}
+                                        product={item.item}
+                                        brand={item.brand}
+                                        price={item.price}
+                                        description={item.description}
+                                        quantity={quantity}
                                     />
                                 ))
 
