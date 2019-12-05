@@ -9,7 +9,7 @@ module.exports = {
     db.Cart.findOne({ user: req.params.user })
       .then(data => {
         for (let i = 0; i < data.items.length; i++) {
-          order.total += parseInt(data.items[i].product[0].price);
+          order.total += (parseInt(data.items[i].product[0].price) * data.items[i].quantity);
           order.items.push({
             id: data.items[i].product[0]._id,
             item: data.items[i].product[0].item,
@@ -26,7 +26,7 @@ module.exports = {
         db.User.findOne({ _id: req.params.user }).then(user => { order.user = user })
       })
       .then(() => {
-        console.log(order.items)
+        console.log(order)
         db.Order.create(order).then((userorder) => { res.status(200).json(userorder) })
         db.Cart.findOneAndUpdate({ user: req.params.user }, { $pull: { items: { $exists: true } } }).then(user => { console.log(user) })
       })

@@ -8,6 +8,10 @@ const orderSchema = new Schema({
     required: true,
     unique: false
   },
+  total: {
+    type: Number,
+    required: true
+  },
   items: [
     {
       item: {
