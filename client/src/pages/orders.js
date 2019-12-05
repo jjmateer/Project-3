@@ -32,18 +32,18 @@ class Orders extends Component {
                     {orders.map(({ _id, items, total }) => (
                         <ul className="order-list" key={_id}>
                             <li className="order-item">
-                                <p>Order ID: {_id}</p>
-                                <p>Order total: ${total}.00</p>
+                                <p id="total-order-price">Order ID: {_id}</p>
+                                <p  id="total-order-price">Order total: ${total}.00</p>
                                 {items.map(({ _id, item, quantity, price, image, brand }) => (
                                     <div className="order-info" key={_id}>
-                                        <img className="order-item-img" src={image}></img>
+                                        <img alt={image} className="order-item-img" src={image}></img>
                                         <div className="order-item-info">
-                                            <p>Product: {item}</p>
+                                            <p>{item}</p>
                                             <p>By {brand}</p>
                                             <p>Quantity: {quantity}</p>
                                             <p>Price per unit: ${price}.00</p>
-                                            <p>{quantity} X ${price}.00 = ${quantity * price}.00</p>
                                         </div>
+                                        <p>{quantity} X ${price}.00 = ${quantity * price}.00</p>
                                     </div>
                                 ))}
                             </li>

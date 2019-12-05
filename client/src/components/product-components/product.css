@@ -26,14 +26,16 @@
     text-align: center;
     line-height:50px;
     border-radius:0px 3px 3px 0px;
+    box-sizing: border-box;
     border: 1px solid black;
     border-left:none;
-    background:#0f9b6c;
+    background:#141518;
     color:white;
     opacity:0.8;
+    padding:2px;
 }
 .ATCbtn:hover{
-    color:black;
+    color:#0f9b6c;
     transition:0.35s;
 }
 .quantity-dropdown{
@@ -84,7 +86,9 @@
 .cbrand, #cprice{
     text-align:center;
 }
-
+#mobileSearch {
+    display:none;
+}
 @media only screen and (max-width: 1025px) {
     #productCard {
         width:100%;
@@ -98,6 +102,13 @@
     #card-product-info {
         width:100%;
         text-align:center;
+    }
+    #mobileSearch {
+        margin-top:50px;
+        display:block;
+    }
+    .large-search div, .large-search button, .large-search input, .large-search div a {
+        display:none;
     }
 }
 
@@ -119,6 +130,19 @@
         border-top:1px solid black;
         border-left:none;
         border-right:none;
+    }
+    #searchjoin{
+        width:98vw;
+    }
+    .dropbtn, .dropdown-content{
+        width:auto;
+        min-width:50px;
+    }
+    .Obutton{
+        width:80px;
+    }
+    .fa.fa-search {
+        margin-left:10px;
     }
     .quantity-dropdown{
         margin-top:20px;
