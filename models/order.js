@@ -19,6 +19,14 @@ const orderSchema = new Schema({
         ref: "Item",
         sparse: true
       },
+      image: {
+        type: String,
+        required: true
+      },
+      brand: {
+        type: String,
+        required: true
+      },
       quantity: Number,
       price: {
         type: Number,

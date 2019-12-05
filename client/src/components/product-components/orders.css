@@ -1,6 +1,30 @@
 .order-list {
     width:100vw;
     height:auto;
-    border-top:1px solid black;
-    border-bottom:1px solid black;
+    list-style-type: none;
+    display:flex;
+    flex-direction: column;
+}
+.order-item {
+    /* border:1px solid black; */
+    width:90vw;
+    margin:auto;
+}
+.order-item-info {
+    display:flex;
+    flex-direction: column;
+    border:1px solid black;
+}
+.order-item p {
+    text-align:center;
+    /* margin:0; */
+}
+.order-info {
+    position: relative;
+}
+.order-item-img {
+    max-height:100%;
+    width:auto;
+    margin:auto;
+    position: absolute;
 }

@@ -13,6 +13,8 @@ module.exports = {
           order.items.push({
             id: data.items[i].product[0]._id,
             item: data.items[i].product[0].item,
+            image: data.items[i].product[0].image,
+            brand:data.items[i].product[0].brand,
             price: data.items[i].product[0].price,
             quantity: data.items[i].quantity
           });
