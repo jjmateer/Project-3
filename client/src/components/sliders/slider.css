@@ -94,14 +94,19 @@ button.slick-arrow.slick-prev {
 
 .viewItem {
   cursor: pointer;
-  color: black;
+  color: white;
   border-radius: 2px;
-  background: transparent;
+  background:#0f9b6c;
   text-decoration: none;
   border: 1px solid black;
   padding: 3px;
   font-weight: bold;
   box-sizing: border-box;
+}
+
+.viewItem:hover {
+  transition: 0.35s;
+  color: #151619;
 }
 
 .slider-label {

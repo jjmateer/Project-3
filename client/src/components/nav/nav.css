@@ -13,6 +13,10 @@
   height: 100%;
 }
 
+#hamburger,
+.bm-burger-button {
+  display: none;
+}
 .global-header-left {
   color: whitesmoke;
   justify-content: flex-end;
@@ -101,8 +105,8 @@
   box-sizing: border-box;
   margin: 0;
   border: none;
-  outline:none;
-  border-radius:2px;
+  outline: none;
+  border-radius: 2px;
   font-size: 20px;
   width: 138px;
   cursor: pointer;
@@ -155,23 +159,65 @@
 }
 
 @media only screen and (max-width: 600px) {
+  #hamburger,
+  .bm-burger-button {
+    display: block;
+  }
+  .bm-menu-wrap {
+    width: 105vw !important;
+    margin-left: 50vw !important;
+    background:#343a40;
+  }
+  .bm-cross-button button {
+    background-image: url(./close.svg)!important;
+  }
+  .bm-burger-button button {
+    z-index: 2000 !important;
+  }
+  .bm-burger-button {
+    margin-left: 30vw !important;
+    margin-right: 5vw;
+    margin-top: 15px;
+    position: fixed;
+    background: transparent;
+  }
+  .bm-burger-button,
+  .bm-burger-button button,
+  .bm-burger-button div {
+    position: relative;
+    height: 40px !important;
+    width: 50px !important;
+  }
+  .bm-burger-bars {
+    position: absolute;
+    height: 7px !important;
+    border-radius: 2px;
+    margin: 4px;
+    background: lightgray;
+  }
+  .bm-menu {
+    background:#343a40;
+    margin-top:75px;
+  }
+  .bm-item{
+    font-size:30px;
+    width:30vw;
+    margin:auto;
+    text-decoration: none;
+    color:#0f9b6c;
+  }
+  .logo {
+    width: 50vw;
+    margin: 0;
+    font-size: 60px;
+    height: 75px;
+    line-height: 120%;
+  }
   #searchjoin {
-    margin: auto;
-    margin-top: 50px;
-    width: 90vw;
-  }
-  .fa.fa-search::before {
-    margin: 6vw;
-  }
-
-  .dropbtn {
     display: none;
   }
-  .Obutton {
-    width: 20%;
-  }
   .global-header {
-    height: 175px;
+    height: 75px;
     display: block;
     flex-direction: initial;
   }
@@ -179,23 +225,18 @@
     width: 100vw;
     height: 25px;
   }
-  .logo {
-    margin: auto;
-  }
   .global-header-right {
-    margin: 15px auto;
-    width: 100%;
-    height: 20%;
+    display: none;
   }
   .global-header-right a {
-    width: 25%;
+    width: 40%;
     border-radius: 5px;
     height: 25px;
     margin: auto;
     text-align: center;
     line-height: 150%;
     padding: 0;
-    border: 1px solid #0f9b6c;
-    color: #0f9b6c;
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
   }
 }

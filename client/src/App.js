@@ -6,6 +6,7 @@ import { loadUser } from "./actions/authActions";
 import PrivateRoute from "./components/routing-components/private-route";
 import PublicRoute from "./components/routing-components/public-route";
 import Nav from "../src/components/nav/nav";
+import Orders from "./pages/orders";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
@@ -32,7 +33,7 @@ class App extends Component {
             <PrivateRoute exact path="/cart" component={Cart} />
             <Route exact path="/browse" component={Browse} />
             <Route exact path="/view-item" component={ViewItem} />
-            <Route exact path="/browse-by-category" component={Browse} />
+            <PrivateRoute exact path="/orders" component={Orders} />
             <Route exact path="/item" component={Item} />
             <Route component={ErrorC} />
           </Switch>

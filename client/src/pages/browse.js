@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ProductList from "../components/product-components/product-list";
 import ProductListItem from "../components/product-components/product-list-item";
 import { connect } from "react-redux";
-import { addToCart } from "../actions/productActions";
+import { addToCart } from "../actions/transactionActions";
 import { clearErrors } from "../actions/errorActions";
 import LoadIcon from "../components/loader/loader"
 import PropTypes from "prop-types";

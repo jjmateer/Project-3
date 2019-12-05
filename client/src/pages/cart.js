@@ -6,7 +6,7 @@ import CartTotal from "../components/cart-components/cart-total";
 import { connect } from "react-redux";
 import LoadIcon from "../components/loader/loader";
 import { clearErrors } from "../actions/errorActions";
-import { getUserCart, userCheckout } from "../actions/productActions";
+import { getUserCart, userCheckout } from "../actions/transactionActions";
 import PropTypes from "prop-types";
 class Cart extends Component {
     state = {
@@ -31,42 +31,43 @@ class Cart extends Component {
     render() {
         const user_cart = this.props.item.user_cart;
         return (
-            this.props.auth.isLoading ?<h1 className="page-title"><LoadIcon/></h1> :
-            <div>
-                {user_cart.length ? <h1 className="page-title">Cart</h1> :
-                    <h1 className="page-title">{this.props.item.loading ? "Loading..." : null}</h1>}
-                <h1 className="page-title">{user_cart.length < 1 && !this.props.item.loading ? "Cart is empty." : null}</h1>
-                {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> :
-                    <div>
-                        {user_cart.length ?
-                            <CartSummary>
-                                <CartTotal
-                                    user_cart={user_cart}
-                                />
-                                <button className="checkoutBtn" id={this.props.user._id} onClick={this.checkoutRequest}>Check Out</button>
-                            </ CartSummary>
-                            : null}
-                    </div>
-                }
-                {this.props.item.loading ? null :
-                    <CartList>
-                        {user_cart.length ?
-                            user_cart.map(({ _id, image, item, brand, price, description }) => (
-                                <CartListItem
-                                    key={_id}
-                                    id={_id}
-                                    image={image}
-                                    product={item}
-                                    brand={brand}
-                                    price={price}
-                                    description={description}
-                                />
-                            ))
+            this.props.auth.isLoading ? <h1 className="page-title"><LoadIcon /></h1> :
+                <div>
+                    {user_cart.length ? <h1 className="page-title">Cart</h1> :
+                        <h1 className="page-title">{this.props.item.loading ? "Loading..." : null}</h1>}
+                    <h1 className="page-title">{user_cart.length < 1 && !this.props.item.loading ? "Cart is empty." : null}</h1>
+                    {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> :
+                        <div>
+                            {user_cart.length ?
+                                <CartSummary>
+                                    <CartTotal
+                                        user_cart={user_cart}
+                                    />
+                                    <button className="checkoutBtn" id={this.props.user._id} onClick={this.checkoutRequest}>Check Out</button>
+                                </ CartSummary>
+                                : null}
+                        </div>
+                    }
+                    {this.props.item.loading ? null :
+                        <CartList>
+                            {user_cart.length ?
+                                user_cart.map(({ _id, item, quantity }) => (
+                                    <CartListItem
+                                        key={item._id}
+                                        id={item.b_id}
+                                        image={item.image}
+                                        product={item.item}
+                                        brand={item.brand}
+                                        price={item.price}
+                                        description={item.description}
+                                        quantity={quantity}
+                                    />
+                                ))
 
-                            : null}
-                    </CartList>
-                }
-            </div>
+                                : null}
+                        </CartList>
+                    }
+                </div>
         );
     }
 }

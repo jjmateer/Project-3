@@ -8,12 +8,24 @@ const orderSchema = new Schema({
     required: true,
     unique: false
   },
+  total: {
+    type: Number,
+    required: true
+  },
   items: [
     {
       item: {
         type: String,
         ref: "Item",
         sparse: true
+      },
+      image: {
+        type: String,
+        required: true
+      },
+      brand: {
+        type: String,
+        required: true
       },
       quantity: Number,
       price: {

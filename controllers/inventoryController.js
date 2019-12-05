@@ -37,6 +37,11 @@ module.exports = {
       .then(itemData => res.status(200).json(itemData))
       .catch(err => res.status(422).json(err));
   },
+  getOrders: function (req, res) {
+    db.Order.find({ user: req.params.user })
+      .then(orderData => res.status(200).json(orderData))
+      .catch(err => res.status(422).json(err));
+  },
   create: function (req, res) {
     db.Item.create(req.body)
       .then(dbModel => res.json(dbModel))

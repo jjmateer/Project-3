@@ -24,4 +24,8 @@ router
 router
   .route("/view-item/:item")
   .get(inventoryController.view);
+  
+router
+  .route("/orders/:user")
+  .get(inventoryController.getOrders);
 module.exports = router;

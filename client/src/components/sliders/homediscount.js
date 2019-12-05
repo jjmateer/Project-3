@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import "./slider.css";
 import { connect } from "react-redux";
-import { getItems, addToCart, viewItem } from "../../actions/productActions";
+import { getItems, viewItem } from "../../actions/productActions";
 import { clearErrors } from "../../actions/errorActions";
 import PropTypes from "prop-types";
 
@@ -17,16 +17,12 @@ class Homediscount extends Component {
     static propTypes = {
         getItems: PropTypes.func.isRequired,
         user: PropTypes.object,
-        addToCart: PropTypes.func.isRequired,
         viewItem: PropTypes.func,
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     }
     componentDidMount() {
         this.props.getItems();
-    }
-    addItemToCart = event => {
-        this.props.addToCart(this.props.user._id, event.target.id)
     }
     getDropdownValue = event => {
         this.setState({ quantity: event.target.value })
@@ -87,7 +83,7 @@ class Homediscount extends Component {
                                 <p id="card-header">{item}</p>
                                 <p id="brand">By {brand}</p>
                                 <p id="price">${price}.00</p>
-                                <Link to="/view-item" className="viewItem" id={_id} onClick={this.viewItem} >View item</Link>
+                                <Link to="/view-item" className="viewItem" id={_id} onClick={this.viewItem} >View</Link>
                             </div>
                         </div>
                     )
@@ -107,5 +103,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getItems, addToCart, viewItem, clearErrors }
+    { getItems, viewItem, clearErrors }
 )(Homediscount);
