@@ -1,35 +1,31 @@
-# Project-3
+# Realtech Storefront
 
----
+MERN stack e-commerce site using mock inventory. Users can sign up/login, browse products by category or name, check out, and view previous orders.
 
-Project 3 is a storefront.
+### Link: https://sleepy-caverns-29266.herokuapp.com/
 
-- view inventory
-- purchase items
-- add items in admin mode
-- other stuff too!
+### Features
 
-## How to use...
-
----
-
-Navigate to Project 3 at https://sleepy-caverns-29266.herokuapp.com/ in your browser to start -- will have more later!
-
-### Methods Available!
-
-- purhcase
-- view
-- search
-- add
-
-### In Action
+- Persistent login
+- Functioning search
+- Conditional routing
+- Hashed passwords
+- Polished UI
+- Responsive on tablet and mobile
+- Secure user storage with hashed passwords
+- Hamburger menu for smaller screen sizes
+- Redux state management
 
 
-## Tech Used
+### Technology Used
 
----
-
-- React
-- Express
+- React.js
 - MongoDB
-- more to come!
+- Express.js
+- Node.js
+- Redux
+- CSS3 
+- JSON Web Tokens
+- Bcrypt 
+- React-router
+- Axios
