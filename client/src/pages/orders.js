@@ -32,7 +32,7 @@ class Orders extends Component {
                     {orders.map(({ _id, items, total }) => (
                         <ul className="order-list" key={_id}>
                             <li className="order-item">
-                                <p>Order ID: {_id}</p>
+                                <p id="total-order-price">Order ID: {_id}</p>
                                 <p  id="total-order-price">Order total: ${total}.00</p>
                                 {items.map(({ _id, item, quantity, price, image, brand }) => (
                                     <div className="order-info" key={_id}>
