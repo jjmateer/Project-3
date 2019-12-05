@@ -23,6 +23,7 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
         case USER_LOADING:
+        case GET_ORDERS:
             return {
                 ...state,
                 isLoading: true
@@ -46,7 +47,7 @@ export default function (state = initialState, action) {
         case GET_ORDERS_SUCCESS:
             return {
                 ...state,
-                orders:action.payload,
+                orders: action.payload,
                 isLoading: false,
             };
         case AUTH_ERROR:

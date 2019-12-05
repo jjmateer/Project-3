@@ -37,9 +37,6 @@
   width: auto;
   position: absolute;
 }
-#total-order-price {
-  color: #0f9b6c;
-}
 @media only screen and (max-width: 800px) {
   .order-item {
     width: 100vw;

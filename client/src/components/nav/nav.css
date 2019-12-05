@@ -213,7 +213,7 @@
     height: 75px;
     line-height: 120%;
   }
-  #searchjoin {
+  .large-search {
     display: none;
   }
   .global-header {

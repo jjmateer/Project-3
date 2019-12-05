@@ -58,6 +58,7 @@ export const register = newUser => dispatch => {
             })
             const { token } = res.data;
             localStorage.setItem("jwtToken", token);
+            window.location.reload()
         })
         .catch(err => {
             dispatch(returnErrors(err.response.data, err.response.status, "REGISTER_FAIL"));
@@ -83,6 +84,7 @@ export const login = (userData) => dispatch => {
             })
             const { token } = res.data;
             localStorage.setItem("jwtToken", token);
+            window.location.reload()
         })
         .catch(err => {
             dispatch(returnErrors(err.response.data, err.response.status, "LOGIN_FAIL"));

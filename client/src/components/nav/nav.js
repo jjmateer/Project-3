@@ -48,7 +48,9 @@ class Nav extends Component {
                         {this.props.isAuthenticated ? <Link onClick={() => this.toggleMenu()} to="/" onClick={this.props.logout}>Logout</Link> : null}
                     </Menu>
                 </div>
+                <div id="searchjoin" className="large-search">
                 < Search />
+                </div>
                 <div className="global-header-right">
                     {this.props.isAuthenticated ? null : <Link to="/login">Log in</Link>}
                     {this.props.isAuthenticated ? null : <Link to="/signup">Sign up</Link>}

@@ -6,6 +6,7 @@ import { addToCart } from "../actions/transactionActions";
 import { clearErrors } from "../actions/errorActions";
 import LoadIcon from "../components/loader/loader"
 import PropTypes from "prop-types";
+import Search from "../components/nav/search";
 
 
 class Browse extends Component {
@@ -29,7 +30,7 @@ class Browse extends Component {
         this.props.clearErrors();
     }
     getDropdownValue = event => {
-        this.setState({quantity: event.target.value})
+        this.setState({ quantity: event.target.value })
     }
     addItemToCart = event => {
         this.props.addToCart(this.props.user._id, event.target.id, this.state.quantity);
@@ -38,29 +39,32 @@ class Browse extends Component {
     render() {
         const items_search = this.props.item.items_search;
         return (
-            this.props.auth.isLoading ?<h1 className="page-title"><LoadIcon/></h1> :
-            <div>
-                {items_search ?
-                    <div>
-                        {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : null}
-                        <ProductList>
-                            {items_search.map(({ _id, image, item, brand, price, description }) => (
-                                <ProductListItem
-                                    key={_id}
-                                    id={_id}
-                                    image={image}
-                                    product={item}
-                                    brand={brand}
-                                    price={price}
-                                    description={description}
-                                    addItemToCart={this.addItemToCart}
-                                    getDropdownValue={this.getDropdownValue}
-                                    authenticated={this.state.authenticated}
-                                />
-                            ))}
-                        </ProductList>
-                    </div> : <h1 className="page-title">No items found.</h1>}
-            </div>
+            this.props.auth.isLoading ? <h1 className="page-title"><LoadIcon /></h1> :
+                <div>
+                    {items_search ?
+                        <div id="browse-div">
+                            {/* {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : null} */}
+                            <div id="mobileSearch">
+                                <Search />
+                            </div>
+                            <ProductList>
+                                {items_search.map(({ _id, image, item, brand, price, description }) => (
+                                    <ProductListItem
+                                        key={_id}
+                                        id={_id}
+                                        image={image}
+                                        product={item}
+                                        brand={brand}
+                                        price={price}
+                                        description={description}
+                                        addItemToCart={this.addItemToCart}
+                                        getDropdownValue={this.getDropdownValue}
+                                        authenticated={this.state.authenticated}
+                                    />
+                                ))}
+                            </ProductList>
+                        </div> : <h1 className="page-title">No items found.</h1>}
+                </div>
         );
     }
 }

@@ -5,7 +5,7 @@ export default class LoadIcon extends Component {
     render() {
         return (
             <Loader
-                type="Bars"
+                type="CradleLoader"
                 color="#006e51"
                 height={100}
                 width={100}

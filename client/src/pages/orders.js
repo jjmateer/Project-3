@@ -36,7 +36,7 @@ class Orders extends Component {
                                 <p  id="total-order-price">Order total: ${total}.00</p>
                                 {items.map(({ _id, item, quantity, price, image, brand }) => (
                                     <div className="order-info" key={_id}>
-                                        <img className="order-item-img" src={image}></img>
+                                        <img alt={image} className="order-item-img" src={image}></img>
                                         <div className="order-item-info">
                                             <p>{item}</p>
                                             <p>By {brand}</p>
