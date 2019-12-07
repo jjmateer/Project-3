@@ -4,7 +4,8 @@ import {
     ITEMS_LOADING,
     GET_USER_CART,
     USER_CHECKOUT,
-    CHECKOUT_SUCCESS
+    CHECKOUT_SUCCESS,
+    RESET_CHECKOUT
 } from './types';
 import { returnErrors } from "./errorActions";
 
@@ -61,5 +62,11 @@ export const setItemsLoading = () => {
 export const checkoutLoading = () => {
     return {
         type: USER_CHECKOUT
+    };
+};
+
+export const resetCheckout = () => {
+    return {
+        type: RESET_CHECKOUT
     };
 };

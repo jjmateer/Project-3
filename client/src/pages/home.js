@@ -4,6 +4,7 @@ import Merchandise from "../components/sliders/merchandise-slide";
 import Featured from "../components/sliders/featured-slider";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
+import { resetCheckout } from "../actions/transactionActions";
 import LoadIcon from "../components/loader/loader"
 import PropTypes from "prop-types";
 
@@ -18,17 +19,17 @@ class Home extends Component {
         item: PropTypes.object,
         auth: PropTypes.object.isRequired,
         error: PropTypes.object.isRequired,
+        resetCheckout: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired
     }
     componentDidMount() {
         this.props.clearErrors();
+        this.props.resetCheckout();
     }
     render() {
         return (
             this.props.auth.isLoading ? <h1 className="page-title"><LoadIcon /></h1> :
                 <div >
-                    < div>
-                    </div>
                     {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : null}
                     <div>
                         <h1 className="slider-label">Featured</h1>
@@ -54,5 +55,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { clearErrors }
+    { resetCheckout, clearErrors }
 )(Home);

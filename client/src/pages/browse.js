@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ProductList from "../components/product-components/product-list";
 import ProductListItem from "../components/product-components/product-list-item";
 import { connect } from "react-redux";
-import { addToCart } from "../actions/transactionActions";
+import { addToCart, resetCheckout } from "../actions/transactionActions";
 import {viewItem} from  "../actions/productActions";
 import { clearErrors } from "../actions/errorActions";
 import LoadIcon from "../components/loader/loader"
@@ -21,15 +21,16 @@ class Browse extends Component {
         viewItem: PropTypes.func.isRequired,
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool,
+        resetCheckout: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired
     }
     componentDidMount() {
-        this.props.clearErrors();
         this.props.isAuthenticated ?
             this.setState({ authenticated: true })
             :
             this.setState({ authenticated: false })
         this.props.clearErrors();
+        this.props.resetCheckout();
     }
     viewItem = event => {
         this.props.viewItem(event.target.id);
@@ -75,5 +76,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { addToCart, viewItem, clearErrors }
+    { addToCart, viewItem, clearErrors, resetCheckout }
 )(Browse);

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
 import { getOrders } from "../actions/authActions";
+import {resetCheckout} from "../actions/transactionActions";
 import LoadIcon from "../components/loader/loader"
 import PropTypes from "prop-types";
 import "../components/product-components/orders.css"
@@ -16,11 +17,13 @@ class Orders extends Component {
         isAuthenticated: PropTypes.bool,
         clearErrors: PropTypes.func.isRequired,
         orders: PropTypes.array.isRequired,
+        resetCheckout: PropTypes.func.isRequired,
         getOrders: PropTypes.func
     }
     componentDidMount() {
         this.props.clearErrors();
         this.props.getOrders(this.props.user._id)
+        this.props.resetCheckout();
     }
     render() {
         const { orders } = this.props.auth;
@@ -67,5 +70,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getOrders, clearErrors }
+    { getOrders, clearErrors, resetCheckout }
 )(Orders);

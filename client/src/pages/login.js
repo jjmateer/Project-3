@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../actions/authActions";
 import { clearErrors } from "../actions/errorActions";
+import {resetCheckout} from "../actions/transactionActions";
 
 
 class Login extends Component {
@@ -16,11 +17,13 @@ class Login extends Component {
     static propTypes = {
         isAuthenticated: PropTypes.bool,
         error: PropTypes.object.isRequired,
+        resetCheckout: PropTypes.func.isRequired,
         login: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired
     }
     componentDidMount() {
         this.props.clearErrors();
+        this.props.resetCheckout();
     }
     componentDidUpdate(prevPreps) {
         const { error } = this.props;
@@ -69,5 +72,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { login, clearErrors }
+    { login, clearErrors, resetCheckout }
 )(Login);

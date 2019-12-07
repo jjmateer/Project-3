@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
+import jwt_decode from "jwt-decode";
 import { loadUser } from "./actions/authActions";
+import { getUserCart } from "./actions/transactionActions";
 import PrivateRoute from "./components/routing-components/private-route";
 import PublicRoute from "./components/routing-components/public-route";
 import Nav from "../src/components/nav/nav";
@@ -20,6 +22,9 @@ import "./App.css";
 class App extends Component {
   componentDidMount() {
     store.dispatch(loadUser());
+    if (localStorage.token) {
+      store.dispatch(getUserCart(jwt_decode(localStorage.getItem("jwtToken")).id));
+    }
   }
   render() {
     return (

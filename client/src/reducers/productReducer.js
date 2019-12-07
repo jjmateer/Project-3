@@ -9,7 +9,8 @@ import {
   USER_CHECKOUT,
   CHECKOUT_SUCCESS,
   CHECKOUT_FAIL,
-  VIEW_ITEM
+  VIEW_ITEM,
+  RESET_CHECKOUT
 } from "../actions/types";
 
 const initialState = {
@@ -81,6 +82,11 @@ export default function (state = initialState, action) {
         ...state,
         item_being_viewed: action.payload,
         loading: false
+      }
+    case RESET_CHECKOUT:
+      return {
+        ...state,
+        checkout: false
       }
     default:
       return state;

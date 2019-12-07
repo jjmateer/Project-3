@@ -36,6 +36,7 @@
 .viewItemPL:hover{
     color:#0f9b6c;
     transition:0.35s;
+    opacity: 1;
 }
 .quantity-dropdown{
     background: transparent;

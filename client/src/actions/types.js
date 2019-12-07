@@ -23,3 +23,4 @@ export const VIEW_ITEM = "VIEW_ITEM";
 export const GET_ORDERS = "GET_ORDERS";
 export const GET_ORDERS_FAIL = "GET_ORDERS_FAIL";
 export const GET_ORDERS_SUCCESS = "GET_ORDERS_SUCCESS";
+export const RESET_CHECKOUT  = "RESET_CHECKOUT";
