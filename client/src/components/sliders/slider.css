@@ -102,11 +102,13 @@ button.slick-arrow.slick-prev {
   padding: 5px;
   font-weight: bold;
   box-sizing: border-box;
+  opacity: 0.8;
 }
 
 .viewItem:hover {
   transition: 0.35s;
   color: #0f9b6c;
+  opacity: 1;
 }
 
 .slider-label {

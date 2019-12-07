@@ -3,7 +3,9 @@ import {
     ADD_ITEM_TO_CART,
     ITEMS_LOADING,
     GET_USER_CART,
-    USER_CHECKOUT
+    USER_CHECKOUT,
+    CHECKOUT_SUCCESS,
+    RESET_CHECKOUT
 } from './types';
 import { returnErrors } from "./errorActions";
 
@@ -37,23 +39,34 @@ export const getUserCart = (userID) => dispatch => {
 };
 
 export const userCheckout = (userID) => dispatch => {
-    console.log(userID)
-    dispatch(setItemsLoading());
+    dispatch(checkoutLoading());
     axios
         .post(`/api/cart/checkout/${userID}`)
         .then(res =>
             dispatch({
-                type: USER_CHECKOUT,
+                type: CHECKOUT_SUCCESS,
                 payload: res.data
             })
         )
         .catch(err =>
-            dispatch(returnErrors(err.response.data, err.response.status))
+            dispatch(returnErrors(err.response.data, err.response.status)),
         );
 };
 
 export const setItemsLoading = () => {
     return {
         type: ITEMS_LOADING
+    };
+};
+
+export const checkoutLoading = () => {
+    return {
+        type: USER_CHECKOUT
+    };
+};
+
+export const resetCheckout = () => {
+    return {
+        type: RESET_CHECKOUT
     };
 };

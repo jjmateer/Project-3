@@ -27,7 +27,6 @@ export const loadUser = () => (dispatch) => {
         axios
             .post('/api/auth/user', body)
             .then(res => {
-                console.log(res.data)
                 dispatch({
                     type: USER_LOADED,
                     payload: res.data

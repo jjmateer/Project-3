@@ -28,44 +28,51 @@ class Nav extends Component {
     }
     static propTypes = {
         isAuthenticated: PropTypes.bool,
+        item: PropTypes.object.isRequired,
         error: PropTypes.object.isRequired,
         clearErrors: PropTypes.func.isRequired,
         logout: PropTypes.func.isRequired
     }
     render() {
+        const { user_cart } = this.props.item;
+        var cartLength = user_cart.length
         return (
-            <div className="global-header" >
-                <div className="global-header-left">
-                    <Link className="logo" to="/">RealTech</Link>
-                    <Menu right noOverlay isOpen={this.state.menuOpen}
-                        onStateChange={(state) => this.handleStateChange(state)} id="hamburger">
-                        <Link onClick={() => this.toggleMenu()} to="/">Home</Link>
-                        <Link onClick={() => this.toggleMenu()} to="/browse">Search</Link>
-                        {this.props.isAuthenticated ? null : <Link onClick={() => this.toggleMenu()} to="/login">Log in</Link>}
-                        {this.props.isAuthenticated ? null : <Link onClick={() => this.toggleMenu()} to="/signup">Sign up</Link>}
-                        {this.props.isAuthenticated ? <Link onClick={() => this.toggleMenu()} to="/orders">Orders</Link> : null}
-                        {this.props.isAuthenticated ? <Link onClick={() => this.toggleMenu()} to="/cart">Cart</Link> : null}
-                        {this.props.isAuthenticated ? <Link onClick={() => this.toggleMenu()} to="/" onClick={this.props.logout}>Logout</Link> : null}
-                    </Menu>
-                </div>
-                <div id="searchjoin" className="large-search">
-                < Search />
-                </div>
-                <div className="global-header-right">
-                    {this.props.isAuthenticated ? null : <Link to="/login">Log in</Link>}
-                    {this.props.isAuthenticated ? null : <Link to="/signup">Sign up</Link>}
-                    {this.props.isAuthenticated ? <Link to="/cart">Cart</Link> : null}
-                    {this.props.isAuthenticated ? <Link to="/orders">Orders</Link> : null}
-                    {this.props.isAuthenticated ? <Link to="/" onClick={this.props.logout}>Logout</Link> : null}
-                </div>
+            <>
+                <div className="global-header" >
+                    <div className="global-header-left">
+                        <Link className="logo" to="/">RealTech</Link>
+                        <Menu right noOverlay isOpen={this.state.menuOpen}
+                            onStateChange={(state) => this.handleStateChange(state)} id="hamburger">
+                            <Link onClick={() => this.toggleMenu()} to="/">Home</Link>
+                            <Link onClick={() => this.toggleMenu()} to="/browse">Search</Link>
+                            {this.props.isAuthenticated ? null : <Link onClick={() => this.toggleMenu()} to="/login">Log in</Link>}
+                            {this.props.isAuthenticated ? null : <Link onClick={() => this.toggleMenu()} to="/signup">Sign up</Link>}
+                            {this.props.isAuthenticated ? <Link onClick={() => this.toggleMenu()} to="/orders">Orders</Link> : null}
+                            {this.props.isAuthenticated ? <Link onClick={() => this.toggleMenu()} to="/cart">Cart{cartLength > 1 ? `(${cartLength})` : null}</Link> : null}
+                            {this.props.isAuthenticated ? <Link onClick={() => this.toggleMenu()} to="/" onClick={this.props.logout}>Logout</Link> : null}
+                        </Menu>
+                    </div>
+                    <div id="searchjoin" className="large-search">
+                        < Search />
+                    </div>
+                    <div className="global-header-right">
+                        {this.props.isAuthenticated ? null : <Link to="/login">Log in</Link>}
+                        {this.props.isAuthenticated ? null : <Link to="/signup">Sign up</Link>}
+                        {this.props.isAuthenticated ? <Link to="/cart">Cart{cartLength > 0 ? `(${cartLength})` : null}</Link> : null}
+                        {this.props.isAuthenticated ? <Link to="/orders">Orders</Link> : null}
+                        {this.props.isAuthenticated ? <Link to="/" onClick={this.props.logout}>Logout</Link> : null}
+                    </div>
 
-            </div>
+                </div>
+                <div className="banner" />
+            </>
         )
     }
 }
 
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
+    item: state.item,
     error: state.error
 })
 

@@ -7,7 +7,10 @@ import {
   ITEMS_LOADING,
   GET_USER_CART,
   USER_CHECKOUT,
-  VIEW_ITEM
+  CHECKOUT_SUCCESS,
+  CHECKOUT_FAIL,
+  VIEW_ITEM,
+  RESET_CHECKOUT
 } from "../actions/types";
 
 const initialState = {
@@ -16,7 +19,8 @@ const initialState = {
   user_cart: [],
   item_being_viewed: [],
   loading: false,
-  msg: null
+  msg: null,
+  checkout: false
 };
 
 export default function (state = initialState, action) {
@@ -45,6 +49,7 @@ export default function (state = initialState, action) {
         items: [action.payload, ...state.items]
       };
     case ITEMS_LOADING:
+    case USER_CHECKOUT:
       return {
         ...state,
         loading: true
@@ -59,17 +64,29 @@ export default function (state = initialState, action) {
         user_cart: action.payload,
         loading: false
       };
-    case USER_CHECKOUT:
+    case CHECKOUT_SUCCESS:
       return {
         ...state,
         user_cart: action.payload,
-        loading: false
+        loading: false,
+        checkout:true
       };
+    case CHECKOUT_FAIL:
+      return {
+        ...state,
+        loading:false,
+        checkout:false
+      }
     case VIEW_ITEM:
       return {
         ...state,
         item_being_viewed: action.payload,
         loading: false
+      }
+    case RESET_CHECKOUT:
+      return {
+        ...state,
+        checkout: false
       }
     default:
       return state;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addToCart } from "../actions/transactionActions";
+import { addToCart, resetCheckout } from "../actions/transactionActions";
 import { clearErrors } from "../actions/errorActions";
 import { Link } from "react-router-dom";
 // import LoadIcon from "../components/loader/loader";
@@ -20,10 +20,12 @@ class ViewItem extends Component {
         addToCart: PropTypes.func.isRequired,
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool,
+        resetCheckout: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired
     }
     componentDidMount() {
         this.props.clearErrors();
+        this.props.resetCheckout();
     }
     getDropdownValue = event => {
         this.setState({ quantity: event.target.value })
@@ -34,11 +36,13 @@ class ViewItem extends Component {
     }
     render() {
         const { item_being_viewed } = this.props.item;
+        const { goBack } = this.props.history;
         return (
             <div id="productList">
                 {item_being_viewed.map(({ _id, image, item, brand, price, description }) => {
                     return (
                         <div key={_id} >
+                            <button onClick={goBack} className="back-button">Back</button>
                             <div id="imageWrapper">
                                 <img className="VcardImg" alt={image} src={image} />
                             </div>
@@ -56,9 +60,9 @@ class ViewItem extends Component {
                                     <option className="quantity-drop-option" value={4}>4</option>
                                     <option className="quantity-drop-option" value={5}>5</option>
                                 </select>
-                                {this.props.isAuthenticated ? <Link to="/cart" id={_id} className="VATCbtn" onClick={this.addItemToCart} >Add To Cart</Link>
+                                {this.props.isAuthenticated ? <Link to={'/'} id={_id} className="VATCbtn" onClick={this.addItemToCart} >Add To Cart</Link>
                                     :
-                                    <Link to="/login" className="ATCbtn">Login to buy items.</Link>}
+                                    <Link to="/login" className="ATCbtn">Add To Cart</Link>}
                             </div>
                         </div>
                     )
@@ -77,5 +81,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { addToCart, clearErrors }
+    { addToCart, clearErrors, resetCheckout }
 )(ViewItem);
