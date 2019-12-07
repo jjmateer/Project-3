@@ -27,13 +27,15 @@ class Orders extends Component {
         console.log(orders)
         return (
             <div>
-                {this.props.auth.isLoading ? <h1 className="page-title"><LoadIcon /></h1> : null}
+                {orders.length ? <h1 className="page-title">Orders</h1> :
+                    <h1 className="page-title">{this.props.user.isLoading ? "Loading..." : null}</h1>}
+                <h1 className="page-title">{orders.length < 1 && !this.props.user.isLoading ? "No orders found." : null}</h1>
                 <div>
                     {orders.map(({ _id, items, total }) => (
                         <ul className="order-list" key={_id}>
                             <li className="order-item">
                                 <p id="total-order-price">Order ID: {_id}</p>
-                                <p  id="total-order-price">Order total: ${total}.00</p>
+                                <p id="total-order-price">Order total: ${total}.00</p>
                                 {items.map(({ _id, item, quantity, price, image, brand }) => (
                                     <div className="order-info" key={_id}>
                                         <img alt={image} className="order-item-img" src={image}></img>

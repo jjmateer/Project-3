@@ -39,6 +39,7 @@ class ViewItem extends Component {
                 {item_being_viewed.map(({ _id, image, item, brand, price, description }) => {
                     return (
                         <div key={_id} >
+                            <button className="back-button">Back</button>
                             <div id="imageWrapper">
                                 <img className="VcardImg" alt={image} src={image} />
                             </div>
@@ -58,7 +59,7 @@ class ViewItem extends Component {
                                 </select>
                                 {this.props.isAuthenticated ? <Link to="/cart" id={_id} className="VATCbtn" onClick={this.addItemToCart} >Add To Cart</Link>
                                     :
-                                    <Link to="/login" className="ATCbtn">Login to buy items.</Link>}
+                                    <Link to="/login" className="ATCbtn">Add To Cart</Link>}
                             </div>
                         </div>
                     )

@@ -51,7 +51,7 @@ class Cart extends Component {
                     {this.props.item.loading ? null :
                         <CartList>
                             {user_cart.length ?
-                                user_cart.map(({ _id, item, quantity }) => (
+                                user_cart.map(({ item, quantity }) => (
                                     <CartListItem
                                         key={item._id}
                                         id={item.b_id}

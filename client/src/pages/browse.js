@@ -3,6 +3,7 @@ import ProductList from "../components/product-components/product-list";
 import ProductListItem from "../components/product-components/product-list-item";
 import { connect } from "react-redux";
 import { addToCart } from "../actions/transactionActions";
+import {viewItem} from  "../actions/productActions";
 import { clearErrors } from "../actions/errorActions";
 import LoadIcon from "../components/loader/loader"
 import PropTypes from "prop-types";
@@ -17,6 +18,7 @@ class Browse extends Component {
     static propTypes = {
         user: PropTypes.object,
         addToCart: PropTypes.func.isRequired,
+        viewItem: PropTypes.func.isRequired,
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool,
         clearErrors: PropTypes.func.isRequired
@@ -29,12 +31,8 @@ class Browse extends Component {
             this.setState({ authenticated: false })
         this.props.clearErrors();
     }
-    getDropdownValue = event => {
-        this.setState({ quantity: event.target.value })
-    }
-    addItemToCart = event => {
-        this.props.addToCart(this.props.user._id, event.target.id, this.state.quantity);
-        alert("Item added to cart.")
+    viewItem = event => {
+        this.props.viewItem(event.target.id);
     }
     render() {
         const items_search = this.props.item.items_search;
@@ -57,8 +55,7 @@ class Browse extends Component {
                                         brand={brand}
                                         price={price}
                                         description={description}
-                                        addItemToCart={this.addItemToCart}
-                                        getDropdownValue={this.getDropdownValue}
+                                        viewItem={this.viewItem}
                                         authenticated={this.state.authenticated}
                                     />
                                 ))}
@@ -78,5 +75,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { addToCart, clearErrors }
+    { addToCart, viewItem, clearErrors }
 )(Browse);
