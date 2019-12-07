@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import ProductList from "../components/product-components/product-list";
 import ProductListItem from "../components/product-components/product-list-item";
 import { connect } from "react-redux";
-import { addToCart, resetCheckout } from "../actions/transactionActions";
+import { addToCart, resetCheckout, getUserCart } from "../actions/transactionActions";
 import {viewItem} from  "../actions/productActions";
 import { clearErrors } from "../actions/errorActions";
 import LoadIcon from "../components/loader/loader"
 import PropTypes from "prop-types";
 import Search from "../components/nav/search";
-
+import store from "../store";
+import jwt_decode from "jwt-decode";
 
 class Browse extends Component {
     state = {
@@ -31,6 +32,9 @@ class Browse extends Component {
             this.setState({ authenticated: false })
         this.props.clearErrors();
         this.props.resetCheckout();
+        if (localStorage.getItem("jwtToken")) {
+            store.dispatch(getUserCart(jwt_decode(localStorage.getItem("jwtToken")).id));
+          }
     }
     viewItem = event => {
         this.props.viewItem(event.target.id);
