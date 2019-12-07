@@ -22,7 +22,7 @@ import "./App.css";
 class App extends Component {
   componentDidMount() {
     store.dispatch(loadUser());
-    if (localStorage.token) {
+    if (localStorage.getItem("jwtToken")) {
       store.dispatch(getUserCart(jwt_decode(localStorage.getItem("jwtToken")).id));
     }
   }
