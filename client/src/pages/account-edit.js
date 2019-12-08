@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { resetCheckout, getUserCart } from "../actions/transactionActions";
+import { getOrders } from "../actions/authActions";
 import { clearErrors } from "../actions/errorActions";
 import { loadUser } from "../actions/authActions";
 import { updateCredentials } from "../actions/authActions";
@@ -27,10 +28,12 @@ class AccountEdit extends Component {
         resetCheckout: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired,
         updateCredentials: PropTypes.func.isRequired,
-        loadUser: PropTypes.func.isRequired
+        loadUser: PropTypes.func.isRequired,
+        getOrders: PropTypes.func
     }
     componentDidMount() {
         this.props.clearErrors();
+        this.props.getOrders(this.props.user._id)
         this.props.resetCheckout();
         if (localStorage.getItem("jwtToken")) {
             store.dispatch(getUserCart(jwt_decode(localStorage.getItem("jwtToken")).id));
@@ -56,6 +59,7 @@ class AccountEdit extends Component {
 
         }
         this.setState({ [event.target.className]: false })
+        window.location.reload();
     }
     handleInputChange = event => {
         this.setState({ [event.target.id]: event.target.value });
@@ -63,21 +67,24 @@ class AccountEdit extends Component {
     render() {
         const { goBack } = this.props.history;
         return (
-            <div className="account-info-container">
-                <h1 className="page-title">Account Details</h1>
-                {!this.state.editName ?
-                    <div className="user-name">Name: {this.props.user.name}<br /> <button onClick={this.showInput} className="editName">Change name</button></div>
-                    : <div>New name: <input id="nameChange" onChange={this.handleInputChange} /><button id="submitChangeBtn" onClick={this.submitChange} className="editName">Ok</button>
-                        <button id="closeBtn" onClick={this.hideInput} className="editName">X</button></div>}
-                {!this.state.editEmail ?
-                    <div className="user-email">Email: {this.props.user.email}<br /> <button onClick={this.showInput} className="editEmail">Change email</button></div>
-                    : <div>New email: <input id="emailChange" onChange={this.handleInputChange} /><button id="submitChangeBtn" onClick={this.submitChange} className="editEmail">Ok</button>
-                        <button id="closeBtn" onClick={this.hideInput} className="editEmail">X</button></div>}
-                {!this.state.editPassword ?
-                    <div className="user-password">Password: ******<br />  <button onClick={this.showInput} className="editPassword">Change password</button></div>
-                    : <div>New password: <input id="passwordChange" onChange={this.handleInputChange} /><button id="submitChangeBtn" onClick={this.submitChange} className="editPassword">Ok</button>
-                        <button id="closeBtn" onClick={this.hideInput} className="editPassword">X</button></div>}
-            </div>
+            <>
+                <button onClick={goBack} className="back-button">Back</button>
+                <div className="account-info-container">
+                    <h1 className="page-title">Account Details</h1>
+                    {!this.state.editName ?
+                        <div className="user-name">Name: {this.props.user.name}<br /> <button onClick={this.showInput} className="editName">Change name</button></div>
+                        : <div>Name: <input id="nameChange" onChange={this.handleInputChange} /><br /><button id="submitChangeBtn" onClick={this.submitChange} className="editName">Ok</button>
+                            <button id="closeBtn" onClick={this.hideInput} className="editName">Cancel</button></div>}
+                    {!this.state.editEmail ?
+                        <div className="user-email">Email: {this.props.user.email}<br /> <button onClick={this.showInput} className="editEmail">Change email</button></div>
+                        : <div>Email: <input id="emailChange" onChange={this.handleInputChange} /><br /><button id="submitChangeBtn" onClick={this.submitChange} className="editEmail">Ok</button>
+                            <button id="closeBtn" onClick={this.hideInput} className="editEmail">Cancel</button></div>}
+                    {!this.state.editPassword ?
+                        <div className="user-password">Password: ******<br />  <button onClick={this.showInput} className="editPassword">Change password</button></div>
+                        : <div>Password: <input id="passwordChange" onChange={this.handleInputChange} /><br /><button id="submitChangeBtn" onClick={this.submitChange} className="editPassword">Ok</button>
+                            <button id="closeBtn" onClick={this.hideInput} className="editPassword">Cancel</button></div>}
+                </div>
+            </>
         )
     }
 }
@@ -91,5 +98,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { clearErrors, resetCheckout, loadUser, updateCredentials }
+    { clearErrors, resetCheckout, loadUser, updateCredentials, getOrders }
 )(AccountEdit);

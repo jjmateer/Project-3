@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { resetCheckout, getUserCart } from "../actions/transactionActions";
 import { clearErrors } from "../actions/errorActions";
-import { loadUser } from "../actions/authActions";
+import { loadUser, getOrders } from "../actions/authActions";
 // import LoadIcon from "../components/loader/loader";
 import PropTypes from "prop-types";
 import "../components/product-components/view-item.css"
@@ -17,10 +17,12 @@ class AccountInfo extends Component {
         isAuthenticated: PropTypes.bool,
         resetCheckout: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired,
-        loadUser: PropTypes.func.isRequired
+        loadUser: PropTypes.func.isRequired,
+        getOrders: PropTypes.func
     }
     componentDidMount() {
         this.props.clearErrors();
+        this.props.getOrders(this.props.user._id)
         this.props.resetCheckout();
         if (localStorage.getItem("jwtToken")) {
             store.dispatch(getUserCart(jwt_decode(localStorage.getItem("jwtToken")).id));
@@ -49,5 +51,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { clearErrors, resetCheckout, loadUser }
+    { clearErrors, resetCheckout, loadUser, getOrders }
 )(AccountInfo);

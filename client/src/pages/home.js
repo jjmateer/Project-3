@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Homediscount from "../components/sliders/homediscount";
-import Merchandise from "../components/sliders/merchandise-slide";
-import Featured from "../components/sliders/featured-slider";
+import HomeTiles from "../components/product-components/home-tiles";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
 import { resetCheckout, getUserCart } from "../actions/transactionActions";
@@ -21,31 +20,33 @@ class Home extends Component {
         auth: PropTypes.object.isRequired,
         error: PropTypes.object.isRequired,
         resetCheckout: PropTypes.func.isRequired,
-        clearErrors: PropTypes.func.isRequired
+        clearErrors: PropTypes.func.isRequired,
+        getOrders: PropTypes.func
     }
     componentDidMount() {
         this.props.clearErrors();
         this.props.resetCheckout();
         if (localStorage.getItem("jwtToken")) {
             store.dispatch(getUserCart(jwt_decode(localStorage.getItem("jwtToken")).id));
-          }
+        }
     }
     render() {
         return (
-            this.props.auth.isLoading ? <h1 className="page-title"><LoadIcon /></h1> :
-                <div >
-                    {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : null}
-                    <div>
-                        <h1 className="slider-label">Featured</h1>
-                        <Featured />
-                        <h1 className="slider-label">Under $100</h1>
-                        < Homediscount />
-                        <h1 className="slider-label">Merchandise</h1>
-                        <Merchandise />
+            this.props.auth.isLoading ? <h1 className="page-title">Token found, loading user...<LoadIcon /></h1> :
+                <>
+                    <div className="banner">Banner</div>
+                    <div className="home-user-container">
+                        <p className="greeting" style={{ color: "white", fontSize: 40, marginLeft: 25 }}>Hello, {this.props.user ? this.props.user.name : null}</p>
+                        <p className="cart-amount" style={{ color: "white", fontSize: 25, marginLeft: 25 }}>
+                            You currently have {this.props.item.user_cart ? this.props.item.user_cart.length : null} item
+                            {this.props.item.user_cart.length > 1 ? "s" : null} in your cart.</p>
                     </div>
+                    <h1 className="slider-label">Featured</h1>
+                    < Homediscount />
+                    <HomeTiles />
 
 
-                </div >
+                </>
         );
     }
 }

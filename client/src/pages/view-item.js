@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { addToCart, resetCheckout, getUserCart } from "../actions/transactionActions";
 import { clearErrors } from "../actions/errorActions";
 import { Link } from "react-router-dom";
+import { getOrders } from "../actions/authActions";
 // import LoadIcon from "../components/loader/loader";
 import PropTypes from "prop-types";
 import "../components/product-components/view-item.css"
@@ -22,14 +23,16 @@ class ViewItem extends Component {
         item: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool,
         resetCheckout: PropTypes.func.isRequired,
-        clearErrors: PropTypes.func.isRequired
+        clearErrors: PropTypes.func.isRequired,
+        getOrders: PropTypes.func
     }
     componentDidMount() {
         this.props.clearErrors();
         this.props.resetCheckout();
+        this.props.getOrders(this.props.user._id)
         if (localStorage.getItem("jwtToken")) {
             store.dispatch(getUserCart(jwt_decode(localStorage.getItem("jwtToken")).id));
-          }
+        }
     }
     getDropdownValue = event => {
         this.setState({ quantity: event.target.value })
@@ -85,5 +88,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { addToCart, clearErrors, resetCheckout }
+    { addToCart, clearErrors, resetCheckout, getOrders }
 )(ViewItem);

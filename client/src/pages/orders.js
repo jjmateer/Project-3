@@ -31,7 +31,6 @@ class Orders extends Component {
     }
     render() {
         const { orders } = this.props.auth;
-        console.log(orders)
         return (
             <div>
                 {orders.length ? <h1 className="page-title">Orders</h1> :

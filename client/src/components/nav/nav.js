@@ -28,6 +28,7 @@ class Nav extends Component {
     }
     static propTypes = {
         isAuthenticated: PropTypes.bool,
+        auth: PropTypes.object,
         item: PropTypes.object.isRequired,
         error: PropTypes.object.isRequired,
         clearErrors: PropTypes.func.isRequired,
@@ -37,6 +38,7 @@ class Nav extends Component {
         const { user_cart } = this.props.item;
         var cartLength = user_cart.length
         return (
+            this.props.auth.isLoading ? null :
             <>
                 <div className="global-header" >
                     <div className="global-header-left">
@@ -64,7 +66,7 @@ class Nav extends Component {
                     </div>
 
                 </div>
-                <div className="banner" />
+                <div className="light-beam" />
             </>
         )
     }
@@ -73,6 +75,7 @@ class Nav extends Component {
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
     item: state.item,
+    auth:state.auth,
     error: state.error
 })
 

@@ -5,6 +5,7 @@ import "./slider.css";
 import { connect } from "react-redux";
 import { getItems, viewItem } from "../../actions/productActions";
 import { clearErrors } from "../../actions/errorActions";
+import LoadIcon from "../loader/loader";
 import PropTypes from "prop-types";
 
 class Featured extends Component {
@@ -70,8 +71,9 @@ class Featured extends Component {
         };
         return (
             <Slider style={{ margin:"auto", boxShadow:"none"}} {...settings}>
-                {featureditems.map(({ _id, image, item, brand, price, description }) => {
+                {featureditems.map(({ _id, image, item, brand, price}) => {
                     return (
+                        this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : 
                         <div className="menu-item" key={_id}>
                             <div className="img-background" style={{border:"none"}}>
                                 <img className="slideImg" src={image} alt={image}></img>

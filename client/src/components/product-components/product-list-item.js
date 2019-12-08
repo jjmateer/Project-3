@@ -10,7 +10,6 @@ const ProductListItem = (props) => {
                 <p className="cproduct">{props.product}</p>
                 <p className="cbrand">Brand: {props.brand}</p>
                 <p className="cprice">${props.price}</p>
-                <p className="cdesc">{props.description}</p>
             </div>
             <Link to="/view-item" className="viewItemPL" id={props.id} onClick={props.viewItem} >View</Link>
         </div>

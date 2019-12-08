@@ -4,51 +4,50 @@
 .slick-slider {
   display: flex;
   flex-direction: row;
-  width: 100vw;
-  height: 500px;
-  box-shadow: 2px 2px 8px black;
+  width: 60vw;
+height:400px;
   margin-bottom: 100px;
+  margin-left:auto;
+  margin-right:25px;
+  border:2px solid #141518;
+  border-radius:5px;
 }
-
 .slick-track {
   margin: auto;
   width: 100vw;
-  height: 500px;
+height:400px;
 }
 
 img.slideImg {
   width: auto;
+  height:auto;
   margin: auto;
   max-width: 100%;
-  max-height: 100%;
+  max-height: 150px;
   padding: 0.5px;
 }
 
 .img-background {
-  width: 100%;
-  max-height: 50%;
+  width: 99%;
+height:45%;
   background: white;
-  border: 0.5px solid black;
   padding: 1px;
 }
 
 #card-header {
   text-decoration: none;
-  min-height: 60px;
-  font-size: 105%;
+  height:65px;
 }
 .slick-slide,
-.slick-slide div,
 .menu-item {
-  height: 500px;
+height:400px;
   user-select: none;
   box-sizing: border-box;
 }
 
+
 .card-info {
-  font-size: 15px;
-  height: 50%;
-  border: 1px solid black;
+  font-size: 100%;
   box-sizing: border-box;
 }
 
@@ -98,7 +97,7 @@ button.slick-arrow.slick-prev {
   border-radius: 2px;
   background:#141518;
   text-decoration: none;
-  border: 1px solid black;
+  border: 1px solid #141518;
   padding: 5px;
   font-weight: bold;
   box-sizing: border-box;
@@ -123,5 +122,9 @@ button.slick-arrow.slick-prev {
 #price {
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
+  font-size: 15px;
+}
+
+#brand {
+  color:darkslategrey;
 }
