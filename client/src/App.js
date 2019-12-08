@@ -9,6 +9,7 @@ import PrivateRoute from "./components/routing-components/private-route";
 import PublicRoute from "./components/routing-components/public-route";
 import Nav from "../src/components/nav/nav";
 import AccountInfo from "./pages/account";
+import AccountEdit from "./pages/account-edit";
 import Orders from "./pages/orders";
 import Home from "./pages/home";
 import Login from "./pages/login";
@@ -41,7 +42,8 @@ class App extends Component {
             <Route exact path="/view-item" component={ViewItem} />
             <PrivateRoute exact path="/orders" component={Orders} />
             <Route exact path="/item" component={Item} />
-            <PrivateRoute exact path="/account-info" component={AccountInfo} />
+            <PrivateRoute exact path="/account" component={AccountInfo} />
+            <PrivateRoute exact path="/account-edit" component={AccountEdit} />
             <Route component={ErrorC} />
           </Switch>
         </Router>

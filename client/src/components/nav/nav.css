@@ -87,7 +87,7 @@
   box-sizing: border-box;
 }
 .Obutton:hover {
-  color: #0f9b6c;
+  background:lightgray;
 }
 .fa.fa-search::before {
   margin: 1vw;

@@ -87,7 +87,7 @@ exports.login = function (req, res) {
 exports.checkUser = function (req, res) {
   if (req.body.token) {
     db.User.findById(req.body.id)
-      .select('-password')
+    .select('-password')
       .then(user => res.json(user));
   } else {
     res.status(400).json(null)

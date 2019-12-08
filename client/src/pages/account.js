@@ -32,14 +32,9 @@ class AccountInfo extends Component {
             <>
                 <div className="account-link-grid">
                     <Link to="/orders" className="order-grid-items" id="account-orders">Orders</Link>
-                    <Link to="/" className="order-grid-items" id="account-edit">Edit account info</Link>
-                    <Link to="/" className="order-grid-items" id="account-payment">Payment options</Link>
+                    <Link to="/account-edit" className="order-grid-items" id="account-edit">Account Info</Link>
+                    <Link to="/" className="order-grid-items" id="account-payment">Payment Options</Link>
                 </div>
-                {/* <div className="account-info-container">
-                    <div className="user-id">User ID: {this.props.user._id}</div>
-                    <div className="user-name">Name: {this.props.user.name}</div>
-                    <div className="user-email">Email: {this.props.user.email}</div>
-                </div> */}
             </>
         )
     }
