@@ -103,7 +103,7 @@ export const updateCredentials = (type, id, value) => dispatch => {
         }
     }
     dispatch({ type: UPDATE_CREDENTIALS });
-    axios.get(`http://localhost:3001/api/auth/update-credentials/${type}/${id}`, value, config)
+    axios.post(`http://localhost:3001/api/auth/update-credentials/${type}/${id}`, value, config)
         .then(res => {
             dispatch({
                 type: UPDATE_CREDENTIALS_SUCCESS,

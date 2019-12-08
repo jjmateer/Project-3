@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { resetCheckout, getUserCart } from "../actions/transactionActions";
 import { clearErrors } from "../actions/errorActions";
 import { loadUser } from "../actions/authActions";
-import {updateCredentials} from "../actions/authActions";
+import { updateCredentials } from "../actions/authActions";
 // import LoadIcon from "../components/loader/loader";
 import PropTypes from "prop-types";
 import "../components/product-components/view-item.css"
@@ -40,9 +40,20 @@ class AccountEdit extends Component {
         this.setState({ [event.target.className]: true });
     };
     submitChange = event => {
-        var classOfTarget = event.target.className
-        this.setState({ [event.target.className]: false})
-        this.props.updateCredentials(classOfTarget, this.state.classOfTarget, this.props.user._id)
+        var classOfTarget;
+        switch (event.target.className) {
+            case "editName":
+                this.props.updateCredentials("editName", this.props.user._id, this.state.usernameChange)
+                break;
+            case "editEmail":
+                this.props.updateCredentials("editEmail", this.props.user._id, this.state.emailChange)
+                break;
+            case "editPassword":
+                this.props.updateCredentials("editPassword", this.props.user._id, this.state.passwordChange)
+                break;
+
+        }
+        this.setState({ [event.target.className]: false })
     }
     handleInputChange = event => {
         this.setState({ [event.target.id]: event.target.value });
@@ -54,13 +65,13 @@ class AccountEdit extends Component {
                 <h1 className="page-title">Account Details</h1>
                 {!this.state.editName ?
                     <div className="user-name">Name:<br /> {this.props.user.name}<br /> <button onClick={this.showInput} className="editName">Edit name</button></div>
-                    : <div>New name: <input id="nameChange" /><button id="submitName" onClick={this.submitChange} className="editName">Ok</button></div>}
+                    : <div>New name: <input id="nameChange" onChange={this.handleInputChange} /><button id="submitName" onClick={this.submitChange} className="editName">Ok</button></div>}
                 {!this.state.editEmail ?
                     <div className="user-email">Email:<br /> {this.props.user.email}<br /> <button onClick={this.showInput} className="editEmail">Edit Email</button></div>
-                    : <div>New email: <input id="emailChange" /><button id="submitName" onClick={this.submitChange} className="editEmail">Ok</button></div>}
+                    : <div>New email: <input id="emailChange" onChange={this.handleInputChange} /><button id="submitName" onClick={this.submitChange} className="editEmail">Ok</button></div>}
                 {!this.state.editPassword ?
                     <div className="user-password">Password<br />  <button onClick={this.showInput} className="editPassword">Edit Password</button></div>
-                    : <div>New password: <input id="passwordChange" /><button id="submitName" onClick={this.submitChange} className="editPassword">Ok</button></div>}
+                    : <div>New password: <input id="passwordChange" onChange={this.handleInputChange} /><button id="submitName" onClick={this.submitChange} className="editPassword">Ok</button></div>}
             </div>
         )
     }
