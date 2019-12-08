@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LoginForm from "../components/auth-forms/login-form";
+import LoginForm from "../components/auth-components/login-form";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../actions/authActions";

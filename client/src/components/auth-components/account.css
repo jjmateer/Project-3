@@ -1,0 +1,60 @@
+.account-info-container {
+  width: 60vw;
+  margin: auto;
+  background: black;
+  color: white;
+}
+.account-info-container * {
+  font-size: 30px;
+}
+.account-link-grid {
+  margin: auto;
+  width: 90%;
+  height: 500px;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  grid-template-rows: 50% 50%;
+  display: grid;
+  grid-gap: 2px;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 50px;
+}
+.order-grid-items {
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+#account-orders {
+  background-image: linear-gradient(to bottom, black, transparent),
+    url(https://images.pexels.com/photos/1666070/pexels-photo-1666070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+}
+#account-edit {
+  background-image: linear-gradient(to bottom, black, transparent),
+    url(https://images.pexels.com/photos/39584/censorship-limitations-freedom-of-expression-restricted-39584.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+#account-payment {
+  background-image: linear-gradient(to bottom, black, transparent),
+    url(https://images.pexels.com/photos/164571/pexels-photo-164571.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+
+@media only screen and (max-width: 600px) {
+  .account-link-grid {
+    margin: auto;
+    width: 90%;
+    height: auto;
+    grid-template-columns: 100%;
+    grid-template-rows: 50px 50px 50px;
+    display: grid;
+    grid-gap: 2px;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+  }
+  .account-info-container {
+    width: 100vw;
+    margin: auto;
+    margin-top:200px;
+    background: black;
+    color: white;
+  }
+}

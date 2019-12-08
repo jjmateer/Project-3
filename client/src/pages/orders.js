@@ -35,7 +35,7 @@ class Orders extends Component {
         return (
             <div>
                 {orders.length ? <h1 className="page-title">Orders</h1> :
-                    <h1 className="page-title">{this.props.user.isLoading ? "Loading..." : null}</h1>}
+                    <h1 className="page-title">{this.props.user.isLoading ? <LoadIcon/> : null}</h1>}
                 <h1 className="page-title">{orders.length < 1 && !this.props.user.isLoading ? "No orders found." : null}</h1>
                 <div>
                     {orders.map(({ _id, items, total }) => (
