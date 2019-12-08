@@ -1,5 +1,5 @@
 .account-info-container {
-  width: 40vw;
+  width: 30vw;
   padding-left:20px;
   box-sizing: border-box;
   height:500px;
@@ -71,7 +71,7 @@
   .account-info-container {
     width: 100vw;
     margin: auto;
-    margin-top:200px;
+    margin-top:50px;
     background: black;
     color: white;
   }

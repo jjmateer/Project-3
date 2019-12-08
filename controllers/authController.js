@@ -82,6 +82,9 @@ exports.login = function (req, res) {
   }
 };
 
+exports.updateCredentials = function (req, res) {
+  console.log(req.body)
+}
 
 // router.get('/user', auth, (req, res) => {
 exports.checkUser = function (req, res) {

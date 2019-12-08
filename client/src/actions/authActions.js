@@ -13,7 +13,11 @@ import {
     REGISTER_FAIL,
     GET_ORDERS,
     GET_ORDERS_FAIL,
-    GET_ORDERS_SUCCESS
+    GET_ORDERS_SUCCESS,
+    UPDATE_CREDENTIALS,
+    UPDATE_CREDENTIALS_FAIL,
+    UPDATE_CREDENTIALS_SUCCESS
+
 } from "./types";
 
 export const loadUser = () => (dispatch) => {
@@ -91,6 +95,28 @@ export const login = (userData) => dispatch => {
                 type: LOGIN_FAIL
             })
         })
+}
+export const updateCredentials = (type, id, value) => dispatch => {
+    const config = {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+    dispatch({ type: UPDATE_CREDENTIALS });
+    axios.get(`http://localhost:3001/api/auth/update-credentials/${type}/${id}`, value, config)
+        .then(res => {
+            dispatch({
+                type: UPDATE_CREDENTIALS_SUCCESS,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch(returnErrors(err.response.data, err.response.status, "GET_ORDERS_FAIL"));
+            dispatch({
+                type: UPDATE_CREDENTIALS_FAIL
+            })
+        })
+
 }
 export const getOrders = (userID) => dispatch => {
     const config = {
