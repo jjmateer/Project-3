@@ -13,7 +13,11 @@ import {
     REGISTER_FAIL,
     GET_ORDERS,
     GET_ORDERS_FAIL,
-    GET_ORDERS_SUCCESS
+    GET_ORDERS_SUCCESS,
+    UPDATE_CREDENTIALS,
+    UPDATE_CREDENTIALS_FAIL,
+    UPDATE_CREDENTIALS_SUCCESS
+
 } from "./types";
 
 export const loadUser = () => (dispatch) => {
@@ -25,7 +29,7 @@ export const loadUser = () => (dispatch) => {
         }
 
         axios
-            .post('/api/auth/user', body)
+            .post('http://localhost:3001/api/auth/user', body)
             .then(res => {
                 dispatch({
                     type: USER_LOADED,
@@ -49,7 +53,7 @@ export const register = newUser => dispatch => {
         }
     }
 
-    axios.post("/api/auth/register", newUser, config)
+    axios.post("http://localhost:3001/api/auth/register", newUser, config)
         .then(res => {
             dispatch({
                 type: REGISTER_SUCCESS,
@@ -75,7 +79,7 @@ export const login = (userData) => dispatch => {
         }
     }
 
-    axios.post("/api/auth/login", userData, config)
+    axios.post("http://localhost:3001/api/auth/login", userData, config)
         .then(res => {
             dispatch({
                 type: LOGIN_SUCCESS,
@@ -92,6 +96,29 @@ export const login = (userData) => dispatch => {
             })
         })
 }
+export const updateCredentials = (type, id, value) => dispatch => {
+    console.log(value)
+    const config = {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+    dispatch({ type: UPDATE_CREDENTIALS });
+    axios.post(`http://localhost:3001/api/auth/update-credentials/${type}/${id}`, value, config)
+        .then(res => {
+            dispatch({
+                type: UPDATE_CREDENTIALS_SUCCESS,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch(returnErrors(err.response.data, err.response.status, "GET_ORDERS_FAIL"));
+            dispatch({
+                type: UPDATE_CREDENTIALS_FAIL
+            })
+        })
+
+}
 export const getOrders = (userID) => dispatch => {
     const config = {
         headers: {
@@ -99,7 +126,7 @@ export const getOrders = (userID) => dispatch => {
         }
     }
     dispatch({ type: GET_ORDERS });
-    axios.get(`/api/inventory/orders/${userID}`, userID, config)
+    axios.get(`http://localhost:3001/api/inventory/orders/${userID}`, userID, config)
         .then(res => {
             dispatch({
                 type: GET_ORDERS_SUCCESS,

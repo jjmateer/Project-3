@@ -82,6 +82,41 @@ exports.login = function (req, res) {
   }
 };
 
+exports.updateCredentials = function (req, res) {
+  switch (req.params.type) {
+    case "editName":
+        db.User.updateOne(
+          { _id: req.params.id },
+          { $set: { "name": req.body.data } })
+          .then(() => {
+            db.User.findById(req.params.id).then(data=>{
+              res.status(200).json(data);
+            })
+          })
+      break;
+    case "editEmail":
+        db.User.updateOne(
+          { _id: req.params.id },
+          { $set: { "email": req.body.data } })
+          .then(() => {
+            db.User.findById(req.params.id).then(data=>{
+              res.status(200).json(data);
+            })
+          })
+      break;
+    case "editPassword":
+        let salt = bcrypt.genSaltSync(10);
+        db.User.updateOne(
+          { _id: req.params.id },
+          { $set: { "password": bcrypt.hashSync(req.body.data, salt) } })
+          .then(() => {
+            db.User.findById(req.params.id).then(data=>{
+              res.status(200).json(data);
+            })
+          })
+      break;
+  }
+}
 
 // router.get('/user', auth, (req, res) => {
 exports.checkUser = function (req, res) {

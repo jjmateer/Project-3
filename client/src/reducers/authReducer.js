@@ -9,7 +9,10 @@ import {
     REGISTER_FAIL,
     GET_ORDERS,
     GET_ORDERS_FAIL,
-    GET_ORDERS_SUCCESS
+    GET_ORDERS_SUCCESS,
+    UPDATE_CREDENTIALS,
+    UPDATE_CREDENTIALS_SUCCESS,
+    UPDATE_CREDENTIALS_FAIL
 } from "../actions/types";
 
 const initialState = {
@@ -24,6 +27,7 @@ export default function (state = initialState, action) {
     switch (action.type) {
         case USER_LOADING:
         case GET_ORDERS:
+        case UPDATE_CREDENTIALS:
             return {
                 ...state,
                 isLoading: true
@@ -45,6 +49,7 @@ export default function (state = initialState, action) {
                 isLoading: false,
             };
         case GET_ORDERS_SUCCESS:
+        case UPDATE_CREDENTIALS_SUCCESS:
             return {
                 ...state,
                 orders: action.payload,
@@ -63,6 +68,7 @@ export default function (state = initialState, action) {
                 isLoading: false
             };
         case GET_ORDERS_FAIL:
+        case UPDATE_CREDENTIALS_FAIL:
             return {
                 ...state,
                 isLoading: false

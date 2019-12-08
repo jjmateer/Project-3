@@ -47,8 +47,8 @@ class Nav extends Component {
                             <Link onClick={() => this.toggleMenu()} to="/browse">Search</Link>
                             {this.props.isAuthenticated ? null : <Link onClick={() => this.toggleMenu()} to="/login">Log in</Link>}
                             {this.props.isAuthenticated ? null : <Link onClick={() => this.toggleMenu()} to="/signup">Sign up</Link>}
-                            {this.props.isAuthenticated ? <Link onClick={() => this.toggleMenu()} to="/orders">Orders</Link> : null}
-                            {this.props.isAuthenticated ? <Link onClick={() => this.toggleMenu()} to="/cart">Cart{cartLength > 1 ? `(${cartLength})` : null}</Link> : null}
+                            {this.props.isAuthenticated ? <Link onClick={() => this.toggleMenu()} to="/account">Account</Link> : null}
+                            {this.props.isAuthenticated ? <Link onClick={() => this.toggleMenu()} to="/cart">Cart{cartLength > 0 ? `(${cartLength})` : null}</Link> : null}
                             {this.props.isAuthenticated ? <Link onClick={() => this.toggleMenu()} to="/" onClick={this.props.logout}>Logout</Link> : null}
                         </Menu>
                     </div>
@@ -59,7 +59,7 @@ class Nav extends Component {
                         {this.props.isAuthenticated ? null : <Link to="/login">Log in</Link>}
                         {this.props.isAuthenticated ? null : <Link to="/signup">Sign up</Link>}
                         {this.props.isAuthenticated ? <Link to="/cart">Cart{cartLength > 0 ? `(${cartLength})` : null}</Link> : null}
-                        {this.props.isAuthenticated ? <Link to="/orders">Orders</Link> : null}
+                        {this.props.isAuthenticated ? <Link to="/account">Account</Link> : null}
                         {this.props.isAuthenticated ? <Link to="/" onClick={this.props.logout}>Logout</Link> : null}
                     </div>
 

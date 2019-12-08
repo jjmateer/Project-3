@@ -107,7 +107,6 @@ button.slick-arrow.slick-prev {
 
 .viewItem:hover {
   transition: 0.35s;
-  color: #0f9b6c;
   opacity: 1;
 }
 

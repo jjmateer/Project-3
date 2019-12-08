@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addToCart, resetCheckout } from "../actions/transactionActions";
+import { addToCart, resetCheckout, getUserCart } from "../actions/transactionActions";
 import { clearErrors } from "../actions/errorActions";
 import { Link } from "react-router-dom";
 // import LoadIcon from "../components/loader/loader";
 import PropTypes from "prop-types";
 import "../components/product-components/view-item.css"
-
+import store from "../store";
+import jwt_decode from "jwt-decode";
 
 class ViewItem extends Component {
     constructor(props) {
@@ -26,6 +27,9 @@ class ViewItem extends Component {
     componentDidMount() {
         this.props.clearErrors();
         this.props.resetCheckout();
+        if (localStorage.getItem("jwtToken")) {
+            store.dispatch(getUserCart(jwt_decode(localStorage.getItem("jwtToken")).id));
+          }
     }
     getDropdownValue = event => {
         this.setState({ quantity: event.target.value })

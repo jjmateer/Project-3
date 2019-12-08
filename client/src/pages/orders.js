@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
 import { getOrders } from "../actions/authActions";
-import {resetCheckout} from "../actions/transactionActions";
+import {resetCheckout, getUserCart} from "../actions/transactionActions";
 import LoadIcon from "../components/loader/loader"
 import PropTypes from "prop-types";
 import "../components/product-components/orders.css"
-
+import store from "../store";
+import jwt_decode from "jwt-decode";
 
 class Orders extends Component {
     state = {
@@ -24,6 +25,9 @@ class Orders extends Component {
         this.props.clearErrors();
         this.props.getOrders(this.props.user._id)
         this.props.resetCheckout();
+        if (localStorage.getItem("jwtToken")) {
+            store.dispatch(getUserCart(jwt_decode(localStorage.getItem("jwtToken")).id));
+          }
     }
     render() {
         const { orders } = this.props.auth;
@@ -31,7 +35,7 @@ class Orders extends Component {
         return (
             <div>
                 {orders.length ? <h1 className="page-title">Orders</h1> :
-                    <h1 className="page-title">{this.props.user.isLoading ? "Loading..." : null}</h1>}
+                    <h1 className="page-title">{this.props.user.isLoading ? <LoadIcon/> : null}</h1>}
                 <h1 className="page-title">{orders.length < 1 && !this.props.user.isLoading ? "No orders found." : null}</h1>
                 <div>
                     {orders.map(({ _id, items, total }) => (

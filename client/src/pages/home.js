@@ -4,10 +4,11 @@ import Merchandise from "../components/sliders/merchandise-slide";
 import Featured from "../components/sliders/featured-slider";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
-import { resetCheckout } from "../actions/transactionActions";
+import { resetCheckout, getUserCart } from "../actions/transactionActions";
 import LoadIcon from "../components/loader/loader"
 import PropTypes from "prop-types";
-
+import store from "../store";
+import jwt_decode from "jwt-decode";
 
 class Home extends Component {
     state = {
@@ -25,6 +26,9 @@ class Home extends Component {
     componentDidMount() {
         this.props.clearErrors();
         this.props.resetCheckout();
+        if (localStorage.getItem("jwtToken")) {
+            store.dispatch(getUserCart(jwt_decode(localStorage.getItem("jwtToken")).id));
+          }
     }
     render() {
         return (

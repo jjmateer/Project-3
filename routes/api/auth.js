@@ -4,5 +4,7 @@ router.route("/register").post(authController.register);
 
 router.route("/login").post(authController.login);
 
-router.route("/user").post( authController.checkUser);
+router.route("/user").post(authController.checkUser);
+
+router.route("/update-credentials/:type/:id").post(authController.updateCredentials);
 module.exports = router;

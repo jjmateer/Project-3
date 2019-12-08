@@ -29,6 +29,8 @@
     border: 1px solid black;
     border-radius: 3px 0px 0px 3px;
     height:52px;
+    width:50px;
+    text-align: center;
 }
 .VATCbtn {
     background: transparent;
@@ -46,7 +48,7 @@
     opacity:0.8;
 }
 .VATCbtn:hover{
-    color:#0f9b6c;
+    opacity:1;
     transition:0.35s;
 }
 .back-button {
@@ -63,8 +65,9 @@
     color:white;
     font-size:15px;
     border-radius:3px;
+    opacity: 0.8;
 }
 .back-button:hover{
-    color:#0f9b6c;
+    opacity: 1;
     transition:0.35s;
 }
