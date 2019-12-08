@@ -39,16 +39,19 @@ class AccountEdit extends Component {
     showInput = event => {
         this.setState({ [event.target.className]: true });
     };
+    hideInput = event => {
+        this.setState({ [event.target.className]: false });
+    }
     submitChange = event => {
         switch (event.target.className) {
             case "editName":
-                this.props.updateCredentials(event.target.className, this.props.user._id, {data: this.state.nameChange})
+                this.props.updateCredentials(event.target.className, this.props.user._id, { data: this.state.nameChange })
                 break;
             case "editEmail":
-                this.props.updateCredentials(event.target.className, this.props.user._id, {data: this.state.emailChange})
+                this.props.updateCredentials(event.target.className, this.props.user._id, { data: this.state.emailChange })
                 break;
             case "editPassword":
-                this.props.updateCredentials(event.target.className, this.props.user._id, {data: this.state.passwordChange})
+                this.props.updateCredentials(event.target.className, this.props.user._id, { data: this.state.passwordChange })
                 break;
 
         }
@@ -63,14 +66,17 @@ class AccountEdit extends Component {
             <div className="account-info-container">
                 <h1 className="page-title">Account Details</h1>
                 {!this.state.editName ?
-                    <div className="user-name">Name: {this.props.user.name}<br /> <button onClick={this.showInput} className="editName">Edit name</button></div>
-                    : <div>New name: <input id="nameChange" onChange={this.handleInputChange} /><button id="submitName" onClick={this.submitChange} className="editName">Ok</button></div>}
+                    <div className="user-name">Name: {this.props.user.name}<br /> <button onClick={this.showInput} className="editName">Change name</button></div>
+                    : <div>New name: <input id="nameChange" onChange={this.handleInputChange} /><button id="submitChangeBtn" onClick={this.submitChange} className="editName">Ok</button>
+                        <button id="closeBtn" onClick={this.hideInput} className="editName">X</button></div>}
                 {!this.state.editEmail ?
-                    <div className="user-email">Email: {this.props.user.email}<br /> <button onClick={this.showInput} className="editEmail">Edit Email</button></div>
-                    : <div>New email: <input id="emailChange" onChange={this.handleInputChange} /><button id="submitName" onClick={this.submitChange} className="editEmail">Ok</button></div>}
+                    <div className="user-email">Email: {this.props.user.email}<br /> <button onClick={this.showInput} className="editEmail">Change email</button></div>
+                    : <div>New email: <input id="emailChange" onChange={this.handleInputChange} /><button id="submitChangeBtn" onClick={this.submitChange} className="editEmail">Ok</button>
+                        <button id="closeBtn" onClick={this.hideInput} className="editEmail">X</button></div>}
                 {!this.state.editPassword ?
-                    <div className="user-password">Password<br />  <button onClick={this.showInput} className="editPassword">Edit Password</button></div>
-                    : <div>New password: <input id="passwordChange" onChange={this.handleInputChange} /><button id="submitName" onClick={this.submitChange} className="editPassword">Ok</button></div>}
+                    <div className="user-password">Password: ******<br />  <button onClick={this.showInput} className="editPassword">Change password</button></div>
+                    : <div>New password: <input id="passwordChange" onChange={this.handleInputChange} /><button id="submitChangeBtn" onClick={this.submitChange} className="editPassword">Ok</button>
+                        <button id="closeBtn" onClick={this.hideInput} className="editPassword">X</button></div>}
             </div>
         )
     }
