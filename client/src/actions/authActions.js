@@ -97,6 +97,7 @@ export const login = (userData) => dispatch => {
         })
 }
 export const updateCredentials = (type, id, value) => dispatch => {
+    console.log(value)
     const config = {
         headers: {
             "Content-Type": "application/json"
