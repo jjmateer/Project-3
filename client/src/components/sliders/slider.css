@@ -6,7 +6,7 @@
   flex-direction: row;
   width: 60vw;
   height: 400px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   margin-left: auto;
   margin-right: 25px;
   border-radius: 5px;
@@ -127,6 +127,7 @@ button.slick-arrow.slick-prev {
 
 #brand {
   color: darkslategrey;
+  height:30px;
 }
 
 @media only screen and (max-width:900px) {

@@ -1,9 +1,24 @@
 .greeting {
   margin-bottom: 10px;
 }
+.banner {
+    height:75px;
+    width:100%;
+    margin-top:40px;
+    background: linear-gradient(to right, #0f9b6c, white, #0f9b6c);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color:white;
+    font-size:30px;
+    padding-left:40px;
+    background-size:400%;
+    background-position: fixed;
+    background-position: top;
+    color:white;
+}
 .home-user-container {
   margin-top: 100px;
-  width: 36vw;
+  width: 33vw;
   height: 400px;
   margin-left: 1vw;
   float: left;
@@ -14,24 +29,24 @@
 }
 
 .home-account-div {
-  height: 50%;
+  height: 40%;
   width: 95%;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 100%;
   grid-gap: 5px;
   margin: auto;
-  margin-bottom: 100px;
 }
 .home-account-div a {
   font-size: 30px;
-  color:white;
+  color: white;
+  border-radius: 4px;
 }
 #home-account-orders:hover,
 #home-account-cart:hover,
-#home-account-search:hover,
-#home-account-computers:hover {
-    color: #0f9b6c;
+#home-account-logout:hover,
+#home-account-account:hover {
+  color: #0f9b6c;
 }
 #home-account-orders {
   background: linear-gradient(to bottom right, black, transparent),
@@ -47,16 +62,16 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-#home-account-computers {
-  background-image: linear-gradient(to bottom right, black, transparent),
-    url(https://images.pexels.com/photos/2588757/pexels-photo-2588757.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
-  background-size: cover;
+#home-account-logout {
+  background-image:
+    url(https://image.flaticon.com/icons/svg/182/182448.svg);
+    background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-#home-account-search {
+#home-account-account {
   background-image: linear-gradient(to bottom right, black, transparent),
-    url(https://images.pexels.com/photos/3074542/pexels-photo-3074542.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiTpL5cDSP7-7PqBFa78ejlmBgZVO0hXm-KUQBej0mh4A0M8sO&s);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -67,9 +82,6 @@
     margin: 0;
     margin-top: 25px;
     height: 600px;
-  }
-  .banner {
-    display: none;
   }
 }
 @media only screen and (max-width: 900px) and (orientation: portrait) {

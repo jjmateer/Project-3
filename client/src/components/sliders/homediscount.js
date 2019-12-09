@@ -41,7 +41,8 @@ class Homediscount extends Component {
             infinite: true,
             slidesToShow: 7,
             slidesToScroll: 2,
-            draggable: true,
+            draggable: false,
+            autoplay: true,
             autoplaySpeed: 3000,
             initialSlide: 0,
             responsive: [
@@ -82,7 +83,7 @@ class Homediscount extends Component {
                             </div>
                             <div className="card-info">
                                 <p id="card-header">{item}</p>
-                                <p id="brand">By {brand}</p>
+                                {/* <p id="brand">By {brand}</p> */}
                                 <p id="price">${price}.00</p>
                                 <Link to="/view-item" className="viewItem" id={_id} onClick={this.viewItem} >View</Link>
                             </div>

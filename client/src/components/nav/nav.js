@@ -38,7 +38,7 @@ class Nav extends Component {
         const { user_cart } = this.props.item;
         var cartLength = user_cart.length
         return (
-            this.props.auth.isLoading ? null :
+            !this.props.auth.user && this.props.auth.isLoading ? null :
             <>
                 <div className="global-header" >
                     <div className="global-header-left">
@@ -66,7 +66,7 @@ class Nav extends Component {
                     </div>
 
                 </div>
-                <div className="light-beam" />
+                {/* <div className="light-beam" /> */}
             </>
         )
     }

@@ -48,7 +48,7 @@
   font-family: lobster;
   font-size: 50px;
   text-align: center;
-  margin: 15px auto;
+  margin-top:15px;
   font: 60px;
   display: flex;
 }
@@ -78,7 +78,7 @@
   background-color: white;
   color: #141518;
   height: 100%;
-  width: 7.5%;
+  width: 5%;
   border-left: none;
   border: 1.5px solid #141518;
   border-radius: 0px 5px 5px 0px;
@@ -143,9 +143,10 @@
 @media only screen and (max-width: 1340px) {
   #searchjoin {
     width: 50vw;
+    margin-left:20px;
   }
   .global-header-left {
-    width: 25vw;
+    width: 20vw;
   }
   .Obutton {
     width: 12.5%;
