@@ -39,7 +39,7 @@ class Homediscount extends Component {
         var settings = {
             dots: false,
             infinite: true,
-            slidesToShow: 7,
+            slidesToShow: 5,
             slidesToScroll: 2,
             draggable: false,
             autoplay: true,

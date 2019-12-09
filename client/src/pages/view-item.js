@@ -29,7 +29,6 @@ class ViewItem extends Component {
     componentDidMount() {
         this.props.clearErrors();
         this.props.resetCheckout();
-        this.props.getOrders(this.props.user._id)
         if (localStorage.getItem("jwtToken")) {
             store.dispatch(getUserCart(jwt_decode(localStorage.getItem("jwtToken")).id));
         }
@@ -45,7 +44,7 @@ class ViewItem extends Component {
         const { item_being_viewed } = this.props.item;
         const { goBack } = this.props.history;
         return (
-            <div id="productList">
+            <div id="VproductList">
                 {item_being_viewed.map(({ _id, image, item, brand, price, description }) => {
                     return (
                         <div key={_id} >
