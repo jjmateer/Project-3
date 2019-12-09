@@ -40,7 +40,7 @@ class Homediscount extends Component {
             dots: false,
             infinite: true,
             slidesToShow: 7,
-            slidesToScroll: 5,
+            slidesToScroll: 2,
             draggable: true,
             autoplaySpeed: 3000,
             initialSlide: 0,
@@ -73,16 +73,16 @@ class Homediscount extends Component {
         };
         return (
             <Slider {...settings}>
-                {featureditems.map(({ _id, image, item, brand, price, description }) => {
+                {featureditems.map(({ _id, image, item, brand, price }) => {
                     return (
-                        this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : 
+                        this.props.item.loading ? <h1 key={_id} className="page-title"><LoadIcon /></h1> : 
                         <div className="menu-item" key={_id}>
                             <div className="img-background">
                                 <img className="slideImg" src={image} alt={image}></img>
                             </div>
                             <div className="card-info">
                                 <p id="card-header">{item}</p>
-                                <p id="brand">{brand}</p>
+                                <p id="brand">By {brand}</p>
                                 <p id="price">${price}.00</p>
                                 <Link to="/view-item" className="viewItem" id={_id} onClick={this.viewItem} >View</Link>
                             </div>
