@@ -5,7 +5,7 @@ function CartListItem(props) {
     const totalUnitPrice = props.price * props.quantity;
     return (
         <div className="grid-item" id="cartCard">
-            <div id="card-image-container"><img className="cardImg" alt={props.image} src={props.image} /></div>
+            <img className="cardImg" alt={props.image} src={props.image} />
             <div id="card-product-info">
                 <p className="cproduct">{props.product}</p>
                 <p className="cbrand">By {props.brand}</p>

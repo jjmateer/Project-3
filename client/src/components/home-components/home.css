@@ -44,8 +44,8 @@
 }
 #home-account-orders:hover,
 #home-account-cart:hover,
-#home-account-logout:hover,
-#home-account-account:hover {
+#home-account-login:hover,
+#home-account-register:hover {
   color: #0f9b6c;
 }
 #home-account-orders {
@@ -58,20 +58,6 @@
 #home-account-cart {
   background: linear-gradient(to bottom right, black, transparent),
     url(https://images.pexels.com/photos/953862/pexels-photo-953862.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-#home-account-logout {
-  background-image:
-    url(https://image.flaticon.com/icons/svg/182/182448.svg);
-    background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-#home-account-account {
-  background-image: linear-gradient(to bottom right, black, transparent),
-    url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiTpL5cDSP7-7PqBFa78ejlmBgZVO0hXm-KUQBej0mh4A0M8sO&s);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

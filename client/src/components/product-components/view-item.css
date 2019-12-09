@@ -3,11 +3,10 @@
     max-height:600px;
     max-width:300px;
     width:auto;
-    margin-left: auto;
-    margin-right: auto;
+    margin:auto;
     display: block;
 }
-#imageWrapper {
+.VcardImg {
     width:auto;
     max-width:30vw;
     margin:auto;
@@ -52,8 +51,9 @@
     transition:0.35s;
 }
 .back-button {
-    position: fixed;
-    right:0;
+    position: static;
+    display:none;
+    margin-left:80vw;
     margin-right:25px;
     margin-top:-90px;
     cursor: pointer;
@@ -66,8 +66,29 @@
     font-size:15px;
     border-radius:3px;
     opacity: 0.8;
+
 }
 .back-button:hover{
     opacity: 1;
     transition:0.35s;
+}
+
+@media only screen and (max-width: 900px) {
+    .back-button {
+        margin-top:1vh;
+        display:block;
+    }
+    .VcardImg {
+        margin-top:100px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .back-button {
+        margin-top:1vh;
+        display:block;
+    }
+    .VcardImg {
+        margin-top:100px;
+    }
 }

@@ -38,7 +38,6 @@ class Nav extends Component {
         const { user_cart } = this.props.item;
         var cartLength = user_cart.length
         return (
-            !this.props.auth.user && this.props.auth.isLoading ? null :
             <>
                 <div className="global-header" >
                     <div className="global-header-left">
@@ -54,17 +53,21 @@ class Nav extends Component {
                             {this.props.isAuthenticated ? <Link onClick={() => this.toggleMenu()} to="/" onClick={this.props.logout}>Logout</Link> : null}
                         </Menu>
                     </div>
-                    <div id="searchjoin" className="large-search">
-                        < Search />
-                    </div>
-                    <div className="global-header-right">
-                        {this.props.isAuthenticated ? null : <Link to="/login">Log in</Link>}
-                        {this.props.isAuthenticated ? null : <Link to="/signup">Sign up</Link>}
-                        {this.props.isAuthenticated ? <Link to="/cart">Cart{cartLength > 0 ? `(${cartLength})` : null}</Link> : null}
-                        {this.props.isAuthenticated ? <Link to="/account">Account</Link> : null}
-                        {this.props.isAuthenticated ? <Link to="/" onClick={this.props.logout}>Logout</Link> : null}
-                    </div>
+                    {!this.props.auth.user && this.props.auth.isLoading ? null :
+                        <div id="searchjoin" className="large-search">
+                            < Search />
+                        </div>
+                    }
+                    {!this.props.auth.user && this.props.auth.isLoading ? null :
+                        <div className="global-header-right">
 
+                            {this.props.isAuthenticated ? null : <Link to="/login">Log in</Link>}
+                            {this.props.isAuthenticated ? null : <Link to="/signup">Sign up</Link>}
+                            {this.props.isAuthenticated ? <Link to="/cart">Cart{cartLength > 0 ? `(${cartLength})` : null}</Link> : null}
+                            {this.props.isAuthenticated ? <Link to="/account">Account</Link> : null}
+                            {this.props.isAuthenticated ? <Link to="/" onClick={this.props.logout}>Logout</Link> : null}
+                        </div>
+                    }
                 </div>
                 {/* <div className="light-beam" /> */}
             </>
@@ -75,7 +78,7 @@ class Nav extends Component {
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
     item: state.item,
-    auth:state.auth,
+    auth: state.auth,
     error: state.error
 })
 
