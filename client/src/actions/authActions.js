@@ -29,7 +29,7 @@ export const loadUser = () => (dispatch) => {
         }
 
         axios
-            .post('http://localhost:3001/api/auth/user', body)
+            .post('/api/auth/user', body)
             .then(res => {
                 dispatch({
                     type: USER_LOADED,
@@ -53,7 +53,7 @@ export const register = newUser => dispatch => {
         }
     }
 
-    axios.post("http://localhost:3001/api/auth/register", newUser, config)
+    axios.post("/api/auth/register", newUser, config)
         .then(res => {
             dispatch({
                 type: REGISTER_SUCCESS,
@@ -79,7 +79,7 @@ export const login = (userData) => dispatch => {
         }
     }
 
-    axios.post("http://localhost:3001/api/auth/login", userData, config)
+    axios.post("/api/auth/login", userData, config)
         .then(res => {
             dispatch({
                 type: LOGIN_SUCCESS,
@@ -104,7 +104,7 @@ export const updateCredentials = (type, id, value) => dispatch => {
         }
     }
     dispatch({ type: UPDATE_CREDENTIALS });
-    axios.post(`http://localhost:3001/api/auth/update-credentials/${type}/${id}`, value, config)
+    axios.post(`/api/auth/update-credentials/${type}/${id}`, value, config)
         .then(res => {
             dispatch({
                 type: UPDATE_CREDENTIALS_SUCCESS,
@@ -126,7 +126,7 @@ export const getOrders = (userID) => dispatch => {
         }
     }
     dispatch({ type: GET_ORDERS });
-    axios.get(`http://localhost:3001/api/inventory/orders/${userID}`, userID, config)
+    axios.get(`/api/inventory/orders/${userID}`, userID, config)
         .then(res => {
             dispatch({
                 type: GET_ORDERS_SUCCESS,

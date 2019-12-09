@@ -78,7 +78,7 @@
   background-color: white;
   color: #141518;
   height: 100%;
-  width: 5%;
+  width: 50px;
   border-left: none;
   border: 1.5px solid #141518;
   border-radius: 0px 5px 5px 0px;
@@ -90,7 +90,7 @@
   background:lightgray;
 }
 .fa.fa-search::before {
-  margin: 1vw;
+  margin: 15px;
   height: 40px;
   line-height: 175%;
 }
