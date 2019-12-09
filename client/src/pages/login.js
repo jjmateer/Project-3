@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../actions/authActions";
 import { clearErrors } from "../actions/errorActions";
-import {resetCheckout} from "../actions/transactionActions";
+import { resetCheckout } from "../actions/transactionActions";
+import LoadIcon from "../components/loader/loader";
 
 
 class Login extends Component {
@@ -19,7 +20,8 @@ class Login extends Component {
         error: PropTypes.object.isRequired,
         resetCheckout: PropTypes.func.isRequired,
         login: PropTypes.func.isRequired,
-        clearErrors: PropTypes.func.isRequired
+        clearErrors: PropTypes.func.isRequired,
+        auth: PropTypes.object.isRequired
     }
     componentDidMount() {
         this.props.clearErrors();
@@ -53,13 +55,14 @@ class Login extends Component {
 
     render() {
         return (
+            this.props.auth.isLoading ? <h1 className="page-title">Token found, loading user...<LoadIcon /></h1> :
             <div>
                 {this.props.error.msg.msg ? <h1 id="error-header">{this.props.error.msg.msg}</h1> : null}
-                    <LoginForm
-                        handleInputChange={this.handleInputChange}
-                        handleFormSubmit={this.handleFormSubmit}
-                    />
-                </div>
+                <LoginForm
+                    handleInputChange={this.handleInputChange}
+                    handleFormSubmit={this.handleFormSubmit}
+                />
+            </div>
         );
     }
 }

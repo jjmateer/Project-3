@@ -1,0 +1,91 @@
+.greeting {
+  margin-bottom: 10px;
+}
+.banner {
+    height:75px;
+    width:100%;
+    margin-top:40px;
+    background: linear-gradient(to right, #0f9b6c, white, #0f9b6c);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color:white;
+    font-size:30px;
+    padding-left:40px;
+    background-size:400%;
+    background-position: fixed;
+    background-position: top;
+    color:white;
+}
+.home-user-container {
+  margin-top: 100px;
+  width: 33vw;
+  height: 400px;
+  margin-left: 1vw;
+  float: left;
+  background: #141518;
+  border: 1px solid #141518;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px gray;
+}
+
+.home-account-div {
+  height: 40%;
+  width: 95%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+  grid-gap: 5px;
+  margin: auto;
+}
+.home-account-div a {
+  font-size: 30px;
+  color: white;
+  border-radius: 4px;
+}
+#home-account-orders:hover,
+#home-account-cart:hover,
+#home-account-logout:hover,
+#home-account-account:hover {
+  color: #0f9b6c;
+}
+#home-account-orders {
+  background: linear-gradient(to bottom right, black, transparent),
+    url(https://images.pexels.com/photos/1666070/pexels-photo-1666070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#home-account-cart {
+  background: linear-gradient(to bottom right, black, transparent),
+    url(https://images.pexels.com/photos/953862/pexels-photo-953862.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#home-account-logout {
+  background-image:
+    url(https://image.flaticon.com/icons/svg/182/182448.svg);
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#home-account-account {
+  background-image: linear-gradient(to bottom right, black, transparent),
+    url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiTpL5cDSP7-7PqBFa78ejlmBgZVO0hXm-KUQBej0mh4A0M8sO&s);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media only screen and (max-width: 900px) {
+  .home-user-container {
+    width: 100vw;
+    margin: 0;
+    margin-top: 25px;
+    height: 600px;
+  }
+}
+@media only screen and (max-width: 900px) and (orientation: portrait) {
+  .home-account-div {
+    margin-left: 1.5vw;
+  }
+}

@@ -24,7 +24,8 @@ class Signup extends Component {
         isAuthenticated: PropTypes.bool,
         error: PropTypes.object.isRequired,
         resetCheckout: PropTypes.func.isRequired,
-        clearErrors: PropTypes.func.isRequired
+        clearErrors: PropTypes.func.isRequired,
+        auth: PropTypes.object.isRequired
     }
     componentDidMount() {
         this.props.clearErrors();

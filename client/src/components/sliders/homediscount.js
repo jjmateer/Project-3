@@ -5,6 +5,7 @@ import "./slider.css";
 import { connect } from "react-redux";
 import { getItems, viewItem } from "../../actions/productActions";
 import { clearErrors } from "../../actions/errorActions";
+import LoadIcon from "../loader/loader";
 import PropTypes from "prop-types";
 
 class Homediscount extends Component {
@@ -32,14 +33,14 @@ class Homediscount extends Component {
     }
     render() {
         const { items } = this.props.item;
-        const lowcostitems = items.filter((item) => {
-            return item.price < 100;
+        const featureditems = items.filter((item) => {
+            return item.price > 500;
         })
         var settings = {
             dots: false,
             infinite: true,
-            slidesToShow: 7,
-            slidesToScroll: 1,
+            slidesToShow: 5,
+            slidesToScroll: 2,
             draggable: false,
             autoplay: true,
             autoplaySpeed: 3000,
@@ -73,15 +74,16 @@ class Homediscount extends Component {
         };
         return (
             <Slider {...settings}>
-                {lowcostitems.map(({ _id, image, item, brand, price, description }) => {
+                {featureditems.map(({ _id, image, item, brand, price }) => {
                     return (
+                        this.props.item.loading ? <h1 key={_id} className="page-title"><LoadIcon /></h1> : 
                         <div className="menu-item" key={_id}>
                             <div className="img-background">
                                 <img className="slideImg" src={image} alt={image}></img>
                             </div>
                             <div className="card-info">
                                 <p id="card-header">{item}</p>
-                                <p id="brand">By {brand}</p>
+                                {/* <p id="brand">By {brand}</p> */}
                                 <p id="price">${price}.00</p>
                                 <Link to="/view-item" className="viewItem" id={_id} onClick={this.viewItem} >View</Link>
                             </div>

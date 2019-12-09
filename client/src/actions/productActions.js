@@ -12,7 +12,7 @@ export const getItems = () => dispatch => {
 
     dispatch(setItemsLoading());
     axios
-        .get('http://localhost:3001/api/inventory')
+        .get('/api/inventory')
         .then(res =>
             dispatch({
                 type: GET_ITEMS,
@@ -27,7 +27,7 @@ export const getItems = () => dispatch => {
 export const getByCategory = (query) => dispatch => {
     dispatch(setItemsLoading());
     axios
-        .get(`http://localhost:3001/api/inventory/category/${query}`)
+        .get(`/api/inventory/category/${query}`)
         .then(res =>
             dispatch({
                 type: GET_BY_CATEGORY,
@@ -42,7 +42,7 @@ export const getByCategory = (query) => dispatch => {
 export const getByName = (query) => dispatch => {
     dispatch(setItemsLoading());
     axios
-        .get(`http://localhost:3001/api/inventory/product-name/${query}`)
+        .get(`/api/inventory/product-name/${query}`)
         .then(res =>
             dispatch({
                 type: GET_BY_NAME,
@@ -55,7 +55,7 @@ export const getByName = (query) => dispatch => {
 };
 export const viewItem = itemID => dispatch => {
     dispatch(setItemsLoading());
-    axios.get(`http://localhost:3001/api/inventory/view-item/${itemID}`)
+    axios.get(`/api/inventory/view-item/${itemID}`)
         .then(res =>
             dispatch({
                 type: VIEW_ITEM,

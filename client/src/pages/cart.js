@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import LoadIcon from "../components/loader/loader";
 import { clearErrors } from "../actions/errorActions";
 import { getUserCart, userCheckout, resetCheckout } from "../actions/transactionActions";
+import { getOrders } from "../actions/authActions";
 import PropTypes from "prop-types";
 class Cart extends Component {
     state = {
@@ -19,12 +20,14 @@ class Cart extends Component {
         getUserCart: PropTypes.func.isRequired,
         userCheckout: PropTypes.func.isRequired,
         resetCheckout: PropTypes.func.isRequired,
-        clearErrors: PropTypes.func.isRequired
+        clearErrors: PropTypes.func.isRequired,
+        getOrders: PropTypes.func
     }
     componentDidMount() {
         this.props.clearErrors();
         this.props.getUserCart(this.props.user._id);
         this.props.resetCheckout();
+        this.props.getOrders(this.props.user._id)
     }
 
     checkoutRequest = event => {
@@ -85,5 +88,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getUserCart, clearErrors, userCheckout, resetCheckout }
+    { getUserCart, clearErrors, userCheckout, resetCheckout, getOrders }
 )(Cart);
