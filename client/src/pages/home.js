@@ -53,7 +53,7 @@ class Home extends Component {
                         {this.props.isAuthenticated ?
                             <p className="cart-amount" style={{ color: "white", fontSize: 25, marginLeft: 25 }}>
                                 You currently have {this.props.item.user_cart ? this.props.item.user_cart.length : "no"} item
-                            {this.props.item.user_cart.length == 1 ? null : "s"} in your cart.
+                            {this.props.item.user_cart.length === 1 ? null : "s"} in your cart.
                             </p>
                             :
                             <p className="cart-amount" style={{ color: "white", fontSize: 25, marginLeft: 25 }}>

@@ -41,13 +41,11 @@ class ViewItem extends Component {
     }
     render() {
         const { item_being_viewed } = this.props.item;
-        const { goBack } = this.props.history;
         return (
             <div id="VproductList">
                 {item_being_viewed.map(({ _id, image, item, brand, price, description }) => {
                     return (
                         <div key={_id} >
-                            <button onClick={goBack} className="back-button">Back</button>
                                 <img className="VcardImg" alt={image} src={image} />
                             < div id="Vview-product-info">
                                 <p className="vproduct">{item}</p>

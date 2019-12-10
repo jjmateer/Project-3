@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { clearErrors } from "../../actions/errorActions";
 import PropTypes from "prop-types";
 import Search from "./search";
-import { logout } from "../../actions/authActions";
 import "./nav.css";
 
 class Nav extends Component {
@@ -31,11 +30,8 @@ class Nav extends Component {
         item: PropTypes.object.isRequired,
         error: PropTypes.object.isRequired,
         clearErrors: PropTypes.func.isRequired,
-        logout: PropTypes.func.isRequired
     }
     render() {
-        const { user_cart } = this.props.item;
-        var cartLength = user_cart.length
         return (
             <>
                 <div className="global-header" >
@@ -62,5 +58,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { clearErrors, logout }
+    { clearErrors }
 )(Nav);
