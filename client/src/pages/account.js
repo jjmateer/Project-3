@@ -29,7 +29,6 @@ class AccountInfo extends Component {
         }
     }
     render() {
-        const { goBack } = this.props.history;
         return (
             <>
                 <div className="account-link-grid">

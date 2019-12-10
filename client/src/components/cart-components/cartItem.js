@@ -6,7 +6,7 @@ function CartListItem(props) {
     return (
         <div className="grid-item" id="cartCard">
             <img className="cardImg" alt={props.image} src={props.image} />
-            <div id="card-product-info">
+            <div id="card-product-info" style={{paddingTop:10}}>
                 <p className="cproduct">{props.product}</p>
                 <p className="cbrand">By {props.brand}</p>
                 <p className="cdesc">Description: {props.description}</p>

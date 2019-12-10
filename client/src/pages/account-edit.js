@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { resetCheckout, getUserCart } from "../actions/transactionActions";
 import { getOrders } from "../actions/authActions";
 import { clearErrors } from "../actions/errorActions";
 import { loadUser } from "../actions/authActions";
 import { updateCredentials } from "../actions/authActions";
-// import LoadIcon from "../components/loader/loader";
 import PropTypes from "prop-types";
 import "../components/product-components/view-item.css"
 import store from "../store";
@@ -70,10 +68,8 @@ class AccountEdit extends Component {
         this.setState({ [event.target.id]: event.target.value });
     }
     render() {
-        const { goBack } = this.props.history;
-        return (
+        return ( 
             <>
-                <button onClick={goBack} className="back-button">Back</button>
                 <div className="account-info-container">
                     <h1 className="page-title">Account Details</h1>
                     {!this.state.editName ?
