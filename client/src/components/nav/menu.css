@@ -1,29 +1,23 @@
 
-#page-wrap {
-  text-align: center;
-  overflow: auto;
-  width:100vw;
-  height:100vh;
-}
-
 .bm-item {
   display: inline-block;
   text-decoration: none;
   margin-bottom: 10px;
   color: #d1d1d1;
   transition: color 0.2s;
+  font-size:30px;
 }
 
 .bm-item:hover {
-  color: white;
+  color: #0f9b6c;
 }
 
 .bm-burger-button {
   position: fixed;
   width: 36px;
   height: 30px;
-  right:36px;
-  top: 36px;
+  right:2.5vh;
+  top: 2.5vh;
 }
 
 .bm-burger-bars {
@@ -40,7 +34,7 @@
 }
 
 .bm-menu {
-  background: #141518;
+  background: #0f0f11;
   padding: 2.5em 1.5em 0;
 }
 
@@ -53,9 +47,5 @@
 }
 
 .bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.bm-item.menu-item {
-  font-size:100px;
+  background: #0f0f11;
 }

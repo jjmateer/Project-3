@@ -36,7 +36,7 @@
   opacity: 0.8;
   padding: 2px;
   margin: auto;
-  margin-top: 200px;
+  margin-top: 10px;
 }
 .viewItemPL:hover {
   transition: 0.35s;
@@ -68,6 +68,7 @@
 
 #card-product-info {
   width: 50%;
+  padding-top:25%;
 }
 .cproduct {
   text-align: center;
@@ -96,23 +97,26 @@
 }
 @media only screen and (max-width: 1300px) {
   #productCard {
-    width: 100%;
+    width: 98%;
     border-radius: 0;
   }
   #productList {
+    margin-top:50px;
     grid-template-columns: 50% 50%;
     grid-auto-rows: 400px;
   }
   #card-product-info {
-    width: 100%;
+    width: 40%;
     text-align: center;
   }
 }
 
 @media only screen and (max-width: 850px) {
   #card-product-info {
-    width: 100%;
+    width: 40%;
     text-align: center;
+    padding-top:0;
+    padding:10px;
   }
   #mobileSearch {
     margin: auto;

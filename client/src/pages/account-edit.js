@@ -46,19 +46,24 @@ class AccountEdit extends Component {
         this.setState({ [event.target.className]: false });
     }
     submitChange = event => {
+        var alertType = "";
         switch (event.target.className) {
             case "editName":
                 this.props.updateCredentials(event.target.className, this.props.user._id, { data: this.state.nameChange })
+                alertType = "Name";
                 break;
             case "editEmail":
                 this.props.updateCredentials(event.target.className, this.props.user._id, { data: this.state.emailChange })
+                alertType = "Email";
                 break;
             case "editPassword":
                 this.props.updateCredentials(event.target.className, this.props.user._id, { data: this.state.passwordChange })
+                alertType = "Password";
                 break;
 
         }
         this.setState({ [event.target.className]: false })
+        alert(`${alertType} updated.`)
         window.location.reload();
     }
     handleInputChange = event => {

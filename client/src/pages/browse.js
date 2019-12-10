@@ -46,7 +46,8 @@ class Browse extends Component {
                 <div>
                     {items_search ?
                         <div id="browse-div">
-                            {/* {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : null} */}
+                            {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> : null}
+                            {items_search.length < 1 && !this.props.item.loading ?<h1 className="page-title">No items found.</h1> : null}
                             <div id="mobileSearch">
                                 <Search />
                             </div>

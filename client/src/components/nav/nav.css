@@ -4,11 +4,12 @@
   height: 75px;
   display: flex;
   flex-direction: row;
-  position:fixed;
-  width:100vw;
+  position: fixed;
+  width: 100vw;
+  z-index: 100;
 }
 .global-header-right {
-  width:10vw;
+  width: 10vw;
 }
 .logo {
   text-align: center;
@@ -16,10 +17,10 @@
   font-family: lobster;
   font-size: 50px;
   text-align: center;
-  margin:0;
-  width:10vw;
-  margin-top:15px;
-  margin-left:20px;
+  margin: 0;
+  width: 10vw;
+  margin-top: 10px;
+  margin-left: 20px;
   font: 60px;
   display: flex;
 }
@@ -29,6 +30,7 @@
   display: flex;
   flex-direction: row;
   margin: auto;
+  border-radius: 4px;
 }
 
 .Osearch {
@@ -50,15 +52,15 @@
   color: #141518;
   height: 100%;
   width: 50px;
-  border-left: none;
   border: 1.5px solid #141518;
+  border-left: none;
   border-radius: 0px 5px 5px 0px;
   font-size: 20px;
   cursor: pointer;
   box-sizing: border-box;
 }
 .Obutton:hover {
-  background:lightgray;
+  background: lightgray;
 }
 .fa.fa-search::before {
   margin: 15px;
@@ -67,16 +69,17 @@
 }
 
 .dropbtn {
-  background-color: #141518;
-  border: 1px solid #141518;
+  background: #141518;
+  border: none;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
   color: white;
   width: 100%;
-  height: 99.9%;
+  height: 93%;
   box-sizing: border-box;
   margin: 0;
-  border: none;
+  margin-top: 1.5px;
   outline: none;
-  border-radius: 2px;
   font-size: 20px;
   width: 138px;
   cursor: pointer;
@@ -105,16 +108,24 @@
 }
 
 .dropdown:hover .dropdown-content a:hover {
+  opacity:1;
   color: white;
   background-color: #0f9b6c;
   display: block;
   text-decoration: none;
 }
 
+.light-beam {
+  width: 100%;
+  height: 7.8vh;
+  background: linear-gradient(to right, #0f9b6c, white, #0f9b6c);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+}
 @media only screen and (max-width: 1340px) {
   #searchjoin {
     width: 50vw;
-    margin:auto;
+    margin: auto;
   }
   .Obutton {
     width: 12.5%;
@@ -125,9 +136,8 @@
   .logo {
     width: 50vw;
     margin: 0;
-    font-size: 60px;
+    padding-left: 10px;
     height: 75px;
-    line-height: 120%;
   }
   .large-search {
     display: none;
@@ -136,5 +146,12 @@
     height: 75px;
     display: block;
     flex-direction: initial;
+  }
+  .light-beam {
+    width: 100%;
+    height: 8.6vh;
+    background: linear-gradient(to right, #0f9b6c, white, #0f9b6c);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
   }
 }

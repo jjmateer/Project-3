@@ -19,7 +19,7 @@ import Browse from "./pages/browse";
 import ErrorC from "./pages/error";
 import Item from "./pages/item";
 import ViewItem from "./pages/view-item";
-import SideMenu from "./components/nav/menu"
+import SideMenu from "./components/nav/menu.js"
 import "./App.css";
 //
 class App extends Component {
@@ -35,8 +35,8 @@ class App extends Component {
         <Router>
           <SideMenu/>
           <div id="outer-container">
-          <Nav />
           <div id="page-wrap">
+          <Nav />
             <Switch>
               <Route exact path="/" component={Home} />
               <PublicRoute exact path="/login" component={Login} />

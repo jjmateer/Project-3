@@ -60,6 +60,9 @@ color:white;
   background-size: cover;
   color: white;
 }
+.order-grid-items:hover {
+  color: #0f9b6c;
+}
 #account-orders {
   background-image: linear-gradient(to bottom, black, transparent),
     url(https://images.pexels.com/photos/1666070/pexels-photo-1666070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
