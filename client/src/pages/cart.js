@@ -9,6 +9,8 @@ import { clearErrors } from "../actions/errorActions";
 import { getUserCart, userCheckout, resetCheckout } from "../actions/transactionActions";
 import { getOrders } from "../actions/authActions";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import "../components/cart-components/cart.css";
 class Cart extends Component {
     state = {
         msg: null
@@ -38,10 +40,13 @@ class Cart extends Component {
         return (
             this.props.auth.isLoading ? <h1 className="page-title"><LoadIcon /></h1> :
                 <div>
-                    {this.props.item.checkout === true ? <h1 className="page-title">Checkout Success!</h1> : null}
+                    {this.props.item.checkout === true ? <div className="checkout-success">
+                        <h1 className="page-title">Checkout complete.</h1>
+                        <p style={{ textAlign: "center", fontSize: 20 }}>Your <Link style={{color:"#0f9b6c"}} to="/orders">order</Link> is on the way.</p>
+                    </div> : null}
                     {user_cart.length ? <h1 className="page-title">Cart</h1> :
                         <h1 className="page-title">{this.props.item.loading ? "Loading..." : null}</h1>}
-                    <h1 className="page-title">{user_cart.length < 1 && !this.props.item.loading ? "Cart is empty." : null}</h1>
+                    <h1 className="page-title">{user_cart.length < 1 && !this.props.item.loading ? "Your shopping cart is empty." : null}</h1>
                     {this.props.item.loading ? <h1 className="page-title"><LoadIcon /></h1> :
                         <div>
                             {user_cart.length ?

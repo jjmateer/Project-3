@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/errorActions";
 import { resetCheckout, getUserCart } from "../actions/transactionActions";
-import {viewItem} from "../actions/productActions";
+import { viewItem } from "../actions/productActions";
 import { logout } from "../actions/authActions";
 import LoadIcon from "../components/loader/loader"
 import PropTypes from "prop-types";
@@ -49,21 +49,33 @@ class Home extends Component {
                 <>
                     <div className="banner">Technology of the future</div>
                     <div className="home-user-container">
-                        <p className="greeting" style={{ color: "white", fontSize: 40, marginLeft: 25 }}>Hello, {this.props.user ? this.props.user.name : null}</p>
-                        <p className="cart-amount" style={{ color: "white", fontSize: 25, marginLeft: 25 }}>
-                            You currently have {this.props.item.user_cart ? this.props.item.user_cart.length : "no"} item
-                            {this.props.item.user_cart.length == 1 ? null: "s"} in your cart.</p>
-                        <div className="home-account-div">
-                            <Link id="home-account-orders" to="/orders">Orders</Link>
-                            <Link id="home-account-cart" to="/cart">Cart</Link>
-                        </div>
+                        <p className="greeting" style={{ color: "white", fontSize: 40, marginLeft: 25 }}>
+                            {!this.props.isAuthenticated ? "Welcome" : "Hello,"} {this.props.user ? this.props.user.name : null}</p>
+                        {this.props.isAuthenticated ?
+                            <p className="cart-amount" style={{ color: "white", fontSize: 25, marginLeft: 25 }}>
+                                You currently have {this.props.item.user_cart ? this.props.item.user_cart.length : "no"} item
+                            {this.props.item.user_cart.length == 1 ? null : "s"} in your cart.
+                            </p>
+                            :
+                            <p className="cart-amount" style={{ color: "white", fontSize: 25, marginLeft: 25 }}>
+                                You are currently not logged in.
+                             </p>
+                        }
+                        {this.props.isAuthenticated ?
+                            <div className="home-account-div">
+                                <Link id="home-account-orders" to="/orders">Orders</Link>
+                                <Link id="home-account-cart" to="/cart">Cart</Link>
+                            </div>
+                            :
+                            null
+                        }
                     </div>
                     <h1 className="slider-label">Featured</h1>
                     < Homediscount />
                     <h1 className="slider-label">Best deals</h1>
                     <div className="masonry-wrapper">
                         <div className="masonry">
-                            {discountitems.map(({ _id, image, item, brand, price, description }) => {
+                            {discountitems.map(({ _id, image, item, brand, price }) => {
                                 return (
                                     this.props.item.loading ? <h1 key={_id} className="page-title"><LoadIcon /></h1> :
                                         <HomeTiles

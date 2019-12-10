@@ -4,7 +4,6 @@ import { addToCart, resetCheckout, getUserCart } from "../actions/transactionAct
 import { clearErrors } from "../actions/errorActions";
 import { Link } from "react-router-dom";
 import { getOrders } from "../actions/authActions";
-// import LoadIcon from "../components/loader/loader";
 import PropTypes from "prop-types";
 import "../components/product-components/view-item.css"
 import store from "../store";
@@ -49,13 +48,11 @@ class ViewItem extends Component {
                     return (
                         <div key={_id} >
                             <button onClick={goBack} className="back-button">Back</button>
-                            <div id="imageWrapper">
                                 <img className="VcardImg" alt={image} src={image} />
-                            </div>
                             < div id="Vview-product-info">
                                 <p className="vproduct">{item}</p>
                                 <p className="vbrand">Brand: {brand}</p>
-                                <p className="vprice">${price}</p>
+                                <p className="vprice">${price}.00</p>
                                 <p className="vdesc">{description}</p>
                             </div>
                             <div id="VATCcombine">
@@ -68,7 +65,7 @@ class ViewItem extends Component {
                                 </select>
                                 {this.props.isAuthenticated ? <Link to={'/'} id={_id} className="VATCbtn" onClick={this.addItemToCart} >Add To Cart</Link>
                                     :
-                                    <Link to="/login" className="ATCbtn">Add To Cart</Link>}
+                                    <Link to="/login" className="VATCbtn">Add To Cart</Link>}
                             </div>
                         </div>
                     )
