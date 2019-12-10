@@ -19,6 +19,7 @@ import Browse from "./pages/browse";
 import ErrorC from "./pages/error";
 import Item from "./pages/item";
 import ViewItem from "./pages/view-item";
+import SideMenu from "./components/nav/menu"
 import "./App.css";
 //
 class App extends Component {
@@ -32,20 +33,25 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
+          <SideMenu/>
+          <div id="outer-container">
           <Nav />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <PublicRoute exact path="/login" component={Login} />
-            <PublicRoute exact path="/signup" component={Signup} />
-            <PrivateRoute exact path="/cart" component={Cart} />
-            <Route exact path="/browse" component={Browse} />
-            <Route exact path="/view-item" component={ViewItem} />
-            <PrivateRoute exact path="/orders" component={Orders} />
-            <Route exact path="/item" component={Item} />
-            <PrivateRoute exact path="/account" component={AccountInfo} />
-            <PrivateRoute exact path="/account-edit" component={AccountEdit} />
-            <Route component={ErrorC} />
-          </Switch>
+          <div id="page-wrap">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <PublicRoute exact path="/login" component={Login} />
+              <PublicRoute exact path="/signup" component={Signup} />
+              <PrivateRoute exact path="/cart" component={Cart} />
+              <Route exact path="/browse" component={Browse} />
+              <Route exact path="/view-item" component={ViewItem} />
+              <PrivateRoute exact path="/orders" component={Orders} />
+              <Route exact path="/item" component={Item} />
+              <PrivateRoute exact path="/account" component={AccountInfo} />
+              <PrivateRoute exact path="/account-edit" component={AccountEdit} />
+              <Route component={ErrorC} />
+            </Switch>
+            </div>
+          </div>
         </Router>
       </Provider>
     );

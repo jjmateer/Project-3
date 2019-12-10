@@ -4,44 +4,11 @@
   height: 75px;
   display: flex;
   flex-direction: row;
+  position:fixed;
+  width:100vw;
 }
-.global-header-left {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin-left:2vw;
-  width: 13vw;
-  height: 100%;
-}
-
-#hamburger,
-.bm-burger-button {
-  display: none;
-}
-.global-header-left {
-  color: whitesmoke;
-  justify-content: flex-end;
-  font-size: 50px;
-  line-height: 100%;
-}
-
 .global-header-right {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 2vw;
-  line-height: 100px;
-  width: 13vw;
-}
-.global-header-right a {
-  padding-bottom: 10px;
-  width: auto;
-  margin: 5px;
-  color: white;
-  font-family: "Roboto", sans-serif;
-  text-decoration: none;
-}
-.global-header-right a:hover {
-  color: #0f9b6c;
+  width:10vw;
 }
 .logo {
   text-align: center;
@@ -50,8 +17,9 @@
   font-size: 50px;
   text-align: center;
   margin:0;
-  width:100%;
+  width:10vw;
   margin-top:15px;
+  margin-left:20px;
   font: 60px;
   display: flex;
 }
@@ -148,65 +116,12 @@
     width: 50vw;
     margin:auto;
   }
-  .global-header-left {
-    width: 20vw;
-  }
   .Obutton {
     width: 12.5%;
-  }
-  .global-header-right {
-    width: 10vw;
   }
 }
 
 @media only screen and (max-width: 850px) {
-  #hamburger,
-  .bm-burger-button {
-    display: block;
-  }
-  .bm-menu-wrap {
-    width: 105vw !important;
-    margin-left: 50vw !important;
-    background: #343a40;
-  }
-  .bm-cross-button button {
-    background-image: url(./close.svg) !important;
-  }
-  .bm-burger-button button {
-    z-index: 2000 !important;
-  }
-  .bm-burger-button {
-    margin-left: 30vw !important;
-    margin-right: 5vw;
-    margin-top: 15px;
-    position: fixed;
-    background: transparent;
-  }
-  .bm-burger-button,
-  .bm-burger-button button,
-  .bm-burger-button div {
-    position: relative;
-    height: 40px !important;
-    width: 50px !important;
-  }
-  .bm-burger-bars {
-    position: absolute;
-    height: 7px !important;
-    border-radius: 2px;
-    margin: 4px;
-    background: lightgray;
-  }
-  .bm-menu {
-    background: #343a40;
-    margin-top: 75px;
-  }
-  .bm-item {
-    font-size: 30px;
-    width: 30vw;
-    margin: auto;
-    text-decoration: none;
-    color: #0f9b6c;
-  }
   .logo {
     width: 50vw;
     margin: 0;
@@ -221,23 +136,5 @@
     height: 75px;
     display: block;
     flex-direction: initial;
-  }
-  .global-header-left {
-    width: 100vw;
-    height: 25px;
-  }
-  .global-header-right {
-    display: none;
-  }
-  .global-header-right a {
-    width: 40%;
-    border-radius: 5px;
-    height: 25px;
-    margin: auto;
-    text-align: center;
-    line-height: 150%;
-    padding: 0;
-    border: 1px solid whitesmoke;
-    color: whitesmoke;
   }
 }

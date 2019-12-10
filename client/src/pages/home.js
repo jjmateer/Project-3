@@ -47,7 +47,6 @@ class Home extends Component {
         return (
             this.props.auth.isLoading ? <h1 className="page-title"><LoadIcon /></h1> :
                 <>
-                    <div className="banner">Technology of the future</div>
                     <div className="home-user-container">
                         <p className="greeting" style={{ color: "white", fontSize: 40, marginLeft: 25 }}>
                             {!this.props.isAuthenticated ? "Welcome" : "Hello,"} {this.props.user ? this.props.user.name : null}</p>
