@@ -153,4 +153,8 @@
     background-size: 400% 400%;
     animation: gradientBG 10s ease infinite;
   }
+  #searchjoin {
+    width: 70vw;
+    margin: auto;
+  }
 }

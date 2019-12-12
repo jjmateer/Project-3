@@ -95,7 +95,7 @@
 #mobileSearch {
   display: none;
 }
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1366px) {
   .cprice {
     margin-top:70px;
   }
