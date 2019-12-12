@@ -99,6 +99,10 @@
     #cartCard {
         flex-direction: column;
         height:auto;
+        min-height:700px;
+    }
+    .cprice {
+        margin-top:70px;
     }
     #cartList {
         width:100vw;
@@ -117,6 +121,9 @@
         margin:auto;
         margin-top:20px;
     }
+    .cdesc {
+        margin-bottom:40px;
+    }
     .checkout-success {
         width:300px;
         height:300px;
@@ -124,6 +131,9 @@
     }
 }
 @media only screen and (max-width: 600px) {
+    .cprice {
+        margin-top:70px;
+    }
     #cartCard {
         flex-direction: column;
         height:auto;
