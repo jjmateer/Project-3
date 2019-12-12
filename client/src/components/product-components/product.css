@@ -96,6 +96,9 @@
   display: none;
 }
 @media only screen and (max-width: 1300px) {
+  .cprice {
+    margin-top:70px;
+  }
   #productCard {
     width: 98%;
     border-radius: 0;
@@ -106,14 +109,14 @@
     grid-auto-rows: 400px;
   }
   #card-product-info {
-    width: 40%;
+    width: 100%;
     text-align: center;
   }
 }
 
 @media only screen and (max-width: 850px) {
   #card-product-info {
-    width: 40%;
+    width: 100%;
     text-align: center;
     padding-top:0;
     padding:10px;
