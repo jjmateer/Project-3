@@ -9,7 +9,8 @@
 }
 .masonry-content p {
     text-align: center;
-    height:35px;
+    padding-top:20px;
+    height:70px;
 }
 .view-tile {
     width:55px;
@@ -28,7 +29,7 @@
 .masonry-item,
 .masonry-content {
   border-radius: 4px;
-  height:400px;
+  height:550px;
   overflow: hidden;
 }
 .masonry-item img {
