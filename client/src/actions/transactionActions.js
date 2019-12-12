@@ -25,7 +25,7 @@ export const addToCart = (userID, itemID, quantity) => dispatch => {
 
 export const getUserCart = (userID) => dispatch => {
     dispatch(setItemsLoading());
-    axios
+    axios 
         .get(`/api/cart/user-cart/${userID}`)
         .then(res => {
             dispatch({
