@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import LoginForm from "../components/loginform/login-form";
+import LoginForm from "../components/auth-components/login-form";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../actions/authActions";
 import { clearErrors } from "../actions/errorActions";
+import { resetCheckout } from "../actions/transactionActions";
+import LoadIcon from "../components/loader/loader";
 
 
 class Login extends Component {
@@ -16,16 +18,18 @@ class Login extends Component {
     static propTypes = {
         isAuthenticated: PropTypes.bool,
         error: PropTypes.object.isRequired,
+        resetCheckout: PropTypes.func.isRequired,
         login: PropTypes.func.isRequired,
-        clearErrors: PropTypes.func.isRequired
+        clearErrors: PropTypes.func.isRequired,
+        auth: PropTypes.object.isRequired
     }
     componentDidMount() {
         this.props.clearErrors();
+        this.props.resetCheckout();
     }
     componentDidUpdate(prevPreps) {
         const { error } = this.props;
         if (error !== prevPreps.error) {
-            //check for err
             if (error.id === "LOGIN_FAIL") {
                 this.setState({ msg: error.msg.msg })
             } else {
@@ -33,7 +37,7 @@ class Login extends Component {
             }
         }
     }
-    handleInputChange = event =>{
+    handleInputChange = event => {
         this.setState({ [event.target.id]: event.target.value });
     }
     handleFormSubmit = event => {
@@ -51,18 +55,13 @@ class Login extends Component {
 
     render() {
         return (
+            this.props.auth.isLoading ? <h1 className="page-title">Token found, loading user...<LoadIcon /></h1> :
             <div>
                 {this.props.error.msg.msg ? <h1 id="error-header">{this.props.error.msg.msg}</h1> : null}
-                <h1 className="page-title">Login</h1>
-
-                <div className="auth-form">
-                    <div>
-                        <LoginForm
-                            handleInputChange={this.handleInputChange}
-                            handleFormSubmit={this.handleFormSubmit}
-                        />
-                    </div>
-                </div>
+                <LoginForm
+                    handleInputChange={this.handleInputChange}
+                    handleFormSubmit={this.handleFormSubmit}
+                />
             </div>
         );
     }
@@ -76,5 +75,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { login, clearErrors }
+    { login, clearErrors, resetCheckout }
 )(Login);

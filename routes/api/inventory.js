@@ -11,12 +11,21 @@ router
 router
   .route("/:id")
   .get(inventoryController.findById)
-  .put(inventoryController.update)
-  .delete(inventoryController.remove);
 
 //  "/api/inventory/:category"
-router.route("/category/:category").get(inventoryController.findByCategory);
+router
+  .route("/category/:category")
+  .get(inventoryController.findByCategory);
 
-router.route("/product-name/:name").get(inventoryController.findByName);
+router
+  .route("/product-name/:name")
+  .get(inventoryController.findByName);
 
+router
+  .route("/view-item/:item")
+  .get(inventoryController.view);
+  
+router
+  .route("/orders/:user")
+  .get(inventoryController.getOrders);
 module.exports = router;

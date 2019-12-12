@@ -10,7 +10,14 @@ import {
     LOGIN_FAIL,
     LOGOUT_SUCCESS,
     REGISTER_SUCCESS,
-    REGISTER_FAIL
+    REGISTER_FAIL,
+    GET_ORDERS,
+    GET_ORDERS_FAIL,
+    GET_ORDERS_SUCCESS,
+    UPDATE_CREDENTIALS,
+    UPDATE_CREDENTIALS_FAIL,
+    UPDATE_CREDENTIALS_SUCCESS
+
 } from "./types";
 
 export const loadUser = () => (dispatch) => {
@@ -22,9 +29,8 @@ export const loadUser = () => (dispatch) => {
         }
 
         axios
-            .post('http://localhost:3001/api/auth/user', body)
+            .post('/api/auth/user', body)
             .then(res => {
-                console.log(res.data)
                 dispatch({
                     type: USER_LOADED,
                     payload: res.data
@@ -47,7 +53,7 @@ export const register = newUser => dispatch => {
         }
     }
 
-    axios.post("http://localhost:3001/api/auth/register", newUser, config)
+    axios.post("/api/auth/register", newUser, config)
         .then(res => {
             dispatch({
                 type: REGISTER_SUCCESS,
@@ -55,6 +61,7 @@ export const register = newUser => dispatch => {
             })
             const { token } = res.data;
             localStorage.setItem("jwtToken", token);
+            window.location.reload()
         })
         .catch(err => {
             dispatch(returnErrors(err.response.data, err.response.status, "REGISTER_FAIL"));
@@ -72,7 +79,7 @@ export const login = (userData) => dispatch => {
         }
     }
 
-    axios.post("http://localhost:3001/api/auth/login", userData, config)
+    axios.post("/api/auth/login", userData, config)
         .then(res => {
             dispatch({
                 type: LOGIN_SUCCESS,
@@ -80,11 +87,56 @@ export const login = (userData) => dispatch => {
             })
             const { token } = res.data;
             localStorage.setItem("jwtToken", token);
+            window.location.reload()
         })
         .catch(err => {
             dispatch(returnErrors(err.response.data, err.response.status, "LOGIN_FAIL"));
             dispatch({
                 type: LOGIN_FAIL
+            })
+        })
+}
+export const updateCredentials = (type, id, value) => dispatch => {
+    console.log(value)
+    const config = {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+    dispatch({ type: UPDATE_CREDENTIALS });
+    axios.post(`/api/auth/update-credentials/${type}/${id}`, value, config)
+        .then(res => {
+            dispatch({
+                type: UPDATE_CREDENTIALS_SUCCESS,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch(returnErrors(err.response.data, err.response.status, "GET_ORDERS_FAIL"));
+            dispatch({
+                type: UPDATE_CREDENTIALS_FAIL
+            })
+        })
+
+}
+export const getOrders = (userID) => dispatch => {
+    const config = {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+    dispatch({ type: GET_ORDERS });
+    axios.get(`/api/inventory/orders/${userID}`, userID, config)
+        .then(res => {
+            dispatch({
+                type: GET_ORDERS_SUCCESS,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch(returnErrors(err.response.data, err.response.status, "GET_ORDERS_FAIL"));
+            dispatch({
+                type: GET_ORDERS_FAIL
             })
         })
 }

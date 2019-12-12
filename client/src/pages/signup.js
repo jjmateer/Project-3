@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import SignupForm from "../components/signup/signup";
+import SignupForm from "../components/auth-components/signup";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import LoadIcon from "../components/loader/loader";
 import { register } from "../actions/authActions";
+import {resetCheckout} from "../actions/transactionActions";
 import { clearErrors } from "../actions/errorActions";
 
 
@@ -21,11 +23,13 @@ class Signup extends Component {
       static propTypes = {
         isAuthenticated: PropTypes.bool,
         error: PropTypes.object.isRequired,
-        login: PropTypes.func.isRequired,
-        clearErrors: PropTypes.func.isRequired
+        resetCheckout: PropTypes.func.isRequired,
+        clearErrors: PropTypes.func.isRequired,
+        auth: PropTypes.object.isRequired
     }
     componentDidMount() {
         this.props.clearErrors();
+        this.props.resetCheckout();
     }
     componentDidUpdate(prevPreps) {
         const { error } = this.props;
@@ -57,7 +61,8 @@ class Signup extends Component {
 
     render() {
         return (
-            <div className="App">
+            this.props.auth.isLoading ?<h1 className="page-title"><LoadIcon/></h1> :
+            <div>
 
                 {this.props.error.msg.msg ? <h1 id="error-header">{this.props.error.msg.msg}</h1> : null}
                 <SignupForm
@@ -78,5 +83,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { register, clearErrors }
+    { register, clearErrors, resetCheckout }
 )(Signup);

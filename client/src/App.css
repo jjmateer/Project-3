@@ -1,85 +1,44 @@
-
-a{
-    cursor: pointer;
+a {
+  cursor: pointer;
+}
+* {
+  outline: none;
+  text-decoration: none;
+}
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
-html, body{ 
-     height:100vh;
-     width:100vw;
-     overflow-x:hidden;
- }
- .global-header-right a {
-    padding-right:10px;
-    padding-bottom:10px;
- }
-
- .page-title{
-     text-align:center;
- }
-
- #error-header {
-        opacity: 8;
-     text-align: center;
-     margin:auto;
-     width:100vw;
-     font-size:180%;
-     height:100px;
-     line-height:100px;
-     background:darkred;
- }
-
- .auth-form{
-    opacity: 2%;
-  background: linear-gradient(90deg, rgb(127, 177, 156) 0%, rgb(136, 212, 169) 35%, rgb(110, 173, 119) 80%, rgb(114, 175, 116) 100%);
-
- }
-
-
- 
-
- .NameDesign:hover{
-    text-decoration-line: none;
+.page-title {
+  text-align: center;
 }
-.NameDesign2:hover{
-    text-decoration-line: none;
-}
-/* 
 
-.sidesearch {
-    width: 60px;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    background-color: black;
-    overflow-x: hidden;
-    margin-bottom: 3px;
-    border-radius: 0px 20px 20px 0px ;
+#page-wrap {
+  width:100vw;
+  height:100vh;
+}
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
   }
-
-  
-  .sidesearch:hover {
-    width: 250px;
-      transition: width 4s;
-      border-radius: 0px;
-
-
+  50% {
+    background-position: 100% 50%;
   }
-  
-  .fa-search{
-  color:white;
-  margin:5px;
-  display: flex;
+  100% {
+    background-position: 0% 50%;
+  }
 }
-  .fa-search:hover .search-bar{
-    display: block;
-    display: inline-block;
-    display: flex;
-    justify-content: flex-end;
-    width: 190px;
 
-  }
-  .search-bar{
-    display:none;
-font-size:20px;
-  } */
-
+#error-header {
+  opacity: 8;
+  text-align: center;
+  margin: auto;
+  width: 100vw;
+  font-size: 180%;
+  height: 100px;
+  line-height: 100px;
+  background: darkred;
+}

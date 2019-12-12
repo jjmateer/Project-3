@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Item = require("../models/item");
 
-mongoose.connect("mongodb+srv://jjmateer:manila22@cluster0-q0kab.mongodb.net/storefrontdb?retryWrites=true&w=majority", {
+mongoose.connect("mongodb://localhost/storefrontdb", {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true
@@ -50,7 +50,7 @@ const itemSeeds = [
     price: "1499",
     category: "tablet",
     description: "Like an iPad, but costs more",
-    image: "https://i.imgur.com/YKAe4WZ.jpg",
+    image: "https://static.bhphoto.com/images/images2500x2500/1570035202_1506688.jpg",
     quantityInStock: 200,
     date: new Date(Date.now())
   },
@@ -112,7 +112,7 @@ const itemSeeds = [
     price: "150",
     category: "accessories",
     description: "Its like cable but better!",
-    image: "https://i.imgur.com/2hulUnY.jpg",
+    image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/apple-tv-hero-select-201510_FMT_WHH?wid=670&amp;hei=660&amp;fmt=jpeg&amp;qlt=80&amp;op_usm=0.5,0.5&amp;.v=1503607251341",
     quantityInStock: 200,
     date: new Date(Date.now())
   },

@@ -1,0 +1,95 @@
+.VcardImg{
+    top:400px;
+    max-height:600px;
+    max-width:300px;
+    width:auto;
+    margin:auto;
+    display: block;
+}
+.VcardImg {
+    width:auto;
+    max-width:30vw;
+    margin:auto;
+    margin-top:100px;
+}
+#Vview-product-info {
+    margin-top:75px;
+    text-align: center;
+}
+#VATCcombine {
+    width:250px;
+    margin:auto;
+    display:flex;
+    flex-direction: row;
+}
+.Vquantity-dropdown {
+    background: transparent;
+    margin:0px;
+    border: 1px solid black;
+    border-radius: 3px 0px 0px 3px;
+    height:52px;
+    width:50px;
+    text-align: center;
+}
+.VATCbtn {
+    background: transparent;
+    width:200px;
+    cursor:pointer;
+    float:right;
+    height:50px;
+    text-align: center;
+    line-height:50px;
+    border-radius:0px 3px 3px 0px;
+    border: 1px solid black;
+    border-left:none;
+    background:#141518;
+    color:white;
+    opacity:0.8;
+    margin-bottom:100px;
+}
+.VATCbtn:hover{
+    opacity:1;
+    transition:0.35s;
+}
+.back-button {
+    position: static;
+    display:none;
+    margin-left:80vw;
+    margin-right:25px;
+    margin-top:-90px;
+    cursor: pointer;
+    height:50px;
+    width:100px;
+    background:#141518;
+    border:none;
+    outline:none;
+    color:white;
+    font-size:15px;
+    border-radius:3px;
+    opacity: 0.8;
+
+}
+.back-button:hover{
+    opacity: 1;
+    transition:0.35s;
+}
+
+@media only screen and (max-width: 900px) {
+    .back-button {
+        margin-top:1vh;
+        display:block;
+    }
+    .VcardImg {
+        margin-top:100px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .back-button {
+        margin-top:1vh;
+        display:block;
+    }
+    .VcardImg {
+        margin-top:100px;
+    }
+}

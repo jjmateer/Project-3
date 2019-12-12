@@ -6,19 +6,28 @@ import {
     LOGIN_FAIL,
     LOGOUT_SUCCESS,
     REGISTER_SUCCESS,
-    REGISTER_FAIL
+    REGISTER_FAIL,
+    GET_ORDERS,
+    GET_ORDERS_FAIL,
+    GET_ORDERS_SUCCESS,
+    UPDATE_CREDENTIALS,
+    UPDATE_CREDENTIALS_SUCCESS,
+    UPDATE_CREDENTIALS_FAIL
 } from "../actions/types";
 
 const initialState = {
     token: localStorage.getItem("token"),
     isAuthenticated: null,
     isLoading: false,
-    user: null
+    user: null,
+    orders: []
 };
 
 export default function (state = initialState, action) {
     switch (action.type) {
         case USER_LOADING:
+        case GET_ORDERS:
+        case UPDATE_CREDENTIALS:
             return {
                 ...state,
                 isLoading: true
@@ -32,11 +41,18 @@ export default function (state = initialState, action) {
             };
         case LOGIN_SUCCESS:
         case REGISTER_SUCCESS:
-        localStorage.setItem("token", action.payload.token);
+            localStorage.setItem("token", action.payload.token);
             return {
                 ...state,
                 ...action.payload,
                 isAuthenticated: true,
+                isLoading: false,
+            };
+        case GET_ORDERS_SUCCESS:
+        case UPDATE_CREDENTIALS_SUCCESS:
+            return {
+                ...state,
+                orders: action.payload,
                 isLoading: false,
             };
         case AUTH_ERROR:
@@ -49,6 +65,12 @@ export default function (state = initialState, action) {
                 token: null,
                 user: null,
                 isAuthenticated: false,
+                isLoading: false
+            };
+        case GET_ORDERS_FAIL:
+        case UPDATE_CREDENTIALS_FAIL:
+            return {
+                ...state,
                 isLoading: false
             };
         default:

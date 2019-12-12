@@ -1,0 +1,138 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.slick-slider {
+  display: flex;
+  flex-direction: row;
+  width: 60vw;
+  height: 400px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: 25px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px gray;
+}
+.slick-track {
+  margin: auto;
+  width: 100vw;
+  height: 400px;
+}
+
+img.slideImg {
+  width: auto;
+  height: auto;
+  margin: auto;
+  max-width: 100%;
+  max-height: 150px;
+  padding: 0.5px;
+}
+
+.img-background {
+  margin-top:25px;
+  width: 99%;
+  height: 45%;
+  background: white;
+  padding: 1px;
+}
+
+#card-header {
+  text-decoration: none;
+  height: 40px;
+}
+.slick-slide,
+.menu-item {
+  height: 400px;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.card-info {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+.menu-item {
+  text-align: center;
+  padding: 20px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+button.slick-arrow.slick-next,
+button.slick-arrow.slick-prev,
+button.slick-arrow :active,
+button.slick-arrow :hover,
+button.slick-arrow.after,
+button.slick-arrow::before {
+  position: absolute;
+  z-index: 200;
+  cursor: pointer;
+  width: 50px !important;
+  height: 100px;
+}
+.slick-arrow.slick-next::before,
+.slick-arrow.slick-prev::before {
+  display: none !important;
+}
+
+button.slick-arrow.slick-prev {
+  background: url(./back.svg) !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  margin-left: 50px;
+}
+button.slick-arrow.slick-next {
+  background: url(./next.svg) !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  margin-right: 50px;
+}
+button.slick-arrow.slick-prev {
+  margin-left: 50px;
+}
+
+.viewItem {
+  cursor: pointer;
+  color: white;
+  border-radius: 2px;
+  background: #141518;
+  text-decoration: none;
+  border: 1px solid #141518;
+  padding: 5px;
+  font-weight: bold;
+  box-sizing: border-box;
+  opacity: 0.8;
+}
+
+.viewItem:hover {
+  transition: 0.35s;
+  opacity: 1;
+}
+
+.slider-label {
+  height: 100px;
+  line-height: 100px;
+  width: auto;
+  margin: auto;
+  text-align: center;
+}
+
+#card-header,
+#brand,
+#price {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+#brand {
+  color: darkslategrey;
+  height:30px;
+}
+
+@media only screen and (max-width:900px) {
+  .slick-slider {
+    width:100vw;
+    margin-top:600px;
+  }
+}
